@@ -1,0 +1,474 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Ridiculously Serious Love Calculator</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <style>
+    :root {
+      --bg1: #ff9a9e;
+      --bg2: #fad0c4;
+      --bg3: #fbc2eb;
+      --text: #2b2b2b;
+      --accent: #ff4d6d;
+      --accent2: #6a00f4;
+      --card: rgba(255, 255, 255, 0.88);
+      --muted: #6b6b6b;
+    }
+
+    * { box-sizing: border-box; }
+    html, body {
+      height: 100%;
+      margin: 0;
+      font-family: system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji";
+      color: var(--text);
+      background: linear-gradient(135deg, var(--bg1), var(--bg2) 60%, var(--bg3));
+    }
+
+    .app {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 24px;
+    }
+
+    .card {
+      background: var(--card);
+      backdrop-filter: blur(6px);
+      border-radius: 16px;
+      box-shadow: 0 15px 40px rgba(0,0,0,0.15);
+      padding: 24px;
+    }
+
+    h1 {
+      margin: 0 0 8px;
+      font-size: 2rem;
+    }
+
+    .tagline {
+      color: var(--muted);
+      margin-bottom: 20px;
+    }
+
+    .inputs {
+      display: grid;
+      grid-template-columns: 1fr 1fr auto;
+      gap: 12px;
+      align-items: end;
+    }
+
+    label {
+      font-weight: 600;
+      display: block;
+      margin-bottom: 6px;
+    }
+
+    input[type="text"] {
+      width: 100%;
+      padding: 12px 14px;
+      border: 2px solid transparent;
+      border-radius: 12px;
+      font-size: 1rem;
+      background: #fff;
+      outline: none;
+      transition: border-color .2s, box-shadow .2s;
+    }
+    input[type="text"]:focus {
+      border-color: var(--accent);
+      box-shadow: 0 0 0 6px rgba(255,77,109,0.15);
+    }
+
+    button {
+      padding: 12px 16px;
+      border: none;
+      border-radius: 12px;
+      font-size: 1rem;
+      font-weight: 700;
+      cursor: pointer;
+      background: linear-gradient(135deg, var(--accent), var(--accent2));
+      color: #fff;
+      box-shadow: 0 10px 20px rgba(106,0,244,0.25);
+      transition: transform .06s ease-in-out, box-shadow .2s;
+    }
+    button:hover { transform: translateY(-1px); }
+    button:active { transform: translateY(0); }
+
+    .result {
+      margin-top: 20px;
+      border-top: 1px dashed rgba(0,0,0,0.12);
+      padding-top: 16px;
+    }
+
+    .score {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 8px;
+    }
+    .score-number {
+      font-size: 2.25rem;
+      font-weight: 800;
+      letter-spacing: -0.5px;
+    }
+    .score-badge {
+      padding: 6px 10px;
+      border-radius: 999px;
+      font-weight: 700;
+      color: #fff;
+      background: #ff4d6d;
+    }
+
+    .meter {
+      display: grid;
+      grid-template-columns: 160px 1fr 60px;
+      gap: 10px;
+      align-items: center;
+      margin: 8px 0;
+    }
+    .meter-label { color: #333; font-weight: 600; }
+    .meter-bar {
+      height: 12px;
+      background: rgba(0,0,0,0.08);
+      border-radius: 999px;
+      overflow: hidden;
+      position: relative;
+    }
+    .meter-fill {
+      height: 100%;
+      width: 0%;
+      border-radius: 999px;
+      background: linear-gradient(90deg, #ff4d6d, #ffa8c5);
+      transition: width .6s ease;
+    }
+    .meter-value {
+      text-align: right;
+      font-variant-numeric: tabular-nums;
+      color: #333;
+    }
+
+    .advice {
+      margin-top: 12px;
+      background: rgba(255,255,255,0.9);
+      border-radius: 12px;
+      padding: 12px;
+      border: 1px solid rgba(0,0,0,0.06);
+    }
+
+    .fineprint {
+      color: var(--muted);
+      font-size: 0.9rem;
+      margin-top: 10px;
+    }
+
+    /* Floating heart confetti */
+    .heart {
+      position: fixed;
+      pointer-events: none;
+      z-index: 999;
+      animation: floatUp linear forwards;
+      filter: drop-shadow(0 4px 10px rgba(0,0,0,0.2));
+    }
+    @keyframes floatUp {
+      0% { transform: translateY(0) rotate(0deg); opacity: 0; }
+      10% { opacity: 1; }
+      100% { transform: translateY(-120vh) rotate(360deg); opacity: 0; }
+    }
+
+    .sr-only {
+      position: absolute;
+      width: 1px; height: 1px;
+      padding: 0; margin: -1px; overflow: hidden;
+      clip: rect(0,0,0,0); white-space: nowrap; border: 0;
+    }
+
+    .names {
+      font-weight: 700;
+    }
+  </style>
+</head>
+<body>
+  <div class="app">
+    <div class="card">
+      <h1>Ridiculously Serious Love Calculator ❤️</h1>
+      <p class="tagline">Scientific? No. Entertaining? Absolutely.</p>
+
+      <div class="inputs" role="form" aria-label="Love calculator">
+        <div>
+          <label for="nameA">Name A</label>
+          <input id="nameA" type="text" placeholder="e.g., Alex" />
+        </div>
+        <div>
+          <label for="nameB">Name B</label>
+          <input id="nameB" type="text" placeholder="e.g., Sam" />
+        </div>
+        <button id="calcBtn" aria-label="Calculate love score">Calculate 💘</button>
+      </div>
+
+      <div class="result" id="result" aria-live="polite">
+        <p class="fineprint">Disclaimer: For fun only. Not real relationship advice—unless it says you’re 101%, in which case destiny said what it said.</p>
+        <div id="outputWrap" style="display:none;">
+          <div class="score">
+            <div class="score-number" id="scoreNumber">0%</div>
+            <div class="score-badge" id="scoreBadge">Analyzing vibes…</div>
+          </div>
+          <div id="scoreText"></div>
+
+          <div class="meters">
+            <div class="meter">
+              <div class="meter-label">Vibe alignment</div>
+              <div class="meter-bar"><div class="meter-fill" id="mVibe"></div></div>
+              <div class="meter-value" id="mVibeVal">0%</div>
+            </div>
+            <div class="meter">
+              <div class="meter-label">Snack synergy</div>
+              <div class="meter-bar"><div class="meter-fill" id="mSnack"></div></div>
+              <div class="meter-value" id="mSnackVal">0%</div>
+            </div>
+            <div class="meter">
+              <div class="meter-label">Texting tempo</div>
+              <div class="meter-bar"><div class="meter-fill" id="mText"></div></div>
+              <div class="meter-value" id="mTextVal">0%</div>
+            </div>
+            <div class="meter">
+              <div class="meter-label">Meme compatibility</div>
+              <div class="meter-bar"><div class="meter-fill" id="mMeme"></div></div>
+              <div class="meter-value" id="mMemeVal">0%</div>
+            </div>
+          </div>
+
+          <div class="advice" id="adviceBox"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // Utility: normalize names (case-insensitive, ignore spaces and punctuation)
+    function normalizeName(s) {
+      return (s || "")
+        .toLowerCase()
+        .replace(/[\s\p{P}\p{S}]/gu, "");
+    }
+
+    // Hash -> seed (deterministic for same pair regardless of order)
+    function pairSeed(a, b) {
+      const na = normalizeName(a);
+      const nb = normalizeName(b);
+      const combo = [na, nb].sort().join("|");
+      let h = 2166136261 >>> 0; // FNV-ish
+      for (let i = 0; i < combo.length; i++) {
+        h ^= combo.charCodeAt(i);
+        h = Math.imul(h, 16777619) >>> 0;
+      }
+      return h >>> 0;
+    }
+
+    // LCG PRNG
+    function lcg(seed) {
+      let state = seed >>> 0;
+      const a = 1664525, c = 1013904223;
+      return function() {
+        state = (Math.imul(state, a) + c) >>> 0;
+        return state / 4294967296;
+      };
+    }
+
+    // Produce a number 0..100 from RNG
+    function r100(rng) {
+      return Math.floor(rng() * 101);
+    }
+
+    // Heart confetti
+    function shootHearts(count = 24) {
+      const emojis = ["💖", "💘", "❤️", "💞", "💕", "💓"];
+      for (let i = 0; i < count; i++) {
+        const span = document.createElement("span");
+        span.className = "heart";
+        span.textContent = emojis[Math.floor(Math.random() * emojis.length)];
+        const size = (Math.random() * 28) + 18; // px
+        const left = Math.random() * 100; // vw %
+        const duration = (Math.random() * 2) + 2.5; // seconds
+        const delay = Math.random() * 0.5;
+
+        span.style.left = left + "vw";
+        span.style.bottom = "-40px";
+        span.style.fontSize = size + "px";
+        span.style.animationDuration = duration + "s";
+        span.style.animationDelay = delay + "s";
+
+        document.body.appendChild(span);
+        setTimeout(() => span.remove(), (duration + delay) * 1000);
+      }
+    }
+
+    // Badge by score
+    function badgeFor(score) {
+      if (score > 100) return "Cosmic destiny";
+      if (score >= 96) return "Endgame energy";
+      if (score >= 81) return "Certified swoon";
+      if (score >= 61) return "Strong potential";
+      if (score >= 41) return "It’s complicated (but cute)";
+      if (score >= 21) return "Slow-burn vibes";
+      return "Friends with high-fives";
+    }
+
+    // Silly commentary
+    function commentaryFor(score, a, b, rng) {
+      const names = `<span class="names">${a}</span> + <span class="names">${b}</span>`;
+      const lines = [];
+      if (normalizeName(a) === normalizeName(b) && normalizeName(a) !== "") {
+        lines.push(`Plot twist: you entered the same name. Self-love detected. Score upgraded to 101% because we support that.`);
+      }
+      if (score <= 20) {
+        lines.push(`${names}: More “co-workers who nod” than “soulmates”—for now. Begin with banter and shared snacks.`);
+      } else if (score <= 40) {
+        lines.push(`${names}: There’s a shy spark. Try a compliment that’s oddly specific. Bonus if snacks are involved.`);
+      } else if (score <= 60) {
+        lines.push(`${names}: Balanced probability. Proceed with memes and carefully timed emojis.`);
+      } else if (score <= 80) {
+        lines.push(`${names}: Strong potential—Wi‑Fi connection approved. Queue wholesome adventures.`);
+      } else if (score <= 95) {
+        lines.push(`${names}: Certified swoon. Even the universe whispered “cute.”`);
+      } else if (score <= 100) {
+        lines.push(`${names}: Fate is basically waving a banner. Don’t overthink—just vibe.`);
+      } else {
+        lines.push(`${names}: 101% compatible. That extra 1% is chaos, which is important.`);
+      }
+
+      // Random extra quip:
+      const quips = [
+        "Compatibility verified by an independent panel of pigeons.",
+        "The algorithm smelled coffee and said yes.",
+        "Scientifically peer-reviewed by three goldfish and one suspicious cat.",
+        "If this were a rom‑com, you’d meet again in an elevator right now.",
+        "Warning: proximity may cause butterflies and excessive emoji usage."
+      ];
+      lines.push(quips[Math.floor(rng() * quips.length)]);
+      return lines.join("<br>");
+    }
+
+    // Advice generator
+    function adviceFor(score, rng) {
+      const actions = [
+        "Send a meme that’s exactly their sense of humor.",
+        "Plan a tiny adventure: street tacos + sunset walk.",
+        "Ask a delightfully weird question: “Preferred cloud shape?”",
+        "Compliment something oddly specific (shoes, playlist curation, plant names).",
+        "Share a favorite snack and declare it your official tradition."
+      ];
+      const cautions = [
+        "Don’t speedrun romance—banter first.",
+        "Use punctuation responsibly; five exclamation points is a lot!!!",
+        "Avoid ghosting. Casper is cute, but communication is cuter.",
+        "Respect boundaries like a wholesome ninja.",
+        "Remember: hydration helps flirting."
+      ];
+
+      const pick = arr => arr[Math.floor(rng() * arr.length)];
+      const action = pick(actions);
+      const caution = pick(cautions);
+
+      let header;
+      if (score <= 40) header = "Starter pack:";
+      else if (score <= 70) header = "Pro tip:";
+      else header = "Go for it (sensibly):";
+
+      return `<strong>${header}</strong> ${action}<br><em>${caution}</em>`;
+    }
+
+    // Meter labels and generation
+    function meters(rng) {
+      const vibe = Math.floor(rng() * 101);
+      const snack = Math.floor(rng() * 101);
+      const text = Math.floor(rng() * 101);
+      const meme = Math.floor(rng() * 101);
+      return { vibe, snack, text, meme };
+    }
+
+    // Main calculation
+    function calculate(a, b) {
+      const seed = pairSeed(a, b);
+      const rng = lcg(seed);
+
+      // Base score (0..100)
+      let score = Math.floor(rng() * 101);
+
+      // Cute adjustments:
+      const na = normalizeName(a), nb = normalizeName(b);
+      if (na && nb && na === nb) score = 101; // same name: chaos bonus
+
+      // Easter eggs
+      const pair = [na, nb].sort().join("|");
+      if (pair.includes("coffee") || pair.includes("espresso")) score = Math.min(100, score + 7);
+      if (pair.includes("cat") && pair.includes("dog")) score = Math.min(100, score + 5); // unity through chaos
+      if (pair.length <= 2 && pair.length > 0) score = Math.max(5, score); // super short names get mercy points
+
+      const m = meters(rng);
+      return { score, meters: m, rng };
+    }
+
+    // DOM helpers
+    const el = id => document.getElementById(id);
+
+    function render(a, b) {
+      const out = calculate(a, b);
+
+      el("outputWrap").style.display = "block";
+      el("scoreNumber").textContent = `${out.score}%`;
+      el("scoreBadge").textContent = badgeFor(out.score);
+      el("scoreText").innerHTML = commentaryFor(out.score, a || "???", b || "???", out.rng);
+
+      // Meters
+      const setMeter = (idFill, idVal, val) => {
+        el(idFill).style.width = `${val}%`;
+        el(idVal).textContent = `${val}%`;
+      };
+      setMeter("mVibe", "mVibeVal", out.meters.vibe);
+      setMeter("mSnack", "mSnackVal", out.meters.snack);
+      setMeter("mText", "mTextVal", out.meters.text);
+      setMeter("mMeme", "mMemeVal", out.meters.meme);
+
+      el("adviceBox").innerHTML = adviceFor(out.score, out.rng);
+
+      // celebratory hearts (scaled to score)
+      const hearts = Math.max(8, Math.round(16 + (out.score / 6)));
+      shootHearts(hearts);
+    }
+
+    // Wire up
+    const nameA = el("nameA");
+    const nameB = el("nameB");
+    const btn = el("calcBtn");
+
+    function go() {
+      const a = nameA.value.trim();
+      const b = nameB.value.trim();
+      if (!a || !b) {
+        // Gentle nudge
+        el("outputWrap").style.display = "block";
+        el("scoreNumber").textContent = `0%`;
+        el("scoreBadge").textContent = "Input needed";
+        el("scoreText").innerHTML = "Please enter two names. The algorithm refuses to guess your crush without at least one vowel.";
+        ["mVibe","mSnack","mText","mMeme"].forEach(id => el(id).style.width = "0%");
+        ["mVibeVal","mSnackVal","mTextVal","mMemeVal"].forEach(id => el(id).textContent = "0%");
+        el("adviceBox").innerHTML = "<em>Tip:</em> Try names like “Alex” and “Sam” to test it out.";
+        return;
+      }
+      render(a, b);
+    }
+
+    btn.addEventListener("click", go);
+    // Press Enter to calculate from either field
+    [nameA, nameB].forEach(inp => {
+      inp.addEventListener("keydown", e => { if (e.key === "Enter") go(); });
+    });
+
+    // Prefill a playful example
+    window.addEventListener("DOMContentLoaded", () => {
+      if (!nameA.value && !nameB.value) {
+        nameA.value = "Taylor";
+        nameB.value = "Jordan";
+      }
+    });
+  </script>
+</body>
+</html>
