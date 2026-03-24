@@ -516,14 +516,14 @@
           try {
             await window.ethereum.request({
               method: 'wallet_switchEthereumChain',
-              params: [{ chainId: '0xBA7DD' }],
+              params: [{ chainId: '0xBA5ED' }],
             });
           } catch (switchError) {
             if (switchError.code === 4902) {
               await window.ethereum.request({
                 method: 'wallet_addEthereumChain',
                 params: [{
-                  chainId: '0xBA7DD',
+                  chainId: '0xBA5ED',
                   chainName: 'Ink Sepolia',
                   nativeCurrency: { name: 'ETH', symbol: 'ETH', decimals: 18 },
                   rpcUrls: ['https://rpc-gel-sepolia.inkonchain.com'],
@@ -563,14 +563,14 @@
           try {
             await window.ethereum.request({
               method: 'wallet_switchEthereumChain',
-              params: [{ chainId: '0xBA7DD' }],
+              params: [{ chainId: '0xBA5ED' }],
             });
           } catch (switchError) {
             if (switchError.code === 4902) {
               await window.ethereum.request({
                 method: 'wallet_addEthereumChain',
                 params: [{
-                  chainId: '0xBA7DD',
+                  chainId: '0xBA5ED',
                   chainName: 'Ink Sepolia',
                   nativeCurrency: { name: 'ETH', symbol: 'ETH', decimals: 18 },
                   rpcUrls: ['https://rpc-gel-sepolia.inkonchain.com'],
@@ -599,7 +599,7 @@
     let lastNameB = "";
     let lastScore = 0;
 
-    const contractAddress = "0xa1A2aca4CAb50E351f5Ca2c9cee44138D81731b3"; // Replace with deployed contract address on Ink Sepolia
+    const contractAddress = "0xa1A2aca4CAb50E351f5Ca2c9cee44138D81731b3"; // Deployed on Ink Sepolia
     const abi = [
       "function mint(string name1, string name2, uint8 score) public"
     ];
