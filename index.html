@@ -516,14 +516,14 @@
           try {
             await window.ethereum.request({
               method: 'wallet_switchEthereumChain',
-              params: [{ chainId: '0xBA5ED' }],
+              params: [{ chainId: '0xBA7DD' }],
             });
           } catch (switchError) {
             if (switchError.code === 4902) {
               await window.ethereum.request({
                 method: 'wallet_addEthereumChain',
                 params: [{
-                  chainId: '0xBA5ED',
+                  chainId: '0xBA7DD',
                   chainName: 'Ink Sepolia',
                   nativeCurrency: { name: 'ETH', symbol: 'ETH', decimals: 18 },
                   rpcUrls: ['https://rpc-gel-sepolia.inkonchain.com'],
@@ -563,14 +563,14 @@
           try {
             await window.ethereum.request({
               method: 'wallet_switchEthereumChain',
-              params: [{ chainId: '0xBA5ED' }],
+              params: [{ chainId: '0xBA7DD' }],
             });
           } catch (switchError) {
             if (switchError.code === 4902) {
               await window.ethereum.request({
                 method: 'wallet_addEthereumChain',
                 params: [{
-                  chainId: '0xBA5ED',
+                  chainId: '0xBA7DD',
                   chainName: 'Ink Sepolia',
                   nativeCurrency: { name: 'ETH', symbol: 'ETH', decimals: 18 },
                   rpcUrls: ['https://rpc-gel-sepolia.inkonchain.com'],
