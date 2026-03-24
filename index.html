@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <title>Ridiculously Serious Love Calculator</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <script src="https://cdn.ethers.org/lib/ethers-5.2.umd.min.js"></script>
+  <script src="https://unpkg.com/ethers@5.7.2/dist/ethers.umd.min.js"></script>
   <style>
     :root {
       --bg1: #ff9a9e;
@@ -546,6 +546,11 @@
     }
 
     async function connectWallet() {
+      if (typeof ethers === 'undefined') {
+        console.error('Ethers not loaded');
+        alert('Ethers library failed to load. Please refresh the page.');
+        return;
+      }
       if (!window.ethereum) {
         alert("Please install MetaMask to connect your wallet");
         return;
