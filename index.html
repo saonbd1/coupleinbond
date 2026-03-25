@@ -2,208 +2,74 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>Ridiculously Serious Love Calculator</title>
+  <title>Couple in Bond - Love Calculator</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <script src="https://cdn.jsdelivr.net/npm/ethers@5.7.2/dist/ethers.umd.min.js"></script>
   <style>
     :root {
-      --bg1: #ff9a9e;
-      --bg2: #fad0c4;
-      --bg3: #fbc2eb;
-      --text: #2b2b2b;
-      --accent: #ff4d6d;
-      --accent2: #6a00f4;
-      --card: rgba(255, 255, 255, 0.88);
-      --muted: #6b6b6b;
+      --primary: #ff4d6d;
+      --primary-dark: #d63d5b;
+      --secondary: #6a00f4;
+      --secondary-light: #8b3dff;
+      --success: #4ade80;
+      --warning: #fbbf24;
+      --danger: #ef4444;
+      --bg-gradient-1: #ff9a9e;
+      --bg-gradient-2: #fad0c4;
+      --bg-gradient-3: #fbc2eb;
+      --text-primary: #1f2937;
+      --text-secondary: #6b7280;
+      --text-light: #9ca3af;
+      --card-bg: rgba(255, 255, 255, 0.92);
+      --card-border: rgba(255, 255, 255, 0.5);
     }
 
-    * { box-sizing: border-box; }
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
     html, body {
       height: 100%;
-      margin: 0;
-      font-family: system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji";
-      color: var(--text);
-      background: linear-gradient(135deg, var(--bg1), var(--bg2) 60%, var(--bg3));
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', sans-serif;
+      color: var(--text-primary);
+      background: linear-gradient(135deg, var(--bg-gradient-1) 0%, var(--bg-gradient-2) 50%, var(--bg-gradient-3) 100%);
+      background-attachment: fixed;
+      min-height: 100vh;
     }
 
-    .app {
-      max-width: 600px;
-      margin: 40px auto;
-      padding: 20px;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      min-height: calc(100vh - 80px);
-    }
-
-    .card {
-      background: var(--card);
-      backdrop-filter: blur(6px);
-      border-radius: 16px;
-      box-shadow: 0 15px 40px rgba(0,0,0,0.15);
-      padding: 32px;
-      width: 100%;
-      max-width: 500px;
-    }
-
-    h1 {
-      margin: 0 0 8px;
-      font-size: 2rem;
-    }
-
-    .tagline {
-      color: var(--muted);
-      margin-bottom: 20px;
-    }
-
-    .inputs {
-      display: flex;
-      flex-direction: column;
-      gap: 16px;
-      align-items: stretch;
-    }
-
-    .inputs > div {
-      display: flex;
-      flex-direction: column;
-    }
-
-    .inputs button {
-      width: 100%;
-      padding: 14px 16px;
-      font-size: 1.05rem;
-      margin-top: 8px;
-    }
-
-    label {
-      font-weight: 600;
-      display: block;
-      margin-bottom: 6px;
-    }
-
-    input[type="text"] {
-      width: 100%;
-      padding: 12px 14px;
-      border: 2px solid transparent;
-      border-radius: 12px;
-      font-size: 1rem;
-      background: #fff;
-      outline: none;
-      transition: border-color .2s, box-shadow .2s;
-    }
-    input[type="text"]:focus {
-      border-color: var(--accent);
-      box-shadow: 0 0 0 6px rgba(255,77,109,0.15);
-    }
-
-    button {
-      padding: 12px 16px;
-      border: none;
-      border-radius: 12px;
-      font-size: 1rem;
-      font-weight: 700;
-      cursor: pointer;
-      background: linear-gradient(135deg, var(--accent), var(--accent2));
-      color: #fff;
-      box-shadow: 0 10px 20px rgba(106,0,244,0.25);
-      transition: transform .06s ease-in-out, box-shadow .2s;
-    }
-    button:hover { transform: translateY(-1px); }
-    button:active { transform: translateY(0); }
-
-    .score {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      margin-bottom: 8px;
-    }
-    .score-number {
-      font-size: 2.25rem;
-      font-weight: 800;
-      letter-spacing: -0.5px;
-    }
-    .score-badge {
-      padding: 6px 10px;
-      border-radius: 999px;
-      font-weight: 700;
-      color: #fff;
-      background: #ff4d6d;
-    }
-
-    .meter {
-      display: grid;
-      grid-template-columns: 160px 1fr 60px;
-      gap: 10px;
-      align-items: center;
-      margin: 8px 0;
-    }
-    .meter-label { color: #333; font-weight: 600; }
-    .meter-bar {
-      height: 12px;
-      background: rgba(0,0,0,0.08);
-      border-radius: 999px;
-      overflow: hidden;
-    }
-    .meter-fill {
-      height: 100%;
-      width: 0%;
-      border-radius: 999px;
-      background: linear-gradient(90deg, #ff4d6d, #ffa8c5);
-      transition: width .6s ease;
-    }
-    .meter-value {
-      text-align: right;
-      font-variant-numeric: tabular-nums;
-      color: #333;
-    }
-
-    .advice {
-      margin-top: 12px;
-      background: rgba(255,255,255,0.9);
-      border-radius: 12px;
-      padding: 12px;
-      border: 1px solid rgba(0,0,0,0.06);
-    }
-
-    /* Floating heart confetti */
-    .heart {
-      position: fixed;
-      pointer-events: none;
-      z-index: 999;
-      animation: floatUp linear forwards;
-      filter: drop-shadow(0 4px 10px rgba(0,0,0,0.2));
-    }
-    @keyframes floatUp {
-      0% { transform: translateY(0) rotate(0deg); opacity: 0; }
-      10% { opacity: 1; }
-      100% { transform: translateY(-120vh) rotate(360deg); opacity: 0; }
-    }
-
-    /* Sidebar styles */
+    /* Sidebar */
     .container {
       display: flex;
       min-height: 100vh;
     }
 
     .sidebar {
-      width: 250px;
-      background: rgba(255, 255, 255, 0.95);
-      box-shadow: 2px 0 10px rgba(0, 0, 0, 0.1);
-      padding: 30px 0;
+      width: 280px;
+      background: rgba(255, 255, 255, 0.97);
+      backdrop-filter: blur(10px);
+      border-right: 1px solid rgba(0, 0, 0, 0.05);
+      padding: 40px 0;
       position: fixed;
       height: 100vh;
       left: 0;
       top: 0;
       overflow-y: auto;
       z-index: 100;
+      box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08);
     }
 
     .sidebar-title {
-      padding: 0 20px;
-      font-size: 1.2rem;
-      font-weight: 800;
-      color: var(--accent);
-      margin-bottom: 30px;
+      padding: 0 24px;
+      font-size: 1.5rem;
+      font-weight: 900;
+      background: linear-gradient(135deg, var(--primary), var(--secondary));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      margin-bottom: 40px;
+      letter-spacing: -0.5px;
     }
 
     .sidebar-menu {
@@ -213,74 +79,228 @@
     }
 
     .sidebar-menu a {
-      display: block;
-      padding: 14px 20px;
-      color: var(--text);
+      display: flex;
+      align-items: center;
+      padding: 14px 24px;
+      color: var(--text-primary);
       text-decoration: none;
       font-weight: 600;
       font-size: 0.95rem;
-      transition: all 0.2s ease;
-      border-left: 4px solid transparent;
+      transition: all 0.3s ease;
+      border-left: 3px solid transparent;
+      gap: 12px;
     }
 
     .sidebar-menu a:hover {
-      background: rgba(255, 77, 109, 0.1);
-      border-left-color: var(--accent);
-      padding-left: 24px;
+      background: linear-gradient(90deg, rgba(255, 77, 109, 0.1), transparent);
+      border-left-color: var(--primary);
+      padding-left: 28px;
     }
 
-    .sidebar #connectBtn:hover {
-      background: var(--accent2);
-    }
-    
-    /* New Disconnect Button Style */
-    .sidebar #disconnectBtn {
-      background: #ff4d6d; /* Solid red/pink to indicate disconnect */
-      box-shadow: 0 4px 10px rgba(255, 77, 109, 0.3);
-    }
-    .sidebar #disconnectBtn:hover {
-      background: #d63d5b;
+    #walletStatus {
+      padding: 16px 24px;
+      color: var(--text-secondary);
+      font-size: 0.85rem;
+      font-weight: 500;
+      margin: 30px 0 20px 0;
+      border-top: 1px solid rgba(0, 0, 0, 0.05);
+      border-bottom: 1px solid rgba(0, 0, 0, 0.05);
     }
 
+    #connectBtn, #disconnectBtn {
+      margin: 12px 20px;
+      padding: 12px 20px;
+      border: none;
+      border-radius: 10px;
+      font-size: 0.95rem;
+      font-weight: 700;
+      cursor: pointer;
+      width: calc(100% - 40px);
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 15px rgba(106, 0, 244, 0.2);
+    }
+
+    #connectBtn {
+      background: linear-gradient(135deg, var(--primary), var(--secondary));
+      color: white;
+    }
+
+    #connectBtn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(106, 0, 244, 0.3);
+    }
+
+    #disconnectBtn {
+      background: linear-gradient(135deg, var(--danger), var(--primary-dark));
+      color: white;
+      display: none;
+    }
+
+    #disconnectBtn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(239, 68, 68, 0.3);
+    }
+
+    /* Main Content */
     .main-content {
-      margin-left: 250px;
-      width: calc(100% - 250px);
-      padding: 24px;
+      margin-left: 280px;
+      width: calc(100% - 280px);
+      padding: 40px 24px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
     }
 
-    @media (max-width: 768px) {
-      .sidebar {
-        width: 200px;
+    .app {
+      width: 100%;
+      max-width: 550px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    /* Card */
+    .card {
+      background: var(--card-bg);
+      backdrop-filter: blur(20px);
+      border: 1px solid var(--card-border);
+      border-radius: 24px;
+      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.12);
+      padding: 48px 40px;
+      width: 100%;
+      animation: slideUp 0.6s ease-out;
+    }
+
+    @keyframes slideUp {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
       }
-      .main-content {
-        margin-left: 200px;
-        width: calc(100% - 200px);
+      to {
+        opacity: 1;
+        transform: translateY(0);
       }
     }
 
-    @media (max-width: 480px) {
-      .sidebar {
-        width: 150px;
-        padding: 20px 0;
+    h1 {
+      font-size: 2.2rem;
+      font-weight: 900;
+      margin-bottom: 12px;
+      background: linear-gradient(135deg, var(--primary), var(--secondary));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      letter-spacing: -0.5px;
+    }
+
+    .tagline {
+      color: var(--text-secondary);
+      margin-bottom: 32px;
+      font-size: 1rem;
+      font-weight: 500;
+    }
+
+    /* Inputs */
+    .inputs {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      margin-bottom: 28px;
+    }
+
+    .inputs > div {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    label {
+      font-weight: 700;
+      font-size: 0.95rem;
+      color: var(--text-primary);
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      font-size: 0.85rem;
+    }
+
+    input[type="text"] {
+      width: 100%;
+      padding: 14px 16px;
+      border: 2px solid rgba(0, 0, 0, 0.08);
+      border-radius: 12px;
+      font-size: 1rem;
+      background: rgba(255, 255, 255, 0.8);
+      outline: none;
+      transition: all 0.3s ease;
+      font-weight: 500;
+    }
+
+    input[type="text"]:focus {
+      border-color: var(--primary);
+      background: white;
+      box-shadow: 0 0 0 8px rgba(255, 77, 109, 0.1);
+    }
+
+    input[type="text"]::placeholder {
+      color: var(--text-light);
+    }
+
+    /* Button */
+    .inputs button {
+      width: 100%;
+      padding: 16px 20px;
+      border: none;
+      border-radius: 12px;
+      font-size: 1.05rem;
+      font-weight: 700;
+      cursor: pointer;
+      background: linear-gradient(135deg, var(--primary), var(--secondary));
+      color: white;
+      box-shadow: 0 8px 25px rgba(106, 0, 244, 0.3);
+      transition: all 0.3s ease;
+      margin-top: 8px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      font-size: 0.95rem;
+    }
+
+    .inputs button:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 12px 35px rgba(106, 0, 244, 0.4);
+    }
+
+    .inputs button:active {
+      transform: translateY(-1px);
+    }
+
+    /* Heart Animation */
+    .heart {
+      position: fixed;
+      pointer-events: none;
+      z-index: 999;
+      animation: floatUp 3s linear forwards;
+      filter: drop-shadow(0 4px 10px rgba(0, 0, 0, 0.2));
+    }
+
+    @keyframes floatUp {
+      0% {
+        transform: translateY(0) rotate(0deg) scale(1);
+        opacity: 0;
       }
-      .sidebar-title {
-        font-size: 1rem;
-        margin-bottom: 20px;
+      10% {
+        opacity: 1;
       }
-      .sidebar-menu a {
-        padding: 12px 15px;
-        font-size: 0.85rem;
+      90% {
+        opacity: 1;
       }
-      .main-content {
-        margin-left: 150px;
-        width: calc(100% - 150px);
-      }
-      .app {
-        padding: 16px;
+      100% {
+        transform: translateY(-120vh) rotate(360deg) scale(0.5);
+        opacity: 0;
       }
     }
 
-    /* Modal styles */
+    /* Modal */
     .modal {
       display: none;
       position: fixed;
@@ -289,25 +309,31 @@
       top: 0;
       width: 100%;
       height: 100%;
-      background-color: rgba(0, 0, 0, 0.5);
+      background-color: rgba(0, 0, 0, 0.6);
+      backdrop-filter: blur(4px);
       animation: fadeIn 0.3s ease;
     }
 
     @keyframes fadeIn {
-      from { opacity: 0; }
-      to { opacity: 1; }
+      from {
+        opacity: 0;
+      }
+      to {
+        opacity: 1;
+      }
     }
 
     .modal-content {
-      background: var(--card);
-      backdrop-filter: blur(6px);
-      border-radius: 16px;
-      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
-      padding: 32px;
-      margin: 10% auto;
+      background: var(--card-bg);
+      backdrop-filter: blur(20px);
+      border: 1px solid var(--card-border);
+      border-radius: 24px;
+      box-shadow: 0 25px 70px rgba(0, 0, 0, 0.2);
+      padding: 40px;
+      margin: 5% auto;
       max-width: 500px;
       width: 90%;
-      max-height: 80vh;
+      max-height: 85vh;
       overflow-y: auto;
       animation: slideDown 0.3s ease;
       position: relative;
@@ -328,32 +354,275 @@
       position: absolute;
       right: 20px;
       top: 20px;
-      font-size: 28px;
+      font-size: 32px;
       font-weight: bold;
-      color: var(--muted);
+      color: var(--text-light);
       cursor: pointer;
       border: none;
       background: transparent;
       padding: 0;
-      width: 30px;
-      height: 30px;
+      width: 40px;
+      height: 40px;
       display: flex;
       align-items: center;
       justify-content: center;
       transition: all 0.2s ease;
+      border-radius: 8px;
     }
 
     .modal-close:hover {
-      color: var(--accent);
-      transform: scale(1.2);
+      color: var(--primary);
+      background: rgba(255, 77, 109, 0.1);
+      transform: scale(1.1);
     }
 
     .modal-title {
-      font-size: 1.5rem;
-      font-weight: 800;
-      color: var(--accent);
-      margin-bottom: 20px;
+      font-size: 1.8rem;
+      font-weight: 900;
+      background: linear-gradient(135deg, var(--primary), var(--secondary));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      margin-bottom: 28px;
       margin-top: 0;
+    }
+
+    /* Score Display */
+    .score {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      margin-bottom: 24px;
+      padding: 20px;
+      background: linear-gradient(135deg, rgba(255, 77, 109, 0.08), rgba(106, 0, 244, 0.08));
+      border-radius: 16px;
+      border: 1px solid rgba(255, 77, 109, 0.2);
+    }
+
+    .score-number {
+      font-size: 3.5rem;
+      font-weight: 900;
+      background: linear-gradient(135deg, var(--primary), var(--secondary));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      letter-spacing: -1px;
+    }
+
+    .score-badge {
+      padding: 10px 18px;
+      border-radius: 12px;
+      font-weight: 700;
+      color: white;
+      background: linear-gradient(135deg, var(--primary), var(--secondary));
+      font-size: 0.9rem;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      box-shadow: 0 4px 15px rgba(106, 0, 244, 0.3);
+    }
+
+    #modalScoreText {
+      margin: 20px 0;
+      font-size: 1rem;
+      line-height: 1.6;
+      color: var(--text-secondary);
+    }
+
+    /* Meters */
+    .meters {
+      margin: 28px 0;
+    }
+
+    .meter {
+      display: grid;
+      grid-template-columns: 140px 1fr 50px;
+      gap: 16px;
+      align-items: center;
+      margin: 18px 0;
+      padding: 14px;
+      background: rgba(0, 0, 0, 0.02);
+      border-radius: 12px;
+      transition: all 0.3s ease;
+    }
+
+    .meter:hover {
+      background: rgba(0, 0, 0, 0.04);
+    }
+
+    .meter-label {
+      color: var(--text-primary);
+      font-weight: 700;
+      font-size: 0.9rem;
+      text-transform: uppercase;
+      letter-spacing: 0.3px;
+    }
+
+    .meter-bar {
+      height: 10px;
+      background: rgba(0, 0, 0, 0.08);
+      border-radius: 999px;
+      overflow: hidden;
+      position: relative;
+    }
+
+    .meter-fill {
+      height: 100%;
+      width: 0%;
+      border-radius: 999px;
+      background: linear-gradient(90deg, var(--primary), var(--secondary));
+      transition: width 0.8s cubic-bezier(0.34, 1.56, 0.64, 1);
+      box-shadow: 0 0 10px rgba(106, 0, 244, 0.4);
+    }
+
+    .meter-value {
+      text-align: right;
+      font-variant-numeric: tabular-nums;
+      color: var(--text-primary);
+      font-weight: 700;
+      font-size: 0.9rem;
+    }
+
+    /* Advice */
+    .advice {
+      margin-top: 24px;
+      background: linear-gradient(135deg, rgba(74, 222, 128, 0.08), rgba(251, 191, 36, 0.08));
+      border-radius: 12px;
+      padding: 18px;
+      border: 1px solid rgba(74, 222, 128, 0.2);
+      font-size: 0.95rem;
+      line-height: 1.6;
+      color: var(--text-secondary);
+    }
+
+    .advice strong {
+      color: var(--primary);
+      font-weight: 700;
+    }
+
+    .advice em {
+      color: var(--text-secondary);
+      font-style: italic;
+    }
+
+    /* Mint Button */
+    #mintBtn {
+      width: 100%;
+      margin-top: 24px;
+      padding: 14px 20px;
+      border: none;
+      border-radius: 12px;
+      font-size: 0.95rem;
+      font-weight: 700;
+      cursor: pointer;
+      background: linear-gradient(135deg, var(--primary), var(--secondary));
+      color: white;
+      box-shadow: 0 8px 25px rgba(106, 0, 244, 0.3);
+      transition: all 0.3s ease;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    #mintBtn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 12px 35px rgba(106, 0, 244, 0.4);
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      .sidebar {
+        width: 220px;
+        padding: 30px 0;
+      }
+
+      .main-content {
+        margin-left: 220px;
+        width: calc(100% - 220px);
+        padding: 24px 16px;
+      }
+
+      .card {
+        padding: 32px 24px;
+      }
+
+      h1 {
+        font-size: 1.8rem;
+      }
+
+      .score-number {
+        font-size: 2.5rem;
+      }
+
+      .meter {
+        grid-template-columns: 1fr;
+        gap: 8px;
+      }
+
+      .meter-value {
+        text-align: left;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .sidebar {
+        width: 180px;
+        padding: 20px 0;
+      }
+
+      .sidebar-title {
+        font-size: 1.2rem;
+        padding: 0 16px;
+        margin-bottom: 30px;
+      }
+
+      .sidebar-menu a {
+        padding: 12px 16px;
+        font-size: 0.85rem;
+      }
+
+      .main-content {
+        margin-left: 180px;
+        width: calc(100% - 180px);
+        padding: 20px 12px;
+      }
+
+      .app {
+        max-width: 100%;
+      }
+
+      .card {
+        padding: 24px 16px;
+      }
+
+      h1 {
+        font-size: 1.5rem;
+      }
+
+      .tagline {
+        font-size: 0.9rem;
+      }
+
+      .score {
+        flex-direction: column;
+        gap: 12px;
+      }
+
+      .score-number {
+        font-size: 2rem;
+      }
+
+      .score-badge {
+        padding: 8px 14px;
+        font-size: 0.8rem;
+      }
+
+      .modal-content {
+        padding: 24px;
+        margin: 20% auto;
+      }
+
+      .modal-title {
+        font-size: 1.4rem;
+      }
     }
   </style>
 </head>
@@ -361,38 +630,34 @@
   <div class="container">
     <!-- Sidebar -->
     <aside class="sidebar">
-      <div class="sidebar-title">Menu</div>
+      <div class="sidebar-title">💕 Couple</div>
       <ul class="sidebar-menu">
         <li><a href="#home">🏠 Home</a></li>
         <li><a href="#about">ℹ️ About Us</a></li>
-        <li><a href="#privacy">🔒 Privacy Policy</a></li>
+        <li><a href="#privacy">🔒 Privacy</a></li>
       </ul>
-      <div id="walletStatus" style="padding: 14px 20px; color: var(--muted); font-size: 0.9rem;">Wallet: Not connected</div>
-      
-      <!-- Connect Button -->
-      <button id="connectBtn" style="margin: 10px 20px; padding: 10px 16px; border: none; border-radius: 8px; background: var(--accent); color: white; cursor: pointer; font-weight: 600; width: calc(100% - 40px);">Connect Wallet</button>
-      
-      <!-- Disconnect Button (Hidden by default) -->
-      <button id="disconnectBtn" style="display: none; margin: 10px 20px; padding: 10px 16px; border: none; border-radius: 8px; background: #ff4d6d; color: white; cursor: pointer; font-weight: 600; width: calc(100% - 40px);">Disconnect Wallet</button>
+      <div id="walletStatus">Wallet: Not connected</div>
+      <button id="connectBtn">Connect Wallet</button>
+      <button id="disconnectBtn">Disconnect</button>
     </aside>
 
     <!-- Main Content -->
     <div class="main-content">
       <div class="app">
         <div class="card">
-          <h1>Ridiculously Serious Love Calculator ❤️</h1>
-          <p class="tagline">Scientific? No. Entertaining? Absolutely.</p>
+          <h1>Love Calculator ❤️</h1>
+          <p class="tagline">Find your perfect match compatibility score</p>
 
-          <div class="inputs">
+          <div class="inputs" role="form" aria-label="Love calculator">
             <div>
-              <label for="nameA">Name A</label>
-              <input id="nameA" type="text" placeholder="e.g., Alex" />
+              <label for="nameA">Your Name</label>
+              <input id="nameA" type="text" placeholder="Enter your name" />
             </div>
             <div>
-              <label for="nameB">Name B</label>
-              <input id="nameB" type="text" placeholder="e.g., Sam" />
+              <label for="nameB">Their Name</label>
+              <input id="nameB" type="text" placeholder="Enter their name" />
             </div>
-            <button id="calcBtn">Calculate 💘</button>
+            <button id="calcBtn">Calculate Match 💘</button>
           </div>
         </div>
       </div>
@@ -403,39 +668,39 @@
   <div id="resultModal" class="modal">
     <div class="modal-content">
       <button class="modal-close" id="closeModal">&times;</button>
-      <h2 class="modal-title">Love Match Results</h2>
+      <h2 class="modal-title">Match Results</h2>
       
       <div class="score">
         <div class="score-number" id="modalScoreNumber">0%</div>
-        <div class="score-badge" id="modalScoreBadge">Analyzing vibes…</div>
+        <div class="score-badge" id="modalScoreBadge">Analyzing…</div>
       </div>
-      <div id="modalScoreText" style="margin: 16px 0;"></div>
+      <div id="modalScoreText"></div>
 
       <div class="meters">
         <div class="meter">
-          <div class="meter-label">Vibe alignment</div>
+          <div class="meter-label">Vibe Alignment</div>
           <div class="meter-bar"><div class="meter-fill" id="modalMVibe"></div></div>
           <div class="meter-value" id="modalMVibeVal">0%</div>
         </div>
         <div class="meter">
-          <div class="meter-label">Snack synergy</div>
+          <div class="meter-label">Snack Synergy</div>
           <div class="meter-bar"><div class="meter-fill" id="modalMSnack"></div></div>
           <div class="meter-value" id="modalMSnackVal">0%</div>
         </div>
         <div class="meter">
-          <div class="meter-label">Texting tempo</div>
+          <div class="meter-label">Texting Tempo</div>
           <div class="meter-bar"><div class="meter-fill" id="modalMText"></div></div>
           <div class="meter-value" id="modalMTextVal">0%</div>
         </div>
         <div class="meter">
-          <div class="meter-label">Meme compatibility</div>
+          <div class="meter-label">Meme Compatibility</div>
           <div class="meter-bar"><div class="meter-fill" id="modalMMeme"></div></div>
           <div class="meter-value" id="modalMMemeVal">0%</div>
         </div>
       </div>
 
-      <div class="advice" id="modalAdviceBox" style="margin-top: 16px;"></div>
-      <button id="mintBtn" style="margin-top: 16px; padding: 12px 16px; border: none; border-radius: 12px; font-size: 1rem; font-weight: 700; cursor: pointer; background: linear-gradient(135deg, var(--accent), var(--accent2)); color: #fff; box-shadow: 0 10px 20px rgba(106,0,244,0.25); transition: transform .06s ease-in-out, box-shadow .2s;">Mint Love NFT</button>
+      <div class="advice" id="modalAdviceBox"></div>
+      <button id="mintBtn">Mint Love NFT 🎨</button>
     </div>
   </div>
 
@@ -471,10 +736,10 @@
         const span = document.createElement("span");
         span.className = "heart";
         span.textContent = emojis[Math.floor(Math.random() * emojis.length)];
-        const size = (Math.random() * 28) + 18;
+        const size = (Math.random() * 32) + 20;
         const left = Math.random() * 100;
-        const duration = (Math.random() * 2) + 2.5;
-        const delay = Math.random() * 0.5;
+        const duration = (Math.random() * 2.5) + 2.5;
+        const delay = Math.random() * 0.3;
 
         span.style.left = left + "vw";
         span.style.bottom = "-40px";
@@ -488,33 +753,72 @@
     }
 
     function badgeFor(score) {
-      if (score > 100) return "Cosmic destiny";
-      if (score >= 96) return "Endgame energy";
-      if (score >= 81) return "Certified swoon";
-      if (score >= 61) return "Strong potential";
-      if (score >= 41) return "It's complicated";
-      if (score >= 21) return "Slow-burn vibes";
-      return "Friends with high-fives";
+      if (score > 100) return "Cosmic Destiny";
+      if (score >= 96) return "Endgame Energy";
+      if (score >= 81) return "Certified Swoon";
+      if (score >= 61) return "Strong Potential";
+      if (score >= 41) return "It's Complicated";
+      if (score >= 21) return "Slow-Burn Vibes";
+      return "Friends First";
     }
 
     function commentaryFor(score, a, b, rng) {
-      const names = `<span style="font-weight:700;">${a}</span> + <span style="font-weight:700;">${b}</span>`;
+      const names = `<strong>${a}</strong> + <strong>${b}</strong>`;
+      const lines = [];
       if (normalizeName(a) === normalizeName(b) && normalizeName(a) !== "") {
-        return `${names}: Self-love detected! Score: 101% 🎉`;
+        lines.push(`${names}: Self-love detected! Score upgraded to 101% 🎉`);
       }
-      if (score <= 20) return `${names}: More "acquaintances" than "soulmates"—for now.`;
-      if (score <= 40) return `${names}: There's a shy spark here.`;
-      if (score <= 60) return `${names}: Balanced potential!`;
-      if (score <= 80) return `${names}: Strong vibes detected!`;
-      if (score <= 95) return `${names}: The universe approves! 💕`;
-      return `${names}: PERFECT MATCH! 🚀`;
+      if (score <= 20) {
+        lines.push(`${names}: More "acquaintances" than "soulmates"—for now.`);
+      } else if (score <= 40) {
+        lines.push(`${names}: There's a shy spark here. Start with banter!`);
+      } else if (score <= 60) {
+        lines.push(`${names}: Balanced potential! Proceed with memes.`);
+      } else if (score <= 80) {
+        lines.push(`${names}: Strong vibes detected! The universe approves.`);
+      } else if (score <= 95) {
+        lines.push(`${names}: Certified swoon! Even the stars are aligned.`);
+      } else {
+        lines.push(`${names}: PERFECT MATCH! Destiny has spoken. 🚀`);
+      }
+
+      const quips = [
+        "Compatibility verified by an independent panel of pigeons.",
+        "The algorithm smelled coffee and said yes.",
+        "Scientifically peer-reviewed by three goldfish and one suspicious cat.",
+        "If this were a rom-com, you'd meet again in an elevator right now.",
+        "Warning: proximity may cause butterflies and excessive emoji usage."
+      ];
+      lines.push(quips[Math.floor(rng() * quips.length)]);
+      return lines.join("<br><br>");
     }
 
     function adviceFor(score, rng) {
-      const actions = ["Send a meme.", "Plan an adventure.", "Be yourselves."];
-      const action = actions[Math.floor(rng() * actions.length)];
-      let header = score <= 40 ? "Tip:" : "Go for it!";
-      return `<strong>${header}</strong> ${action}`;
+      const actions = [
+        "Send a meme that's exactly their sense of humor.",
+        "Plan a tiny adventure: street tacos + sunset walk.",
+        "Ask a delightfully weird question: 'Preferred cloud shape?'",
+        "Compliment something oddly specific (shoes, playlist curation).",
+        "Share a favorite snack and declare it your official tradition."
+      ];
+      const cautions = [
+        "Don't speedrun romance—banter first.",
+        "Use punctuation responsibly; five exclamation points is a lot!!!",
+        "Avoid ghosting. Casper is cute, but communication is cuter.",
+        "Respect boundaries like a wholesome ninja.",
+        "Remember: hydration helps flirting."
+      ];
+
+      const pick = arr => arr[Math.floor(rng() * arr.length)];
+      const action = pick(actions);
+      const caution = pick(cautions);
+
+      let header;
+      if (score <= 40) header = "Starter Pack:";
+      else if (score <= 70) header = "Pro Tip:";
+      else header = "Go For It (Sensibly):";
+
+      return `<strong>${header}</strong> ${action}<br><em>${caution}</em>`;
     }
 
     function meters(rng) {
@@ -617,8 +921,6 @@
         const signer = provider.getSigner();
         const address = await signer.getAddress();
         el("walletStatus").textContent = `Wallet: ${address.slice(0,6)}...${address.slice(-4)}`;
-        
-        // Toggle buttons
         el("connectBtn").style.display = "none";
         el("disconnectBtn").style.display = "block";
       } catch (error) {
@@ -627,7 +929,6 @@
     }
 
     function disconnectWallet() {
-      // Reset UI to disconnected state
       el("walletStatus").textContent = "Wallet: Not connected";
       el("connectBtn").style.display = "block";
       el("disconnectBtn").style.display = "none";
@@ -641,16 +942,13 @@
     let lastNameB = "";
     let lastScore = 0;
 
-    const contractAddress = "0x66dF01e59AC8AC13575bB760500be7DBADf78D32"; // Deployed on Ink Sepolia
-    const abi = [
-      "function mint(string name1, string name2, uint8 score) public"
-    ];
+    const contractAddress = "0x66dF01e59AC8AC13575bB760500be7DBADf78D32";
+    const abi = ["function mint(string name1, string name2, uint8 score) public"];
 
     function showResults(a, b) {
       lastNameA = a;
       lastNameB = b;
       const out = calculate(a, b);
-
       lastScore = out.score;
 
       el("modalScoreNumber").textContent = `${out.score}%`;
@@ -669,7 +967,7 @@
       el("modalAdviceBox").innerHTML = adviceFor(out.score, out.rng);
       el("resultModal").style.display = "block";
 
-      const hearts = Math.max(8, Math.round(16 + (out.score / 6)));
+      const hearts = Math.max(12, Math.round(20 + (out.score / 5)));
       shootHearts(hearts);
     }
 
@@ -685,7 +983,7 @@
       if (!a || !b) {
         el("modalScoreNumber").textContent = "0%";
         el("modalScoreBadge").textContent = "Input needed";
-        el("modalScoreText").innerHTML = "Enter both names!";
+        el("modalScoreText").innerHTML = "Please enter both names to calculate your match!";
         el("resultModal").style.display = "block";
         return;
       }
@@ -693,7 +991,6 @@
       showResults(a, b);
     }
 
-    // Initialize when DOM is ready
     document.addEventListener("DOMContentLoaded", function() {
       const btn = el("calcBtn");
       const modal = el("resultModal");
@@ -738,13 +1035,19 @@
         disconnectBtn.addEventListener("click", disconnectWallet);
       }
 
-      // Prefill example
       const nameA = el("nameA");
       const nameB = el("nameB");
       if (nameA && nameB) {
         nameA.value = "Taylor";
         nameB.value = "Jordan";
       }
+
+      const calcBtn = el("calcBtn");
+      [nameA, nameB].forEach(inp => {
+        inp.addEventListener("keydown", e => {
+          if (e.key === "Enter") handleCalculate();
+        });
+      });
     });
   </script>
 </body>
