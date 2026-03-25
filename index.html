@@ -27,9 +27,13 @@
     }
 
     .app {
-      max-width: 800px;
-      margin: 0 auto;
-      padding: 24px;
+      max-width: 600px;
+      margin: 40px auto;
+      padding: 20px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: calc(100vh - 80px);
     }
 
     .card {
@@ -37,7 +41,9 @@
       backdrop-filter: blur(6px);
       border-radius: 16px;
       box-shadow: 0 15px 40px rgba(0,0,0,0.15);
-      padding: 24px;
+      padding: 32px;
+      width: 100%;
+      max-width: 500px;
     }
 
     h1 {
@@ -51,10 +57,22 @@
     }
 
     .inputs {
-      display: grid;
-      grid-template-columns: 1fr 1fr auto;
-      gap: 12px;
-      align-items: end;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      align-items: stretch;
+    }
+
+    .inputs > div {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .inputs button {
+      width: 100%;
+      padding: 14px 16px;
+      font-size: 1.05rem;
+      margin-top: 8px;
     }
 
     label {
