@@ -214,6 +214,15 @@
     .sidebar #connectBtn:hover {
       background: var(--accent2);
     }
+    
+    /* New Disconnect Button Style */
+    .sidebar #disconnectBtn {
+      background: #ff4d6d; /* Solid red/pink to indicate disconnect */
+      box-shadow: 0 4px 10px rgba(255, 77, 109, 0.3);
+    }
+    .sidebar #disconnectBtn:hover {
+      background: #d63d5b;
+    }
 
     .main-content {
       margin-left: 250px;
@@ -341,7 +350,12 @@
         <li><a href="#privacy">🔒 Privacy Policy</a></li>
       </ul>
       <div id="walletStatus" style="padding: 14px 20px; color: var(--muted); font-size: 0.9rem;">Wallet: Not connected</div>
+      
+      <!-- Connect Button -->
       <button id="connectBtn" style="margin: 10px 20px; padding: 10px 16px; border: none; border-radius: 8px; background: var(--accent); color: white; cursor: pointer; font-weight: 600; width: calc(100% - 40px);">Connect Wallet</button>
+      
+      <!-- Disconnect Button (Hidden by default) -->
+      <button id="disconnectBtn" style="display: none; margin: 10px 20px; padding: 10px 16px; border: none; border-radius: 8px; background: #ff4d6d; color: white; cursor: pointer; font-weight: 600; width: calc(100% - 40px);">Disconnect Wallet</button>
     </aside>
 
     <!-- Main Content -->
@@ -585,10 +599,20 @@
         const signer = provider.getSigner();
         const address = await signer.getAddress();
         el("walletStatus").textContent = `Wallet: ${address.slice(0,6)}...${address.slice(-4)}`;
+        
+        // Toggle buttons
         el("connectBtn").style.display = "none";
+        el("disconnectBtn").style.display = "block";
       } catch (error) {
         alert("Connection failed: " + error.message);
       }
+    }
+
+    function disconnectWallet() {
+      // Reset UI to disconnected state
+      el("walletStatus").textContent = "Wallet: Not connected";
+      el("connectBtn").style.display = "block";
+      el("disconnectBtn").style.display = "none";
     }
 
     function el(id) {
@@ -689,6 +713,11 @@
       const connectBtn = el("connectBtn");
       if (connectBtn) {
         connectBtn.addEventListener("click", connectWallet);
+      }
+
+      const disconnectBtn = el("disconnectBtn");
+      if (disconnectBtn) {
+        disconnectBtn.addEventListener("click", disconnectWallet);
       }
 
       // Prefill example
