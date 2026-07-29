@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>About Us - Couple in Bond</title>
+  <meta content='Learn more about Couple in Bond and our mission to celebrate love.' name='description'/>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <style>
+    :root {
+      --primary: #ff4d6d;
+      --primary-dark: #d63d5b;
+      --secondary: #6a00f4;
+      --secondary-light: #8b3dff;
+      --success: #4ade80;
+      --warning: #fbbf24;
+      --danger: #ef4444;
+      --bg-gradient-1: #ff9a9e;
+      --bg-gradient-2: #fad0c4;
+      --bg-gradient-3: #fbc2eb;
+      --text-primary: #1f2937;
+      --text-secondary: #6b7280;
+      --text-light: #9ca3af;
+      --card-bg: rgba(255, 255, 255, 0.92);
+      --card-border: rgba(255, 255, 255, 0.5);
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html, body {
+      height: 100%;
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', sans-serif;
+      color: var(--text-primary);
+      background: linear-gradient(135deg, var(--bg-gradient-1) 0%, var(--bg-gradient-2) 50%, var(--bg-gradient-3) 100%);
+      background-attachment: fixed;
+      min-height: 100vh;
+    }
+
+    .container {
+      display: flex;
+      min-height: 100vh;
+    }
+
+    .sidebar {
+      width: 280px;
+      background: rgba(255, 255, 255, 0.97);
+      backdrop-filter: blur(10px);
+      border-right: 1px solid rgba(0, 0, 0, 0.05);
+      padding: 40px 0;
+      position: fixed;
+      height: 100vh;
+      left: 0;
+      top: 0;
+      overflow-y: auto;
+      z-index: 100;
+      box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08);
+    }
+
+    .sidebar-title {
+      padding: 0 24px;
+      font-size: 1.5rem;
+      font-weight: 900;
+      background: linear-gradient(135deg, var(--primary), var(--secondary));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      margin-bottom: 40px;
+      letter-spacing: -0.5px;
+    }
+
+    .sidebar-menu {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+
+    .sidebar-menu a {
+      display: flex;
+      align-items: center;
+      padding: 14px 24px;
+      color: var(--text-primary);
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 0.95rem;
+      transition: all 0.3s ease;
+      border-left: 3px solid transparent;
+      gap: 12px;
+    }
+
+    .sidebar-menu a:hover {
+      background: linear-gradient(90deg, rgba(255, 77, 109, 0.1), transparent);
+      border-left-color: var(--primary);
+      padding-left: 28px;
+    }
+
+    .main-content {
+      margin-left: 280px;
+      width: calc(100% - 280px);
+      padding: 80px 40px;
+      display: flex;
+      justify-content: center;
+      min-height: 100vh;
+    }
+
+    .content-wrapper {
+      width: 100%;
+      max-width: 800px;
+    }
+
+    .card {
+      background: var(--card-bg);
+      backdrop-filter: blur(20px);
+      border: 1px solid var(--card-border);
+      border-radius: 24px;
+      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.12);
+      padding: 60px;
+      animation: slideUp 0.6s ease-out;
+    }
+
+    @keyframes slideUp {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    h1 {
+      font-size: 2.5rem;
+      font-weight: 900;
+      margin-bottom: 24px;
+      background: linear-gradient(135deg, var(--primary), var(--secondary));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      letter-spacing: -1px;
+    }
+
+    p {
+      color: var(--text-secondary);
+      line-height: 1.8;
+      margin-bottom: 20px;
+      font-size: 1.1rem;
+    }
+
+    .section-title {
+      font-size: 1.5rem;
+      font-weight: 800;
+      margin: 40px 0 20px;
+      color: var(--text-primary);
+    }
+
+    @media (max-width: 768px) {
+      .sidebar { width: 220px; }
+      .main-content { margin-left: 220px; width: calc(100% - 220px); padding: 40px 20px; }
+      .card { padding: 40px; }
+    }
+
+    @media (max-width: 480px) {
+      .sidebar { width: 100%; height: auto; position: relative; padding: 20px 0; }
+      .main-content { margin-left: 0; width: 100%; padding: 20px; }
+      .card { padding: 30px 20px; }
+      h1 { font-size: 2rem; }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <aside class="sidebar">
+      <div class="sidebar-title">💕 Couple</div>
+      <ul class="sidebar-menu">
+        <li><a href="index.html">🏠 Home</a></li>
+        <li><a href="about.html">ℹ️ About Us</a></li>
+        <li><a href="privacy.html">🔒 Privacy</a></li>
+      </ul>
+    </aside>
+
+    <div class="main-content">
+      <div class="content-wrapper">
+        <div class="card">
+          <h1>About Us</h1>
+          <p>Welcome to <strong>Couple in Bond</strong>, the ultimate destination for exploring the magic of compatibility and celebrating love in the digital age.</p>
+          
+          <div class="section-title">Our Mission</div>
+          <p>Our mission is to bring a little more joy and fun to relationships through technology. Whether you're curious about a new spark or celebrating a long-term bond, we provide a playful way to measure your "Love Potential" using our unique algorithms.</p>
+          
+          <div class="section-title">Why Couple in Bond?</div>
+          <p>We believe that love shouldn't be a speedrun. It's about the banter, the shared memes, and the small moments that build a lasting connection. Our platform combines fun metrics like "Meme Compatibility" and "Snack Synergy" to give you a lighthearted look at your relationship dynamics.</p>
+          
+          <div class="section-title">The Technology</div>
+          <p>Built with modern web technologies and a touch of blockchain magic, we allow users to not only calculate their scores but also mint their unique love results as NFTs on the Ink Chain, preserving their special moments forever on the blockchain.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
