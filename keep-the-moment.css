@@ -49,6 +49,9 @@
 .keep-aside { position: sticky; top: 18px; }
 .keep-aside-icon { display: grid; place-items: center; width: 48px; height: 48px; margin-bottom: 21px; color: #fff; background: linear-gradient(135deg, var(--blog-secondary), var(--blog-primary)); border-radius: 50%; font-size: 1.25rem; }
 .keep-aside a { display: block; margin-top: 12px; }
+.guestbook-layout .article-header { margin-bottom: 25px; }
+.guestbook-section-standalone { padding: 20px; }
+.guestbook-guidance { margin-top: 24px !important; }
 @media (min-width: 821px) { .keep-shell .article-body { font-size: 1.04rem; } .keep-step p, .guestbook-intro, .keep-fee-panel p, .keep-check-list, .keep-faq details p { font-size: .96rem; } .keep-step h3 { font-size: 1.25rem; } .keep-inline-link a, .source-links a { font-size: .9rem; } .guestbook-form input, .guestbook-form textarea { font-size: .9rem; } .guestbook-form label { font-size: .86rem; } .guestbook-actions button { font-size: .86rem; } .guestbook-actions span, .guestbook-feedback { font-size: .8rem; } .guestbook-entry-top strong { font-size: .9rem; } .guestbook-entry p { font-size: .94rem; } .keep-faq summary { font-size: 1.02rem; } }
 @media (max-width: 820px) { .keep-step-grid { grid-template-columns: 1fr; } .keep-aside { position: static; } }
 @media (max-width: 560px) { .keep-header-note span { font-size: .64rem; } .guestbook-section { padding: 21px 17px; } .guestbook-heading { align-items: flex-start; } .guestbook-mark { width: 42px; height: 42px; flex-basis: 42px; font-size: 1.25rem; } .guestbook-actions { align-items: stretch; flex-direction: column; } .guestbook-actions button { width: 100%; } }
