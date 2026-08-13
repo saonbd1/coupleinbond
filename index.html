@@ -24,13 +24,13 @@
     body { margin:0; min-width:320px; color:var(--ink); background:linear-gradient(135deg,var(--bg1) 0%,var(--bg2) 48%,var(--bg3) 100%); background-attachment:fixed; font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Oxygen,Ubuntu,Cantarell,sans-serif; }
     a { color:inherit; }
     .page { min-height:100vh; padding:18px 18px 34px; }
-    .topbar { position:relative; z-index:10; display:flex; align-items:center; gap:18px; width:min(1180px,100%); margin:0 auto; padding:15px 20px; background:rgba(255,255,255,.94); border:1px solid rgba(255,255,255,.7); border-radius:17px; box-shadow:0 10px 35px rgba(80,30,80,.09); backdrop-filter:blur(12px); }
+    .topbar { position:relative; z-index:10; display:flex; align-items:center; justify-content:space-between; gap:18px; width:min(1180px,100%); margin:0 auto; padding:15px 20px; background:rgba(255,255,255,.94); border:1px solid rgba(255,255,255,.7); border-radius:17px; box-shadow:0 10px 35px rgba(80,30,80,.09); backdrop-filter:blur(12px); }
     .brand { color:var(--primary); font-size:1.25rem; font-weight:900; text-decoration:none; white-space:nowrap; }
     .top-links { display:flex; align-items:center; gap:8px 18px; margin-left:auto; color:#6f6573; font-size:.8rem; font-weight:700; }
     .top-links a { text-decoration:none; transition:color .2s ease; }
     .top-links a:hover { color:var(--primary); }
     .home-link { color:var(--ink); }
-    .wallet-area { display:flex; align-items:center; gap:9px; margin-left:8px; }
+    .wallet-area { display:flex; align-items:center; gap:9px; margin-left:auto; }
     #walletStatus { color:var(--muted); font-size:.65rem; white-space:nowrap; }
     .wallet-button, .menu-button { padding:10px 13px; color:#fff; background:linear-gradient(135deg,var(--primary),var(--secondary)); border:0; border-radius:999px; font-size:.72rem; font-weight:800; cursor:pointer; white-space:nowrap; transition:transform .2s ease,opacity .2s ease; }
     .wallet-button:hover, .menu-button:hover { transform:translateY(-2px); }
@@ -56,6 +56,16 @@
     .note-icon { display:grid; place-items:center; width:58px; height:58px; margin-bottom:auto; color:var(--primary); background:#fff1f5; border-radius:50%; font-size:1.65rem; }
     .hero-note h2 { margin:0 0 10px; font-size:1.6rem; line-height:1.08; }
     .hero-note p { margin:0; color:var(--muted); font-size:.83rem; line-height:1.6; }
+    .hero-note.hero-featured-post { justify-content:initial; min-height:330px; overflow:hidden; padding:0; background:linear-gradient(145deg,#fff7fb,#f4edff); border-color:rgba(106,0,244,.16); }
+    .hero-featured-post .featured-post-image { width:100%; aspect-ratio:16 / 8.5; overflow:hidden; background:#f4edff; }
+    .hero-featured-post .featured-post-image img { display:block; width:100%; height:100%; object-fit:cover; object-position:center; }
+    .hero-featured-post .featured-post-body { display:flex; flex:1; flex-direction:column; padding:21px 24px 23px; }
+    .hero-featured-post .note-icon { width:43px; height:43px; margin:0 0 14px; color:#fff; background:linear-gradient(135deg,var(--secondary),var(--primary)); font-size:1.2rem; }
+    .hero-featured-post .featured-post-kicker { margin-bottom:7px; color:var(--secondary); font-size:.62rem; font-weight:850; letter-spacing:.13em; text-transform:uppercase; }
+    .hero-featured-post h2 { margin:0 0 9px; font-size:1.38rem; letter-spacing:-.04em; }
+    .hero-featured-post p { margin:0; color:var(--muted); font-size:.78rem; line-height:1.55; }
+    .hero-featured-post .card-action { display:inline-flex; margin-top:auto; padding-top:17px; color:var(--primary); font-size:.72rem; font-weight:900; text-decoration:none; }
+    .hero-featured-post .card-action:hover { color:var(--secondary); }
     .feature-grid { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:17px; padding-bottom:66px; }
     .feature-card { min-height:175px; padding:22px; border-radius:18px; transition:transform .2s ease,box-shadow .2s ease; }
     .feature-card:hover { transform:translateY(-4px); box-shadow:0 22px 55px rgba(73,34,86,.16); }
@@ -84,28 +94,21 @@
     .featured-poll-card .poll-feedback { margin:9px 0 0; color:var(--secondary); font-size:.68rem; line-height:1.4; }
     .featured-poll-card .poll-full-link { display:inline-flex; margin-top:13px; color:var(--primary); font-size:.72rem; font-weight:900; text-decoration:none; }
     .featured-poll-card .poll-full-link:hover { color:var(--secondary); }
-    .site-footer { display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:12px 20px; width:min(1050px,100%); margin:0 auto; padding:20px 0 5px; border-top:1px solid rgba(83,49,94,.12); color:var(--muted); font-size:.72rem; }
-    .site-footer p { margin:0; }
-    .site-footer a { color:var(--ink); font-weight:700; text-decoration:none; }
-    .site-footer a:hover { color:var(--primary); }
+    .site-footer { width:min(1050px,100%); margin:0 auto; }
     @media (max-width:820px) { .hero { grid-template-columns:1fr; } .feature-grid { grid-template-columns:repeat(2,minmax(0,1fr)); } }
-    @media (max-width:560px) { .page { padding:12px 11px 26px; } .topbar { padding:12px; gap:8px; } .brand { font-size:1rem; } .top-links { display:none; } .wallet-area { margin-left:auto; gap:5px; } #walletStatus { display:none; } .wallet-button { padding:8px 9px; font-size:.64rem; } .menu-button { display:inline-flex; padding:8px 9px; font-size:.64rem; } .hero { padding:18px 0 28px; } .hero-card { padding:31px 22px; } h1 { font-size:clamp(2.8rem,15vw,4.5rem); } .hero-note { min-height:245px; padding:22px; } .feature-grid { grid-template-columns:1fr; padding-bottom:38px; } .site-footer { display:block; padding-top:18px; } .site-footer p + p { margin-top:9px; } }
+    @media (max-width:560px) { .page { padding:12px 11px 26px; } .topbar { padding:12px; gap:8px; } .brand { font-size:1rem; } .wallet-area { margin-left:auto; gap:5px; } #walletStatus { display:none; } .wallet-button { padding:8px 9px; font-size:.64rem; } .menu-button { display:none; } .hero { padding:18px 0 28px; } .hero-card { padding:31px 22px; } h1 { font-size:clamp(2.8rem,15vw,4.5rem); } .hero-note { min-height:245px; padding:22px; } .feature-grid { grid-template-columns:1fr; padding-bottom:38px; } }
   </style>
 </head>
 <body>
   <div class="page">
     <header class="topbar">
       <a class="brand" href="index.html">💕 Couple in Bond</a>
-      <nav class="top-links" aria-label="Primary navigation">
-        <a class="home-link" href="index.html">Home</a><a href="calculator.html">Calculator</a><a href="compatibility-quiz.html">Compatibility Quiz</a><a href="blog.html">Blog</a><a href="polls.html">Polls</a><a href="valentines-day.html">Valentine’s Day</a><a href="about.html">About Us</a><a href="privacy.html">Privacy</a><a href="contact.html">Contact</a>
-      </nav>
-      <div class="wallet-area"><span id="walletStatus">Wallet: Not connected</span><button class="wallet-button" id="connectBtn" type="button">Connect wallet</button><button class="wallet-button" id="disconnectBtn" type="button">Disconnect</button><button class="menu-button" id="menuToggle" type="button" aria-expanded="false" aria-controls="mobileMenu">☰ Menu</button></div>
-      <nav id="mobileMenu" class="mobile-menu" aria-label="More navigation"><a href="calculator.html">Calculator</a><a href="compatibility-quiz.html">Compatibility Quiz</a><a href="blog.html">Blog</a><a href="polls.html">Polls</a><a href="valentines-day.html">Valentine’s Day</a><a href="about.html">About Us</a><a href="privacy.html">Privacy</a><a href="contact.html">Contact</a></nav>
+      <div class="wallet-area"><span id="walletStatus">Wallet: Not connected</span><button class="wallet-button" id="connectBtn" type="button">Connect wallet</button><button class="wallet-button" id="disconnectBtn" type="button">Disconnect</button></div>
     </header>
     <main>
       <section class="hero" aria-labelledby="home-title">
         <div class="hero-card"><div class="kicker">Couple in Bond · made for connection</div><h1 id="home-title">Make room for <span>more love.</span></h1><p>Playful tools, thoughtful words, and small ideas for the people who matter. Start with a lighthearted calculation or find something kind to send today.</p><div class="actions"><a class="button secondary" href="blog.html">Read the blog</a></div></div>
-        <aside class="hero-note"><div class="note-icon" aria-hidden="true">✦</div><h2>A tiny ritual can change the mood.</h2><p>Calculate a playful match, plan a better question, or keep a sweet result as a little on-chain keepsake.</p></aside>
+        <aside class="hero-note hero-featured-post"><div class="featured-post-image"><img src="assets/featured-post-week.jpg" alt="A couple sharing a thoughtful activity at home in warm window light"></div><div class="featured-post-body"><div class="note-icon" aria-hidden="true">✦</div><div class="featured-post-kicker">Featured Post of The Week</div><h2>Make an ordinary evening feel closer.</h2><p>Small rituals can make an ordinary evening feel closer—explore easy at-home ideas for reconnecting.</p><a class="card-action" href="blog-posts/couple-bonding-activities-at-home.html">Read the featured story →</a></div></aside>
       </section>
       <section class="feature-grid" aria-label="Couple in Bond features">
         <a class="feature-card calculator-card" href="calculator.html"><div class="icon">💘</div><h2>Love Calculator</h2><p>See your playful connection score and choose whether to mint the result.</p><span class="card-action">Open the love calculator →</span></a>
@@ -113,12 +116,11 @@
         <a class="feature-card" href="blog.html"><div class="icon">📝</div><h2>From the Blog</h2><p>Read ideas about bonding, communication, Valentine’s Day, and friendship.</p></a>
         <a class="feature-card polls-card" href="polls.html"><div class="icon">?</div><h2>Community Polls</h2><p>Open a topic, choose your preference, and see the local vote split.</p><span class="card-action">Browse the polls →</span></a>
         <section class="feature-card featured-poll-card" aria-labelledby="featured-poll-title"><div class="icon">📊</div><h2 id="featured-poll-title">Featured Poll of the Week</h2><div class="poll-preview"><p class="poll-question">Do you believe Family Marriage Lasted Longer?</p><form id="featuredPollForm"><label class="poll-option-preview"><input type="radio" name="featuredFamilyMarriage" value="0"> <span>Yes, family-arranged marriages can last longer</span></label><label class="poll-option-preview"><input type="radio" name="featuredFamilyMarriage" value="1"> <span>No, love marriages can last longer</span></label><label class="poll-option-preview"><input type="radio" name="featuredFamilyMarriage" value="2"> <span>It depends on the couple</span></label><label class="poll-option-preview"><input type="radio" name="featuredFamilyMarriage" value="3"> <span>I’m not sure</span></label><button class="poll-submit" type="submit">Vote on this topic</button><p class="poll-feedback" id="featuredPollFeedback" aria-live="polite">Choose one option. Your vote stays in this browser.</p></form></div><a class="poll-full-link" href="polls.html?topic=relationships#poll-list-title">Open the full poll →</a></section>
-        <a class="feature-card featured-blog-card" href="blog-posts/couple-bonding-activities-at-home.html"><div class="featured-post-image"><img src="assets/featured-post-week.jpg" alt="A couple sharing a thoughtful activity at home in warm window light"></div><div class="featured-post-content"><div class="icon">✦</div><h2>Featured Post of The Week</h2><p>Small rituals can make an ordinary evening feel closer—explore easy at-home ideas for reconnecting.</p><span class="card-action">Read the featured story →</span></div></a>
         <a class="feature-card" href="calculator.html#mintBtn"><div class="icon">✨</div><h2>Keep the Moment</h2><p>Connect a wallet on Ink Chain when you want to turn a result into a keepsake.</p></a>
         <a class="feature-card quotes-card" href="quotes.html"><div class="icon">💬</div><h2>Featured Quotes of the Day</h2><p>A calm place for one line worth sharing, saving, or sending.</p><span class="card-action">Open the Love Quotes page →</span></a>
       </section>
     </main>
-    <footer class="site-footer"><p>© 2026 Couple in Bond. All rights reserved.</p><p><a href="calculator.html">Calculator</a> · <a href="compatibility-quiz.html">Compatibility Quiz</a> · <a href="blog.html">Blog</a> · <a href="polls.html">Polls</a> · <a href="valentines-day.html">Valentine’s Day</a> · <a href="privacy.html">Privacy</a> · <a href="contact.html">Contact</a></p></footer>
+    <footer class="site-footer"></footer>
   </div>
   <script>
     const el = (id) => document.getElementById(id);
@@ -139,9 +141,6 @@
     }
     el("connectBtn").addEventListener("click", connectWallet);
     el("disconnectBtn").addEventListener("click", () => { el("walletStatus").textContent = "Wallet: Not connected"; el("connectBtn").style.display = "inline-flex"; el("disconnectBtn").style.display = "none"; });
-    el("menuToggle").addEventListener("click", (event) => { event.stopPropagation(); const open = el("mobileMenu").classList.toggle("open"); el("menuToggle").setAttribute("aria-expanded", String(open)); });
-    el("mobileMenu").addEventListener("click", (event) => event.stopPropagation());
-    document.addEventListener("click", () => { el("mobileMenu").classList.remove("open"); el("menuToggle").setAttribute("aria-expanded", "false"); });
 
     const featuredPollForm = document.getElementById("featuredPollForm");
     const featuredPollFeedback = document.getElementById("featuredPollFeedback");

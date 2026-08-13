@@ -26,49 +26,9 @@
             <span class="blog-wallet-status" id="blogWalletStatus">Wallet: Not connected</span>
             <button class="blog-wallet-button" id="blogWalletButton" type="button">Connect wallet</button>
           </div>
-          <button class="blog-menu-toggle" id="blogMenuToggle" type="button" aria-expanded="false" aria-controls="blogMobileMenu">☰ Menu</button>
         </div>
       </div>
-      <nav class="blog-nav-links" aria-label="Blog navigation">
-        <a href="${root}/index.html">Home</a>
-        <a href="${root}/compatibility-quiz.html">Compatibility Quiz</a>
-        <a href="${root}/blog.html">Blog</a>
-        <a href="${root}/polls.html">Polls</a>
-        <a href="${root}/quotes.html">Love Quotes</a>
-        <a href="${root}/valentines-day.html">Valentine’s Day</a>
-        <a href="${root}/about.html">About Us</a>
-        <a href="${root}/privacy.html">Privacy</a>
-        <a href="${root}/contact.html">Contact</a>
-        <a class="blog-nav-cta" href="${root}/calculator.html#calcBtn">Try the calculator</a>
-      </nav>
-      <nav class="blog-mobile-menu" id="blogMobileMenu" aria-label="More navigation">
-        <a href="${root}/index.html">Home</a>
-        <a href="${root}/compatibility-quiz.html">Compatibility Quiz</a>
-        <a href="${root}/blog.html">Blog</a>
-        <a href="${root}/polls.html">Polls</a>
-        <a href="${root}/quotes.html">Love Quotes</a>
-        <a href="${root}/valentines-day.html">Valentine’s Day</a>
-        <a href="${root}/about.html">About Us</a>
-        <a href="${root}/privacy.html">Privacy</a>
-        <a href="${root}/contact.html">Contact</a>
-        <a href="${root}/calculator.html#calcBtn">Try the calculator</a>
-      </nav>
     `;
-
-    const toggle = document.getElementById("blogMenuToggle");
-    const mobileMenu = document.getElementById("blogMobileMenu");
-    const closeMenu = () => {
-      mobileMenu.classList.remove("open");
-      toggle.setAttribute("aria-expanded", "false");
-    };
-
-    toggle.addEventListener("click", (event) => {
-      event.stopPropagation();
-      const open = mobileMenu.classList.toggle("open");
-      toggle.setAttribute("aria-expanded", String(open));
-    });
-    mobileMenu.addEventListener("click", (event) => event.stopPropagation());
-    document.addEventListener("click", closeMenu);
 
     const socialScript = document.createElement("script");
     socialScript.src = `${root}/social-icons.js`;
