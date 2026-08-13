@@ -60,8 +60,6 @@
           <nav class="footer-nav-links" aria-label="Footer navigation">
             <a href="${root}/index.html">Home</a>
             <a href="${root}/calculator.html">Calculator</a>
-            <a href="${root}/compatibility-quiz.html">Compatibility Quiz</a>
-            <a href="${root}/blog.html">Blog</a>
             <a href="${root}/polls.html">Polls</a>
           </nav>
         </section>
