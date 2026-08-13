@@ -8,7 +8,7 @@
   <script src="https://cdn.jsdelivr.net/npm/ethers@5.7.2/dist/ethers.umd.min.js"></script>
   <script src="social-icons.js" defer></script>
   <style>
-    /* Design reminder: Editorial Bloom — keep the pink-to-lilac atmosphere, use generous editorial type, and make the featured quote feel like a keepsake rather than a generic feature tile. */
+    /* Design reminder: Editorial Bloom — keep the pink-to-lilac atmosphere, use generous editorial type, and give each featured tool a clear, tactile keepsake cue. */
     :root { --primary:#ff4d6d; --primary-dark:#d63d5b; --secondary:#6a00f4; --bg1:#ff9a9e; --bg2:#fad0c4; --bg3:#fbc2eb; --ink:#1f2937; --muted:#6b7280; --light:#9ca3af; --white:rgba(255,255,255,.94); }
     * { box-sizing:border-box; }
     html { scroll-behavior:smooth; }
@@ -77,6 +77,19 @@
     .quotes-card h2 .quote-highlight { background:linear-gradient(transparent 59%,rgba(255,77,109,.25) 59%); box-decoration-break:clone; -webkit-box-decoration-break:clone; }
     .quotes-card .quote-context { margin:0; color:var(--secondary); font-size:.66rem; font-style:italic; font-weight:800; letter-spacing:.02em; }
     .quotes-card .card-action { margin-top:auto; }
+    .calculator-card { position:relative; display:flex; flex-direction:column; min-height:250px; overflow:hidden; background:radial-gradient(circle at 100% 0%,rgba(255,77,109,.2),transparent 38%),linear-gradient(145deg,#fff8f8,#fff0f5 58%,#f2eaff); border-color:rgba(255,77,109,.22); }
+    .calculator-card::after { position:absolute; right:-28px; bottom:-44px; width:150px; height:150px; border:1px solid rgba(255,77,109,.16); border-radius:50%; box-shadow:0 0 0 16px rgba(255,77,109,.045),0 0 0 32px rgba(106,0,244,.035); content:""; pointer-events:none; }
+    .calculator-card .calculator-card-heading, .calculator-card .calculator-score-row, .calculator-card .calculator-kicker, .calculator-card .calculator-card-copy, .calculator-card .card-action { position:relative; z-index:1; }
+    .calculator-card .calculator-card-heading { display:flex; align-items:center; gap:11px; }
+    .calculator-card .icon { display:grid; place-items:center; width:36px; height:36px; margin:0; color:#fff; background:linear-gradient(135deg,var(--primary),var(--secondary)); border-radius:12px; font-size:1.05rem; box-shadow:0 8px 18px rgba(255,77,109,.22); }
+    .calculator-card .calculator-kicker { color:var(--primary-dark); font-size:.64rem; font-weight:900; letter-spacing:.13em; text-transform:uppercase; }
+    .calculator-card .calculator-score-row { display:flex; align-items:center; gap:14px; margin:22px 0 13px; }
+    .calculator-card .calculator-score { display:grid; place-items:center; width:58px; height:58px; flex:0 0 58px; color:var(--primary-dark); background:rgba(255,255,255,.72); border:6px solid rgba(255,77,109,.18); border-right-color:var(--primary); border-bottom-color:var(--secondary); border-radius:50%; font-family:Georgia,"Times New Roman",serif; font-size:1.12rem; font-weight:700; transform:rotate(-13deg); }
+    .calculator-card .calculator-score strong { transform:rotate(13deg); }
+    .calculator-card h2 { margin:0; max-width:220px; color:#3b2144; font-size:clamp(1.18rem,2.4vw,1.42rem); line-height:1.1; letter-spacing:-.045em; }
+    .calculator-card .calculator-highlight { color:var(--primary); }
+    .calculator-card .calculator-card-copy { margin:0; max-width:245px; color:var(--muted); font-size:.76rem; line-height:1.55; }
+    .calculator-card .card-action { margin-top:auto; }
     .featured-blog-card { display:flex; flex-direction:column; overflow:hidden; padding:0; background:linear-gradient(145deg,#fff7fb,#f4edff); border-color:rgba(106,0,244,.16); }
     .featured-blog-card .featured-post-image { width:100%; aspect-ratio:16 / 9; overflow:hidden; background:#f4edff; }
     .featured-blog-card .featured-post-image img { display:block; width:100%; height:100%; object-fit:cover; object-position:center; }
@@ -97,7 +110,7 @@
     .featured-poll-card .poll-full-link:hover { color:var(--secondary); }
     .site-footer { width:min(1050px,100%); margin:0 auto; }
     @media (max-width:820px) { .hero { grid-template-columns:1fr; } .feature-grid { grid-template-columns:repeat(2,minmax(0,1fr)); } }
-    @media (max-width:560px) { .page { padding:12px 11px 26px; } .topbar { padding:12px; gap:8px; } .brand { font-size:1rem; } .wallet-area { margin-left:auto; gap:5px; } #walletStatus { display:none; } .wallet-button { padding:8px 9px; font-size:.64rem; } .menu-button { display:none; } .hero { padding:18px 0 28px; } .hero-card { padding:31px 22px; } h1 { font-size:clamp(2.8rem,15vw,4.5rem); } .hero-note { min-height:245px; padding:22px; } .feature-grid { grid-template-columns:1fr; padding-bottom:38px; } .quotes-card { min-height:230px; } .quotes-card h2 { max-width:260px; font-size:1.28rem; } }
+    @media (max-width:560px) { .page { padding:12px 11px 26px; } .topbar { padding:12px; gap:8px; } .brand { font-size:1rem; } .wallet-area { margin-left:auto; gap:5px; } #walletStatus { display:none; } .wallet-button { padding:8px 9px; font-size:.64rem; } .menu-button { display:none; } .hero { padding:18px 0 28px; } .hero-card { padding:31px 22px; } h1 { font-size:clamp(2.8rem,15vw,4.5rem); } .hero-note { min-height:245px; padding:22px; } .feature-grid { grid-template-columns:1fr; padding-bottom:38px; } .quotes-card { min-height:230px; } .quotes-card h2 { max-width:260px; font-size:1.28rem; } .calculator-card { min-height:230px; } .calculator-card .calculator-score-row { margin-top:19px; } }
   </style>
     <meta name="description" content="Use Couple in Bond for a playful love calculator, compatibility quiz, relationship polls, love quotes, and ideas for closer everyday moments.">
   <meta name="robots" content="index,follow,max-image-preview:large">
@@ -131,7 +144,7 @@
         <aside class="hero-note hero-featured-post"><div class="featured-post-image"><img src="assets/featured-post-week.jpg" alt="A couple sharing a thoughtful activity at home in warm window light"></div><div class="featured-post-body"><div class="note-icon" aria-hidden="true">✦</div><div class="featured-post-kicker">Featured Post of The Week</div><h2><a href="blog-posts/couple-bonding-activities-at-home.html">Make an ordinary evening feel closer.</a></h2><p>Small rituals can make an ordinary evening feel closer—explore easy at-home ideas for reconnecting.</p><a class="card-action" href="blog-posts/couple-bonding-activities-at-home.html">Read the featured story →</a></div></aside>
       </section>
       <section class="feature-grid" aria-label="Couple in Bond features">
-        <a class="feature-card calculator-card" href="calculator.html"><div class="icon">💘</div><h2>Love Calculator</h2><p>See your playful connection score and choose whether to mint the result.</p><span class="card-action">Open the love calculator →</span></a>
+        <a class="feature-card calculator-card" href="calculator.html"><div class="calculator-card-heading"><div class="icon" aria-hidden="true">💘</div><span class="calculator-kicker">Playful connection check</span></div><div class="calculator-score-row"><div class="calculator-score" aria-hidden="true"><strong>∞</strong></div><h2>Find your <span class="calculator-highlight">connection score.</span></h2></div><p class="calculator-card-copy">Enter two names, reveal a lighthearted result, and keep the moment on Ink Chain if you wish.</p><span class="card-action">Open the love calculator →</span></a>
         <a class="feature-card compatibility-card" href="compatibility-quiz.html"><div class="icon">↔</div><h2>Compatibility Quiz</h2><p>Explore values, communication, conflict, and shared direction with a short reflection.</p><span class="card-action">Take the quiz →</span></a>
         <a class="feature-card" href="blog.html"><div class="icon">📝</div><h2>From the Blog</h2><p>Read ideas about bonding, communication, Valentine’s Day, and friendship.</p></a>
         <a class="feature-card polls-card" href="polls.html"><div class="icon">?</div><h2>Community Polls</h2><p>Open a topic, choose your preference, and see the local vote split.</p><span class="card-action">Browse the polls →</span></a>
