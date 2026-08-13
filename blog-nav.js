@@ -31,6 +31,7 @@
       </div>
       <nav class="blog-nav-links" aria-label="Blog navigation">
         <a href="${root}/index.html">Home</a>
+        <a href="${root}/compatibility-quiz.html">Compatibility Quiz</a>
         <a href="${root}/blog.html">Blog</a>
         <a href="${root}/polls.html">Polls</a>
         <a href="${root}/quotes.html">Love Quotes</a>
@@ -42,6 +43,7 @@
       </nav>
       <nav class="blog-mobile-menu" id="blogMobileMenu" aria-label="More navigation">
         <a href="${root}/index.html">Home</a>
+        <a href="${root}/compatibility-quiz.html">Compatibility Quiz</a>
         <a href="${root}/blog.html">Blog</a>
         <a href="${root}/polls.html">Polls</a>
         <a href="${root}/quotes.html">Love Quotes</a>
