@@ -1,0 +1,759 @@
+{
+  "generatedAt": "2026-08-13T20:38:04.142Z",
+  "scope": "CoupleIn Bond static site, worldwide SEO implementation audit",
+  "pages": [
+    {
+      "page": "index.html",
+      "title": "Couple in Bond | Love, connection, and keepsakes",
+      "titleLength": 48,
+      "description": "Couple in Bond offers playful love tools, relationship ideas, quotes, and keepsakes for the people who matter.",
+      "descriptionLength": 110,
+      "canonical": [
+        "https://couplein.bond/"
+      ],
+      "canonicalCount": 1,
+      "favicon": true,
+      "og": {
+        "title": "Couple in Bond | Love tools made playful",
+        "description": "Playful love tools, thoughtful relationship ideas, and keepsakes for the people who matter.",
+        "url": "https://couplein.bond/",
+        "image": "https://couplein.bond/social-share.jpg"
+      },
+      "twitter": {
+        "card": "",
+        "title": "",
+        "description": "",
+        "image": ""
+      },
+      "headings": {
+        "h1": 1,
+        "h2": 8,
+        "h3": 0,
+        "h4": 0,
+        "h5": 0,
+        "h6": 0
+      },
+      "headingSequence": [
+        1,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2
+      ],
+      "nonSemanticSectionTitles": 0,
+      "jsonLdTypes": [],
+      "internalLinkCount": 10,
+      "brokenLinks": [],
+      "placeholderCopy": false
+    },
+    {
+      "page": "calculator.html",
+      "title": "Love Calculator by Name | Couple in Bond",
+      "titleLength": 40,
+      "description": "Use Couple in Bond’s free love calculator by name to get a playful love percentage, explore compatibility questions, and save your result as an Ink Chain keepsake.",
+      "descriptionLength": 163,
+      "canonical": [
+        "https://couplein.bond/calculator.html"
+      ],
+      "canonicalCount": 1,
+      "favicon": true,
+      "og": {
+        "title": "Couple in Bond - Love Calculator",
+        "description": "Couple in Bond: The ultimate love calculator to measure compatibility, banter, and meme synergy. Find your perfect match and mint your love as an NFT on the Ink Chain.",
+        "url": "https://couplein.bond/calculator.html",
+        "image": "https://couplein.bond/social-share.jpg"
+      },
+      "twitter": {
+        "card": "summary_large_image",
+        "title": "Couple in Bond - Love Calculator",
+        "description": "Couple in Bond: The ultimate love calculator to measure compatibility, banter, and meme synergy. Find your perfect match and mint your love as an NFT on the Ink Chain.",
+        "image": "https://couplein.bond/social-share.jpg"
+      },
+      "headings": {
+        "h1": 1,
+        "h2": 4,
+        "h3": 3,
+        "h4": 0,
+        "h5": 0,
+        "h6": 0
+      },
+      "headingSequence": [
+        1,
+        2,
+        3,
+        3,
+        3,
+        2,
+        2,
+        2
+      ],
+      "nonSemanticSectionTitles": 0,
+      "jsonLdTypes": [
+        "FAQPage"
+      ],
+      "internalLinkCount": 18,
+      "brokenLinks": [],
+      "placeholderCopy": true
+    },
+    {
+      "page": "compatibility-quiz.html",
+      "title": "Relationship Compatibility Quiz | Couple in Bond",
+      "titleLength": 48,
+      "description": "Take a short relationship compatibility quiz about values, communication, conflict, and shared goals. Get a playful reflection and one kind next step.",
+      "descriptionLength": 150,
+      "canonical": [
+        "https://couplein.bond/compatibility-quiz.html"
+      ],
+      "canonicalCount": 1,
+      "favicon": true,
+      "og": {
+        "title": "Relationship Compatibility Quiz | Couple in Bond",
+        "description": "Explore values, communication, conflict, and shared goals with a short relationship compatibility reflection quiz.",
+        "url": "https://couplein.bond/compatibility-quiz.html",
+        "image": "https://couplein.bond/social-share.jpg"
+      },
+      "twitter": {
+        "card": "summary_large_image",
+        "title": "Relationship Compatibility Quiz | Couple in Bond",
+        "description": "A short, private, playful quiz for couples who want a better conversation.",
+        "image": ""
+      },
+      "headings": {
+        "h1": 1,
+        "h2": 6,
+        "h3": 6,
+        "h4": 0,
+        "h5": 0,
+        "h6": 0
+      },
+      "headingSequence": [
+        1,
+        2,
+        3,
+        2,
+        2,
+        3,
+        3,
+        3,
+        3,
+        3,
+        2,
+        2,
+        2
+      ],
+      "nonSemanticSectionTitles": 0,
+      "jsonLdTypes": [
+        "WebPage",
+        "WebApplication",
+        "FAQPage"
+      ],
+      "internalLinkCount": 16,
+      "brokenLinks": [],
+      "placeholderCopy": false
+    },
+    {
+      "page": "blog.html",
+      "title": "Couple in Bond Blog | Love, Dating, and Relationship Ideas",
+      "titleLength": 58,
+      "description": "Thoughtful ideas about couple bonding, communication, dating, Valentine’s Day, Galentine’s Day, and everyday connection from Couple in Bond.",
+      "descriptionLength": 140,
+      "canonical": [
+        "https://couplein.bond/blog.html"
+      ],
+      "canonicalCount": 1,
+      "favicon": true,
+      "og": {
+        "title": "Couple in Bond Blog",
+        "description": "Thoughtful ideas for couples, daters, friends, and anyone making room for more love.",
+        "url": "https://couplein.bond/blog.html",
+        "image": "https://couplein.bond/social-share.jpg"
+      },
+      "twitter": {
+        "card": "",
+        "title": "",
+        "description": "",
+        "image": ""
+      },
+      "headings": {
+        "h1": 1,
+        "h2": 3,
+        "h3": 5,
+        "h4": 0,
+        "h5": 0,
+        "h6": 0
+      },
+      "headingSequence": [
+        1,
+        2,
+        2,
+        2,
+        3,
+        3,
+        3,
+        3,
+        3
+      ],
+      "nonSemanticSectionTitles": 0,
+      "jsonLdTypes": [
+        "Blog",
+        "ItemList",
+        "Organization"
+      ],
+      "internalLinkCount": 14,
+      "brokenLinks": [],
+      "placeholderCopy": false
+    },
+    {
+      "page": "polls.html",
+      "title": "Community Polls | Couple in Bond",
+      "titleLength": 32,
+      "description": "Vote on playful relationship, dating, connection, and Valentine’s Day topics with the Couple in Bond community polls.",
+      "descriptionLength": 117,
+      "canonical": [
+        "https://couplein.bond/polls.html"
+      ],
+      "canonicalCount": 1,
+      "favicon": true,
+      "og": {
+        "title": "Community Polls | Couple in Bond",
+        "description": "Choose a topic, share your preference, and see the local poll results.",
+        "url": "https://couplein.bond/polls.html",
+        "image": "https://couplein.bond/social-share.jpg"
+      },
+      "twitter": {
+        "card": "",
+        "title": "",
+        "description": "",
+        "image": ""
+      },
+      "headings": {
+        "h1": 1,
+        "h2": 4,
+        "h3": 0,
+        "h4": 0,
+        "h5": 0,
+        "h6": 0
+      },
+      "headingSequence": [
+        1,
+        2,
+        2,
+        2,
+        2
+      ],
+      "nonSemanticSectionTitles": 0,
+      "jsonLdTypes": [],
+      "internalLinkCount": 4,
+      "brokenLinks": [],
+      "placeholderCopy": false
+    },
+    {
+      "page": "quotes.html",
+      "title": "Love Quotes for Couples | Couple in Bond",
+      "titleLength": 40,
+      "description": "Find short love quotes, romantic messages, and thoughtful words for him, for her, and for the person who makes your day feel lighter.",
+      "descriptionLength": 133,
+      "canonical": [
+        "https://couplein.bond/quotes.html"
+      ],
+      "canonicalCount": 1,
+      "favicon": true,
+      "og": {
+        "title": "Love Quotes | Couple in Bond",
+        "description": "A future home for love quotes, sweet messages, and words worth sharing.",
+        "url": "https://couplein.bond/quotes.html",
+        "image": "https://couplein.bond/social-share.jpg"
+      },
+      "twitter": {
+        "card": "",
+        "title": "",
+        "description": "",
+        "image": ""
+      },
+      "headings": {
+        "h1": 1,
+        "h2": 2,
+        "h3": 0,
+        "h4": 0,
+        "h5": 0,
+        "h6": 0
+      },
+      "headingSequence": [
+        1,
+        2,
+        2
+      ],
+      "nonSemanticSectionTitles": 0,
+      "jsonLdTypes": [],
+      "internalLinkCount": 13,
+      "brokenLinks": [],
+      "placeholderCopy": true
+    },
+    {
+      "page": "contact.html",
+      "title": "Contact Couple in Bond | Feedback and Ideas",
+      "titleLength": 43,
+      "description": "Share feedback with Couple in Bond about the love calculator, compatibility quiz, polls, quotes, articles, or future relationship tools.",
+      "descriptionLength": 136,
+      "canonical": [
+        "https://couplein.bond/contact.html"
+      ],
+      "canonicalCount": 1,
+      "favicon": true,
+      "og": {
+        "title": "Contact | Couple in Bond",
+        "description": "Share feedback about the Couple in Bond love calculator, polls, quotes, articles, and future relationship tools.",
+        "url": "https://couplein.bond/contact.html",
+        "image": "https://couplein.bond/social-share.jpg"
+      },
+      "twitter": {
+        "card": "",
+        "title": "",
+        "description": "",
+        "image": ""
+      },
+      "headings": {
+        "h1": 1,
+        "h2": 4,
+        "h3": 0,
+        "h4": 0,
+        "h5": 0,
+        "h6": 0
+      },
+      "headingSequence": [
+        1,
+        2,
+        2,
+        2,
+        2
+      ],
+      "nonSemanticSectionTitles": 0,
+      "jsonLdTypes": [],
+      "internalLinkCount": 3,
+      "brokenLinks": [],
+      "placeholderCopy": false
+    },
+    {
+      "page": "valentines-day.html",
+      "title": "Valentine’s Day Ideas for Couples | Couple in Bond",
+      "titleLength": 50,
+      "description": "Find Valentine’s Day ideas for couples, at-home date ideas, long-distance love rituals, messages, polls, and a playful love calculator.",
+      "descriptionLength": 135,
+      "canonical": [
+        "https://couplein.bond/valentines-day.html"
+      ],
+      "canonicalCount": 1,
+      "favicon": true,
+      "og": {
+        "title": "Valentine’s Day | Couple in Bond",
+        "description": "A future home for Valentine’s Day ideas, love notes, and seasonal Couple in Bond posts.",
+        "url": "https://couplein.bond/valentines-day.html",
+        "image": "https://couplein.bond/social-share.jpg"
+      },
+      "twitter": {
+        "card": "",
+        "title": "",
+        "description": "",
+        "image": ""
+      },
+      "headings": {
+        "h1": 1,
+        "h2": 4,
+        "h3": 0,
+        "h4": 0,
+        "h5": 0,
+        "h6": 0
+      },
+      "headingSequence": [
+        1,
+        2,
+        2,
+        2,
+        2
+      ],
+      "nonSemanticSectionTitles": 0,
+      "jsonLdTypes": [],
+      "internalLinkCount": 9,
+      "brokenLinks": [],
+      "placeholderCopy": true
+    },
+    {
+      "page": "about.html",
+      "title": "About Us - Couple in Bond",
+      "titleLength": 25,
+      "description": "Learn more about Couple in Bond, our mission to celebrate love, and how our unique love calculator works. Discover our technology and vision.",
+      "descriptionLength": 141,
+      "canonical": [
+        "https://couplein.bond/about.html"
+      ],
+      "canonicalCount": 1,
+      "favicon": true,
+      "og": {
+        "title": "About Us - Couple in Bond",
+        "description": "Learn more about Couple in Bond, our mission to celebrate love, and how our unique love calculator works. Discover our technology and vision.",
+        "url": "https://couplein.bond/about.html",
+        "image": "https://couplein.bond/social-share.jpg"
+      },
+      "twitter": {
+        "card": "summary_large_image",
+        "title": "About Us - Couple in Bond",
+        "description": "Learn more about Couple in Bond, our mission to celebrate love, and how our unique love calculator works. Discover our technology and vision.",
+        "image": "https://couplein.bond/social-share.jpg"
+      },
+      "headings": {
+        "h1": 1,
+        "h2": 0,
+        "h3": 0,
+        "h4": 0,
+        "h5": 0,
+        "h6": 0
+      },
+      "headingSequence": [
+        1
+      ],
+      "nonSemanticSectionTitles": 5,
+      "jsonLdTypes": [],
+      "internalLinkCount": 9,
+      "brokenLinks": [],
+      "placeholderCopy": true
+    },
+    {
+      "page": "privacy.html",
+      "title": "Privacy Policy - Couple in Bond",
+      "titleLength": 31,
+      "description": "Privacy Policy for Couple in Bond. Understand how we handle your data, blockchain interactions, cookies, and security measures.",
+      "descriptionLength": 127,
+      "canonical": [
+        "https://couplein.bond/privacy.html"
+      ],
+      "canonicalCount": 1,
+      "favicon": true,
+      "og": {
+        "title": "Privacy Policy - Couple in Bond",
+        "description": "Privacy Policy for Couple in Bond. Understand how we handle your data, blockchain interactions, cookies, and security measures.",
+        "url": "https://couplein.bond/privacy.html",
+        "image": "https://couplein.bond/social-share.jpg"
+      },
+      "twitter": {
+        "card": "summary_large_image",
+        "title": "Privacy Policy - Couple in Bond",
+        "description": "Privacy Policy for Couple in Bond. Understand how we handle your data, blockchain interactions, cookies, and security measures.",
+        "image": "https://couplein.bond/social-share.jpg"
+      },
+      "headings": {
+        "h1": 1,
+        "h2": 0,
+        "h3": 0,
+        "h4": 0,
+        "h5": 0,
+        "h6": 0
+      },
+      "headingSequence": [
+        1
+      ],
+      "nonSemanticSectionTitles": 5,
+      "jsonLdTypes": [],
+      "internalLinkCount": 3,
+      "brokenLinks": [],
+      "placeholderCopy": true
+    },
+    {
+      "page": "blog-posts/couple-bonding-activities-at-home.html",
+      "title": "25 Couple Bonding Activities at Home | Couple in Bond",
+      "titleLength": 53,
+      "description": "Try 25 simple couple bonding activities at home, from conversation rituals to shared creative projects and low-cost date ideas.",
+      "descriptionLength": 127,
+      "canonical": [
+        "https://couplein.bond/blog-posts/couple-bonding-activities-at-home.html"
+      ],
+      "canonicalCount": 1,
+      "favicon": true,
+      "og": {
+        "title": "",
+        "description": "",
+        "url": "",
+        "image": ""
+      },
+      "twitter": {
+        "card": "",
+        "title": "",
+        "description": "",
+        "image": ""
+      },
+      "headings": {
+        "h1": 1,
+        "h2": 5,
+        "h3": 0,
+        "h4": 0,
+        "h5": 0,
+        "h6": 0
+      },
+      "headingSequence": [
+        1,
+        2,
+        2,
+        2,
+        2,
+        2
+      ],
+      "nonSemanticSectionTitles": 0,
+      "jsonLdTypes": [
+        "BlogPosting"
+      ],
+      "internalLinkCount": 6,
+      "brokenLinks": [],
+      "placeholderCopy": false
+    },
+    {
+      "page": "blog-posts/couples-communication-exercises.html",
+      "title": "Couples Communication Exercises for Emotional Intimacy | Couple in Bond",
+      "titleLength": 71,
+      "description": "Use these gentle couples communication exercises to practice listening, appreciation, repair, and more emotional intimacy.",
+      "descriptionLength": 122,
+      "canonical": [
+        "https://couplein.bond/blog-posts/couples-communication-exercises.html"
+      ],
+      "canonicalCount": 1,
+      "favicon": true,
+      "og": {
+        "title": "",
+        "description": "",
+        "url": "",
+        "image": ""
+      },
+      "twitter": {
+        "card": "",
+        "title": "",
+        "description": "",
+        "image": ""
+      },
+      "headings": {
+        "h1": 1,
+        "h2": 5,
+        "h3": 0,
+        "h4": 0,
+        "h5": 0,
+        "h6": 0
+      },
+      "headingSequence": [
+        1,
+        2,
+        2,
+        2,
+        2,
+        2
+      ],
+      "nonSemanticSectionTitles": 0,
+      "jsonLdTypes": [
+        "BlogPosting"
+      ],
+      "internalLinkCount": 6,
+      "brokenLinks": [],
+      "placeholderCopy": false
+    },
+    {
+      "page": "blog-posts/galentines-day-ideas-self-love.html",
+      "title": "Galentine’s Day Ideas for Friendship and Self-Love | Couple in Bond",
+      "titleLength": 67,
+      "description": "Celebrate Galentine’s Day with thoughtful friendship ideas, self-love rituals, brunch plans, care packages, and honest check-ins.",
+      "descriptionLength": 129,
+      "canonical": [
+        "https://couplein.bond/blog-posts/galentines-day-ideas-self-love.html"
+      ],
+      "canonicalCount": 1,
+      "favicon": true,
+      "og": {
+        "title": "",
+        "description": "",
+        "url": "",
+        "image": ""
+      },
+      "twitter": {
+        "card": "",
+        "title": "",
+        "description": "",
+        "image": ""
+      },
+      "headings": {
+        "h1": 1,
+        "h2": 4,
+        "h3": 0,
+        "h4": 0,
+        "h5": 0,
+        "h6": 0
+      },
+      "headingSequence": [
+        1,
+        2,
+        2,
+        2,
+        2
+      ],
+      "nonSemanticSectionTitles": 0,
+      "jsonLdTypes": [
+        "BlogPosting"
+      ],
+      "internalLinkCount": 6,
+      "brokenLinks": [],
+      "placeholderCopy": false
+    },
+    {
+      "page": "blog-posts/valentines-day-date-ideas-at-home.html",
+      "title": "Valentine’s Day Date Ideas at Home | Couple in Bond",
+      "titleLength": 51,
+      "description": "Thoughtful Valentine’s Day date ideas at home for couples who want a romantic, personal, and budget-friendly celebration.",
+      "descriptionLength": 121,
+      "canonical": [
+        "https://couplein.bond/blog-posts/valentines-day-date-ideas-at-home.html"
+      ],
+      "canonicalCount": 1,
+      "favicon": true,
+      "og": {
+        "title": "",
+        "description": "",
+        "url": "",
+        "image": ""
+      },
+      "twitter": {
+        "card": "",
+        "title": "",
+        "description": "",
+        "image": ""
+      },
+      "headings": {
+        "h1": 1,
+        "h2": 4,
+        "h3": 0,
+        "h4": 0,
+        "h5": 0,
+        "h6": 0
+      },
+      "headingSequence": [
+        1,
+        2,
+        2,
+        2,
+        2
+      ],
+      "nonSemanticSectionTitles": 0,
+      "jsonLdTypes": [
+        "BlogPosting"
+      ],
+      "internalLinkCount": 6,
+      "brokenLinks": [],
+      "placeholderCopy": false
+    },
+    {
+      "page": "blog-posts/why-modern-dating-feels-so-hard.html",
+      "title": "Why Modern Dating Feels So Hard | Couple in Bond",
+      "titleLength": 48,
+      "description": "Why modern dating can feel exhausting, confusing, and overly fast—and how to create a calmer, more grounded dating rhythm.",
+      "descriptionLength": 122,
+      "canonical": [
+        "https://couplein.bond/blog-posts/why-modern-dating-feels-so-hard.html"
+      ],
+      "canonicalCount": 1,
+      "favicon": true,
+      "og": {
+        "title": "",
+        "description": "",
+        "url": "",
+        "image": ""
+      },
+      "twitter": {
+        "card": "",
+        "title": "",
+        "description": "",
+        "image": ""
+      },
+      "headings": {
+        "h1": 1,
+        "h2": 4,
+        "h3": 0,
+        "h4": 0,
+        "h5": 0,
+        "h6": 0
+      },
+      "headingSequence": [
+        1,
+        2,
+        2,
+        2,
+        2
+      ],
+      "nonSemanticSectionTitles": 0,
+      "jsonLdTypes": [
+        "BlogPosting"
+      ],
+      "internalLinkCount": 6,
+      "brokenLinks": [],
+      "placeholderCopy": false
+    }
+  ],
+  "crawlFiles": [
+    {
+      "name": "sitemap.xml",
+      "exists": false
+    },
+    {
+      "name": "robots.txt",
+      "exists": false
+    }
+  ],
+  "summary": {
+    "pageCount": 15,
+    "missingDescription": [],
+    "shortTitle": [
+      "about.html"
+    ],
+    "longTitle": [
+      "blog-posts/couples-communication-exercises.html",
+      "blog-posts/galentines-day-ideas-self-love.html"
+    ],
+    "shortDescription": [
+      "index.html",
+      "polls.html"
+    ],
+    "longDescription": [
+      "calculator.html"
+    ],
+    "missingTwitter": [
+      "index.html",
+      "compatibility-quiz.html",
+      "blog.html",
+      "polls.html",
+      "quotes.html",
+      "contact.html",
+      "valentines-day.html",
+      "blog-posts/couple-bonding-activities-at-home.html",
+      "blog-posts/couples-communication-exercises.html",
+      "blog-posts/galentines-day-ideas-self-love.html",
+      "blog-posts/valentines-day-date-ideas-at-home.html",
+      "blog-posts/why-modern-dating-feels-so-hard.html"
+    ],
+    "missingOgImage": [
+      "blog-posts/couple-bonding-activities-at-home.html",
+      "blog-posts/couples-communication-exercises.html",
+      "blog-posts/galentines-day-ideas-self-love.html",
+      "blog-posts/valentines-day-date-ideas-at-home.html",
+      "blog-posts/why-modern-dating-feels-so-hard.html"
+    ],
+    "nonSemanticHeadingPages": [
+      "about.html",
+      "privacy.html"
+    ],
+    "pagesWithoutH1": [],
+    "brokenLinks": [],
+    "placeholderCopy": [
+      "calculator.html",
+      "quotes.html",
+      "valentines-day.html",
+      "about.html",
+      "privacy.html"
+    ]
+  }
+}

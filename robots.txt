@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://couplein.bond/sitemap.xml
