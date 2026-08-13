@@ -60,6 +60,15 @@
     .feature-card .icon { font-size:1.4rem; }
     .feature-card h2 { margin:15px 0 8px; font-size:1.25rem; letter-spacing:-.035em; }
     .feature-card p { margin:0; color:var(--muted); font-size:.78rem; line-height:1.55; }
+    .feature-card .card-action { display:inline-flex; margin-top:17px; color:var(--primary); font-size:.72rem; font-weight:900; letter-spacing:.01em; }
+    .feature-card:hover .card-action { color:var(--secondary); }
+    .quotes-card { background:linear-gradient(145deg,rgba(255,255,255,.98),rgba(246,239,255,.98)); }
+    .quotes-card .icon { color:var(--secondary); background:#f4edff; }
+    .featured-blog-card { display:flex; flex-direction:column; overflow:hidden; padding:0; background:linear-gradient(145deg,#fff7fb,#f4edff); border-color:rgba(106,0,244,.16); }
+    .featured-blog-card .featured-post-image { width:100%; aspect-ratio:16 / 9; overflow:hidden; background:#f4edff; }
+    .featured-blog-card .featured-post-image img { display:block; width:100%; height:100%; object-fit:cover; object-position:center; }
+    .featured-blog-card .featured-post-content { display:flex; flex:1; flex-direction:column; padding:22px; }
+    .featured-blog-card .icon { color:#fff; background:linear-gradient(135deg,var(--secondary),var(--primary)); }
     .site-footer { display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:12px 20px; width:min(1050px,100%); margin:0 auto; padding:20px 0 5px; border-top:1px solid rgba(83,49,94,.12); color:var(--muted); font-size:.72rem; }
     .site-footer p { margin:0; }
     .site-footer a { color:var(--ink); font-weight:700; text-decoration:none; }
@@ -80,14 +89,15 @@
     </header>
     <main>
       <section class="hero" aria-labelledby="home-title">
-        <div class="hero-card"><div class="kicker">Couple in Bond · made for connection</div><h1 id="home-title">Make room for <span>more love.</span></h1><p>Playful tools, thoughtful words, and small ideas for the people who matter. Start with a lighthearted calculation or find something kind to send today.</p><div class="actions"><a class="button" href="calculator.html">Open the love calculator →</a><a class="button secondary" href="blog.html">Read the blog</a></div></div>
+        <div class="hero-card"><div class="kicker">Couple in Bond · made for connection</div><h1 id="home-title">Make room for <span>more love.</span></h1><p>Playful tools, thoughtful words, and small ideas for the people who matter. Start with a lighthearted calculation or find something kind to send today.</p><div class="actions"><a class="button secondary" href="blog.html">Read the blog</a></div></div>
         <aside class="hero-note"><div class="note-icon" aria-hidden="true">✦</div><h2>A tiny ritual can change the mood.</h2><p>Calculate a playful match, plan a better question, or keep a sweet result as a little on-chain keepsake.</p></aside>
       </section>
       <section class="feature-grid" aria-label="Couple in Bond features">
-        <a class="feature-card" href="calculator.html"><div class="icon">💘</div><h2>Love Calculator</h2><p>See your playful connection score and choose whether to mint the result.</p></a>
-        <a class="feature-card" href="blog.html"><div class="icon">📝</div><h2>From the Blog</h2><p>Read ideas about bonding, dating, communication, Valentine’s Day, and friendship.</p></a>
+        <a class="feature-card calculator-card" href="calculator.html"><div class="icon">💘</div><h2>Love Calculator</h2><p>See your playful connection score and choose whether to mint the result.</p><span class="card-action">Open the love calculator →</span></a>
+        <a class="feature-card" href="blog.html"><div class="icon">📝</div><h2>From the Blog</h2><p>Read ideas about bonding, communication, Valentine’s Day, and friendship.</p></a>
+        <a class="feature-card featured-blog-card" href="blog-posts/couple-bonding-activities-at-home.html"><div class="featured-post-image"><img src="/manus-storage/featured-post-week_db805479.jpg" alt="A couple sharing a thoughtful activity at home in warm window light"></div><div class="featured-post-content"><div class="icon">✦</div><h2>Featured Post of The Week</h2><p>Small rituals can make an ordinary evening feel closer—explore easy at-home ideas for reconnecting.</p><span class="card-action">Read the featured story →</span></div></a>
         <a class="feature-card" href="calculator.html#mintBtn"><div class="icon">✨</div><h2>Keep the Moment</h2><p>Connect a wallet on Ink Chain when you want to turn a result into a keepsake.</p></a>
-        <a class="feature-card" href="quotes.html"><div class="icon">💬</div><h2>Love Quotes</h2><p>Find sweet words for the people who matter. Quote postings are coming soon.</p></a>
+        <a class="feature-card quotes-card" href="quotes.html"><div class="icon">💬</div><h2>Featured Quotes of the Day</h2><p>A calm place for one line worth sharing, saving, or sending. Quote postings are coming soon.</p><span class="card-action">Open the Love Quotes page →</span></a>
       </section>
     </main>
     <footer class="site-footer"><p>© 2026 Couple in Bond. All rights reserved.</p><p><a href="calculator.html">Calculator</a> · <a href="blog.html">Blog</a> · <a href="valentines-day.html">Valentine’s Day</a> · <a href="privacy.html">Privacy</a> · <a href="contact.html">Contact</a></p></footer>

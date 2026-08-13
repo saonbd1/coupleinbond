@@ -75,6 +75,27 @@ a { color: inherit; }
 .blog-feature-note h2 { margin: 0 0 9px; font-size: 1.45rem; line-height: 1.1; }
 .blog-feature-note p { margin: 0; color: var(--blog-muted); font-size: 0.82rem; line-height: 1.55; }
 
+.featured-post {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr) auto;
+  align-items: center;
+  gap: 20px;
+  margin: 28px 0 42px;
+  padding: 23px 26px;
+  color: #fff;
+  background: linear-gradient(110deg, #6a00f4 0%, #b31bd3 48%, #ff4d6d 100%);
+  border: 1px solid rgba(255,255,255,.46);
+  border-radius: 21px;
+  box-shadow: 0 20px 45px rgba(106,0,244,.2);
+}
+.featured-post-mark { display: grid; place-items: center; width: 48px; height: 48px; color: var(--blog-primary); background: rgba(255,255,255,.95); border-radius: 50%; font-size: 1.35rem; }
+.featured-post-copy .blog-kicker { color: rgba(255,255,255,.78); }
+.featured-post h2 { margin: 6px 0 7px; font-size: clamp(1.45rem, 3vw, 2.15rem); line-height: 1; letter-spacing: -.045em; }
+.featured-post p { margin: 0; color: rgba(255,255,255,.86); font-size: .82rem; line-height: 1.5; }
+.featured-post .featured-post-title { margin-bottom: 3px; color: #fff; font-size: .98rem; font-weight: 850; }
+.featured-post-link { justify-self: end; padding: 11px 14px; color: var(--blog-ink); background: #fff; border-radius: 999px; font-size: .74rem; font-weight: 850; text-decoration: none; white-space: nowrap; transition: transform .2s ease, box-shadow .2s ease; }
+.featured-post-link:hover { transform: translateY(-2px); box-shadow: 0 8px 18px rgba(41,27,45,.18); }
+
 .blog-toolbar { display: flex; align-items: center; justify-content: space-between; gap: 18px; margin: 42px 0 18px; }
 .blog-toolbar h2 { margin: 0; font-size: 1.55rem; letter-spacing: -0.04em; }
 .blog-toolbar p { margin: 0; color: var(--blog-muted); font-size: 0.8rem; }
@@ -133,6 +154,8 @@ a { color: inherit; }
   .blog-hero-copy { padding: 31px 22px; }
   .blog-hero h1 { font-size: clamp(2.75rem, 15vw, 4.4rem); }
   .blog-feature-note { min-height: 245px; padding: 22px; }
+  .featured-post { grid-template-columns: auto minmax(0, 1fr); gap: 14px; margin: 24px 0 30px; padding: 20px; }
+  .featured-post-link { grid-column: 1 / -1; justify-self: start; }
   .blog-toolbar { display: block; margin-top: 30px; }
   .blog-toolbar p { margin-top: 6px; }
   .blog-grid { grid-template-columns: 1fr; }
