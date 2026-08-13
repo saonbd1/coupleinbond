@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Community Polls | Couple in Bond</title>
+  <meta name="description" content="Vote on playful relationship, dating, connection, and Valentine’s Day topics with the Couple in Bond community polls.">
+  <link rel="canonical" href="https://couplein.bond/polls.html">
+  <meta property="og:title" content="Community Polls | Couple in Bond">
+  <meta property="og:description" content="Choose a topic, share your preference, and see the local poll results.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://couplein.bond/polls.html">
+  <meta property="og:image" content="https://couplein.bond/social-share.jpg">
+  <link rel="stylesheet" href="blog.css">
+  <link rel="stylesheet" href="polls.css">
+  <script src="blog-nav.js" defer></script>
+  <script src="polls.js" defer></script>
+</head>
+<body>
+  <div class="blog-shell polls-shell">
+    <div class="blog-wrap">
+      <header class="blog-nav" data-root=".">
+        <a class="blog-brand" href="index.html">💕 Couple in Bond</a>
+      </header>
+
+      <main>
+        <section class="polls-hero" aria-labelledby="polls-title">
+          <div class="polls-hero-copy">
+            <div class="blog-kicker">Community questions · Couple in Bond</div>
+            <h1 id="polls-title">Choose a side.<br><span>Share the feeling.</span></h1>
+            <p>Open a topic, pick the option that feels most like you, and see what your browser’s poll community is choosing.</p>
+          </div>
+          <aside class="polls-hero-note">
+            <div class="blog-feature-icon" aria-hidden="true">?</div>
+            <h2>Small questions make good conversations.</h2>
+            <p>New topics can open over time, from date-night preferences to the little rituals that help people feel close.</p>
+          </aside>
+        </section>
+
+        <section class="polls-layout" aria-labelledby="poll-list-title">
+          <div class="polls-main-panel">
+            <div class="blog-toolbar polls-toolbar">
+              <div>
+                <h2 id="poll-list-title">Open polls</h2>
+                <p>Choose one answer per topic.</p>
+              </div>
+              <div class="topic-filter" role="group" aria-label="Filter polls by topic">
+                <button type="button" class="is-active" data-topic="all" aria-pressed="true">All</button>
+                <button type="button" data-topic="connection" aria-pressed="false">Connection</button>
+                <button type="button" data-topic="relationships" aria-pressed="false">Relationships</button>
+                <button type="button" data-topic="date-night" aria-pressed="false">Date night</button>
+                <button type="button" data-topic="seasonal" aria-pressed="false">Seasonal</button>
+              </div>
+            </div>
+            <div id="pollsList" class="polls-list" aria-live="polite"></div>
+            <div id="pollsEmpty" class="polls-empty" hidden>
+              <div class="polls-empty-icon" aria-hidden="true">✦</div>
+              <h2>No polls in this topic yet.</h2>
+              <p>Try another filter, or come back when a new question opens.</p>
+            </div>
+          </div>
+
+          <aside class="polls-aside" aria-label="How polls work">
+            <div class="polls-aside-icon" aria-hidden="true">✦</div>
+            <div class="blog-kicker">How it works</div>
+            <h2>Pick what feels true.</h2>
+            <p>Each topic accepts one choice in this browser. After you vote, you can see the answer split and the total recorded here.</p>
+            <div class="polls-note">This static edition stores votes locally on your device. A shared global vote count can be connected later with a database.</div>
+          </aside>
+        </section>
+      </main>
+
+      <footer class="blog-footer">
+        <p>© 2026 Couple in Bond. All rights reserved.</p>
+        <p><a href="calculator.html">Love calculator</a> · <a href="blog.html">Blog</a> · <a href="quotes.html">Love quotes</a> · Polls, for fun and reflection.</p>
+      </footer>
+    </div>
+  </div>
+</body>
+</html>

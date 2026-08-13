@@ -32,6 +32,7 @@
       <nav class="blog-nav-links" aria-label="Blog navigation">
         <a href="${root}/index.html">Home</a>
         <a href="${root}/blog.html">Blog</a>
+        <a href="${root}/polls.html">Polls</a>
         <a href="${root}/quotes.html">Love Quotes</a>
         <a href="${root}/valentines-day.html">Valentine’s Day</a>
         <a href="${root}/about.html">About Us</a>
@@ -42,6 +43,7 @@
       <nav class="blog-mobile-menu" id="blogMobileMenu" aria-label="More navigation">
         <a href="${root}/index.html">Home</a>
         <a href="${root}/blog.html">Blog</a>
+        <a href="${root}/polls.html">Polls</a>
         <a href="${root}/quotes.html">Love Quotes</a>
         <a href="${root}/valentines-day.html">Valentine’s Day</a>
         <a href="${root}/about.html">About Us</a>
