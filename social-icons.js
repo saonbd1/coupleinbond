@@ -15,17 +15,20 @@
     style.id = "coupleInSocialStyles";
     style.textContent = `
       .site-footer, .blog-footer { display:block !important; width:min(1120px,100%); margin:42px auto 0; padding:0 !important; overflow:hidden; color:var(--blog-muted, #6f6573); background:rgba(255,255,255,.93); border:1px solid rgba(255,255,255,.75); border-radius:22px; box-shadow:0 18px 50px rgba(73,34,86,.1); }
-      .footer-grid { display:grid; grid-template-columns:1.2fr .9fr 1fr; gap:clamp(28px,5vw,72px); padding:38px clamp(24px,5vw,54px) 34px; }
+      .footer-grid { display:grid; grid-template-columns:minmax(0,1fr) minmax(220px,.9fr) minmax(0,1fr); gap:clamp(28px,5vw,72px); align-items:start; padding:38px clamp(24px,5vw,54px) 34px; }
       .footer-section { min-width:0; }
       .footer-section h2 { margin:0 0 14px; color:var(--blog-ink, #291b2d); font-size:.78rem; letter-spacing:.08em; text-transform:uppercase; }
+      .footer-brand-section { text-align:center; }
       .footer-brand-mark { display:inline-block; margin-bottom:14px; color:var(--blog-primary, #ff4d6d); font-size:1.18rem; font-weight:900; text-decoration:none; }
       .footer-section p { max-width:290px; margin:0; color:var(--blog-muted, #6f6573); font-size:.78rem; line-height:1.65; }
+      .footer-brand-section p { margin-right:auto; margin-left:auto; }
       .footer-copyright { margin-top:22px !important; font-size:.68rem !important; }
       .footer-nav-links { display:flex; flex-direction:column; align-items:flex-start; gap:9px; }
+      .footer-right .footer-nav-links { align-items:flex-end; }
       .footer-nav-links a { color:var(--blog-muted, #6f6573); font-size:.78rem; font-weight:750; text-decoration:none; transition:color .18s ease, transform .18s ease; }
       .footer-nav-links a:hover, .footer-nav-links a:focus-visible { color:var(--blog-primary, #ff4d6d); transform:translateX(3px); outline:none; }
       .footer-cta { display:inline-flex; margin-top:17px; padding:10px 14px; color:#fff !important; background:linear-gradient(135deg, var(--blog-primary, #ff4d6d), var(--blog-secondary, #6a00f4)); border-radius:999px; font-size:.72rem !important; font-weight:850 !important; text-decoration:none; }
-      .social-links { display:flex; align-items:center; flex-wrap:wrap; gap:10px; margin-top:20px; }
+      .social-links { display:flex; align-items:center; justify-content:center; flex-wrap:wrap; gap:10px; margin-top:20px; }
       .social-links-label { width:100%; color:var(--blog-muted, #6f6573); font-size:.66rem; font-weight:850; letter-spacing:.08em; text-transform:uppercase; }
       .social-links-list { display:flex; align-items:center; gap:7px; }
       .social-link { display:grid; place-items:center; width:31px; height:31px; color:var(--blog-ink, #291b2d); background:rgba(255,255,255,.78); border:1px solid rgba(83,49,94,.12); border-radius:50%; text-decoration:none; transition:transform .2s ease, color .2s ease, background .2s ease; }
@@ -35,8 +38,8 @@
       .social-link svg .social-dot { fill:currentColor; stroke:none; }
       .footer-bottom { display:flex; justify-content:space-between; gap:18px; padding:15px clamp(24px,5vw,54px); color:var(--blog-muted, #6f6573); background:linear-gradient(90deg, rgba(255,241,245,.72), rgba(246,239,255,.72)); border-top:1px solid rgba(83,49,94,.1); font-size:.67rem; }
       .footer-bottom p { max-width:none; margin:0; font-size:inherit; }
-      @media (max-width:820px) { .footer-grid { grid-template-columns:1fr 1fr; } .footer-section:first-child { grid-column:1 / -1; } }
-      @media (max-width:560px) { .footer-grid { grid-template-columns:1fr; gap:28px; padding:30px 22px 26px; } .footer-section:first-child { grid-column:auto; } .footer-bottom { display:block; padding:14px 22px; } .footer-bottom p + p { margin-top:6px; } }
+      @media (max-width:820px) { .footer-grid { grid-template-columns:1fr 1fr; gap:28px; } .footer-brand-section { grid-column:1 / -1; grid-row:1; } .footer-left { grid-column:1; grid-row:2; } .footer-right { grid-column:2; grid-row:2; } }
+      @media (max-width:560px) { .footer-grid { grid-template-columns:1fr; gap:28px; padding:30px 22px 26px; } .footer-brand-section, .footer-left, .footer-right { grid-column:auto; grid-row:auto; text-align:center; } .footer-nav-links, .footer-right .footer-nav-links { align-items:center; } .footer-section p { margin-right:auto; margin-left:auto; } .footer-bottom { display:block; padding:14px 22px; } .footer-bottom p + p { margin-top:6px; } }
     `;
     document.head.appendChild(style);
   }
@@ -50,12 +53,7 @@
     const root = pageRoot();
     footer.innerHTML = `
       <div class="footer-grid">
-        <section class="footer-section">
-          <a class="footer-brand-mark" href="${root}/index.html">💕 Couple in Bond</a>
-          <p>Playful tools, thoughtful words, and small rituals for the people who matter.</p>
-          <p class="footer-copyright">Made for lighthearted connection and shared moments.</p>
-        </section>
-        <section class="footer-section">
+        <section class="footer-section footer-left">
           <h2>Explore</h2>
           <nav class="footer-nav-links" aria-label="Footer navigation">
             <a href="${root}/index.html">Home</a>
@@ -63,20 +61,24 @@
             <a href="${root}/compatibility-quiz.html">Compatibility Quiz</a>
             <a href="${root}/blog.html">Blog</a>
             <a href="${root}/polls.html">Polls</a>
-            <a href="${root}/quotes.html">Love Quotes</a>
-            <a href="${root}/valentines-day.html">Valentine’s Day</a>
           </nav>
         </section>
-        <section class="footer-section">
-          <h2>Keep exploring</h2>
-          <p>Find a small idea to share, then keep the conversation going at your own pace.</p>
-          <nav class="footer-nav-links" aria-label="About and support navigation">
+        <section class="footer-section footer-brand-section">
+          <a class="footer-brand-mark" href="${root}/index.html">💕 Couple in Bond</a>
+          <p>Playful tools, thoughtful words, and small rituals for the people who matter.</p>
+          <p class="footer-copyright">Made for lighthearted connection and shared moments.</p>
+          <a class="footer-cta" href="${root}/calculator.html#calcBtn">Try the calculator</a>
+          <div class="social-links" aria-label="Social links"><span class="social-links-label">Follow along</span><span class="social-links-list">${socials.map(({ name, href, icon }) => `<a class="social-link" href="${href}" target="_blank" rel="noopener noreferrer" aria-label="${name}">${icon}</a>`).join("")}</span></div>
+        </section>
+        <section class="footer-section footer-right">
+          <h2>More to explore</h2>
+          <nav class="footer-nav-links" aria-label="More footer navigation">
+            <a href="${root}/quotes.html">Love Quotes</a>
+            <a href="${root}/valentines-day.html">Valentine’s Day</a>
             <a href="${root}/about.html">About Us</a>
             <a href="${root}/privacy.html">Privacy</a>
             <a href="${root}/contact.html">Contact</a>
           </nav>
-          <a class="footer-cta" href="${root}/calculator.html#calcBtn">Try the calculator</a>
-          <div class="social-links" aria-label="Social links"><span class="social-links-label">Follow along</span><span class="social-links-list">${socials.map(({ name, href, icon }) => `<a class="social-link" href="${href}" target="_blank" rel="noopener noreferrer" aria-label="${name}">${icon}</a>`).join("")}</span></div>
         </section>
       </div>
       <div class="footer-bottom"><p>© 2026 Couple in Bond. All rights reserved.</p><p>Wallet connection stays available in the header.</p></div>
