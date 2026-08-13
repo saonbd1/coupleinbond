@@ -1,9 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <link rel="icon" type="image/png" href="/manus-storage/coupleinbond-favicon_6187ccb3.png">
+  <link rel="apple-touch-icon" href="/manus-storage/coupleinbond-favicon_6187ccb3.png">
   <meta charset="UTF-8" />
-  <title>Love Calculator | Couple in Bond</title>
-  <meta name="description" content="Couple in Bond: The ultimate love calculator to measure compatibility, banter, and meme synergy. Find your perfect match and mint your love as an NFT on the Ink Chain.">
+  <title>Love Calculator by Name | Couple in Bond</title>
+  <meta name="description" content="Use Couple in Bond’s free love calculator by name to get a playful love percentage, explore compatibility questions, and save your result as an Ink Chain keepsake.">
+  <link rel="canonical" href="https://couplein.bond/calculator.html">
   <meta name="keywords" content="love calculator, compatibility, relationship, NFT, Ink Chain, crypto, dating, romance, meme synergy, banter">
   <meta property="og:title" content="Couple in Bond - Love Calculator">
   <meta property="og:description" content="Couple in Bond: The ultimate love calculator to measure compatibility, banter, and meme synergy. Find your perfect match and mint your love as an NFT on the Ink Chain.">
@@ -15,6 +18,19 @@
   <meta name="twitter:description" content="Couple in Bond: The ultimate love calculator to measure compatibility, banter, and meme synergy. Find your perfect match and mint your love as an NFT on the Ink Chain.">
   <meta name="twitter:image" content="https://couplein.bond/social-share.jpg"> <!-- Placeholder image URL -->
   <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"FAQPage",
+    "mainEntity":[
+      {"@type":"Question","name":"Is a love calculator accurate?","acceptedAnswer":{"@type":"Answer","text":"A name-based love calculator is for entertainment and reflection. It does not measure the future of a relationship or replace honest conversation."}},
+      {"@type":"Question","name":"How does the Couple in Bond love calculator work?","acceptedAnswer":{"@type":"Answer","text":"Enter two names and the tool creates a playful compatibility score with lighthearted match details. The score is not a scientific test."}},
+      {"@type":"Question","name":"What does a love percentage mean?","acceptedAnswer":{"@type":"Answer","text":"The percentage is a playful result for the two names you enter. Use it as a conversation starter, not as proof of compatibility."}},
+      {"@type":"Question","name":"Can I use the love calculator for a crush?","acceptedAnswer":{"@type":"Answer","text":"Yes. You can use the tool with a partner, crush, friend, or any two names for a lighthearted result."}},
+      {"@type":"Question","name":"Does Couple in Bond store the names I enter?","acceptedAnswer":{"@type":"Answer","text":"The calculator runs in your browser. This page does not store the names or result on its own server."}}
+    ]
+  }
+  </script>
   <script src="https://cdn.jsdelivr.net/npm/ethers@5.7.2/dist/ethers.umd.min.js"></script>
   <script src="social-icons.js" defer></script>
   <link href='https://couplein.bond/calculator.html' rel='canonical'/>
@@ -235,6 +251,7 @@
       width: 100%;
       padding: 132px 24px 40px;
       display: flex;
+      flex-direction: column;
       align-items: center;
       justify-content: center;
       min-height: 100vh;
@@ -301,6 +318,117 @@
       justify-content: center;
       align-items: center;
     }
+
+    .calculator-guide,
+    .calculator-faq {
+      width: min(980px, 100%);
+      margin: 24px auto 0;
+    }
+
+    .calculator-guide {
+      display: grid;
+      grid-template-columns: minmax(0, 1.35fr) minmax(230px, .65fr);
+      gap: 18px;
+    }
+
+    .guide-panel,
+    .guide-aside,
+    .calculator-faq {
+      background: rgba(255, 255, 255, .93);
+      border: 1px solid var(--card-border);
+      border-radius: 20px;
+      box-shadow: 0 16px 45px rgba(73, 34, 86, .1);
+    }
+
+    .guide-panel,
+    .guide-aside,
+    .calculator-faq {
+      padding: 26px;
+    }
+
+    .guide-kicker {
+      color: var(--primary-dark);
+      font-size: .68rem;
+      font-weight: 900;
+      letter-spacing: .13em;
+      text-transform: uppercase;
+    }
+
+    .calculator-guide h2,
+    .calculator-faq h2 {
+      margin: 12px 0 10px;
+      color: var(--text-primary);
+      font-size: 1.55rem;
+      line-height: 1.1;
+    }
+
+    .calculator-guide h3 {
+      margin: 0 0 7px;
+      color: var(--text-primary);
+      font-size: 1rem;
+    }
+
+    .calculator-guide p,
+    .calculator-faq p {
+      color: var(--text-secondary);
+      font-size: .86rem;
+      line-height: 1.65;
+    }
+
+    .guide-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 14px;
+      margin-top: 17px;
+    }
+
+    .guide-grid > div {
+      padding: 15px;
+      background: linear-gradient(135deg, rgba(255, 245, 248, .9), rgba(246, 239, 255, .9));
+      border-radius: 13px;
+    }
+
+    .guide-aside {
+      background: linear-gradient(145deg, rgba(255, 255, 255, .96), rgba(246, 239, 255, .96));
+    }
+
+    .guide-icon {
+      display: grid;
+      place-items: center;
+      width: 48px;
+      height: 48px;
+      color: #fff;
+      background: linear-gradient(135deg, var(--primary), var(--secondary));
+      border-radius: 50%;
+      font-size: 1.3rem;
+    }
+
+    .guide-aside a {
+      display: block;
+      margin-top: 13px;
+      color: var(--secondary);
+      font-size: .78rem;
+      font-weight: 800;
+      text-decoration: none;
+    }
+
+    .guide-aside a:hover { color: var(--primary-dark); }
+
+    .calculator-faq { margin-bottom: 28px; }
+
+    .calculator-faq details {
+      padding: 15px 0;
+      border-top: 1px solid rgba(83, 49, 94, .12);
+    }
+
+    .calculator-faq summary {
+      color: var(--text-primary);
+      cursor: pointer;
+      font-size: .9rem;
+      font-weight: 800;
+    }
+
+    .calculator-faq details p { margin: 10px 0 0; }
 
     /* Card */
     .card {
@@ -711,6 +839,8 @@
       .meter-value {
         text-align: left;
       }
+
+      .calculator-guide { grid-template-columns: 1fr; }
     }
 
     @media (max-width: 480px) {
@@ -758,6 +888,12 @@
       .tagline {
         font-size: 0.9rem;
       }
+
+      .guide-panel,
+      .guide-aside,
+      .calculator-faq { padding: 20px 16px; }
+
+      .guide-grid { grid-template-columns: 1fr; }
 
       .score {
         flex-direction: column;
@@ -820,8 +956,8 @@
     <div class="main-content">
       <div class="app">
         <div class="card">
-          <h1>Love Calculator ❤️</h1>
-          <p class="tagline">Find your perfect match compatibility score</p>
+          <h1>Love Calculator by Name ❤️</h1>
+          <p class="tagline">Get a playful love percentage and compatibility score for two names.</p>
 
           <div class="inputs" role="form" aria-label="Love calculator">
             <div>
@@ -836,6 +972,34 @@
           </div>
         </div>
       </div>
+      <section class="calculator-guide" aria-labelledby="calculator-guide-title">
+        <article class="guide-panel">
+          <div class="guide-kicker">Love percentage calculator · Couple in Bond</div>
+          <h2 id="calculator-guide-title">What does a love calculator do?</h2>
+          <p>A love calculator by name gives you a playful match score for two people. It is a quick way to start a conversation, share a laugh, or create a small couple ritual.</p>
+          <p>Couple in Bond adds lighthearted details such as vibe alignment, snack synergy, texting tempo, and meme compatibility. These details are for entertainment. They do not predict whether a relationship will work.</p>
+          <div class="guide-grid">
+            <div><h3>Use it for a fun moment</h3><p>Try your name and your partner’s name. You can also test a crush, a friend, or two fictional names.</p></div>
+            <div><h3>Turn the result into a question</h3><p>Ask what the score made you think about. Then choose one topic to discuss together.</p></div>
+          </div>
+        </article>
+        <aside class="guide-aside">
+          <div class="guide-icon" aria-hidden="true">✦</div>
+          <h2>Your score is not your story.</h2>
+          <p>Values, care, communication, and shared effort matter more than any online compatibility test.</p>
+          <a href="privacy.html">Read our privacy page →</a>
+          <a href="blog.html">Read relationship ideas →</a>
+        </aside>
+      </section>
+      <section class="calculator-faq" aria-labelledby="calculator-faq-title">
+        <div class="guide-kicker">Love calculator questions</div>
+        <h2 id="calculator-faq-title">Before you trust the score</h2>
+        <details><summary>Is a love calculator accurate?</summary><p>A name-based love calculator is for entertainment and reflection. It does not measure the future of a relationship.</p></details>
+        <details><summary>How does the Couple in Bond love calculator work?</summary><p>Enter two names to create a playful compatibility score and lighthearted match details. The result is not a scientific test.</p></details>
+        <details><summary>What does a love percentage mean?</summary><p>It is a playful result for the two names you enter. Use it as a conversation starter, not as proof of compatibility.</p></details>
+        <details><summary>Can I use the love calculator for a crush?</summary><p>Yes. You can use it with a partner, crush, friend, or any two names for a lighthearted result.</p></details>
+        <details><summary>Does Couple in Bond store the names I enter?</summary><p>The calculator runs in your browser. This page does not store the names or result on its own server.</p></details>
+      </section>
     </div>
     </div>
 
@@ -845,6 +1009,9 @@
         <nav class="footer-links" aria-label="Footer navigation">
           <a href="index.html">Home</a>
           <a href="blog.html">Blog</a>
+          <a href="polls.html">Polls</a>
+          <a href="quotes.html">Love Quotes</a>
+          <a href="valentines-day.html">Valentine’s Day</a>
           <a href="about.html">About Us</a>
           <a href="privacy.html">Privacy</a>
         </nav>

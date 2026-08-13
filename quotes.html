@@ -2,10 +2,12 @@
 <!doctype html>
 <html lang="en">
 <head>
+  <link rel="icon" type="image/png" href="/manus-storage/coupleinbond-favicon_6187ccb3.png">
+  <link rel="apple-touch-icon" href="/manus-storage/coupleinbond-favicon_6187ccb3.png">
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Love Quotes | Couple in Bond</title>
-  <meta name="description" content="Love quotes and thoughtful words for the people who matter. Quote postings are coming soon from Couple in Bond.">
+  <title>Love Quotes for Couples | Couple in Bond</title>
+  <meta name="description" content="Find short love quotes, romantic messages, and thoughtful words for him, for her, and for the person who makes your day feel lighter.">
   <link rel="canonical" href="https://couplein.bond/quotes.html">
   <meta property="og:title" content="Love Quotes | Couple in Bond">
   <meta property="og:description" content="A future home for love quotes, sweet messages, and words worth sharing.">
@@ -25,8 +27,25 @@
     .top-links { display:flex; flex-wrap:wrap; align-items:center; justify-content:flex-end; gap:8px 18px; margin-left:auto; color:var(--muted); font-size:.8rem; font-weight:700; }
     .top-links a { text-decoration:none; }
     .top-links a:hover { color:var(--primary); }
-    main { display:grid; flex:1; place-items:center; padding:70px 0; }
-    .empty-card { padding:clamp(34px,8vw,78px); border-radius:27px; text-align:center; }
+    main { flex:1; padding:52px 0 64px; }
+    .quotes-hero, .quotes-section { width:min(1050px,100%); margin:0 auto; background:rgba(255,255,255,.94); border:1px solid rgba(255,255,255,.72); box-shadow:0 18px 50px rgba(73,34,86,.1); border-radius:27px; }
+    .quotes-hero { display:grid; grid-template-columns:minmax(0,1.2fr) minmax(230px,.8fr); gap:25px; padding:clamp(34px,7vw,70px); align-items:end; }
+    .quotes-hero h1 { margin:17px 0 13px; font-size:clamp(2.6rem,7vw,5.4rem); line-height:.95; letter-spacing:-.06em; }
+    .quotes-hero h1 span { color:var(--primary); }
+    .quotes-hero p { max-width:580px; margin:0; color:var(--muted); font-size:1rem; line-height:1.7; }
+    .quotes-note { padding:23px; background:linear-gradient(145deg,#fff,#f6efff); border-radius:19px; }
+    .quotes-note h2 { margin:0 0 9px; font-size:1.35rem; }
+    .quotes-note p { font-size:.82rem; }
+    .quotes-section { margin-top:23px; padding:27px; }
+    .quotes-section h2 { margin:0 0 8px; font-size:1.65rem; }
+    .section-intro { margin:0 0 19px; color:var(--muted); font-size:.86rem; line-height:1.6; }
+    .quote-grid { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:13px; }
+    .quote-card { padding:19px; background:linear-gradient(145deg,#fff8fa,#f6efff); border:1px solid rgba(106,0,244,.1); border-radius:15px; }
+    .quote-card p { margin:0; color:var(--ink); font-size:.92rem; line-height:1.55; }
+    .quote-card small { display:block; margin-top:14px; color:var(--secondary); font-size:.65rem; font-weight:800; letter-spacing:.08em; text-transform:uppercase; }
+    .quote-links { display:flex; flex-wrap:wrap; gap:10px 18px; margin-top:20px; }
+    .quote-links a { color:var(--secondary); font-size:.78rem; font-weight:800; text-decoration:none; }
+    .quote-links a:hover { color:var(--primary); }
     .icon { display:grid; place-items:center; width:62px; height:62px; margin:0 auto 20px; color:var(--primary); background:#fff1f5; border-radius:50%; font-size:1.7rem; }
     .kicker { color:var(--secondary); font-size:.68rem; font-weight:800; letter-spacing:.15em; text-transform:uppercase; }
     h1 { margin:17px 0 13px; font-size:clamp(2.6rem,7vw,5.4rem); line-height:.95; letter-spacing:-.06em; }
@@ -34,13 +53,31 @@
     .footer { width:min(1050px,100%); margin:0 auto; padding:20px 0 4px; border-top:1px solid rgba(83,49,94,.12); color:var(--muted); font-size:.72rem; }
     .footer p { max-width:none; margin:0; }
     .footer a { color:var(--ink); font-weight:700; text-decoration:none; }
-    @media (max-width:560px) { .page { padding:12px 11px 26px; } .topbar { padding:12px; } .brand { font-size:1rem; } .top-links { gap:8px 12px; font-size:.7rem; } main { padding:32px 0; } .empty-card { padding:48px 23px; } .footer { padding-top:17px; } }
+    @media (max-width:820px) { .quotes-hero { grid-template-columns:1fr; } .quote-grid { grid-template-columns:repeat(2,minmax(0,1fr)); } }
+    @media (max-width:560px) { .page { padding:12px 11px 26px; } .topbar { padding:12px; } .brand { font-size:1rem; } .top-links { gap:8px 12px; font-size:.7rem; } main { padding:32px 0; } .quotes-hero, .quotes-section { padding:28px 21px; } .quote-grid { grid-template-columns:1fr; } .footer { padding-top:17px; } }
   </style>
 </head>
 <body>
   <div class="page">
     <header class="topbar"><a class="brand" href="index.html">💕 Couple in Bond</a><nav class="top-links" aria-label="Quotes navigation"><a href="index.html">Home</a><a href="calculator.html">Calculator</a><a href="blog.html">Blog</a><a href="polls.html">Polls</a><a href="valentines-day.html">Valentine’s Day</a><a href="contact.html">Contact</a><a href="privacy.html">Privacy</a></nav></header>
-    <main aria-labelledby="quotes-title"><section class="empty-card"><div class="icon" aria-hidden="true">✦</div><div class="kicker">Love quotes · Couple in Bond</div><h1 id="quotes-title">Words worth sharing.</h1><p>Quote postings are coming soon. This page is ready for sweet lines, thoughtful messages, and little reminders to send to someone you love.</p></section></main>
+    <main aria-labelledby="quotes-title">
+      <section class="quotes-hero">
+        <div><div class="kicker">Love quotes · Couple in Bond</div><h1 id="quotes-title">Words worth <span>sharing.</span></h1><p>Use these original CoupleIn Bond editorial lines for a message, a card, a caption, or a quiet note to someone you love.</p></div>
+        <aside class="quotes-note"><div class="icon" aria-hidden="true">✦</div><h2>Keep it personal.</h2><p>The best love quote is one that sounds like you. Add one small detail from your own story.</p></aside>
+      </section>
+      <section class="quotes-section" aria-labelledby="quote-list-title">
+        <div class="kicker">Original editorial lines</div><h2 id="quote-list-title">Short love quotes for real moments</h2><p class="section-intro">Choose a line for him, for her, for a partner, or for a friend. These are starting points, not a replacement for your own words.</p>
+        <div class="quote-grid">
+          <article class="quote-card"><p>“Love is the small choice to notice each other again.”</p><small>For everyday connection</small></article>
+          <article class="quote-card"><p>“You make ordinary days feel like they have a little more light.”</p><small>For a sweet message</small></article>
+          <article class="quote-card"><p>“The best kind of closeness leaves room for both people to be themselves.”</p><small>For a thoughtful note</small></article>
+          <article class="quote-card"><p>“I do not need a perfect day. I want a real one with you.”</p><small>For a partner</small></article>
+          <article class="quote-card"><p>“Distance is hard, but a caring habit can cross it.”</p><small>For long-distance love</small></article>
+          <article class="quote-card"><p>“Choose curiosity first. The rest of the conversation can follow.”</p><small>For better communication</small></article>
+        </div>
+        <div class="quote-links"><a href="calculator.html">Try the love calculator →</a><a href="blog.html">Read relationship ideas →</a><a href="valentines-day.html">Find Valentine’s Day ideas →</a></div>
+      </section>
+    </main>
     <footer class="footer"><p>© 2026 Couple in Bond. All rights reserved. · <a href="index.html">Home</a> · <a href="privacy.html">Privacy</a></p></footer>
   </div>
 </body>
