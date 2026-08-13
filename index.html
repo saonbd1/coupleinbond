@@ -120,6 +120,67 @@
       border-bottom-color: var(--primary);
     }
 
+    .mobile-menu-toggle,
+    .mobile-menu {
+      display: none;
+    }
+
+    .mobile-menu-toggle {
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      padding: 10px 13px;
+      border: 1px solid rgba(0, 0, 0, 0.08);
+      border-radius: 10px;
+      color: var(--text-primary);
+      background: rgba(255, 255, 255, 0.86);
+      font-size: 0.8rem;
+      font-weight: 700;
+      cursor: pointer;
+      white-space: nowrap;
+      flex-shrink: 0;
+    }
+
+    .mobile-menu-toggle[aria-expanded="true"] {
+      color: white;
+      background: linear-gradient(135deg, var(--primary), var(--secondary));
+      border-color: transparent;
+    }
+
+    .mobile-menu {
+      position: absolute;
+      right: 12px;
+      top: calc(100% + 8px);
+      min-width: 170px;
+      padding: 8px;
+      background: rgba(255, 255, 255, 0.98);
+      border: 1px solid rgba(0, 0, 0, 0.08);
+      border-radius: 14px;
+      box-shadow: 0 16px 35px rgba(0, 0, 0, 0.15);
+      z-index: 120;
+    }
+
+    .mobile-menu.open {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+
+    .mobile-menu a {
+      display: block;
+      padding: 11px 12px;
+      border-radius: 9px;
+      color: var(--text-primary);
+      font-size: 0.84rem;
+      font-weight: 600;
+      text-decoration: none;
+    }
+
+    .mobile-menu a:hover {
+      background: rgba(255, 77, 109, 0.1);
+      color: var(--primary-dark);
+    }
+
     #walletStatus {
       padding: 8px 12px;
       color: var(--text-secondary);
@@ -176,6 +237,60 @@
       align-items: center;
       justify-content: center;
       min-height: 100vh;
+    }
+
+    .site-footer {
+      width: 100%;
+      padding: 28px 24px 30px;
+      color: var(--text-secondary);
+      background: rgba(255, 255, 255, 0.94);
+      border-top: 1px solid rgba(0, 0, 0, 0.08);
+      text-align: center;
+    }
+
+    .footer-inner {
+      width: min(760px, 100%);
+      margin: 0 auto;
+    }
+
+    .footer-brand {
+      margin-bottom: 9px;
+      color: var(--primary);
+      font-size: 1.1rem;
+      font-weight: 900;
+    }
+
+    .footer-links {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 8px 22px;
+      margin: 0 0 15px;
+    }
+
+    .footer-links a {
+      color: var(--text-primary);
+      font-size: 0.82rem;
+      font-weight: 600;
+      text-decoration: none;
+      transition: color 0.2s ease;
+    }
+
+    .footer-links a:hover {
+      color: var(--primary);
+    }
+
+    .footer-copy,
+    .footer-note {
+      margin: 5px 0;
+      font-size: 0.76rem;
+      line-height: 1.5;
+    }
+
+    .footer-note {
+      color: var(--text-light);
+      font-size: 0.7rem;
     }
 
     .app {
@@ -555,13 +670,17 @@
 
     /* Responsive */
     @media (max-width: 768px) {
-      .sidebar { padding: 14px 16px; gap: 10px; }
+      .sidebar { padding: 14px 16px; gap: 10px; overflow: visible; }
 
       .sidebar-title { font-size: 1.25rem; margin-right: 2px; }
 
       .sidebar-menu { gap: 2px; }
 
       .sidebar-menu a { padding: 10px 11px; font-size: 0.8rem; }
+
+      .sidebar-menu li:not(:first-child) { display: none; }
+
+      .mobile-menu-toggle { display: inline-flex; }
 
       #walletStatus { margin-left: auto; padding: 8px 6px; font-size: 0.75rem; }
 
@@ -594,7 +713,7 @@
     }
 
     @media (max-width: 480px) {
-      .sidebar { padding: 12px 12px; }
+      .sidebar { padding: 12px 8px; gap: 5px; }
 
       .sidebar-title {
         font-size: 1.2rem;
@@ -604,8 +723,18 @@
 
       .sidebar-menu a {
         padding: 9px 8px;
-        font-size: 0.75rem;
+        font-size: 0.7rem;
       }
+
+      .sidebar-title { font-size: 1rem; }
+
+      .sidebar-menu a { padding: 9px 7px; font-size: 0.68rem; }
+
+      .mobile-menu-toggle { padding: 9px 8px; font-size: 0.68rem; }
+
+      #walletStatus { display: none; }
+
+      #connectBtn, #disconnectBtn { padding: 10px 11px; font-size: 0.72rem; }
 
       .main-content {
         margin-left: 0;
@@ -651,6 +780,14 @@
       .modal-title {
         font-size: 1.4rem;
       }
+
+      .site-footer {
+        padding: 24px 14px 26px;
+      }
+
+      .footer-links {
+        gap: 8px 14px;
+      }
     }
   </style>
 </head>
@@ -664,6 +801,11 @@
         <li><a href="about.html">ℹ️ About Us</a></li>
         <li><a href="privacy.html">🔒 Privacy</a></li>
       </ul>
+      <button id="mobileMenuToggle" class="mobile-menu-toggle" type="button" aria-expanded="false" aria-controls="mobileMenu">☰ Menu</button>
+      <nav id="mobileMenu" class="mobile-menu" aria-label="More navigation">
+        <a href="about.html">ℹ️ About Us</a>
+        <a href="privacy.html">🔒 Privacy</a>
+      </nav>
       <div id="walletStatus">Wallet: Not connected</div>
       <button id="connectBtn">Connect Wallet</button>
       <button id="disconnectBtn">Disconnect</button>
@@ -690,7 +832,20 @@
         </div>
       </div>
     </div>
-  </div>
+    </div>
+
+    <footer class="site-footer">
+      <div class="footer-inner">
+        <div class="footer-brand">💕 Couple in Bond</div>
+        <nav class="footer-links" aria-label="Footer navigation">
+          <a href="index.html">Home</a>
+          <a href="about.html">About Us</a>
+          <a href="privacy.html">Privacy</a>
+        </nav>
+        <p class="footer-copy">© 2026 Couple in Bond. All rights reserved.</p>
+        <p class="footer-note">Love scores are created for entertainment and reflection. No name or result is stored by this page.</p>
+      </div>
+    </footer>
 
   <!-- Modal -->
   <div id="resultModal" class="modal">
@@ -1056,6 +1211,24 @@
       const connectBtn = el("connectBtn");
       if (connectBtn) {
         connectBtn.addEventListener("click", connectWallet);
+      }
+
+      const mobileMenuToggle = el("mobileMenuToggle");
+      const mobileMenu = el("mobileMenu");
+      const closeMobileMenu = () => {
+        if (!mobileMenu || !mobileMenuToggle) return;
+        mobileMenu.classList.remove("open");
+        mobileMenuToggle.setAttribute("aria-expanded", "false");
+      };
+
+      if (mobileMenuToggle && mobileMenu) {
+        mobileMenuToggle.addEventListener("click", (event) => {
+          event.stopPropagation();
+          const isOpen = mobileMenu.classList.toggle("open");
+          mobileMenuToggle.setAttribute("aria-expanded", String(isOpen));
+        });
+        mobileMenu.addEventListener("click", (event) => event.stopPropagation());
+        document.addEventListener("click", closeMobileMenu);
       }
 
       const disconnectBtn = el("disconnectBtn");
