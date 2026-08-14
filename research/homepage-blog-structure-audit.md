@@ -15,3 +15,15 @@ The desktop preview rendered the wallet header, two-column hero, keepsake strip,
 ## Latest-post hero image update
 
 The homepage `blog-feature-note` now shows the first current featured blog post, `25 Couple Bonding Activities at Home`, with the existing compressed `assets/featured-post-week.jpg` hero image. The image, title, and “Read the latest story” link all point to the same article. The desktop preview confirmed that the image renders in the feature note, and the asset, markup, internal-link, content, SEO, script, and whitespace checks pass.
+
+## Latest-post social share update
+
+The feature note now includes only four themed share icons beneath the latest post: Facebook, Instagram, X, and TikTok. Each icon has an accessible label, opens safely in a new tab, and uses the same coral-to-lilac hover treatment as the site. Preview and automated checks confirmed the four-icon count, link safety attributes, asset integrity, and zero errors across the content, SEO, and blog validators.
+
+## Corrected site-wide placement
+
+The homepage feature card no longer contains social-sharing markup. The reusable injector now places the share row after article content on blog posts, after the quote collection on `quotes.html`, and on other eligible content pages. Desktop previews confirmed the row appears below the blog article body and below the quote links, while the homepage remains free of the share row.
+
+The About page uses a legacy `.main-content .content-wrapper` shell rather than a semantic `<main>`. The injector now handles that wrapper as well, and the preview confirmed the four share icons render below the About content card.
+
+The final homepage preview confirmed that the latest-post feature card still contains its hero image, title, excerpt, and article link, but no social-sharing row. The share row is reserved for the page content itself.

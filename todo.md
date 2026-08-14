@@ -27,3 +27,18 @@
 - [ ] Add the latest post hero image with accessible responsive styling to the homepage feature note.
 - [ ] Preview and validate the updated homepage image, links, SEO, and whitespace.
 - [ ] Present the updated preview and wait for approval before committing or pushing.
+
+## Homepage latest-post social share
+
+- [ ] Audit the latest-post feature-note markup and existing social icon styling.
+- [ ] Add Facebook, Instagram, X, and TikTok share icons beneath the latest post.
+- [ ] Preview and validate the social-share row, links, accessibility, and whitespace.
+- [ ] Present the updated preview and wait for approval before committing or pushing.
+
+## Site-wide social sharing correction
+
+- [ ] Audit shared page shells, content pages, existing social icons, and the homepage share row.
+- [ ] Define the shared social-share component and page eligibility rules.
+- [ ] Remove the homepage-card share row and add sharing to blog posts, quotes, and eligible content pages.
+- [ ] Validate page coverage, share URLs, accessibility, responsive styling, SEO, and internal links.
+- [ ] Present the site-wide sharing preview and wait for approval before committing or pushing.

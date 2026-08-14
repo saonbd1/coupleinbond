@@ -87,6 +87,13 @@
   function inject() {
     addStyles();
     document.querySelectorAll(".site-footer, .blog-footer, .footer").forEach(renderFooter);
+    if (!document.querySelector('script[data-couple-share="true"]')) {
+      const shareScript = document.createElement("script");
+      shareScript.src = `${pageRoot()}/social-share.js`;
+      shareScript.defer = true;
+      shareScript.dataset.coupleShare = "true";
+      document.head.appendChild(shareScript);
+    }
   }
 
   if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", inject);
