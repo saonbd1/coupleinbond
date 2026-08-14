@@ -42,3 +42,24 @@
 - [ ] Remove the homepage-card share row and add sharing to blog posts, quotes, and eligible content pages.
 - [ ] Validate page coverage, share URLs, accessibility, responsive styling, SEO, and internal links.
 - [ ] Present the site-wide sharing preview and wait for approval before committing or pushing.
+
+## Footer Blog link
+
+- [ ] Audit the shared footer renderer and current left-side footer links.
+- [ ] Add the Blog link to the left footer navigation and preserve responsive alignment.
+- [ ] Preview and validate footer coverage, links, accessibility, and whitespace.
+- [ ] Present the footer preview and wait for approval before committing or pushing.
+
+## Love Calculator card button
+
+- [ ] Audit the Love Calculator card markup and current CTA styles.
+- [ ] Replace the text CTA with a themed Love Calculator button.
+- [ ] Preview and validate the button destination, accessibility, layout, and whitespace.
+- [ ] Present the updated card preview and wait for approval before committing or pushing.
+
+## Footer navigation label rename
+
+- [ ] Audit the shared footer renderer and current left-side navigation labels.
+- [ ] Rename the four left footer links without changing their destinations or layout.
+- [ ] Preview and validate footer labels, destinations, accessibility, and whitespace.
+- [ ] Present the renamed footer preview and wait for approval before committing or pushing.

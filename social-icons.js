@@ -57,10 +57,11 @@
     footer.innerHTML = `
       <div class="footer-grid">
         <section class="footer-section footer-left">
-          <nav class="footer-nav-links" aria-label="Footer navigation">
-            <a href="${root}/index.html">Home</a>
-            <a href="${root}/calculator.html">Calculator</a>
-            <a href="${root}/polls.html">Polls</a>
+            <nav class="footer-nav-links" aria-label="Footer navigation">
+              <a href="${root}/index.html">Home Page</a>
+              <a href="${root}/calculator.html">Love Calculator</a>
+              <a href="${root}/blog.html">Blog Post</a>
+              <a href="${root}/polls.html">Public Polls</a>
           </nav>
         </section>
         <section class="footer-section footer-brand-section">
