@@ -12,3 +12,11 @@
 - [x] Compress repository image assets and verify references and output quality.
 - [x] Run content, SEO, link, syntax, and asset checks.
 - [x] Report the prepared publishable changes and separate GitHub push from hosting deployment.
+
+## Homepage editorial redesign
+
+- [ ] Audit the current homepage against the blog page’s structure, styles, assets, and responsive behavior.
+- [ ] Define the homepage information architecture and editorial design direction based on the blog page.
+- [ ] Implement the homepage redesign while preserving the existing brand, tools, wallet connector, community features, and Web3 keepsake flow.
+- [ ] Run visual, content, link, and SEO validation across the redesigned homepage and affected shared components.
+- [ ] Present the homepage preview and change summary for user approval before any commit or push.
