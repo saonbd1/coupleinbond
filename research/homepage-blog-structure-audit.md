@@ -11,3 +11,7 @@ The homepage now uses the same shell and shared `blog.css` styles. Its hero intr
 ## Preview observations
 
 The desktop preview rendered the wallet header, two-column hero, keepsake strip, five-card tool grid, and centered three-column footer. Internal homepage links resolve, the two shared scripts pass syntax checks, the content validator passes for 22 pages, the strict SEO validator passes for 22 pages, and the blog validator passes for 11 blog pages. Preview-only poll state was cleared after inspection.
+
+## Latest-post hero image update
+
+The homepage `blog-feature-note` now shows the first current featured blog post, `25 Couple Bonding Activities at Home`, with the existing compressed `assets/featured-post-week.jpg` hero image. The image, title, and “Read the latest story” link all point to the same article. The desktop preview confirmed that the image renders in the feature note, and the asset, markup, internal-link, content, SEO, script, and whitespace checks pass.

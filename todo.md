@@ -20,3 +20,10 @@
 - [ ] Implement the homepage redesign while preserving the existing brand, tools, wallet connector, community features, and Web3 keepsake flow.
 - [ ] Run visual, content, link, and SEO validation across the redesigned homepage and affected shared components.
 - [ ] Present the homepage preview and change summary for user approval before any commit or push.
+
+## Homepage latest-post hero image
+
+- [ ] Identify the latest blog post, its hero asset, and the current homepage feature-note markup.
+- [ ] Add the latest post hero image with accessible responsive styling to the homepage feature note.
+- [ ] Preview and validate the updated homepage image, links, SEO, and whitespace.
+- [ ] Present the updated preview and wait for approval before committing or pushing.

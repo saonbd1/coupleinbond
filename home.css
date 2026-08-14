@@ -6,6 +6,87 @@
   transition: color 0.18s ease, transform 0.18s ease, box-shadow 0.18s ease;
 }
 
+.home-latest-note {
+  min-height: 310px;
+  padding: 0;
+  overflow: hidden;
+  background: linear-gradient(145deg, rgba(255, 255, 255, 0.96), rgba(246, 239, 255, 0.96));
+}
+
+.home-latest-image {
+  display: block;
+  flex: 0 0 auto;
+  width: 100%;
+  aspect-ratio: 16 / 8.5;
+  overflow: hidden;
+  background: var(--blog-lilac);
+}
+
+.home-latest-image img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  transition: transform 0.35s ease;
+}
+
+.home-latest-image:hover img,
+.home-latest-image:focus-visible img {
+  transform: scale(1.035);
+}
+
+.home-latest-body {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  padding: 20px 24px 22px;
+}
+
+.home-latest-body .blog-feature-icon {
+  width: 39px;
+  height: 39px;
+  margin: 0 0 12px;
+  font-size: 1.08rem;
+}
+
+.home-latest-kicker {
+  margin-bottom: 7px;
+}
+
+.home-latest-body h2 {
+  margin: 0 0 9px;
+  font-size: 1.35rem;
+  line-height: 1.08;
+  letter-spacing: -0.04em;
+}
+
+.home-latest-body h2 a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.home-latest-body h2 a:hover,
+.home-latest-body h2 a:focus-visible {
+  color: var(--blog-primary);
+  text-decoration: underline;
+  text-decoration-thickness: 2px;
+  text-underline-offset: 4px;
+  outline: none;
+}
+
+.home-latest-body p {
+  margin: 0;
+  color: var(--blog-muted);
+  font-size: 0.78rem;
+  line-height: 1.55;
+}
+
+.home-latest-body .home-hero-note-link {
+  margin-top: auto;
+  padding-top: 16px;
+}
+
 .home-hero-note-link {
   display: inline-flex;
   align-items: center;
@@ -221,6 +302,8 @@
 }
 
 @media (min-width: 821px) {
+  .home-latest-body h2 { font-size: 1.55rem; }
+  .home-latest-body p { font-size: 0.9rem; }
   .home-tool-card h3 { font-size: 1.45rem; }
   .home-tool-card p { font-size: 0.9rem; }
   .home-poll-question { font-size: 0.9rem; }
@@ -236,6 +319,9 @@
 
 @media (max-width: 560px) {
   .home-featured-post { margin-top: 24px; }
+  .home-latest-note { min-height: 0; }
+  .home-latest-body { padding: 18px 22px 21px; }
+  .home-latest-body h2 { font-size: 1.28rem; }
   .home-tool-card { min-height: 278px; }
   .home-poll-preview { padding: 12px; }
   .home-poll-option { font-size: 0.7rem; }
