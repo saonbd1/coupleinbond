@@ -1228,9 +1228,25 @@
       return { score, meters: meters(rng), rng };
     }
 
+    function isMobileWalletSurface() {
+      return /Android|iPhone|iPad|iPod/i.test(navigator.userAgent) || (window.matchMedia && window.matchMedia("(pointer: coarse)").matches);
+    }
+
+    function walletAppLink() {
+      return `https://metamask.app.link/dapp/${window.location.host}${window.location.pathname}${window.location.search}${window.location.hash}`;
+    }
+
+    function openMobileWallet() {
+      window.location.href = walletAppLink();
+    }
+
     async function mintNFT(name1, name2, score) {
       if (!window.ethereum) {
-        alert("Please install MetaMask to mint NFTs");
+        if (isMobileWalletSurface()) {
+          openMobileWallet();
+        } else {
+          alert("Please install MetaMask to mint NFTs");
+        }
         return;
       }
       try {
@@ -1277,7 +1293,11 @@
         return;
       }
       if (!window.ethereum) {
-        alert("Please install MetaMask to connect your wallet");
+        if (isMobileWalletSurface()) {
+          openMobileWallet();
+        } else {
+          alert("Please install MetaMask to connect your wallet");
+        }
         return;
       }
       try {
@@ -1417,6 +1437,7 @@
       const connectBtn = el("connectBtn");
       if (connectBtn) {
         connectBtn.addEventListener("click", connectWallet);
+        if (isMobileWalletSurface() && !window.ethereum) connectBtn.textContent = "Open wallet app";
       }
 
       const mobileMenuToggle = el("mobileMenuToggle");
