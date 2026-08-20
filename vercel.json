@@ -1,5 +1,17 @@
 {
+  "$schema": "https://openapi.vercel.sh/vercel.json",
   "redirects": [
+    {
+      "source": "/:path*",
+      "has": [
+        {
+          "type": "host",
+          "value": "www.couplein.bond"
+        }
+      ],
+      "destination": "https://couplein.bond/:path*",
+      "permanent": true
+    },
     {
       "source": "/index.html",
       "destination": "/",
