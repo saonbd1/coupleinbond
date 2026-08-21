@@ -261,6 +261,11 @@
       box-shadow: 0 6px 20px rgba(239, 68, 68, 0.3);
     }
 
+    #disconnectBtn.is-wrong-network {
+      background: linear-gradient(135deg, var(--warning), var(--primary-dark));
+      color: #3b2200;
+    }
+
     /* Main Content */
     .main-content {
       margin-left: 0;
@@ -1340,61 +1345,84 @@
       }
     }
 
-    async function connectWallet() {
-      if (typeof ethers === 'undefined') {
-        console.error('Ethers not loaded');
-        alert('Ethers library failed to load. Please refresh the page.');
-        return;
+        let calculatorWalletAddress = "";
+    let calculatorWalletBusy = false;
+
+    function walletErrorMessage(error, fallback) {
+      if (error && error.code === 4001) return "Request cancelled in wallet.";
+      if (error && error.code === -32002) return "Wallet request already open.";
+      return error && error.message ? error.message.replace(/^.*?:\s*/, "") : fallback;
+    }
+
+    function renderCalculatorWallet(address, message, state) {
+      calculatorWalletAddress = address || "";
+      const walletStatus = el("walletStatus");
+      const connectBtn = el("connectBtn");
+      const disconnectBtn = el("disconnectBtn");
+      if (walletStatus) walletStatus.textContent = message || (calculatorWalletAddress ? `Wallet: ${calculatorWalletAddress.slice(0, 6)}…${calculatorWalletAddress.slice(-4)}` : "Wallet: Not connected");
+      if (connectBtn) {
+        connectBtn.style.display = calculatorWalletAddress ? "none" : "block";
+        connectBtn.disabled = calculatorWalletBusy;
+        connectBtn.setAttribute("aria-pressed", String(Boolean(calculatorWalletAddress)));
       }
-      if (!window.ethereum) {
-        if (isMobileWalletSurface()) {
-          openMobileWallet();
-        } else {
-          alert("Please install MetaMask to connect your wallet");
-        }
-        return;
+      if (disconnectBtn) {
+        disconnectBtn.style.display = calculatorWalletAddress ? "block" : "none";
+        disconnectBtn.disabled = calculatorWalletBusy;
+        disconnectBtn.classList.toggle("is-wrong-network", state === "wrong-network");
       }
+    }
+
+    async function switchCalculatorToInk(provider) {
+      const chainId = await provider.request({ method: "eth_chainId" });
+      if (parseInt(chainId, 16) === 763373) return;
       try {
-        await window.ethereum.request({ method: 'eth_requestAccounts' });
-        const provider = new ethers.providers.Web3Provider(window.ethereum);
-        const network = await provider.getNetwork();
-        if (network.chainId !== 763373) {
-          try {
-            await window.ethereum.request({
-              method: 'wallet_switchEthereumChain',
-              params: [{ chainId: '0xdef1' }],
-            });
-          } catch (switchError) {
-            if (switchError.code === 4902) {
-              await window.ethereum.request({
-                method: 'wallet_addEthereumChain',
-                params: [{
-                  chainId: '0xdef1',
-                  chainName: 'Ink Chain',
-                  nativeCurrency: { name: 'ETH', symbol: 'ETH', decimals: 18 },
-                  rpcUrls: ['https://rpc-gel.inkonchain.com'],
-                  blockExplorerUrls: ['https://explorer.inkonchain.com'],
-                }],
-              });
-            } else {
-              throw switchError;
-            }
-          }
-        }
-        const signer = provider.getSigner();
-        const address = await signer.getAddress();
-        el("walletStatus").textContent = `Wallet: ${address.slice(0,6)}...${address.slice(-4)}`;
-        el("connectBtn").style.display = "none";
-        el("disconnectBtn").style.display = "block";
+        await provider.request({ method: "wallet_switchEthereumChain", params: [{ chainId: "0xdef1" }] });
+      } catch (switchError) {
+        if (!switchError || switchError.code !== 4902) throw switchError;
+        await provider.request({ method: "wallet_addEthereumChain", params: [{ chainId: "0xdef1", chainName: "Ink Chain", nativeCurrency: { name: "ETH", symbol: "ETH", decimals: 18 }, rpcUrls: ["https://rpc-gel.inkonchain.com"], blockExplorerUrls: ["https://explorer.inkonchain.com"] }] });
+      }
+    }
+
+    async function connectWallet() {
+      if (calculatorWalletBusy) return;
+      if (typeof ethers === "undefined") { renderCalculatorWallet("", "Wallet library failed to load. Refresh and try again.", "error"); return; }
+      if (!window.ethereum) {
+        if (isMobileWalletSurface()) { renderCalculatorWallet("", "Opening MetaMask…"); openMobileWallet(); }
+        else renderCalculatorWallet("", "Install or open MetaMask to connect.", "error");
+        return;
+      }
+      calculatorWalletBusy = true;
+      renderCalculatorWallet(calculatorWalletAddress, "Connecting…");
+      try {
+        const accounts = await window.ethereum.request({ method: "eth_requestAccounts" });
+        const address = Array.isArray(accounts) ? accounts[0] : "";
+        if (!address) { renderCalculatorWallet("", "No wallet account was selected."); return; }
+        await switchCalculatorToInk(window.ethereum);
+        renderCalculatorWallet(address, `Wallet: ${address.slice(0, 6)}…${address.slice(-4)} · Ink Chain ready`, "connected");
       } catch (error) {
-        alert("Connection failed: " + error.message);
+        renderCalculatorWallet(calculatorWalletAddress, walletErrorMessage(error, "Connection was not completed."), "error");
+      } finally {
+        calculatorWalletBusy = false;
+        renderCalculatorWallet(calculatorWalletAddress, calculatorWalletAddress ? undefined : el("walletStatus").textContent);
       }
     }
 
     function disconnectWallet() {
-      el("walletStatus").textContent = "Wallet: Not connected";
-      el("connectBtn").style.display = "block";
-      el("disconnectBtn").style.display = "none";
+      calculatorWalletBusy = false;
+      renderCalculatorWallet("", "Wallet disconnected for this page. Click Connect Wallet to reconnect.", "disconnected");
+    }
+
+    async function handleCalculatorAccountsChanged(accounts) {
+      const address = Array.isArray(accounts) ? accounts[0] : "";
+      if (!address) { renderCalculatorWallet("", "Wallet disconnected.", "disconnected"); return; }
+      try { await switchCalculatorToInk(window.ethereum); renderCalculatorWallet(address, `Wallet: ${address.slice(0, 6)}…${address.slice(-4)} · Ink Chain ready`, "connected"); }
+      catch (_) { renderCalculatorWallet(address, `Wallet: ${address.slice(0, 6)}…${address.slice(-4)} · switch to Ink Chain`, "wrong-network"); }
+    }
+
+    function handleCalculatorChainChanged(chainId) {
+      if (!calculatorWalletAddress) return;
+      if (parseInt(chainId, 16) === 763373) renderCalculatorWallet(calculatorWalletAddress, `Wallet: ${calculatorWalletAddress.slice(0, 6)}…${calculatorWalletAddress.slice(-4)} · Ink Chain ready`, "connected");
+      else renderCalculatorWallet(calculatorWalletAddress, `Wallet: ${calculatorWalletAddress.slice(0, 6)}…${calculatorWalletAddress.slice(-4)} · switch to Ink Chain`, "wrong-network");
     }
 
     function el(id) {
@@ -1549,8 +1577,11 @@
       }
 
       const disconnectBtn = el("disconnectBtn");
-      if (disconnectBtn) {
-        disconnectBtn.addEventListener("click", disconnectWallet);
+      if (disconnectBtn) disconnectBtn.addEventListener("click", disconnectWallet);
+      if (window.ethereum && window.ethereum.on) {
+        window.ethereum.on("accountsChanged", handleCalculatorAccountsChanged);
+        window.ethereum.on("chainChanged", handleCalculatorChainChanged);
+        window.ethereum.request({ method: "eth_accounts" }).then(handleCalculatorAccountsChanged).catch(() => {});
       }
 
       const nameA = el("nameA");
