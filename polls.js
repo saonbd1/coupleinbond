@@ -70,6 +70,38 @@
     container.append(results);
   }
 
+  async function sharePoll(poll, button, status) {
+    const url = new URL(`polls/${poll.id}.html`, window.location.href).href;
+    const title = `${poll.title} — Couple in Bond`;
+    try {
+      if (navigator.share) {
+        await navigator.share({ title, text: poll.description, url });
+        status.textContent = "Poll shared.";
+        return;
+      }
+      if (navigator.clipboard && window.isSecureContext) {
+        await navigator.clipboard.writeText(url);
+      } else {
+        const helper = document.createElement("textarea");
+        helper.value = url;
+        helper.setAttribute("readonly", "");
+        helper.style.position = "fixed";
+        helper.style.opacity = "0";
+        document.body.appendChild(helper);
+        helper.select();
+        document.execCommand("copy");
+        helper.remove();
+      }
+      status.textContent = "Poll link copied.";
+    } catch (error) {
+      if (error && error.name === "AbortError") return;
+      status.textContent = "Unable to share. Copy the page URL from your browser.";
+    } finally {
+      button.disabled = false;
+      button.textContent = "Share poll";
+    }
+  }
+
   function renderPoll(poll, votes, results) {
     const card = createElement("article", "poll-card");
     const top = createElement("div", "poll-card-top");
@@ -102,9 +134,18 @@
     const submit = createElement("button", "poll-submit", selectedBefore === null ? "Vote on this topic" : "Vote recorded");
     submit.type = "submit";
     submit.disabled = selectedBefore !== null;
+    const share = createElement("button", "poll-share", "Share poll");
+    share.type = "button";
+    const shareStatus = createElement("p", "poll-share-status");
+    shareStatus.setAttribute("aria-live", "polite");
+    share.addEventListener("click", async () => {
+      share.disabled = true;
+      share.textContent = "Preparing…";
+      await sharePoll(poll, share, shareStatus);
+    });
     const feedback = createElement("p", "poll-feedback");
     feedback.setAttribute("aria-live", "polite");
-    form.append(options, submit, feedback);
+    form.append(options, submit, share, shareStatus, feedback);
     form.addEventListener("submit", (event) => {
       event.preventDefault();
       const selected = form.querySelector("input:checked");

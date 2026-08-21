@@ -11,6 +11,38 @@
   const feedback = document.getElementById("pollDetailFeedback");
   const results = document.getElementById("pollDetailResults");
 
+  async function sharePoll(button, status) {
+    const url = window.location.href;
+    const title = `${poll.title} — Couple in Bond`;
+    try {
+      if (navigator.share) {
+        await navigator.share({ title, text: poll.description, url });
+        status.textContent = "Poll shared.";
+        return;
+      }
+      if (navigator.clipboard && window.isSecureContext) {
+        await navigator.clipboard.writeText(url);
+      } else {
+        const helper = document.createElement("textarea");
+        helper.value = url;
+        helper.setAttribute("readonly", "");
+        helper.style.position = "fixed";
+        helper.style.opacity = "0";
+        document.body.appendChild(helper);
+        helper.select();
+        document.execCommand("copy");
+        helper.remove();
+      }
+      status.textContent = "Poll link copied.";
+    } catch (error) {
+      if (error && error.name === "AbortError") return;
+      status.textContent = "Unable to share. Copy the page URL from your browser.";
+    } finally {
+      button.disabled = false;
+      button.textContent = "Share poll";
+    }
+  }
+
   function read(key, fallback) {
     try {
       const value = localStorage.getItem(key);
@@ -66,6 +98,22 @@
   }
 
   if (!poll || !form) return;
+
+  const shareButton = document.createElement("button");
+  shareButton.type = "button";
+  shareButton.className = "poll-share";
+  shareButton.textContent = "Share poll";
+  const shareStatus = document.createElement("p");
+  shareStatus.className = "poll-share-status";
+  shareStatus.setAttribute("aria-live", "polite");
+  shareButton.addEventListener("click", async () => {
+    shareButton.disabled = true;
+    shareButton.textContent = "Preparing…";
+    await sharePoll(shareButton, shareStatus);
+  });
+  submit.insertAdjacentElement("afterend", shareButton);
+  shareButton.insertAdjacentElement("afterend", shareStatus);
+
   form.addEventListener("submit", (event) => {
     event.preventDefault();
     const selectedInput = form.querySelector("input:checked");
