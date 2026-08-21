@@ -788,8 +788,8 @@
       font-style: italic;
     }
 
-    /* Mint Button */
-    #mintBtn {
+    /* Mint and share result controls */
+    #mintBtn, #shareResultBtn {
       width: 100%;
       margin-top: 24px;
       padding: 14px 20px;
@@ -806,10 +806,12 @@
       letter-spacing: 0.5px;
     }
 
-    #mintBtn:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 12px 35px rgba(106, 0, 244, 0.4);
-    }
+    #mintBtn:hover, #shareResultBtn:hover { transform: translateY(-2px); box-shadow: 0 12px 35px rgba(106, 0, 244, 0.4); }
+    #shareResultBtn { width:100%; margin-top:12px; padding:14px 20px; border:none; border-radius:12px; color:#fff; background:linear-gradient(135deg, #ff4d6d, #6a00f4); font-size:1rem; font-weight:800; letter-spacing:.3px; cursor:pointer; transition:all .3s ease; }
+    #shareResultBtn:disabled { opacity:.62; cursor:wait; transform:none; }
+    .result-image-preview { display:block; width:100%; max-height:260px; margin:20px auto 0; border:1px solid rgba(106,0,244,.14); border-radius:16px; object-fit:contain; box-shadow:0 10px 28px rgba(106,0,244,.12); }
+    .result-image-status { min-height:1.25em; margin:8px 0 0; color:var(--text-secondary); font-size:.78rem; line-height:1.45; text-align:center; }
+    .result-image-status.is-error { color:var(--danger); }
 
     /* Responsive */
     @media (max-width: 768px) {
@@ -1090,9 +1092,13 @@
 
       <div class="advice" id="modalAdviceBox"></div>
       <button id="mintBtn">Mint Love NFT 🎨</button>
+      <button id="shareResultBtn" type="button">Share result image</button>
+      <img id="resultImagePreview" class="result-image-preview" alt="Generated love calculator result" hidden>
+      <p id="resultImageStatus" class="result-image-status" aria-live="polite"></p>
     </div>
   </div>
 
+  <script src="calculator-result-share.js"></script>
   <script>
     function normalizeName(s) {
       return (s || "").toLowerCase().replace(/[\s\p{P}\p{S}]/gu, "");
@@ -1350,6 +1356,7 @@
     let lastNameA = "";
     let lastNameB = "";
     let lastScore = 0;
+    let lastResultImage = "";
 
     const contractAddress = "0x66dF01e59AC8AC13575bB760500be7DBADf78D32";
     const abi = ["function mint(string name1, string name2, uint8 score) public"];
@@ -1359,6 +1366,7 @@
       lastNameB = b;
       const out = calculate(a, b);
       lastScore = out.score;
+      lastResultImage = window.createLoveResultImage({ nameA: a || "???", nameB: b || "???", score: out.score, badge: badgeFor(out.score), meters: out.meters });
 
       el("modalScoreNumber").textContent = `${out.score}%`;
       el("modalScoreBadge").textContent = badgeFor(out.score);
@@ -1374,6 +1382,10 @@
       setMeter("modalMMeme", "modalMMemeVal", out.meters.meme);
 
       el("modalAdviceBox").innerHTML = adviceFor(out.score, out.rng);
+      el("resultImagePreview").src = lastResultImage;
+      el("resultImagePreview").hidden = false;
+      el("resultImageStatus").textContent = "Your result image is ready to share.";
+      el("resultImageStatus").classList.remove("is-error");
       el("resultModal").style.display = "block";
 
       const hearts = Math.max(12, Math.round(20 + (out.score / 5)));
@@ -1419,6 +1431,33 @@
         window.addEventListener("click", (e) => {
           if (e.target === modal) {
             modal.style.display = "none";
+          }
+        });
+      }
+
+      const shareResultBtn = el("shareResultBtn");
+      if (shareResultBtn) {
+        shareResultBtn.addEventListener("click", async () => {
+          if (!lastResultImage) {
+            el("resultImageStatus").textContent = "Calculate a result first.";
+            el("resultImageStatus").classList.add("is-error");
+            return;
+          }
+          shareResultBtn.disabled = true;
+          shareResultBtn.textContent = "Preparing image…";
+          try {
+            const message = await window.shareLoveResultImage(lastResultImage, `${lastNameA} + ${lastNameB} Love Result`);
+            el("resultImageStatus").textContent = message;
+            el("resultImageStatus").classList.remove("is-error");
+          } catch (error) {
+            if (error && error.name === "AbortError") el("resultImageStatus").textContent = "Sharing cancelled.";
+            else {
+              el("resultImageStatus").textContent = "Unable to share the result image. Try again.";
+              el("resultImageStatus").classList.add("is-error");
+            }
+          } finally {
+            shareResultBtn.disabled = false;
+            shareResultBtn.textContent = "Share result image";
           }
         });
       }
