@@ -1292,7 +1292,8 @@
         await tx.wait();
         alert(`NFT Minted! Transaction: ${tx.hash}`);
       } catch (error) {
-        alert("Minting failed: " + error.message);
+        const reason = (error && error.data && error.data.message) || (error && error.reason) || (error && error.message) || "Unknown wallet or network error";
+        alert("Minting failed: " + reason);
       }
     }
 
@@ -1361,6 +1362,7 @@
     let lastNameB = "";
     let lastScore = 0;
     let lastResultImage = "";
+    let lastResultTokenImage = "";
 
     const resultContractAddress = "0x7bA15fe1c1CE1d808eE5c0e86740C84E2bcdb7FD";
     const resultAbi = ["function mintResult(string name1, string name2, uint8 score, string imageUrl) external returns (uint256 tokenId)"];
@@ -1370,7 +1372,9 @@
       lastNameB = b;
       const out = calculate(a, b);
       lastScore = out.score;
-      lastResultImage = window.createLoveResultImage({ nameA: a || "???", nameB: b || "???", score: out.score, badge: badgeFor(out.score), meters: out.meters });
+      const resultData = { nameA: a || "???", nameB: b || "???", score: out.score, badge: badgeFor(out.score), meters: out.meters };
+      lastResultImage = window.createLoveResultImage(resultData);
+      lastResultTokenImage = window.createLoveResultTokenImage(resultData);
 
       el("modalScoreNumber").textContent = `${out.score}%`;
       el("modalScoreBadge").textContent = badgeFor(out.score);
@@ -1470,7 +1474,7 @@
       if (mintBtn) {
         mintBtn.addEventListener("click", async () => {
           if (lastNameA && lastNameB) {
-            await mintNFT(lastNameA, lastNameB, lastScore, lastResultImage);
+            await mintNFT(lastNameA, lastNameB, lastScore, lastResultTokenImage);
           } else {
             alert("Please calculate a love score first!");
           }

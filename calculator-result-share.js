@@ -97,6 +97,28 @@
     return canvas.toDataURL("image/png");
   }
 
+  function escapeXml(value) {
+    return String(value || "").replace(/[&<>\"']/g, (character) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", "\"": "&quot;", "'": "&apos;" }[character]));
+  }
+
+  function createLoveResultTokenImage(result) {
+    const nameA = escapeXml(result.nameA);
+    const nameB = escapeXml(result.nameB);
+    const badge = escapeXml(result.badge);
+    const rows = [
+      ["Vibe alignment", result.meters.vibe],
+      ["Snack synergy", result.meters.snack],
+      ["Texting tempo", result.meters.text],
+      ["Meme compatibility", result.meters.meme]
+    ];
+    const bars = rows.map(([label, value], index) => {
+      const y = 510 + index * 58;
+      return `<text x="90" y="${y}" font-size="22" font-family="Arial" fill="#6b7280">${escapeXml(label)}</text><rect x="90" y="${y + 12}" width="520" height="14" rx="7" fill="#eadffb"/><rect x="90" y="${y + 12}" width="${520 * (value / 100)}" height="14" rx="7" fill="#8b3dff"/><text x="650" y="${y + 30}" font-size="21" font-weight="700" font-family="Arial" fill="#1f2937">${value}%</text>`;
+    }).join("");
+    const svg = `<svg xmlns="http://www.w3.org/2000/svg" width="720" height="820" viewBox="0 0 720 820"><defs><linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#ff9a9e"/><stop offset=".5" stop-color="#fad0c4"/><stop offset="1" stop-color="#fbc2eb"/></linearGradient></defs><rect width="720" height="820" fill="url(#bg)"/><rect x="35" y="35" width="650" height="750" rx="28" fill="#fff" fill-opacity=".92"/><text x="360" y="92" text-anchor="middle" font-size="25" font-weight="800" font-family="Arial" fill="#d63d5b">COUPLE IN BOND</text><text x="360" y="170" text-anchor="middle" font-size="34" font-weight="800" font-family="Arial" fill="#1f2937">${nameA} + ${nameB}</text><text x="360" y="350" text-anchor="middle" font-size="150" font-weight="900" font-family="Arial" fill="#6a00f4">${result.score}%</text><text x="360" y="405" text-anchor="middle" font-size="28" font-weight="800" font-family="Arial" fill="#d63d5b">${badge}</text>${bars}<text x="360" y="755" text-anchor="middle" font-size="19" font-family="Arial" fill="#6b7280">A playful result for a memorable moment</text></svg>`;
+    return `data:image/svg+xml,${encodeURIComponent(svg)}`;
+  }
+
   async function shareLoveResultImage(dataUrl, title) {
     if (!dataUrl) return "No result image is available yet.";
     const response = await fetch(dataUrl);
@@ -118,5 +140,6 @@
   }
 
   window.createLoveResultImage = createLoveResultImage;
+  window.createLoveResultTokenImage = createLoveResultTokenImage;
   window.shareLoveResultImage = shareLoveResultImage;
 }());
