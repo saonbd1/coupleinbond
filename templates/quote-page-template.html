@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{{QUOTE_TITLE}} — Love Quote | Couple in Bond</title>
+  <meta name="description" content="{{QUOTE_DESCRIPTION}}">
+  <meta name="robots" content="index,follow,max-image-preview:large">
+  <meta name="theme-color" content="#ff4d6d">
+  <link rel="canonical" href="{{QUOTE_CANONICAL_URL}}">
+  <link rel="icon" href="../assets/coupleinbond-favicon.png">
+  <link rel="stylesheet" href="../quotes.css">
+  <script src="../quotes-interactions.js" defer></script>
+  <script src="../quotes-wallet.js" defer></script>
+  <script src="../quotes-mint.js" defer></script>
+
+  <meta property="og:title" content="{{QUOTE_TITLE}} — Couple in Bond">
+  <meta property="og:description" content="{{QUOTE_DESCRIPTION}}">
+  <meta property="og:url" content="{{QUOTE_CANONICAL_URL}}">
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="Couple in Bond">
+  <meta property="og:image" content="{{QUOTE_IMAGE_URL}}">
+  <meta property="og:image:alt" content="{{QUOTE_IMAGE_ALT}}">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="{{QUOTE_TITLE}} — Couple in Bond">
+  <meta name="twitter:description" content="{{QUOTE_DESCRIPTION}}">
+  <meta name="twitter:image" content="{{QUOTE_IMAGE_URL}}">
+
+  <!-- Replace every {{QUOTE_*}} token before publishing. Keep the JSON valid. -->
+  <script type="application/ld+json" data-seo-enhancement>
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "WebPage",
+        "@id": "{{QUOTE_CANONICAL_URL}}#webpage",
+        "url": "{{QUOTE_CANONICAL_URL}}",
+        "name": "{{QUOTE_TITLE}}",
+        "description": "{{QUOTE_DESCRIPTION}}",
+        "inLanguage": "en",
+        "isPartOf": { "@id": "https://couplein.bond/quotes.html#collection" },
+        "mainEntity": { "@id": "{{QUOTE_CANONICAL_URL}}#quote" }
+      },
+      {
+        "@type": "CreativeWork",
+        "@id": "{{QUOTE_CANONICAL_URL}}#quote",
+        "name": "{{QUOTE_TITLE}}",
+        "text": "{{QUOTE_TEXT}}",
+        "image": "{{QUOTE_IMAGE_URL}}",
+        "url": "{{QUOTE_CANONICAL_URL}}",
+        "author": { "@type": "Person", "name": "{{QUOTE_AUTHOR}}" },
+        "publisher": { "@type": "Organization", "name": "Couple in Bond", "url": "https://couplein.bond/" },
+        "isPartOf": { "@id": "https://couplein.bond/quotes.html#collection" },
+        "inLanguage": "en"
+      },
+      {
+        "@type": "BreadcrumbList",
+        "@id": "{{QUOTE_CANONICAL_URL}}#breadcrumbs",
+        "itemListElement": [
+          { "@type": "ListItem", "position": 1, "name": "Love Quotes", "item": "https://couplein.bond/quotes.html" },
+          { "@type": "ListItem", "position": 2, "name": "{{QUOTE_TITLE}}", "item": "{{QUOTE_CANONICAL_URL}}" }
+        ]
+      }
+    ]
+  }
+  </script>
+</head>
+<body>
+  <div class="quotes-shell">
+    <header class="quotes-header">
+      <a class="quotes-brand" href="../index.html">💕 Couple in Bond</a>
+      <div class="quotes-wallet-wrap"><span id="quotesWalletStatus" aria-live="polite">Wallet: Not connected</span><button id="quotesWalletButton" type="button">Connect wallet</button></div>
+    </header>
+    <main class="quote-page">
+      <nav aria-label="Breadcrumb"><a href="../quotes.html">Love quotes</a><span> / </span><span>{{QUOTE_CATEGORY}}</span></nav>
+      <article class="quote-detail-card">
+        <p class="quote-kicker">{{QUOTE_CATEGORY}} · Couple in Bond</p>
+        <h1>{{QUOTE_TITLE}}</h1>
+        <figure class="quote-image-figure">
+          <img src="{{QUOTE_IMAGE_URL}}" alt="{{QUOTE_IMAGE_ALT}}" width="1200" height="630">
+          <figcaption>{{QUOTE_TEXT}}</figcaption>
+        </figure>
+        <div class="quote-actions">
+          <button type="button" data-quote-share>Share quote</button>
+          <button type="button" data-quote-mint>Mint this quote</button>
+        </div>
+      </article>
+    </main>
+    <footer class="site-footer"><p>© 2026 Couple in Bond. All rights reserved.</p><p><a href="../quotes.html">All love quotes</a> · <a href="../calculator.html">Love calculator</a> · <a href="../polls.html">Relationship polls</a></p></footer>
+  </div>
+</body>
+</html>

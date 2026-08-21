@@ -1,0 +1,96 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{{BLOG_TITLE}} — Couple in Bond</title>
+  <meta name="description" content="{{BLOG_DESCRIPTION}}">
+  <meta name="robots" content="index,follow,max-image-preview:large">
+  <meta name="theme-color" content="#ff4d6d">
+  <link rel="canonical" href="{{BLOG_CANONICAL_URL}}">
+  <link rel="icon" href="../assets/coupleinbond-favicon.png">
+  <link rel="apple-touch-icon" href="../assets/coupleinbond-favicon.png">
+  <link rel="stylesheet" href="../blog.css">
+  <script src="../blog-nav.js" defer></script>
+
+  <meta property="og:title" content="{{BLOG_TITLE}} — Couple in Bond">
+  <meta property="og:description" content="{{BLOG_DESCRIPTION}}">
+  <meta property="og:url" content="{{BLOG_CANONICAL_URL}}">
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="Couple in Bond">
+  <meta property="og:locale" content="en_US">
+  <meta property="og:image" content="{{BLOG_IMAGE_URL}}">
+  <meta property="og:image:alt" content="{{BLOG_IMAGE_ALT}}">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="{{BLOG_TITLE}} — Couple in Bond">
+  <meta name="twitter:description" content="{{BLOG_DESCRIPTION}}">
+  <meta name="twitter:image" content="{{BLOG_IMAGE_URL}}">
+
+  <!-- Replace every {{BLOG_*}} token before publishing. Keep the JSON valid. -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "@id": "{{BLOG_CANONICAL_URL}}#article",
+    "headline": "{{BLOG_HEADLINE}}",
+    "description": "{{BLOG_DESCRIPTION}}",
+    "url": "{{BLOG_CANONICAL_URL}}",
+    "mainEntityOfPage": { "@type": "WebPage", "@id": "{{BLOG_CANONICAL_URL}}" },
+    "image": "{{BLOG_IMAGE_URL}}",
+    "datePublished": "{{BLOG_DATE_PUBLISHED}}",
+    "dateModified": "{{BLOG_DATE_MODIFIED}}",
+    "author": {
+      "@type": "Organization",
+      "name": "Couple in Bond Editorial",
+      "url": "https://couplein.bond/blog.html"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "Couple in Bond",
+      "url": "https://couplein.bond/",
+      "logo": { "@type": "ImageObject", "url": "https://couplein.bond/assets/social-share.jpg" }
+    },
+    "articleSection": "{{BLOG_SECTION}}",
+    "keywords": [{{BLOG_KEYWORDS_JSON}}],
+    "inLanguage": "en"
+  }
+  </script>
+  <script type="application/ld+json" data-seo-enhancement>
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "@id": "{{BLOG_CANONICAL_URL}}#breadcrumbs",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Blog", "item": "https://couplein.bond/blog.html" },
+      { "@type": "ListItem", "position": 2, "name": "{{BLOG_TITLE}}", "item": "{{BLOG_CANONICAL_URL}}" }
+    ]
+  }
+  </script>
+</head>
+<body>
+  <div class="blog-shell"><div class="blog-wrap">
+    <header class="blog-nav" data-root=".."><a class="blog-brand" href="../index.html">💕 Couple in Bond</a></header>
+    <main class="article-layout">
+      <article class="article-shell">
+        <header class="article-header">
+          <div class="blog-kicker">{{BLOG_SECTION}} · {{BLOG_READ_TIME}} min read</div>
+          <h1>{{BLOG_HEADLINE}}</h1>
+          <p class="article-dek">{{BLOG_DEK}}</p>
+          <div class="article-meta"><span>Published {{BLOG_DISPLAY_DATE}}</span><span>·</span><span>By Couple in Bond Editorial</span></div>
+        </header>
+        <div class="article-body">
+          <!-- Add the article body here. Use semantic h2, h3, p, ul, ol, details, and blockquote elements. -->
+          {{BLOG_BODY_HTML}}
+        </div>
+        <footer class="article-footer">This article is for general reflection and entertainment. It is not therapy or professional relationship advice.</footer>
+      </article>
+      <aside class="article-aside">
+        <h2>{{BLOG_ASIDE_TITLE}}</h2>
+        <p>{{BLOG_ASIDE_TEXT}}</p>
+        <a href="../calculator.html">Try the calculator →</a>
+      </aside>
+    </main>
+    <footer class="blog-footer"><p>© 2026 Couple in Bond. All rights reserved.</p><p><a href="../blog.html">More relationship ideas</a></p></footer>
+  </div></div>
+</body>
+</html>
