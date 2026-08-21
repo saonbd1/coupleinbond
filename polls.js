@@ -2,43 +2,7 @@
 (function () {
   "use strict";
 
-  const POLLS = [
-    {
-      id: "date-night-mood",
-      topic: "date-night",
-      label: "Date night",
-      question: "What kind of date night sounds best this week?",
-      options: ["A cozy night at home", "An unplanned adventure", "A long dinner and good conversation", "A little of everything"]
-    },
-    {
-      id: "connection-ritual",
-      topic: "connection",
-      label: "Connection",
-      question: "What helps two people feel most connected?",
-      options: ["Small acts of care", "Uninterrupted conversation", "Shared goals", "Laughing together"]
-    },
-    {
-      id: "weekly-ritual",
-      topic: "connection",
-      label: "Connection",
-      question: "What should a couple make time for this week?",
-      options: ["A tech-free meal", "A walk with no agenda", "A shared creative project", "A sincere check-in"]
-    },
-    {
-      id: "family-marriage-lasted-longer",
-      topic: "relationships",
-      label: "Relationships",
-      question: "Do you believe Family Marriage Lasted Longer?",
-      options: ["Yes, family-arranged marriages can last longer", "No, love marriages can last longer", "It depends on the couple", "I’m not sure"]
-    },
-    {
-      id: "seasonal-mood",
-      topic: "seasonal",
-      label: "Seasonal",
-      question: "Which Valentine’s Day mood fits you best?",
-      options: ["Thoughtful and low-key", "Playful and spontaneous", "Classic and romantic", "Friends-first celebration"]
-    }
-  ];
+  const POLLS = Array.isArray(window.COUPLE_POLL_DATA) ? window.COUPLE_POLL_DATA : [];
 
   const VOTES_KEY = "coupleinbond-poll-votes-v1";
   const RESULTS_KEY = "coupleinbond-poll-results-v1";
@@ -110,13 +74,17 @@
     const card = createElement("article", "poll-card");
     const top = createElement("div", "poll-card-top");
     top.append(createElement("span", "poll-card-tag", poll.label), createElement("span", "", "One choice"));
-    card.append(top, createElement("h3", "", poll.question));
+    card.append(top, createElement("h3", "", poll.title));
+    card.append(createElement("p", "poll-card-description", poll.description));
+    const details = createElement("a", "poll-card-link", "Open the dedicated poll page →");
+    details.href = `polls/${poll.id}.html`;
+    card.append(details);
 
     const form = document.createElement("form");
     form.className = "poll-form";
     const options = document.createElement("fieldset");
     options.className = "poll-options";
-    options.setAttribute("aria-label", poll.question);
+    options.setAttribute("aria-label", poll.title);
     const selectedBefore = Number.isInteger(votes[poll.id]) ? votes[poll.id] : null;
 
     poll.options.forEach((option, index) => {
