@@ -114,6 +114,29 @@
   submit.insertAdjacentElement("afterend", shareButton);
   shareButton.insertAdjacentElement("afterend", shareStatus);
 
+  const socialShare = document.createElement("div");
+  socialShare.className = "poll-social-share";
+  socialShare.setAttribute("aria-label", "Share this poll on social media");
+  const shareUrl = encodeURIComponent(window.location.href);
+  const shareText = encodeURIComponent(`${poll.title} — vote on Couple in Bond`);
+  const socialLinks = [
+    ["Facebook", `https://www.facebook.com/sharer/sharer.php?u=${shareUrl}`, "poll-social-facebook"],
+    ["X", `https://twitter.com/intent/tweet?url=${shareUrl}&text=${shareText}`, "poll-social-x"],
+    ["WhatsApp", `https://api.whatsapp.com/send?text=${shareText}%20${shareUrl}`, "poll-social-whatsapp"],
+    ["Telegram", `https://t.me/share/url?url=${shareUrl}&text=${shareText}`, "poll-social-telegram"]
+  ];
+  socialLinks.forEach(([label, href, className]) => {
+    const link = document.createElement("a");
+    link.className = `poll-social-button ${className}`;
+    link.href = href;
+    link.target = "_blank";
+    link.rel = "noopener noreferrer";
+    link.textContent = label;
+    link.setAttribute("aria-label", `Share this poll on ${label}`);
+    socialShare.append(link);
+  });
+  shareStatus.insertAdjacentElement("afterend", socialShare);
+
   form.addEventListener("submit", (event) => {
     event.preventDefault();
     const selectedInput = form.querySelector("input:checked");

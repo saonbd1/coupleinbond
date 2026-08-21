@@ -34,6 +34,13 @@
   .poll-share:hover, .poll-share:focus-visible { color:var(--blog-primary); background:var(--blog-pink); border-color:rgba(255,77,109,.4); transform:translateY(-1px); outline:none; }
   .poll-share:disabled { cursor:wait; opacity:.7; transform:none; }
   .poll-share-status { min-height:17px; margin:5px 0 0; color:var(--blog-primary); font-size:.68rem; font-weight:750; text-align:center; }
+  .poll-social-share { display:flex; flex-wrap:wrap; justify-content:center; gap:7px; margin:9px auto 0; }
+  .poll-social-button { display:inline-flex; align-items:center; justify-content:center; min-width:72px; padding:8px 11px; color:#fff; border-radius:999px; font:inherit; font-size:.66rem; font-weight:850; text-decoration:none; transition:transform .2s ease, filter .2s ease; }
+  .poll-social-button:hover, .poll-social-button:focus-visible { color:#fff; filter:brightness(1.08); transform:translateY(-1px); outline:3px solid rgba(106,0,244,.16); outline-offset:2px; }
+  .poll-social-facebook { background:#1877f2; }
+  .poll-social-x { background:#111827; }
+  .poll-social-whatsapp { background:#25d366; }
+  .poll-social-telegram { background:#229ed9; }
   .poll-submit:hover, .poll-submit:focus-visible { transform:translateY(-2px); box-shadow:0 9px 20px rgba(106,0,244,.18); outline:none; }
 .poll-submit:disabled { cursor:default; opacity:.65; transform:none; box-shadow:none; }
 .poll-feedback { min-height:18px; margin:10px 0 0; color:var(--blog-primary); font-size:.7rem; font-weight:750; }
