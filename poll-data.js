@@ -48,10 +48,23 @@ window.COUPLE_POLL_DATA = [
     intro: "There is no single right way to celebrate affection. This seasonal poll is a light prompt for comparing the mood, pace, and company you want.",
     related: ["date-night-mood", "family-marriage-lasted-longer"],
     options: ["Thoughtful and low-key", "Playful and spontaneous", "Classic and romantic", "Friends-first celebration"]
+  },
+  {
+    id: "sincere-apology", topic: "connection", label: "Connection",
+    title: "What makes an apology feel sincere?",
+    description: "Vote on the gestures that help an apology feel honest, accountable, and meaningful in a relationship.",
+    intro: "A sincere apology is more than a quick phrase. This poll is a gentle prompt for noticing the words and actions that help trust grow after a difficult moment.",
+    related: ["connection-ritual", "weekly-ritual"], options: ["Taking responsibility", "Listening without defending", "Following through with change", "Giving space, then reconnecting"]
+  },
+  {
+    id: "weekend-reset", topic: "date-night", label: "Date night",
+    title: "What kind of weekend reset would help your relationship?",
+    description: "Choose the simple weekend reset that could help two people slow down, reconnect, and feel ready for the week ahead.",
+    intro: "A reset does not need to be expensive or elaborate. Use this poll to compare the kind of time, rest, or attention your relationship could use next.",
+    related: ["date-night-mood", "seasonal-mood"], options: ["A phone-free morning", "Cooking something together", "Getting outside for a walk", "Staying in and truly resting"]
   }
 ];
 
 window.getCouplePoll = function (id) {
   return window.COUPLE_POLL_DATA.find((poll) => poll.id === id) || null;
 };
-EOF

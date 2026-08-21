@@ -136,17 +136,17 @@
             <div class="home-tool-symbol" aria-hidden="true">📊</div>
             <h3 id="featured-poll-title">Featured poll of the week.</h3>
             <div class="home-poll-preview">
-              <p class="home-poll-question">Do you believe family marriage lasted longer?</p>
+              <p class="home-poll-question">What makes an apology feel sincere?</p>
               <form id="featuredPollForm">
-                <label class="home-poll-option"><input type="radio" name="featuredFamilyMarriage" value="0"> <span>Yes, family-arranged marriages can last longer</span></label>
-                <label class="home-poll-option"><input type="radio" name="featuredFamilyMarriage" value="1"> <span>No, love marriages can last longer</span></label>
-                <label class="home-poll-option"><input type="radio" name="featuredFamilyMarriage" value="2"> <span>It depends on the couple</span></label>
-                <label class="home-poll-option"><input type="radio" name="featuredFamilyMarriage" value="3"> <span>I’m not sure</span></label>
+                <label class="home-poll-option"><input type="radio" name="featuredApology" value="0"> <span>Taking responsibility</span></label>
+                <label class="home-poll-option"><input type="radio" name="featuredApology" value="1"> <span>Listening without defending</span></label>
+                <label class="home-poll-option"><input type="radio" name="featuredApology" value="2"> <span>Following through with change</span></label>
+                <label class="home-poll-option"><input type="radio" name="featuredApology" value="3"> <span>Giving space, then reconnecting</span></label>
                 <button class="home-poll-submit" type="submit">Vote on this topic</button>
                 <p class="home-poll-feedback" id="featuredPollFeedback" aria-live="polite">Choose one option. Your vote stays in this browser.</p>
               </form>
             </div>
-            <a class="blog-card-link" href="polls.html?topic=relationships#poll-list-title">Open the full poll →</a>
+            <a class="blog-card-link" href="polls/sincere-apology.html">Open the full poll →</a>
           </section>
 
           <article class="blog-card home-tool-card book-home-card">
@@ -184,12 +184,12 @@
   <script>
     const featuredPollForm = document.getElementById("featuredPollForm");
     const featuredPollFeedback = document.getElementById("featuredPollFeedback");
-    const featuredPollId = "family-marriage-lasted-longer";
+    const featuredPollId = "sincere-apology";
     const featuredPollOptions = [
-      "Yes, family-arranged marriages can last longer",
-      "No, love marriages can last longer",
-      "It depends on the couple",
-      "I’m not sure"
+      "Taking responsibility",
+      "Listening without defending",
+      "Following through with change",
+      "Giving space, then reconnecting"
     ];
 
     function readFeaturedPollStorage(key, fallback) {
