@@ -10,6 +10,7 @@
   const dialogImage = dialog && dialog.querySelector("[data-lightbox-image]");
   const dialogCaption = dialog && dialog.querySelector("[data-lightbox-caption]");
   const closeButton = dialog && dialog.querySelector("[data-lightbox-close]");
+  const shareButton = dialog && dialog.querySelector("[data-lightbox-share]");
 
   function setFilter(filter) {
     let visible = 0;
@@ -31,7 +32,37 @@
     dialogImage.src = link.href;
     dialogImage.alt = link.dataset.imageAlt || "Love quote image";
     if (dialogCaption) dialogCaption.textContent = link.dataset.caption || "Love quote";
+    if (shareButton) {
+      shareButton.dataset.shareUrl = new URL(link.getAttribute("href"), window.location.href).href;
+      shareButton.dataset.shareTitle = link.dataset.caption || "Love quote photo";
+      shareButton.textContent = "Share";
+      shareButton.classList.remove("is-copied");
+    }
     dialog.showModal();
+  }
+
+  async function shareQuote() {
+    if (!shareButton) return;
+    const url = shareButton.dataset.shareUrl || window.location.href;
+    const title = shareButton.dataset.shareTitle || "Love quote photo";
+    const shareData = { title: `${title} · Couple in Bond`, text: "A love quote from Couple in Bond", url };
+
+    try {
+      if (navigator.share) {
+        await navigator.share(shareData);
+        return;
+      }
+      await navigator.clipboard.writeText(url);
+      shareButton.textContent = "Link copied";
+      shareButton.classList.add("is-copied");
+    } catch (error) {
+      if (error && error.name === "AbortError") return;
+      shareButton.textContent = "Copy failed";
+      window.setTimeout(() => {
+        shareButton.textContent = "Share";
+        shareButton.classList.remove("is-copied");
+      }, 1800);
+    }
   }
 
   filters.forEach((button) => {
@@ -46,6 +77,7 @@
     });
   });
 
+  if (shareButton) shareButton.addEventListener("click", shareQuote);
   if (closeButton && dialog) closeButton.addEventListener("click", () => dialog.close());
   if (dialog) {
     dialog.addEventListener("click", (event) => {

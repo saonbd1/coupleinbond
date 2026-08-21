@@ -105,8 +105,11 @@
     dialog::backdrop { background:rgba(17,8,24,.78); backdrop-filter:blur(5px); }
     .lightbox__bar { display:flex; align-items:center; justify-content:space-between; gap:16px; padding:14px 17px; }
     .lightbox__title { margin:0; color:rgba(255,255,255,.7); font-size:.75rem; font-weight:850; letter-spacing:.08em; text-transform:uppercase; }
-    .lightbox__close { display:grid; place-items:center; width:34px; height:34px; color:#fff; background:rgba(255,255,255,.12); border:0; border-radius:50%; font-size:1.25rem; cursor:pointer; }
-    .lightbox__close:hover, .lightbox__close:focus-visible { background:var(--hot); outline:none; }
+    .lightbox__actions { display:flex; align-items:center; gap:8px; }
+    .lightbox__share, .lightbox__close { display:grid; place-items:center; width:34px; height:34px; color:#fff; background:rgba(255,255,255,.12); border:0; border-radius:50%; cursor:pointer; }
+    .lightbox__share { width:auto; padding:0 12px; border-radius:999px; font:inherit; font-size:.68rem; font-weight:850; }
+    .lightbox__share:hover, .lightbox__share:focus-visible, .lightbox__close:hover, .lightbox__close:focus-visible { background:var(--hot); outline:none; }
+    .lightbox__share.is-copied { background:#4caf7d; }
     .lightbox__image { display:block; max-width:100%; max-height:calc(100vh - 112px); margin:0 auto; object-fit:contain; }
     .lightbox__caption { margin:0; padding:13px 17px 17px; color:rgba(255,255,255,.68); font-size:.78rem; }
     @media (max-width:1000px) { .hero { grid-template-columns:1fr; min-height:0; gap:20px; } .hero-visual { min-height:390px; } .quote-card:nth-child(n) { grid-column:span 4; } .quote-card:nth-child(1), .quote-card:nth-child(8), .quote-card:nth-child(11), .quote-card:nth-child(16) { grid-column:span 6; } }
@@ -186,6 +189,6 @@
     </main>
     <footer class="footer"><p>© 2026 Couple in Bond. All rights reserved. · <a href="index.html">Home</a> · <a href="privacy.html">Privacy</a></p></footer>
   </div>
-  <dialog data-lightbox aria-labelledby="lightbox-title"><div class="lightbox__bar"><h2 class="lightbox__title" id="lightbox-title">Love quote photo</h2><button class="lightbox__close" type="button" data-lightbox-close aria-label="Close full-size quote photo">×</button></div><img class="lightbox__image" data-lightbox-image src="assets/quotes/FB_IMG_1786880613592.jpg" alt="" width="526" height="800"><p class="lightbox__caption" data-lightbox-caption>Love quote photo</p></dialog>
+  <dialog data-lightbox aria-labelledby="lightbox-title"><div class="lightbox__bar"><h2 class="lightbox__title" id="lightbox-title">Love quote photo</h2><div class="lightbox__actions"><button class="lightbox__share" type="button" data-lightbox-share aria-label="Share this love quote photo">Share</button><button class="lightbox__close" type="button" data-lightbox-close aria-label="Close full-size quote photo">×</button></div></div><img class="lightbox__image" data-lightbox-image src="assets/quotes/FB_IMG_1786880613592.jpg" alt="" width="526" height="800"><p class="lightbox__caption" data-lightbox-caption>Love quote photo</p></dialog>
 </body>
 </html>
