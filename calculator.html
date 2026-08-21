@@ -1246,7 +1246,11 @@
       window.location.href = walletAppLink();
     }
 
-    async function mintNFT(name1, name2, score) {
+    async function mintNFT(name1, name2, score, imageUrl) {
+      if (!imageUrl) {
+        alert("Please calculate a result image first");
+        return;
+      }
       if (!window.ethereum) {
         if (isMobileWalletSurface()) {
           openMobileWallet();
@@ -1283,8 +1287,8 @@
           }
         }
         const signer = provider.getSigner();
-        const contract = new ethers.Contract(contractAddress, abi, signer);
-        const tx = await contract.mint(name1, name2, score);
+        const contract = new ethers.Contract(resultContractAddress, resultAbi, signer);
+        const tx = await contract.mintResult(name1, name2, score, imageUrl);
         await tx.wait();
         alert(`NFT Minted! Transaction: ${tx.hash}`);
       } catch (error) {
@@ -1358,8 +1362,8 @@
     let lastScore = 0;
     let lastResultImage = "";
 
-    const contractAddress = "0x66dF01e59AC8AC13575bB760500be7DBADf78D32";
-    const abi = ["function mint(string name1, string name2, uint8 score) public"];
+    const resultContractAddress = "0x7bA15fe1c1CE1d808eE5c0e86740C84E2bcdb7FD";
+    const resultAbi = ["function mintResult(string name1, string name2, uint8 score, string imageUrl) external returns (uint256 tokenId)"];
 
     function showResults(a, b) {
       lastNameA = a;
@@ -1466,7 +1470,7 @@
       if (mintBtn) {
         mintBtn.addEventListener("click", async () => {
           if (lastNameA && lastNameB) {
-            await mintNFT(lastNameA, lastNameB, lastScore);
+            await mintNFT(lastNameA, lastNameB, lastScore, lastResultImage);
           } else {
             alert("Please calculate a love score first!");
           }
