@@ -29,7 +29,7 @@
 .poll-option:hover { border-color:rgba(255,77,109,.42); background:#fff8fa; transform:translateX(2px); }
 .poll-option:has(input:checked) { color:var(--blog-secondary); background:var(--blog-lilac); border-color:rgba(106,0,244,.35); }
 .poll-option input { width:15px; height:15px; accent-color:var(--blog-primary); }
-.poll-submit { margin-top:14px; padding:10px 14px; color:#fff; background:linear-gradient(135deg,var(--blog-primary),var(--blog-secondary)); border:0; border-radius:999px; font:inherit; font-size:.72rem; font-weight:850; cursor:pointer; transition:transform .2s ease, box-shadow .2s ease; }
+  .poll-submit { display:block; margin:14px auto 0; padding:10px 14px; color:#fff; background:linear-gradient(135deg,var(--blog-primary),var(--blog-secondary)); border:0; border-radius:999px; font:inherit; font-size:.72rem; font-weight:850; cursor:pointer; transition:transform .2s ease, box-shadow .2s ease; }
 .poll-submit:hover, .poll-submit:focus-visible { transform:translateY(-2px); box-shadow:0 9px 20px rgba(106,0,244,.18); outline:none; }
 .poll-submit:disabled { cursor:default; opacity:.65; transform:none; box-shadow:none; }
 .poll-feedback { min-height:18px; margin:10px 0 0; color:var(--blog-primary); font-size:.7rem; font-weight:750; }
