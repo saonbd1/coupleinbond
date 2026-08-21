@@ -8,15 +8,43 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <script type="application/ld+json">
   {
-    "@context":"https://schema.org",
-    "@type":"FAQPage",
-    "mainEntity":[
-      {"@type":"Question","name":"Is a love calculator accurate?","acceptedAnswer":{"@type":"Answer","text":"A name-based love calculator is for entertainment and reflection. It does not measure the future of a relationship or replace honest conversation."}},
-      {"@type":"Question","name":"How does the Couple in Bond love calculator work?","acceptedAnswer":{"@type":"Answer","text":"Enter two names and the tool creates a playful compatibility score with lighthearted match details. The score is not a scientific test."}},
-      {"@type":"Question","name":"What does a love percentage mean?","acceptedAnswer":{"@type":"Answer","text":"The percentage is a playful result for the two names you enter. Use it as a conversation starter, not as proof of compatibility."}},
-      {"@type":"Question","name":"Can I use the love calculator for a crush?","acceptedAnswer":{"@type":"Answer","text":"Yes. You can use the tool with a partner, crush, friend, or any two names for a lighthearted result."}},
-      {"@type":"Question","name":"Does Couple in Bond store the names I enter?","acceptedAnswer":{"@type":"Answer","text":"The calculator runs in your browser. This page does not store the names or result on its own server."}},
-      {"@type":"Question","name":"How can I mint my love score on Ink Chain?","acceptedAnswer":{"@type":"Answer","text":"Calculate a score, connect MetaMask on Ink Chain, and select Mint Love NFT in the result window. Review and approve the wallet transaction; network fees may apply."}}
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "WebPage",
+        "@id": "https://couplein.bond/calculator.html#webpage",
+        "url": "https://couplein.bond/calculator.html",
+        "name": "Love Calculator by Name — Couple in Bond",
+        "description": "Calculate a playful love percentage from two names, explore lighthearted match details, and optionally mint the generated result on Ink Chain.",
+        "inLanguage": "en",
+        "isPartOf": { "@id": "https://couplein.bond/#website" },
+        "mainEntity": { "@id": "https://couplein.bond/calculator.html#application" }
+      },
+      {
+        "@type": "WebApplication",
+        "@id": "https://couplein.bond/calculator.html#application",
+        "url": "https://couplein.bond/calculator.html",
+        "name": "Couple in Bond Love Calculator",
+        "description": "A browser-based love calculator that creates a playful compatibility score and result card from two names.",
+        "applicationCategory": "EntertainmentApplication",
+        "operatingSystem": "Any",
+        "browserRequirements": "Requires JavaScript enabled in a modern web browser.",
+        "isAccessibleForFree": true,
+        "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+        "publisher": { "@id": "https://couplein.bond/#organization" }
+      },
+      {
+        "@type": "FAQPage",
+        "@id": "https://couplein.bond/calculator.html#faq",
+        "mainEntity": [
+          {"@type":"Question","name":"Is a love calculator accurate?","acceptedAnswer":{"@type":"Answer","text":"A name-based love calculator is for entertainment and reflection. It does not measure the future of a relationship or replace honest conversation."}},
+          {"@type":"Question","name":"How does the Couple in Bond love calculator work?","acceptedAnswer":{"@type":"Answer","text":"Enter two names and the tool creates a playful compatibility score with lighthearted match details. The score is not a scientific test."}},
+          {"@type":"Question","name":"What does a love percentage mean?","acceptedAnswer":{"@type":"Answer","text":"The percentage is a playful result for the two names you enter. Use it as a conversation starter, not as proof of compatibility."}},
+          {"@type":"Question","name":"Can I use the love calculator for a crush?","acceptedAnswer":{"@type":"Answer","text":"Yes. You can use the tool with a partner, crush, friend, or any two names for a lighthearted result."}},
+          {"@type":"Question","name":"Does Couple in Bond store the names I enter?","acceptedAnswer":{"@type":"Answer","text":"The calculator runs in your browser. This page does not store the names or result on its own server."}},
+          {"@type":"Question","name":"How can I mint my love score on Ink Chain?","acceptedAnswer":{"@type":"Answer","text":"Calculate a score, connect MetaMask on Ink Chain, and select Mint Love NFT in the result window. Review and approve the wallet transaction; network fees may apply."}}
+        ]
+      }
     ]
   }
   </script>
