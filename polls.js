@@ -74,11 +74,11 @@
     const card = createElement("article", "poll-card");
     const top = createElement("div", "poll-card-top");
     top.append(createElement("span", "poll-card-tag", poll.label), createElement("span", "", "One choice"));
-    card.append(top, createElement("h3", "", poll.title));
-    card.append(createElement("p", "poll-card-description", poll.description));
-    const details = createElement("a", "poll-card-link", "Open the dedicated poll page →");
-    details.href = `polls/${poll.id}.html`;
-    card.append(details);
+    const titleLink = createElement("a", "poll-card-title-link", poll.title);
+    titleLink.href = `polls/${poll.id}.html`;
+    const title = createElement("h3", "", "");
+    title.append(titleLink);
+    card.append(top, title, createElement("p", "poll-card-description", poll.description));
 
     const form = document.createElement("form");
     form.className = "poll-form";
