@@ -169,6 +169,21 @@
       margin-bottom: 10px;
     }
 
+    .site-footer {
+      width: 100%;
+      max-width: 800px;
+      margin: 24px auto 0;
+      padding: 22px 10px 4px;
+      color: var(--text-secondary);
+      text-align: center;
+      font-size: .82rem;
+      line-height: 1.7;
+    }
+
+    .site-footer p { margin: 0 0 6px; font-size: inherit; }
+    .site-footer a { color: var(--primary-dark); font-weight: 700; text-decoration: none; }
+    .site-footer a:hover, .site-footer a:focus-visible { text-decoration: underline; outline: none; }
+
     @media (max-width: 768px) {
       .container { display: block; }
       .sidebar {
@@ -196,6 +211,7 @@
       h1 { font-size: clamp(1.85rem, 10vw, 2.35rem); line-height: 1.05; }
       .section-title { margin-top: 30px; font-size: 1.25rem; }
       p, ul { font-size: .98rem; line-height: 1.7; overflow-wrap: anywhere; }
+      .site-footer { padding-top: 18px; font-size: .75rem; }
     }
   </style>
     <meta name="description" content="Read the Couple in Bond privacy policy for browser-based calculations, wallet actions, local storage, blockchain records, and contact details.">
@@ -256,6 +272,10 @@
 
           <p><em>Last Updated: July 29, 2026</em></p>
         </div>
+        <footer class="site-footer">
+          <p>© 2026 Couple in Bond. All rights reserved.</p>
+          <p><a href="index.html">Home</a> · <a href="calculator.html">Calculator</a> · <a href="polls.html">Polls</a> · <a href="about.html">About Us</a></p>
+        </footer>
       </div>
     </div>
   </div>
