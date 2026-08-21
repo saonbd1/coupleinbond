@@ -4,9 +4,11 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Love Quote Photos for Couples — Couple in Bond</title>
+  <script src="https://cdn.jsdelivr.net/npm/ethers@5.7.2/dist/ethers.umd.min.js" defer></script>
   <script src="social-icons.js" defer></script>
   <script src="quotes-interactions.js" defer></script>
   <script src="quotes-wallet.js" defer></script>
+  <script src="quotes-mint.js" defer></script>
   <style>
     /* Design reminder: Love Letter Wall — keep the page tactile, editorial, and photo-led; let color frame the images without competing with their words. */
     :root { --ink:#24162d; --ink-soft:#4d3a56; --paper:#fffaf6; --paper-deep:#f8ede8; --hot:#ff5574; --violet:#8056e8; --gold:#ffd36a; --line:rgba(53,30,63,.13); --shadow:0 24px 70px rgba(34,16,45,.18); }
@@ -111,6 +113,13 @@
     .lightbox__share { width:auto; min-width:120px; height:44px; padding:0 20px; border-radius:999px; font:inherit; font-size:.8rem; font-weight:900; }
     .lightbox__share:hover, .lightbox__share:focus-visible, .lightbox__close:hover, .lightbox__close:focus-visible { background:var(--hot); outline:none; }
     .lightbox__share.is-copied { background:#4caf7d; }
+    .lightbox__mint-row { display:flex; justify-content:center; padding:10px 17px 0; }
+    .lightbox__mint { min-width:170px; min-height:44px; padding:0 20px; color:var(--ink); background:var(--gold); border:0; border-radius:999px; font:inherit; font-size:.8rem; font-weight:900; cursor:pointer; transition:background .2s ease,transform .2s ease,opacity .2s ease; }
+    .lightbox__mint:hover, .lightbox__mint:focus-visible { background:#ffe29a; outline:none; transform:translateY(-1px); }
+    .lightbox__mint:disabled { cursor:wait; opacity:.68; transform:none; }
+    .lightbox__mint.is-success { color:#fff; background:#4caf7d; }
+    .lightbox__mint.is-error { color:#fff; background:#b64d6c; }
+    .lightbox__mint-status { min-height:1.2em; margin:8px 17px 0; color:rgba(255,255,255,.62); font-size:.68rem; line-height:1.4; text-align:center; }
     .lightbox__image { display:block; max-width:100%; max-height:calc(100vh - 112px); margin:0 auto; object-fit:contain; }
     .lightbox__caption { margin:0; padding:13px 17px 17px; color:rgba(255,255,255,.68); font-size:.78rem; }
     @media (max-width:1000px) { .hero { grid-template-columns:1fr; min-height:0; gap:20px; } .hero-visual { min-height:390px; } .quote-card:nth-child(n) { grid-column:span 4; } .quote-card:nth-child(1), .quote-card:nth-child(8), .quote-card:nth-child(11), .quote-card:nth-child(16) { grid-column:span 6; } }
@@ -190,6 +199,6 @@
     </main>
     <footer class="footer"><p>© 2026 Couple in Bond. All rights reserved. · <a href="index.html">Home</a> · <a href="privacy.html">Privacy</a></p></footer>
   </div>
-  <dialog data-lightbox aria-labelledby="lightbox-title"><div class="lightbox__bar"><h2 class="lightbox__title" id="lightbox-title">Love quote photo</h2><div class="lightbox__actions"><button class="lightbox__close" type="button" data-lightbox-close aria-label="Close full-size quote photo">×</button></div></div><img class="lightbox__image" data-lightbox-image src="assets/quotes/FB_IMG_1786880613592.jpg" alt="" width="526" height="800"><div class="lightbox__share-row"><button class="lightbox__share" type="button" data-lightbox-share aria-label="Share this love quote photo">Share</button></div><p class="lightbox__caption" data-lightbox-caption>Love quote photo</p></dialog>
+  <dialog data-lightbox aria-labelledby="lightbox-title"><div class="lightbox__bar"><h2 class="lightbox__title" id="lightbox-title">Love quote photo</h2><div class="lightbox__actions"><button class="lightbox__close" type="button" data-lightbox-close aria-label="Close full-size quote photo">×</button></div></div><img class="lightbox__image" data-lightbox-image src="assets/quotes/FB_IMG_1786880613592.jpg" alt="" width="526" height="800"><div class="lightbox__share-row"><button class="lightbox__share" type="button" data-lightbox-share aria-label="Share this love quote photo">Share</button></div><div class="lightbox__mint-row"><button class="lightbox__mint" type="button" data-lightbox-mint aria-label="Mint this love quote image as an NFT">Mint this quote</button></div><p class="lightbox__mint-status" data-lightbox-mint-status aria-live="polite">Contract address pending deployment</p><p class="lightbox__caption" data-lightbox-caption>Love quote photo</p></dialog>
 </body>
 </html>

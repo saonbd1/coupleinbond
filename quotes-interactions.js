@@ -38,6 +38,9 @@
       shareButton.textContent = "Share";
       shareButton.classList.remove("is-copied");
     }
+    if (window.quoteMint && typeof window.quoteMint.setQuoteImage === "function") {
+      window.quoteMint.setQuoteImage(new URL(link.getAttribute("href"), window.location.href).href);
+    }
     dialog.showModal();
   }
 
