@@ -4,7 +4,7 @@
 
   const INK_CHAIN_ID = 763373;
   const INK_CHAIN_HEX = "0xdef1";
-  const QUOTE_CONTRACT_ADDRESS = "";
+  const QUOTE_CONTRACT_ADDRESS = "0xAb69c430f0B217b2B4cb03985aEDDcf8BA63C0F9";
   const QUOTE_CONTRACT_ABI = ["function mintQuote(string imageUrl) external returns (uint256 tokenId)"];
   const dialog = document.querySelector("[data-lightbox]");
   const mintButton = dialog && dialog.querySelector("[data-lightbox-mint]");
