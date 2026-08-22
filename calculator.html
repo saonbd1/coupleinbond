@@ -861,6 +861,44 @@
     .result-image-status { min-height:1.25em; margin:8px 0 0; color:var(--text-secondary); font-size:.78rem; line-height:1.45; text-align:center; }
     .result-image-status.is-error { color:var(--danger); }
 
+    /* Animatic result view */
+    .animatic {
+      position: relative;
+      min-height: 230px;
+      margin: 0 0 24px;
+      padding: 24px 20px 20px;
+      overflow: hidden;
+      color: #fff;
+      background: #24133f;
+      border-radius: 20px;
+      isolation: isolate;
+    }
+
+    .animatic::before {
+      position: absolute;
+      inset: 0;
+      z-index: -1;
+      content: "";
+      background: radial-gradient(circle at 18% 20%, rgba(255, 211, 106, .32), transparent 24%), radial-gradient(circle at 85% 85%, rgba(255, 77, 109, .42), transparent 35%);
+    }
+
+    .animatic-kicker { margin: 0 0 18px; color: #ffd36a; font-size: .66rem; font-weight: 900; letter-spacing: .16em; text-transform: uppercase; }
+    .animatic-scene { display: none; min-height: 142px; flex-direction: column; justify-content: center; align-items: center; text-align: center; animation: animaticScene .65s cubic-bezier(.2,.8,.2,1) both; }
+    .animatic-scene.is-active { display: flex; }
+    .animatic-names { font-size: clamp(1.7rem, 7vw, 2.55rem); font-weight: 900; letter-spacing: -.06em; }
+    .animatic-heart { display: block; margin: 0 0 10px; color: #ff5574; font-size: 3.3rem; animation: animaticHeartbeat 1s ease-in-out infinite; }
+    .animatic-copy { margin: 10px 0 0; color: rgba(255,255,255,.72); font-size: .86rem; }
+    .animatic-score { color: #ffd36a; font-size: clamp(3.5rem, 15vw, 5.5rem); font-weight: 950; letter-spacing: -.08em; text-shadow: 0 8px 25px rgba(0,0,0,.22); }
+    .animatic-progress { display: flex; gap: 6px; justify-content: center; margin-top: 12px; }
+    .animatic-progress span { width: 28px; height: 4px; border-radius: 99px; background: rgba(255,255,255,.28); transition: background .25s ease; }
+    .animatic-progress span.is-active { background: #ffd36a; }
+    .animatic-replay { display: block; margin: 16px auto 0; padding: 7px 12px; color: rgba(255,255,255,.82); background: transparent; border: 1px solid rgba(255,255,255,.32); border-radius: 999px; font-size: .72rem; font-weight: 800; cursor: pointer; }
+    .animatic-replay:hover, .animatic-replay:focus-visible { color: #fff; border-color: #fff; outline: 2px solid rgba(255,211,106,.6); outline-offset: 2px; }
+
+    @keyframes animaticScene { from { opacity: 0; transform: translateY(12px) scale(.96); } to { opacity: 1; transform: translateY(0) scale(1); } }
+    @keyframes animaticHeartbeat { 50% { transform: scale(1.18); } }
+    @media (prefers-reduced-motion: reduce) { .animatic-scene { animation: none; } .animatic-heart { animation: none; } }
+
     /* Responsive */
     @media (max-width: 768px) {
       .sidebar { padding: 14px 16px; gap: 10px; overflow: visible; }
@@ -1108,6 +1146,15 @@
     <div class="modal-content">
       <button class="modal-close" id="closeModal">&times;</button>
       <h2 class="modal-title">Match Results</h2>
+
+      <section class="animatic" id="resultAnimatic" aria-label="Animated match reveal">
+        <p class="animatic-kicker">Your mini love story</p>
+        <div class="animatic-scene is-active" data-scene="0"><span class="animatic-heart" aria-hidden="true">♥</span><strong class="animatic-names" id="animaticNames">Two names</strong><p class="animatic-copy">Let&apos;s see what the universe says…</p></div>
+        <div class="animatic-scene" data-scene="1"><span class="animatic-heart" aria-hidden="true">♥</span><strong class="animatic-names">A spark is forming</strong><p class="animatic-copy">Vibe, snacks, texts, memes — calculating the chemistry.</p></div>
+        <div class="animatic-scene" data-scene="2"><strong class="animatic-score" id="animaticScore">0%</strong><p class="animatic-copy" id="animaticBadge">Match energy unlocked</p></div>
+        <div class="animatic-progress" aria-hidden="true"><span class="is-active"></span><span></span><span></span></div>
+        <button class="animatic-replay" id="replayAnimatic" type="button">Replay reveal</button>
+      </section>
 
       <div class="score">
         <div class="score-number" id="modalScoreNumber">0%</div>
@@ -1438,6 +1485,29 @@
     const resultContractAddress = "0x7bA15fe1c1CE1d808eE5c0e86740C84E2bcdb7FD";
     const resultAbi = ["function mintResult(string name1, string name2, uint8 score, string imageUrl) external returns (uint256 tokenId)"];
 
+    let animaticTimer;
+
+    function playResultAnimatic(nameA, nameB, score, badge) {
+      const animatic = el("resultAnimatic");
+      if (!animatic) return;
+      const scenes = Array.from(animatic.querySelectorAll("[data-scene]"));
+      const steps = Array.from(animatic.querySelectorAll(".animatic-progress span"));
+      el("animaticNames").textContent = `${nameA} + ${nameB}`;
+      el("animaticScore").textContent = `${score}%`;
+      el("animaticBadge").textContent = badge;
+      clearTimeout(animaticTimer);
+      let step = 0;
+      const showStep = () => {
+        scenes.forEach((scene, index) => scene.classList.toggle("is-active", index === step));
+        steps.forEach((dot, index) => dot.classList.toggle("is-active", index === step));
+        if (step < scenes.length - 1) {
+          step += 1;
+          animaticTimer = setTimeout(showStep, 1200);
+        }
+      };
+      showStep();
+    }
+
     function showResults(a, b) {
       lastNameA = a;
       lastNameB = b;
@@ -1466,6 +1536,7 @@
       el("resultImageStatus").textContent = "Your result image is ready to share.";
       el("resultImageStatus").classList.remove("is-error");
       el("resultModal").style.display = "block";
+      playResultAnimatic(a || "???", b || "???", out.score, badgeFor(out.score));
 
       const hearts = Math.max(12, Math.round(20 + (out.score / 5)));
       shootHearts(hearts);
@@ -1512,6 +1583,11 @@
             modal.style.display = "none";
           }
         });
+      }
+
+      const replayAnimatic = el("replayAnimatic");
+      if (replayAnimatic) {
+        replayAnimatic.addEventListener("click", () => playResultAnimatic(lastNameA || "???", lastNameB || "???", lastScore, badgeFor(lastScore)));
       }
 
       const shareResultBtn = el("shareResultBtn");
@@ -1590,7 +1666,7 @@
       const calcBtn = el("calcBtn");
       [nameA, nameB].forEach(inp => {
         inp.addEventListener("keydown", e => {
-          if (e.key === "Enter") handleCalculate();
+          if (e.key === "Enter" && !e.nativeEvent?.isComposing && e.keyCode !== 229) handleCalculate();
         });
       });
     });
