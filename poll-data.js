@@ -6,7 +6,7 @@ window.COUPLE_POLL_DATA = [
     title: "What kind of date night sounds best this week?",
     description: "A quick date-night poll for couples deciding whether to stay in, go out, or make room for a little spontaneity.",
     intro: "Date night does not need to be elaborate to feel meaningful. This poll is a small prompt for noticing what kind of energy you both want this week.",
-    related: ["connection-ritual", "weekly-ritual"],
+    related: ["feel-closest-partner-20260930", "connection-ritual"],
     options: ["A cozy night at home", "An unplanned adventure", "A long dinner and good conversation", "A little of everything"]
   },
   {
@@ -16,7 +16,7 @@ window.COUPLE_POLL_DATA = [
     title: "What helps two people feel most connected?",
     description: "Vote on the everyday relationship habits that help couples feel close, understood, and emotionally present.",
     intro: "Connection can grow through grand gestures, but it is often shaped by ordinary moments. Use this poll to compare the small things that matter to you.",
-    related: ["weekly-ritual", "date-night-mood"],
+    related: ["feel-closest-partner-20260930", "weekly-ritual"],
     options: ["Small acts of care", "Uninterrupted conversation", "Shared goals", "Laughing together"]
   },
   {
@@ -63,6 +63,26 @@ window.COUPLE_POLL_DATA = [
     intro: "A reset does not need to be expensive or elaborate. Use this poll to compare the kind of time, rest, or attention your relationship could use next.",
     related: ["date-night-mood", "seasonal-mood"], options: ["A phone-free morning", "Cooking something together", "Getting outside for a walk", "Staying in and truly resting"]
   }
+  {
+    id: "feel-closest-partner-20260930",
+    topic: "connection",
+    label: "Connection",
+    title: "When do you feel closest to your partner?",
+    description: "Choose the moment of the day when connection feels strongest for you.",
+    intro: "Closeness has a rhythm. Some couples bond over morning coffee, others over late-night talks. This poll maps the moments when two people feel most themselves together.",
+    related: ["ruins-date-night-fastest-20260930", "date-night-mood"],
+    options: ["Slow mornings together", "Late-night conversations", "Cooking side by side", "Laughing at something silly"]
+  },
+  {
+    id: "ruins-date-night-fastest-20260930",
+    topic: "date-night",
+    label: "Date night",
+    title: "What ruins a date night fastest?",
+    description: "Vote on the date-night killer couples should avoid at all costs.",
+    intro: "One bad habit can sink a lovely evening. This poll names the fastest way to ruin a date so couples can dodge it.",
+    related: ["feel-closest-partner-20260930", "date-night-mood"],
+    options: ["Scrolling the phone", "Talking about work stress", "Arriving late", "Comparing to past dates"]
+  },
 ];
 
 window.getCouplePoll = function (id) {
