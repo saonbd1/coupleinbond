@@ -6,7 +6,7 @@ window.COUPLE_POLL_DATA = [
     title: "What kind of date night sounds best this week?",
     description: "A quick date-night poll for couples deciding whether to stay in, go out, or make room for a little spontaneity.",
     intro: "Date night does not need to be elaborate to feel meaningful. This poll is a small prompt for noticing what kind of energy you both want this week.",
-    related: ["feel-closest-partner-20260930", "connection-ritual"],
+    related: ["ideal-first-date-spot-20261001", "feel-closest-partner-20260930"],
     options: ["A cozy night at home", "An unplanned adventure", "A long dinner and good conversation", "A little of everything"]
   },
   {
@@ -16,7 +16,7 @@ window.COUPLE_POLL_DATA = [
     title: "What helps two people feel most connected?",
     description: "Vote on the everyday relationship habits that help couples feel close, understood, and emotionally present.",
     intro: "Connection can grow through grand gestures, but it is often shaped by ordinary moments. Use this poll to compare the small things that matter to you.",
-    related: ["feel-closest-partner-20260930", "weekly-ritual"],
+    related: ["ideal-first-date-spot-20261001", "feel-closest-partner-20260930"],
     options: ["Small acts of care", "Uninterrupted conversation", "Shared goals", "Laughing together"]
   },
   {
@@ -82,6 +82,26 @@ window.COUPLE_POLL_DATA = [
     intro: "One bad habit can sink a lovely evening. This poll names the fastest way to ruin a date so couples can dodge it.",
     related: ["feel-closest-partner-20260930", "date-night-mood"],
     options: ["Scrolling the phone", "Talking about work stress", "Arriving late", "Comparing to past dates"]
+  },
+  {
+    id: "ideal-first-date-spot-20261001",
+    topic: "date-night",
+    label: "Date night",
+    title: "What is your ideal first-date spot?",
+    description: "Choose the first-date setting that helps two people relax and be themselves.",
+    intro: "First dates are auditions for comfort. This poll asks which setting gives two strangers the best chance to become something more.",
+    related: ["show-love-ordinary-tuesday-20261001", "date-night-mood"],
+    options: ["A cozy coffee shop", "A casual food street", "A park walk", "A fun activity like bowling"]
+  },
+  {
+    id: "show-love-ordinary-tuesday-20261001",
+    topic: "connection",
+    label: "Connection",
+    title: "How do you show love on an ordinary Tuesday?",
+    description: "Choose the everyday gesture that says love louder than grand occasions.",
+    intro: "Valentine's Day gets the spotlight, but ordinary Tuesdays carry the relationship. This poll celebrates the small midweek gestures that matter most.",
+    related: ["ideal-first-date-spot-20261001", "date-night-mood"],
+    options: ["Cooking their favorite meal", "A surprise sweet text", "Handling a chore for them", "An unexpected compliment"]
   },
 ];
 
