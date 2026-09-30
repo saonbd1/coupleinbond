@@ -6,7 +6,7 @@ window.COUPLE_POLL_DATA = [
     title: "What kind of date night sounds best this week?",
     description: "A quick date-night poll for couples deciding whether to stay in, go out, or make room for a little spontaneity.",
     intro: "Date night does not need to be elaborate to feel meaningful. This poll is a small prompt for noticing what kind of energy you both want this week.",
-    related: ["ideal-first-date-spot-20261001", "feel-closest-partner-20260930"],
+    related: ["best-rainy-day-date-20261001", "ideal-first-date-spot-20261001"],
     options: ["A cozy night at home", "An unplanned adventure", "A long dinner and good conversation", "A little of everything"]
   },
   {
@@ -16,7 +16,7 @@ window.COUPLE_POLL_DATA = [
     title: "What helps two people feel most connected?",
     description: "Vote on the everyday relationship habits that help couples feel close, understood, and emotionally present.",
     intro: "Connection can grow through grand gestures, but it is often shaped by ordinary moments. Use this poll to compare the small things that matter to you.",
-    related: ["ideal-first-date-spot-20261001", "feel-closest-partner-20260930"],
+    related: ["best-rainy-day-date-20261001", "ideal-first-date-spot-20261001"],
     options: ["Small acts of care", "Uninterrupted conversation", "Shared goals", "Laughing together"]
   },
   {
@@ -102,6 +102,26 @@ window.COUPLE_POLL_DATA = [
     intro: "Valentine's Day gets the spotlight, but ordinary Tuesdays carry the relationship. This poll celebrates the small midweek gestures that matter most.",
     related: ["ideal-first-date-spot-20261001", "date-night-mood"],
     options: ["Cooking their favorite meal", "A surprise sweet text", "Handling a chore for them", "An unexpected compliment"]
+  },
+  {
+    id: "best-rainy-day-date-20261001",
+    topic: "date-night",
+    label: "Date night",
+    title: "What is the best rainy-day date?",
+    description: "Choose the coziest way to spend a rainy day with your person.",
+    intro: "Rain cancels plans but creates possibilities. This poll asks which rainy-day date turns gray weather into a memory.",
+    related: ["partner-reconnect-after-hard-day-20261001", "date-night-mood"],
+    options: ["Cafe hopping in the rain", "Puzzle and hot chocolate day", "Binge a new series together", "Cook comfort food together"]
+  },
+  {
+    id: "partner-reconnect-after-hard-day-20261001",
+    topic: "connection",
+    label: "Connection",
+    title: "How do you and your partner reconnect after a hard day?",
+    description: "Choose the simple reset that helps two people soften the stress of the day and turn toward each other.",
+    intro: "Stress follows people home whether they want it to or not. Use this poll to compare the little rituals that help a couple land softly at the end of a hard day.",
+    related: ["best-rainy-day-date-20261001", "date-night-mood"],
+    options: ["A quiet hug first", "Talking it out over tea", "A short walk together", "Space first, then reconnecting"]
   },
 ];
 
