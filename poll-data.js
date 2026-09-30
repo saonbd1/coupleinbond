@@ -62,7 +62,7 @@ window.COUPLE_POLL_DATA = [
     description: "Choose the simple weekend reset that could help two people slow down, reconnect, and feel ready for the week ahead.",
     intro: "A reset does not need to be expensive or elaborate. Use this poll to compare the kind of time, rest, or attention your relationship could use next.",
     related: ["date-night-mood", "seasonal-mood"], options: ["A phone-free morning", "Cooking something together", "Getting outside for a walk", "Staying in and truly resting"]
-  }
+  },
   {
     id: "feel-closest-partner-20260930",
     topic: "connection",

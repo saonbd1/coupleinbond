@@ -691,7 +691,10 @@ def update_poll_data_js(new_polls):
     if idx == -1:
         raise RuntimeError("Could not find closing '];' in poll-data.js")
     block = "\n".join(poll_entry_js(p) for p in new_polls)
-    content = content[:idx] + "\n" + block + content[idx:]
+    prefix = content[:idx].rstrip()
+    if not prefix.endswith(","):
+        prefix += ","          # the old last entry had no trailing comma
+    content = prefix + "\n" + block + content[idx:]
     with open(POLL_DATA_JS, "w", encoding="utf-8") as f:
         f.write(content)
 def render_detail_page(poll, related_polls, companion=None):
@@ -839,16 +842,19 @@ def update_polls_html(new_polls):
         pos += 1
         new_entries.append(
             '          { "@type": "ListItem", "position": %d, "name": %s, '
-            '"url": "%s/polls/%s.html" },' % (
+            '"url": "%s/polls/%s.html" }' % (
                 pos, json.dumps(p["title"]), SITE_URL, p["id"]))
-    block = "\n".join(new_entries)
+    block = ",\n".join(new_entries)
     content = re.sub(r'("numberOfItems":\s*)\d+',
                      lambda m: m.group(1) + str(pos), content, count=1)
     anchor = "        ]\n      }\n    ]\n  }"
     idx = content.find(anchor)
     if idx == -1:
         raise RuntimeError("Could not find ItemList closing anchor in polls.html")
-    content = content[:idx] + block + "\n" + content[idx:]
+    prefix = content[:idx].rstrip()
+    if not prefix.endswith(","):
+        prefix += ","          # the old last ListItem had no trailing comma
+    content = prefix + "\n" + block + "\n" + content[idx:]
     with open(POLLS_HTML, "w", encoding="utf-8") as f:
         f.write(content)
 
@@ -1101,16 +1107,35 @@ def git_run(args):
 
 
 def validate_poll_js():
-    check = ("const fs=require('fs');const src=fs.readFileSync(%s,'utf8');"
-             "const m=src.match(/window\\.COUPLE_POLL_DATA\\s*=\\s*(\\[[\\s\\S]*?\\]);/);"
-             "if(!m){console.error('DATA-NOT-FOUND');process.exit(1);}"
-             "const ids=(m[1].match(/id:\\s*\"[^\"]+\"/g)||[]);"
-             "console.log('polls='+ids.length);"
-             % json.dumps(POLL_DATA_JS))
-    out = subprocess.run(["node", "-e", check], capture_output=True, text=True)
+    """Actually parse+execute poll-data.js so syntax errors (e.g. a missing
+    comma between entries) are caught instead of silently shipped."""
+    check = ("const fs=require('fs');const s=fs.readFileSync(process.argv[1],'utf8');"
+             "const w={};new Function('window',s)(w);"
+             "console.log('polls='+w.COUPLE_POLL_DATA.length);")
+    out = subprocess.run(["node", "-e", check, POLL_DATA_JS],
+                         capture_output=True, text=True)
     if out.returncode != 0 or "polls=" not in out.stdout:
-        raise RuntimeError("poll-data.js validation failed: %s" % out.stderr.strip())
+        raise RuntimeError("poll-data.js is invalid JS: %s" % out.stderr.strip()[:200])
     return out.stdout.strip()
+
+
+def validate_jsonld(paths):
+    """Ensure every JSON-LD block in the given HTML files parses as JSON."""
+    problems = []
+    for path in paths:
+        with open(path, encoding="utf-8") as f:
+            html = f.read()
+        blocks = re.findall(
+            r'<script type="application/ld\+json"[^>]*>(.*?)</script>', html, re.S)
+        for i, blob in enumerate(blocks, 1):
+            try:
+                json.loads(blob.strip())
+            except Exception as exc:  # noqa: BLE001 - collect and report
+                problems.append("%s block %d: %s"
+                                % (os.path.basename(path), i, exc))
+    if problems:
+        raise RuntimeError("invalid JSON-LD: %s" % "; ".join(problems))
+    return "json-ld ok (%d files)" % len(paths)
 # --------------------------------------------------------------------------
 # Main
 # --------------------------------------------------------------------------
@@ -1190,10 +1215,12 @@ def main():
     update_sitemap(new_polls, [a["slug"] for a in articles])
     print("  updated poll-data.js, polls.html, blog.html, sitemap.xml")
 
-    try:
-        print("  validation: %s" % validate_poll_js())
-    except Exception as exc:  # noqa: BLE001 - report, do not crash the batch
-        print("  WARNING: validation skipped (%s)" % exc)
+    # Validate hard: a failure here blocks the commit/push below.
+    print("  validation: %s" % validate_poll_js())
+    print("  validation: %s" % validate_jsonld(
+        [POLLS_HTML, BLOG_HTML]
+        + [os.path.join(POLLS_DIR, p["id"] + ".html") for p in new_polls]
+        + [os.path.join(BLOG_POSTS_DIR, a["slug"] + ".html") for a in articles]))
 
     for p in new_polls:
         used_ids.add("%d:%s" % (p["bank_index"], POLL_BANK[p["bank_index"]][1]))
