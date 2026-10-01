@@ -29,6 +29,39 @@ Visit `http://localhost:8000/`.
 
 The site is configured for Vercel through [`vercel.json`](vercel.json). Deploy the repository as a static site with no build command required.
 
+## Automation: daily polls + articles
+
+`scripts/daily_polls.py` generates relationship polls and companion blog
+articles. It is scheduled to run daily via Windows Task Scheduler:
+
+| | |
+|---|---|
+| Task name | `CoupleInBond - Daily Polls` |
+| Schedule | Every day at 09:00 (local time) |
+| Command | `scripts\run_daily_polls.cmd` |
+| Log | `%LOCALAPPDATA%\coupleinbond\logs\daily_polls.log` |
+
+The wrapper hardcodes the python path and prepends `node` and `git` to `PATH`,
+so the scheduled environment does not depend on the interactive shell. Runs
+continue to work on battery, and a run missed while the machine is off will
+fire when it next starts (`StartWhenAvailable`).
+
+```text
+# run one batch now
+scripts\run_daily_polls.cmd
+
+# preview without writing anything
+scripts\run_daily_polls.cmd --dry-run
+```
+
+Manage the schedule:
+
+```text
+schtasks /query /tn "CoupleInBond - Daily Polls" /v
+schtasks /run  /tn "CoupleInBond - Daily Polls"
+schtasks /delete /tn "CoupleInBond - Daily Polls" /f
+```
+
 ## Repository layout
 
 - Root HTML, CSS, and JavaScript files: public site pages and shared interactions
