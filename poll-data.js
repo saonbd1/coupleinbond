@@ -6,7 +6,7 @@ window.COUPLE_POLL_DATA = [
     title: "What kind of date night sounds best this week?",
     description: "A quick date-night poll for couples deciding whether to stay in, go out, or make room for a little spontaneity.",
     intro: "Date night does not need to be elaborate to feel meaningful. This poll is a small prompt for noticing what kind of energy you both want this week.",
-    related: ["best-rainy-day-date-20261001", "ideal-first-date-spot-20261001"],
+    related: ["who-plan-next-date-20261001", "best-rainy-day-date-20261001"],
     options: ["A cozy night at home", "An unplanned adventure", "A long dinner and good conversation", "A little of everything"]
   },
   {
@@ -16,7 +16,7 @@ window.COUPLE_POLL_DATA = [
     title: "What helps two people feel most connected?",
     description: "Vote on the everyday relationship habits that help couples feel close, understood, and emotionally present.",
     intro: "Connection can grow through grand gestures, but it is often shaped by ordinary moments. Use this poll to compare the small things that matter to you.",
-    related: ["best-rainy-day-date-20261001", "ideal-first-date-spot-20261001"],
+    related: ["who-plan-next-date-20261001", "best-rainy-day-date-20261001"],
     options: ["Small acts of care", "Uninterrupted conversation", "Shared goals", "Laughing together"]
   },
   {
@@ -122,6 +122,26 @@ window.COUPLE_POLL_DATA = [
     intro: "Stress follows people home whether they want it to or not. Use this poll to compare the little rituals that help a couple land softly at the end of a hard day.",
     related: ["best-rainy-day-date-20261001", "date-night-mood"],
     options: ["A quiet hug first", "Talking it out over tea", "A short walk together", "Space first, then reconnecting"]
+  },
+  {
+    id: "who-plan-next-date-20261001",
+    topic: "date-night",
+    label: "Date night",
+    title: "Who should plan the next date?",
+    description: "Vote on the fairest way to share the planning of date nights.",
+    intro: "Planning is part of the romance, but it should not always fall on one person. This poll asks who should take the lead next.",
+    related: ["favorite-way-start-day-couple-20261001", "date-night-mood"],
+    options: ["Take turns planning", "Whoever feels inspired", "Plan it together", "Surprise each other alternately"]
+  },
+  {
+    id: "favorite-way-start-day-couple-20261001",
+    topic: "connection",
+    label: "Connection",
+    title: "What is your favorite way to start the day as a couple?",
+    description: "Vote on the morning ritual that sets the tone for a connected day.",
+    intro: "Mornings set the emotional weather for the whole day. This poll asks which small shared start helps a couple face the day as a team.",
+    related: ["who-plan-next-date-20261001", "date-night-mood"],
+    options: ["Coffee in bed together", "A morning walk", "Planning the day over breakfast", "A slow, unrushed cuddle"]
   },
 ];
 
