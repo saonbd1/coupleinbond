@@ -1,0 +1,108 @@
+/* Valentine's Day countdown — matches the CoupleIn coral/plum theme. */
+.valentines-countdown {
+  margin: 22px 0 8px;
+  padding: clamp(1.5rem, 4vw, 2.75rem) clamp(1.1rem, 4vw, 3rem);
+  border-radius: 28px;
+  text-align: center;
+  color: var(--blog-ink);
+  background: linear-gradient(135deg, var(--blog-pink) 0%, var(--blog-lilac) 55%, #ffe9f0 100%);
+  border: 1px solid var(--blog-border);
+  box-shadow: var(--blog-shadow);
+  overflow: hidden;
+}
+
+.valentines-countdown .blog-kicker {
+  margin: 0 0 0.55rem;
+}
+
+.valentines-countdown-title {
+  margin: 0 auto 1.35rem;
+  max-width: 24ch;
+  font-size: clamp(1.35rem, 3.4vw, 2.15rem);
+  line-height: 1.15;
+}
+
+.valentines-countdown-title span {
+  color: var(--blog-primary);
+}
+
+.valentines-countdown-timer {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: clamp(0.5rem, 2vw, 1.25rem);
+  margin: 0 auto;
+  max-width: 760px;
+}
+
+.valentines-countdown-unit {
+  flex: 1 1 0;
+  min-width: 72px;
+  max-width: 150px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.3rem;
+  padding: clamp(0.8rem, 2vw, 1.2rem) 0.35rem;
+  border-radius: 18px;
+  background: #ffffff;
+  border: 1px solid var(--blog-border);
+  box-shadow: 0 10px 26px rgba(73, 34, 86, 0.08);
+}
+
+.valentines-countdown-value {
+  font-size: clamp(2.3rem, 8vw, 4rem);
+  font-weight: 800;
+  line-height: 1;
+  letter-spacing: -0.02em;
+  color: var(--blog-primary);
+  font-variant-numeric: tabular-nums;
+}
+
+.valentines-countdown-label {
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--blog-muted);
+}
+
+.valentines-countdown-target {
+  margin: 1.15rem 0 0;
+  font-size: 0.95rem;
+  color: var(--blog-muted);
+}
+
+.valentines-countdown-message {
+  margin: 0.9rem 0 0;
+  font-size: 1.05rem;
+  font-weight: 800;
+  color: var(--blog-secondary);
+}
+
+.valentines-countdown-message:empty {
+  display: none;
+}
+
+.valentines-countdown.is-today .valentines-countdown-value {
+  color: var(--blog-secondary);
+}
+
+@media (max-width: 560px) {
+  .valentines-countdown {
+    border-radius: 22px;
+  }
+  .valentines-countdown-unit {
+    min-width: 62px;
+  }
+  .valentines-countdown-label {
+    font-size: 0.62rem;
+    letter-spacing: 0.1em;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .valentines-countdown * {
+    transition: none !important;
+  }
+}
