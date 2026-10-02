@@ -36,10 +36,13 @@ import sys
 
 SITE_URL = "https://couplein.bond"
 REPO_ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-POLL_DATA_JS = os.path.join(REPO_ROOT, "poll-data.js")
-POLLS_DIR = os.path.join(REPO_ROOT, "polls")
-POLLS_HTML = os.path.join(REPO_ROOT, "polls.html")
-SITEMAP_XML = os.path.join(REPO_ROOT, "sitemap.xml")
+# Site files live under public/ (Astro copies it verbatim into dist/), so the
+# generated pages keep the same URLs they had before the Astro migration.
+PUBLIC_DIR = os.path.join(REPO_ROOT, "public")
+POLL_DATA_JS = os.path.join(PUBLIC_DIR, "poll-data.js")
+POLLS_DIR = os.path.join(PUBLIC_DIR, "polls")
+POLLS_HTML = os.path.join(PUBLIC_DIR, "polls.html")
+SITEMAP_XML = os.path.join(PUBLIC_DIR, "sitemap.xml")
 HISTORY_FILE = os.path.join(REPO_ROOT, "scripts", "poll_history.json")
 TEMPLATE_PAGE = os.path.join(POLLS_DIR, "weekly-ritual.html")
 
@@ -862,8 +865,8 @@ def update_polls_html(new_polls):
         f.write(content)
 
 
-BLOG_POSTS_DIR = os.path.join(REPO_ROOT, "blog-posts")
-BLOG_HTML = os.path.join(REPO_ROOT, "blog.html")
+BLOG_POSTS_DIR = os.path.join(PUBLIC_DIR, "blog-posts")
+BLOG_HTML = os.path.join(PUBLIC_DIR, "blog.html")
 
 TOPIC_TAG = {
     "connection": "CONNECTION",
@@ -1239,8 +1242,9 @@ def main():
     if args.push:
         args.commit = True
     if args.commit:
-        git_run(["add", "poll-data.js", "polls", "blog-posts", "polls.html",
-                 "blog.html", "sitemap.xml", "scripts/poll_history.json"])
+        git_run(["add", "public/poll-data.js", "public/polls",
+                 "public/blog-posts", "public/polls.html", "public/blog.html",
+                 "public/sitemap.xml", "scripts/poll_history.json"])
         git_run(["commit", "-m",
                  "Add %d daily poll(s) + companion articles for %s"
                  % (len(new_polls), date_str)])
