@@ -2,14 +2,18 @@
 """Daily Poll Generator for Couple in Bond.
 
 Generates 2-3 fresh relationship polls per day from a curated template bank
-and posts them directly to the static site:
+and posts them directly to the Astro site:
 
   1. Appends new poll entries to poll-data.js (window.COUPLE_POLL_DATA)
-  2. Creates one SEO-friendly detail page per poll in polls/
-  3. Rewires `related` links so new polls cross-link each other
-  4. Updates polls.html ItemList JSON-LD + numberOfItems
-  5. Adds the new poll pages to sitemap.xml
+  2. Creates src/content/polls/<id>.md (PollDetail.astro renders the page)
+  3. Creates src/content/blog/<id>-companion.md (BlogPost.astro renders it)
+  4. Rewires `related` links so new polls cross-link each other
+  5. Adds the new pages to sitemap.xml
   6. Optionally commits and pushes so Vercel redeploys the site
+
+No index patching is needed: src/pages/blog.astro and src/pages/polls.astro
+regenerate their card grids and ItemList JSON-LD from the content collections,
+ordered by the cardOrder/ldOrder/listOrder frontmatter this script extends.
 
 Usage:
     python scripts/daily_polls.py                      # 2 polls, dated today
@@ -36,15 +40,17 @@ import sys
 
 SITE_URL = "https://couplein.bond"
 REPO_ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-# Site files live under public/ (Astro copies it verbatim into dist/), so the
-# generated pages keep the same URLs they had before the Astro migration.
+# The poll client data (poll-data.js) and the sitemap still live under
+# public/ (Astro copies it verbatim into dist/). Poll and companion PAGES
+# are content collections now: src/pages/polls/[slug].astro and
+# src/pages/blog-posts/[slug].astro render them from frontmatter, so the
+# generator writes markdown under src/content/, not HTML under public/.
 PUBLIC_DIR = os.path.join(REPO_ROOT, "public")
 POLL_DATA_JS = os.path.join(PUBLIC_DIR, "poll-data.js")
-POLLS_DIR = os.path.join(PUBLIC_DIR, "polls")
-POLLS_HTML = os.path.join(PUBLIC_DIR, "polls.html")
 SITEMAP_XML = os.path.join(PUBLIC_DIR, "sitemap.xml")
 HISTORY_FILE = os.path.join(REPO_ROOT, "scripts", "poll_history.json")
-TEMPLATE_PAGE = os.path.join(POLLS_DIR, "weekly-ritual.html")
+POLLS_DIR = os.path.join(REPO_ROOT, "src", "content", "polls")
+BLOG_POSTS_DIR = os.path.join(REPO_ROOT, "src", "content", "blog")
 
 TOPIC_LABELS = {
     "connection": "Connection",
@@ -658,7 +664,10 @@ def build_poll_dict(bank_index, entry, date_str, used_slugs, taken_ids):
     base = slugify(title)
     slug = "%s-%s" % (base, date_str.replace("-", ""))
     n = 2
-    while slug in used_slugs or os.path.exists(os.path.join(POLLS_DIR, slug + ".html")):
+    while (slug in used_slugs
+           or os.path.exists(os.path.join(POLLS_DIR, slug + ".md"))
+           or os.path.exists(os.path.join(BLOG_POSTS_DIR,
+                                          slug + "-companion.md"))):
         slug = "%s-%s-%d" % (base, date_str.replace("-", ""), n)
         n += 1
     if slug in taken_ids:
@@ -700,102 +709,54 @@ def update_poll_data_js(new_polls):
     content = prefix + "\n" + block + content[idx:]
     with open(POLL_DATA_JS, "w", encoding="utf-8") as f:
         f.write(content)
-def render_detail_page(poll, related_polls, companion=None):
-    esc = html_lib.escape
-    title, desc, intro = esc(poll["title"]), esc(poll["description"]), esc(poll["intro"])
-    url = "%s/polls/%s.html" % (SITE_URL, poll["id"])
-    og_image = "%s/assets/polls-hero-illustration.png" % SITE_URL
-    options_html = "".join(
-        '<label class="poll-detail-option"><input type="radio" name="poll-answer" '
-        'value="%d"><span>%s</span></label>' % (i, esc(o))
-        for i, o in enumerate(poll["options"]))
-    rel_cards = "".join(
-        '<a class="poll-related-card" href="%s.html"><span>Related poll</span>'
-        '<strong>%s</strong></a>' % (r["id"], esc(r["title"]))
-        for r in related_polls)
-    if companion:
-        companion_html = (
-            '<section class="poll-companion" aria-labelledby="companion-reading">'
-            '<div class="blog-kicker">Read the guide</div>'
-            '<h2 id="companion-reading">Go deeper on this topic</h2>'
-            '<p class="poll-companion-text">A companion article with practical '
-            'ideas for this exact question, so you can act on your answer.</p>'
-            '<a class="poll-companion-link" href="../blog-posts/%s.html">%s'
-            '<span aria-hidden="true">&rarr;</span></a></section>'
-            % (companion["slug"], esc(companion["title"])))
-    else:
-        companion_html = ""
-    answers = ",".join('{"@type":"Answer","text":%s}' % json.dumps(o) for o in poll["options"])
-    ld = ('{"@context":"https://schema.org","@graph":['
-          '{"@type":"WebPage","@id":"%s#webpage","url":"%s","name":%s,"description":%s,'
-          '"inLanguage":"en","isPartOf":{"@id":"%s/polls.html#collection"},'
-          '"mainEntity":{"@id":"%s#question"}},'
-          '{"@type":"Question","@id":"%s#question","name":%s,"text":%s,"description":%s,'
-          '"answerCount":%d,"suggestedAnswer":[%s]},'
-          '{"@type":"BreadcrumbList","@id":"%s#breadcrumbs","itemListElement":['
-          '{"@type":"ListItem","position":1,"name":"Polls","item":"%s/polls.html"},'
-          '{"@type":"ListItem","position":2,"name":%s,"item":"%s"}]}]}'
-          % (url, url, json.dumps(poll["title"]), json.dumps(poll["description"]),
-             SITE_URL, url, url, json.dumps(poll["title"]), json.dumps(poll["title"]),
-             json.dumps(poll["description"]), len(poll["options"]), answers,
-             url, SITE_URL, json.dumps(poll["title"]), url))
-    return """<!doctype html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>%s &mdash; Relationship Poll | Couple in Bond</title>
-  <meta name="description" content="%s">
-  <meta name="robots" content="index,follow,max-image-preview:large">
-  <link rel="canonical" href="%s">
-  <link rel="stylesheet" href="../blog.css">
-  <link rel="stylesheet" href="../polls.css">
-  <link rel="stylesheet" href="../poll-detail.css">
-  <script src="../blog-nav.js" defer></script>
-  <script src="../poll-data.js" defer></script>
-  <script src="../poll-detail.js" defer></script>
-  <meta property="og:title" content="%s &mdash; Couple in Bond">
-  <meta property="og:description" content="%s">
-  <meta property="og:url" content="%s">
-  <meta property="og:type" content="article">
-  <meta property="og:image" content="%s">
-  <meta property="og:image:width" content="1200">
-  <meta property="og:image:height" content="630">
-  <meta property="og:image:alt" content="Hands placing colorful relationship poll cards into a ballot box">
-  <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="%s &mdash; Couple in Bond">
-  <meta name="twitter:description" content="%s">
-  <meta name="twitter:image" content="%s">
-  <script type="application/ld+json" data-seo-enhancement>%s</script>
-</head>
-<body data-poll-id="%s">
-  <div class="blog-shell polls-shell"><div class="blog-wrap">
-    <header class="blog-nav" data-root="../"><a class="blog-brand" href="../index.html">💕 Couple in Bond</a></header>
-    <main class="poll-detail-page">
-      <nav class="poll-breadcrumbs" aria-label="Breadcrumb"><a href="../polls.html">Relationship polls</a><span> / </span><span>%s</span></nav>
-      <article class="poll-detail-card">
-        <div class="poll-detail-kicker">%s &middot; Couple in Bond</div>
-        <h1>%s</h1>
-        <p class="poll-detail-description">%s</p>
-        <p class="poll-detail-intro">%s</p>
-        <form id="pollDetailForm" class="poll-detail-form">
-          <fieldset id="pollDetailOptions" class="poll-detail-options" aria-label="%s">%s</fieldset>
-          <button id="pollDetailSubmit" class="poll-submit" type="submit">Vote on this topic</button>
-          <p id="pollDetailFeedback" class="poll-feedback" aria-live="polite"></p>
-        </form>
-        <section id="pollDetailResults" class="poll-detail-results" aria-live="polite"></section>
-      </article>
-      %s
-      <section class="poll-related" aria-labelledby="related-polls-title"><div class="blog-kicker">Keep exploring</div><h2 id="related-polls-title">Related relationship polls</h2><div class="poll-related-grid">%s</div></section>
-      <p class="poll-detail-note">This static poll records one vote in your browser so you can compare your own choice with the local result. It is designed for conversation and reflection, not scientific measurement.</p>
-    </main>
-    <footer class="blog-footer"><p>&copy; 2026 Couple in Bond. All rights reserved.</p><p><a href="../calculator.html">Love calculator</a> &middot; <a href="../quotes.html">Love quotes</a> &middot; <a href="../polls.html">All polls</a></p></footer>
-  </div></div>
-</body>
-</html>
-""" % (title, desc, url, title, desc, url, og_image, title, desc, og_image,
-        ld, poll["id"], poll["label"], poll["label"], title, desc, intro,
-        title, options_html, companion_html, rel_cards)
+def yaml_value(val):
+    """Encode a Python value as a YAML frontmatter scalar or flow
+    sequence. json.dumps output (double-quoted strings, flow lists)
+    is valid YAML, so quotes, colons and unicode in titles cannot
+    break frontmatter parsing."""
+    if isinstance(val, bool):
+        return "true" if val else "false"
+    if isinstance(val, (int, float)):
+        return str(val)
+    if isinstance(val, (str, list, dict)):
+        return json.dumps(val, ensure_ascii=False)
+    raise TypeError("cannot encode %r as frontmatter" % (val,))
+
+
+def frontmatter(fields):
+    """Render (key, value) pairs as a fenced YAML frontmatter block."""
+    lines = ["---"]
+    for key, val in fields:
+        lines.append("%s: %s" % (key, yaml_value(val)))
+    lines.append("---")
+    return "\n".join(lines) + "\n"
+
+
+def write_poll_md(path, poll, related, companion, list_order):
+    """Emit src/content/polls/<id>.md. PollDetail.astro renders the
+    whole page (head tags, voting scaffolding, Question/BreadcrumbList
+    JSON-LD) from this frontmatter, so no HTML is written here. The
+    polls index picks the entry up via listOrder."""
+    fields = [
+        ("question", poll["title"]),
+        ("pageTitle", poll["title"]),
+        ("description", poll["description"]),
+        ("intro", poll["intro"]),
+        ("topic", poll["label"]),
+        ("slug", poll["id"]),
+        ("listOrder", list_order),
+        ("ogImage", "%s/assets/polls-hero-illustration.png" % SITE_URL),
+        ("ogImageAlt",
+         "Hands placing colorful relationship poll cards into a ballot box"),
+        ("companionHref", "../blog-posts/%s.html" % companion["slug"]),
+        ("companionTitle", companion["title"]),
+        ("options", poll["options"]),
+        ("related", [{"href": "%s.html" % r["id"], "title": r["title"]}
+                     for r in related]),
+        ("draft", False),
+    ]
+    with open(path, "w", encoding="utf-8") as f:
+        f.write(frontmatter(fields))
 def rewire_related(new_polls):
     """Point the first two entries that precede the new batch at the first
     new poll, so the new content is linked from the established list. New
@@ -834,39 +795,6 @@ def rewire_related(new_polls):
     with open(POLL_DATA_JS, "w", encoding="utf-8") as f:
         f.write("".join(parts))
 
-
-
-def update_polls_html(new_polls):
-    with open(POLLS_HTML, encoding="utf-8") as f:
-        content = f.read()
-    items = re.findall(
-        r'\{\s*"@type":\s*"ListItem",\s*"position":\s*(\d+),',
-        content)
-    pos = max(int(x) for x in items) if items else 0
-    new_entries = []
-    for p in new_polls:
-        pos += 1
-        new_entries.append(
-            '          { "@type": "ListItem", "position": %d, "name": %s, '
-            '"url": "%s/polls/%s.html" }' % (
-                pos, json.dumps(p["title"]), SITE_URL, p["id"]))
-    block = ",\n".join(new_entries)
-    content = re.sub(r'("numberOfItems":\s*)\d+',
-                     lambda m: m.group(1) + str(pos), content, count=1)
-    anchor = "        ]\n      }\n    ]\n  }"
-    idx = content.find(anchor)
-    if idx == -1:
-        raise RuntimeError("Could not find ItemList closing anchor in polls.html")
-    prefix = content[:idx].rstrip()
-    if not prefix.endswith(","):
-        prefix += ","          # the old last ListItem had no trailing comma
-    content = prefix + "\n" + block + "\n" + content[idx:]
-    with open(POLLS_HTML, "w", encoding="utf-8") as f:
-        f.write(content)
-
-
-BLOG_POSTS_DIR = os.path.join(PUBLIC_DIR, "blog-posts")
-BLOG_HTML = os.path.join(PUBLIC_DIR, "blog.html")
 
 TOPIC_TAG = {
     "connection": "CONNECTION",
@@ -911,18 +839,18 @@ def article_word_count(poll):
     return len(_article_plain_text(poll).split())
 
 
-def render_article_page(poll, date_str):
-    """400-500 word companion blog post (blog-write skill structure:
-    Key Takeaways box, answer-first H2s, callout, internal links, FAQ)."""
+def write_companion_md(path, poll, date_str, card_order, ld_order):
+    """Emit src/content/blog/<id>-companion.md — the 400-500 word
+    companion post (blog-write skill structure: Key Takeaways box,
+    answer-first H2s, callout, internal links, FAQ). BlogPost.astro
+    renders the page shell and the BlogPosting/BreadcrumbList JSON-LD
+    from the frontmatter; the markdown body written at the end is the
+    article-body HTML, exactly as the generated pages carried it."""
     a = poll["article"]
     esc = html_lib.escape
     slug = article_slug(poll["id"])
-    url = "%s/blog-posts/%s.html" % (SITE_URL, slug)
     poll_href = "../polls/%s.html" % poll["id"]
-    og_image = "%s/assets/social-share.jpg" % SITE_URL
-    tag = TOPIC_TAG[poll["topic"]]
     section = TOPIC_SECTION[poll["topic"]]
-    rel_file, rel_anchor = TOPIC_RELATED_ARTICLE[poll["topic"]]
     words = article_word_count(poll)
     read_time = max(3, int(round(words / 130.0)))
 
@@ -943,6 +871,7 @@ def render_article_page(poll, date_str):
     intro_p = ("%s Vote on the question below, then use this short guide to act "
                "on your answer." % poll["intro"])
 
+    rel_file, rel_anchor = TOPIC_RELATED_ARTICLE[poll["topic"]]
     links_p = ("If you want to go further, read our guide to "
                '<a href="%s">%s</a>, or share a playful result from the '
                '<a href="../calculator.html">love calculator</a>.'
@@ -965,134 +894,56 @@ def render_article_page(poll, date_str):
     ]
     faq_html = "".join("<h3>%s</h3><p>%s</p>" % (esc(q), esc(ans)) for q, ans in faqs)
 
-    ld = json.dumps({
-        "@context": "https://schema.org",
-        "@graph": [
-            {"@type": "BlogPosting",
-             "@id": url + "#article", "headline": a["title"],
-             "description": a["dek"], "url": url,
-             "mainEntityOfPage": {"@type": "WebPage", "@id": url},
-             "image": og_image, "datePublished": date_str, "dateModified": date_str,
-             "author": {"@type": "Organization", "name": "Couple in Bond Editorial",
-                        "url": SITE_URL + "/blog.html"},
-             "publisher": {"@type": "Organization", "name": "Couple in Bond",
-                           "url": SITE_URL + "/",
-                           "logo": {"@type": "ImageObject", "url": og_image}},
-             "articleSection": section, "inLanguage": "en",
-             "keywords": [poll["title"], section.lower() + " advice",
-                          "couple " + section.lower() + " ideas"]},
-            {"@type": "BreadcrumbList", "@id": url + "#breadcrumbs",
-             "itemListElement": [
-                 {"@type": "ListItem", "position": 1, "name": "Blog",
-                  "item": SITE_URL + "/blog.html"},
-                 {"@type": "ListItem", "position": 2, "name": a["title"], "item": url}]},
-        ],
-    }, ensure_ascii=False)
+    body = (
+        '      <div class="article-callout key-takeaways"><strong>Key Takeaways</strong>'
+        "<ul>%s</ul></div>\n"
+        "      <p>%s</p>\n"
+        "      <h2>%s</h2>\n"
+        "      <p>%s</p>\n"
+        '      <div class="article-callout">%s</div>\n'
+        "      <h2>%s</h2>\n"
+        "      <ul>%s</ul>\n"
+        "      <h2>%s</h2>\n"
+        "      <p>%s</p>\n"
+        "      <p>%s</p>\n"
+        "      %s\n"
+        "      <h2>Frequently Asked Questions</h2>\n"
+        "      %s\n"
+        % (takeaways_html, esc(intro_p), esc(a["h2a"]), esc(a["h2a_body"]),
+           callout_html, esc(a["h2b"]), items_html, esc(a["h2c"]),
+           esc(a["h2c_body"]), links_p, cta_html, faq_html))
 
-    return """<!-- Current CoupleIn theme reminder: preserve the pink-to-lilac gradient, rounded white cards, coral/plum accents, and playful relationship tone. -->
-<!doctype html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>%s &mdash; Couple in Bond</title>
-  <link rel="stylesheet" href="../blog.css"><script src="../blog-nav.js" defer></script>
-  <script type="application/ld+json">%s</script>
-  <meta name="description" content="%s">
-  <meta name="robots" content="index,follow,max-image-preview:large">
-  <meta name="theme-color" content="#ff4d6d">
-  <link rel="canonical" href="%s">
-  <link rel="icon" href="../assets/coupleinbond-favicon.png">
-  <link rel="apple-touch-icon" href="../assets/coupleinbond-favicon.png">
-  <meta property="og:title" content="%s &mdash; Couple in Bond">
-  <meta property="og:description" content="%s">
-  <meta property="og:url" content="%s">
-  <meta property="og:type" content="article">
-  <meta property="og:site_name" content="Couple in Bond">
-  <meta property="og:locale" content="en_US">
-  <meta property="og:image" content="%s">
-  <meta property="og:image:alt" content="Couple in Bond relationship tools and bonding ideas">
-  <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="%s &mdash; Couple in Bond">
-  <meta name="twitter:description" content="%s">
-  <meta name="twitter:image" content="%s">
-</head>
-<body>
-  <div class="blog-shell"><div class="blog-wrap">
-    <header class="blog-nav" data-root=".."><a class="blog-brand" href="../index.html">💕 Couple in Bond</a><nav class="blog-nav-links" aria-label="Article navigation"><a href="../blog.html">Blog</a><a href="../polls.html">Polls</a><a href="../calculator.html">Calculator</a></nav></header>
-    <main class="article-layout"><article class="article-shell"><header class="article-header"><div class="blog-kicker">%s &middot; %d min read</div><h1>%s</h1><p class="article-dek">%s</p><div class="article-meta"><span>Published %s</span><span>&middot;</span><span>By Couple in Bond Editorial</span></div></header><div class="article-body">
-      <div class="article-callout key-takeaways"><strong>Key Takeaways</strong><ul>%s</ul></div>
-      <p>%s</p>
-      <h2>%s</h2>
-      <p>%s</p>
-      <div class="article-callout">%s</div>
-      <h2>%s</h2>
-      <ul>%s</ul>
-      <h2>%s</h2>
-      <p>%s</p>
-      <p>%s</p>
-      %s
-      <h2>Frequently Asked Questions</h2>
-      %s
-    </div><footer class="article-footer">This article is for general reflection and entertainment. It is not therapy or professional relationship advice.</footer></article></main>
-    <footer class="blog-footer"><p>&copy; 2026 Couple in Bond. All rights reserved.</p><p><a href="../blog.html">More relationship ideas</a> &middot; <a href="../polls.html">All polls</a></p></footer>
-  </div></div>
-</body>
-</html>
-""" % (esc(a["title"]), ld, esc(a["dek"]), url, esc(a["title"]), esc(a["dek"]),
-        url, og_image, esc(a["title"]), esc(a["dek"]), og_image,
-        section, read_time, esc(a["title"]), esc(a["dek"]), date_str,
-        takeaways_html, esc(intro_p), esc(a["h2a"]), esc(a["h2a_body"]),
-        callout_html, esc(a["h2b"]), items_html, esc(a["h2c"]), esc(a["h2c_body"]),
-        links_p, cta_html, faq_html)
-def update_blog_html(articles):
-    """Prepend one blog card per new article and extend the Blog ItemList JSON-LD."""
-    if not articles:
-        return
-    with open(BLOG_HTML, encoding="utf-8") as f:
-        content = f.read()
-
-    cards = []
-    for art in articles:
-        cards.append(
-            '          <article class="blog-card">\n'
-            '            <div class="blog-card-top"><span class="blog-tag">%s</span>'
-            '<span>%d min read</span></div>\n'
-            '            <h3><a href="blog-posts/%s.html">%s</a></h3>\n'
-            '            <p>%s</p>\n'
-            '            <a class="blog-card-link" href="blog-posts/%s.html">Read the story →</a>\n'
-            '          </article>\n' % (
-                art["tag"], art["read_time"], art["slug"],
-                html_lib.escape(art["title"]), html_lib.escape(art["dek"]),
-                art["slug"]))
-    grid_anchor = '<section class="blog-grid" aria-label="Latest blog posts">\n'
-    if grid_anchor not in content:
-        raise RuntimeError("Could not find blog-grid anchor in blog.html")
-    content = content.replace(grid_anchor, grid_anchor + "".join(cards), 1)
-
-    positions = [int(x) for x in re.findall(r'"position":\s*(\d+)', content)]
-    pos = max(positions) if positions else 0
-    items = []
-    for art in articles:
-        pos += 1
-        items.append(
-            '          { "@type": "ListItem", "position": %d, '
-            '"url": "%s/blog-posts/%s.html", "name": %s }'
-            % (pos, SITE_URL, art["slug"],
-               json.dumps(art["title"], ensure_ascii=False)))
-    list_anchor = '\n        ]\n      },\n      {\n        "@type": "Organization"'
-    if list_anchor not in content:
-        raise RuntimeError("Could not find blog ItemList anchor in blog.html")
-    content = content.replace(list_anchor, ",\n" + ",\n".join(items) + list_anchor, 1)
-
-    item_count = len(re.findall(r'"@type":\s*"ListItem"', content))
-    content = re.sub(r'("numberOfItems":\s*)\d+',
-                     lambda m: m.group(1) + str(item_count), content, count=1)
-    content = content.replace(
-        "Ten starting points for kinder conversations, brighter rituals, and more thoughtful check-ins.",
-        "Fresh starting points for kinder conversations, brighter rituals, and more thoughtful check-ins.")
-    with open(BLOG_HTML, "w", encoding="utf-8") as f:
-        f.write(content)
+    keywords = [poll["title"], section.lower() + " advice",
+                "couple " + section.lower() + " ideas"]
+    fields = [
+        ("title", a["title"]),
+        ("pageTitle", a["title"]),
+        ("description", a["dek"]),
+        ("schemaDescription", a["dek"]),
+        ("kicker", "%s · %d min read" % (section, read_time)),
+        ("dek", a["dek"]),
+        ("publishedLabel", "Published %s" % date_str),
+        ("datePublished", date_str),
+        ("dateModified", date_str),
+        ("section", section),
+        ("slug", slug),
+        ("tag", TOPIC_TAG[poll["topic"]]),
+        ("excerpt", a["dek"]),
+        ("cardTitle", a["title"]),
+        ("cardOrder", card_order),
+        ("ldOrder", ld_order),
+        ("headline", a["title"]),
+        ("variant", "companion"),
+        ("author", "Couple in Bond Editorial"),
+        ("disclaimer", "This article is for general reflection and entertainment. "
+                       "It is not therapy or professional relationship advice."),
+        ("draft", False),
+        ("keywords", keywords),
+        ("tags", keywords),
+        ("asideHtml", ""),
+    ]
+    with open(path, "w", encoding="utf-8") as f:
+        f.write(frontmatter(fields) + "\n" + body)
 
 
 def update_sitemap(new_polls, companion_slugs=()):
@@ -1125,23 +976,62 @@ def validate_poll_js():
     return out.stdout.strip()
 
 
-def validate_jsonld(paths):
-    """Ensure every JSON-LD block in the given HTML files parses as JSON."""
-    problems = []
-    for path in paths:
+def _frontmatter_int(path, key):
+    with open(path, encoding="utf-8") as f:
+        m = re.search(r"(?m)^%s:\s*(\d+)\s*$" % re.escape(key), f.read())
+    return int(m.group(1)) if m else 0
+
+
+def next_orders():
+    """Next cardOrder/ldOrder (blog) and listOrder (polls): max + 1 each.
+
+    The three orders are independent, hand-maintained ranks:
+      - cardOrder: the blog grid sorts descending, so max+1 prepends a card;
+      - ldOrder:   the blog ItemList JSON-LD sorts ascending, so max+1 appends;
+      - listOrder: the polls index sorts ascending, so max+1 appends.
+    """
+    card = ld = lst = 0
+    for name in os.listdir(BLOG_POSTS_DIR):
+        if name.endswith(".md"):
+            path = os.path.join(BLOG_POSTS_DIR, name)
+            card = max(card, _frontmatter_int(path, "cardOrder"))
+            ld = max(ld, _frontmatter_int(path, "ldOrder"))
+    for name in os.listdir(POLLS_DIR):
+        if name.endswith(".md"):
+            path = os.path.join(POLLS_DIR, name)
+            lst = max(lst, _frontmatter_int(path, "listOrder"))
+    return card + 1, ld + 1, lst + 1
+
+
+# Frontmatter keys the content schema requires (see src/content.config.ts).
+POLL_MD_KEYS = ("question", "pageTitle", "description", "intro", "topic",
+                "slug", "listOrder", "ogImage")
+COMPANION_MD_KEYS = ("title", "pageTitle", "description", "schemaDescription",
+                     "kicker", "dek", "publishedLabel", "datePublished",
+                     "dateModified", "section", "slug", "tag", "excerpt",
+                     "cardTitle", "cardOrder", "ldOrder", "author",
+                     "disclaimer")
+
+
+def validate_frontmatter(checked):
+    """Every generated .md must carry fenced frontmatter with each required
+    key, or the Astro content schema fails the build."""
+    for path, required in checked:
         with open(path, encoding="utf-8") as f:
-            html = f.read()
-        blocks = re.findall(
-            r'<script type="application/ld\+json"[^>]*>(.*?)</script>', html, re.S)
-        for i, blob in enumerate(blocks, 1):
-            try:
-                json.loads(blob.strip())
-            except Exception as exc:  # noqa: BLE001 - collect and report
-                problems.append("%s block %d: %s"
-                                % (os.path.basename(path), i, exc))
-    if problems:
-        raise RuntimeError("invalid JSON-LD: %s" % "; ".join(problems))
-    return "json-ld ok (%d files)" % len(paths)
+            text = f.read()
+        base = os.path.basename(path)
+        if not text.startswith("---\n"):
+            raise RuntimeError("%s: missing opening frontmatter fence" % base)
+        end = text.find("\n---\n", 3)
+        if end == -1:
+            raise RuntimeError("%s: missing closing frontmatter fence" % base)
+        head = text[:end]
+        missing = [k for k in required
+                   if not re.search(r"(?m)^%s:" % re.escape(k), head)]
+        if missing:
+            raise RuntimeError("%s: missing frontmatter keys: %s"
+                               % (base, ", ".join(missing)))
+    return "frontmatter ok (%d files)" % len(checked)
 # --------------------------------------------------------------------------
 # Main
 # --------------------------------------------------------------------------
@@ -1193,41 +1083,44 @@ def main():
     update_poll_data_js(new_polls)   # appends entries (with batch related links)
     rewire_related(new_polls)        # rewires first two OLD polls to link back
 
-    # detail pages: related cards point at sibling new polls (fallback: popular old ones)
+    # Content-collection pages: PollDetail.astro and BlogPost.astro
+    # render the page shells, JSON-LD and index cards from
+    # frontmatter, so the generator only writes markdown. Index
+    # orders within a batch: the first poll keeps the top card
+    # slot (cardOrder sorts descending) while every entry appends
+    # to the JSON-LD ItemLists (ldOrder and listOrder sort
+    # ascending), matching the old HTML patching.
+    card_order, ld_order, list_order = next_orders()
+    n_new = len(new_polls)
     with open(POLL_DATA_JS, encoding="utf-8") as f:
         data_js = f.read()
     titles = dict(re.findall(r'id:\s*"([^"]+)"[\s\S]{0,400}?title:\s*"([^"]+)"', data_js))
-    articles = []
-    for p in new_polls:
+    checked = []
+    companions = []
+    for i, p in enumerate(new_polls):
         rel = [{"id": r, "title": titles.get(r, r)} for r in p["related"]]
         companion = {"slug": article_slug(p["id"]), "title": p["article"]["title"]}
-        page = render_detail_page(p, rel, companion=companion)
-        with open(os.path.join(POLLS_DIR, p["id"] + ".html"), "w", encoding="utf-8") as f:
-            f.write(page)
-        print("  wrote polls/%s.html" % p["id"])
+        poll_md = os.path.join(POLLS_DIR, p["id"] + ".md")
+        write_poll_md(poll_md, p, rel, companion, list_order + i)
+        checked.append((poll_md, POLL_MD_KEYS))
+        print("  wrote src/content/polls/%s.md" % p["id"])
 
-        art_html = render_article_page(p, date_str)
-        art_file = os.path.join(BLOG_POSTS_DIR, companion["slug"] + ".html")
-        with open(art_file, "w", encoding="utf-8") as f:
-            f.write(art_html)
-        articles.append({
-            "slug": companion["slug"], "title": p["article"]["title"],
-            "dek": p["article"]["dek"], "tag": TOPIC_TAG[p["topic"]],
-            "read_time": max(3, int(round(article_word_count(p) / 130.0)))})
-        print("  wrote blog-posts/%s.html (%d words)" % (companion["slug"], article_word_count(p)))
+        art_md = os.path.join(BLOG_POSTS_DIR, companion["slug"] + ".md")
+        write_companion_md(art_md, p, date_str,
+                           card_order + (n_new - 1 - i), ld_order + i)
+        checked.append((art_md, COMPANION_MD_KEYS))
+        companions.append(companion["slug"])
+        print("  wrote src/content/blog/%s.md (%d words)"
+              % (companion["slug"], article_word_count(p)))
 
-    update_polls_html(new_polls)
-    update_blog_html(articles)
-    update_sitemap(new_polls, [a["slug"] for a in articles])
-    print("  updated poll-data.js, polls.html, blog.html, sitemap.xml")
+    update_sitemap(new_polls, companions)
+    print("  updated poll-data.js, sitemap.xml")
+    print("  (blog.html / polls.html regenerate from the content collections)")
 
     # Validate hard: a failure here blocks the commit/push below.
     try:
         print("  validation: %s" % validate_poll_js())
-        print("  validation: %s" % validate_jsonld(
-            [POLLS_HTML, BLOG_HTML]
-            + [os.path.join(POLLS_DIR, p["id"] + ".html") for p in new_polls]
-            + [os.path.join(BLOG_POSTS_DIR, a["slug"] + ".html") for a in articles]))
+        print("  validation: %s" % validate_frontmatter(checked))
     except Exception as exc:  # noqa: BLE001 - fail closed, do not commit
         print("  FAILED VALIDATION - nothing committed or pushed.")
         print("  reason: %s" % exc)
@@ -1242,9 +1135,9 @@ def main():
     if args.push:
         args.commit = True
     if args.commit:
-        git_run(["add", "public/poll-data.js", "public/polls",
-                 "public/blog-posts", "public/polls.html", "public/blog.html",
-                 "public/sitemap.xml", "scripts/poll_history.json"])
+        git_run(["add", "public/poll-data.js", "src/content/polls",
+                 "src/content/blog", "public/sitemap.xml",
+                 "scripts/poll_history.json"])
         git_run(["commit", "-m",
                  "Add %d daily poll(s) + companion articles for %s"
                  % (len(new_polls), date_str)])
