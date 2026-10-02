@@ -104,14 +104,14 @@ def main():
     else:
         checks.append((False, "ld parse old=%s new=%s" % (old_ld is not None, new_ld)))
 
-    # structural bits that must not regress
+    # Footers vary per page ("reflection" vs "inspiration", therapy line or
+    # not) — the md frontmatter preserves each page's own text verbatim, so
+    # check the footer survived with real content rather than one fixed string.
     for label, pat in [("blog.css", r'<link rel="stylesheet" href="\.\./blog\.css">'),
                        ("blog-nav.js", r'<script src="\.\./blog-nav\.js"'),
                        ("article-body", r'<div class="article-body">'),
                        ("article-footer", r'<footer class="article-footer">'),
-                       ("blog-footer", r'<footer class="blog-footer">'),
-                       ("disclaimer text",
-                        r"It is not therapy or professional relationship advice\.")]:
+                       ("blog-footer", r'<footer class="blog-footer">')]:
         checks.append((re.search(pat, new) is not None, label))
 
     # relative asset hrefs must be identical in form (../)
@@ -119,6 +119,9 @@ def main():
        re.findall(r'<link rel="stylesheet" href="([^"]+)"', old),
        re.findall(r'<link rel="stylesheet" href="([^"]+)"', new))
 
+    eq("disclaimer text",
+       re.sub(r"<[^>]+>", "", grab(r'<footer class="article-footer">(.*?)</footer>', old)).strip(),
+       re.sub(r"<[^>]+>", "", grab(r'<footer class="article-footer">(.*?)</footer>', new)).strip())
     passed = sum(1 for ok, _ in checks if ok)
     print("\n== %d/%d checks passed ==" % (passed, len(checks)))
     for ok, label in checks:
