@@ -30,7 +30,7 @@
         </div>
       </div>
       <nav class="blog-mobile-menu" id="blogMobileMenu" aria-label="More navigation">
-        <a href="${root}/blog.html">Blog</a><a href="${root}/calculator.html">Calculator</a><a href="${root}/polls.html">Polls</a><a href="${root}/about.html">About Us</a><a href="${root}/privacy.html">Privacy</a><a href="${root}/contact.html">Contact</a>
+        <a href="${root}/blog.html">Blog</a><a href="${root}/calculator.html">Calculator</a><a href="${root}/polls.html">Polls</a><a href="${root}/about.html">About Us</a><a href="${root}/privacy.html">Privacy</a><a href="${root}/contact.html">Contact</a><a href="${root}/bn/index.html" lang="bn" aria-label="Switch to Bengali version">বাংলা</a>
       </nav>`;
 
     const socialScript = document.createElement("script");

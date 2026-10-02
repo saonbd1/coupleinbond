@@ -1,0 +1,165 @@
+<!doctype html>
+<html lang="bn">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Love Calculator — Couple in Bond বাংলা</title>
+  <meta name="description" content="বাংলা ভাষায় Love Calculator: দুইটি নাম লিখে মজার স্কোর বের করুন, আলোচনা শুরু করুন, এবং কিছুটা অনুপ্রেরণা নিন।">
+  <meta name="theme-color" content="#ff4d6d">
+  <link rel="canonical" href="https://couplein.bond/bn/calculator.html">
+  <link rel="alternate" hreflang="en" href="https://couplein.bond/calculator.html">
+  <link rel="alternate" hreflang="bn" href="https://couplein.bond/bn/calculator.html">
+  <link rel="alternate" hreflang="x-default" href="https://couplein.bond/calculator.html">
+  <link rel="icon" href="../assets/coupleinbond-favicon.png">
+  <meta property="og:title" content="Love Calculator — Couple in Bond বাংলা">
+  <meta property="og:description" content="দুইটি নাম লিখে হালকা, অনুপ্রেরণামূলক স্কোর দেখুন—বাংলা সংস্করণে।">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://couplein.bond/bn/calculator.html">
+  <meta property="og:locale" content="bn_BD">
+  <meta property="og:site_name" content="Couple in Bond">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Love Calculator — Couple in Bond বাংলা">
+  <meta name="twitter:description" content="দুইটি নাম লিখে হালকা, অনুপ্রেরণামূলক স্কোর দেখুন—বাংলা সংস্করণে।">
+  <style>
+    :root {
+      --primary: #ff4d6d;
+      --primary-dark: #d63d5b;
+      --secondary: #6a00f4;
+      --bg: #fff8fb;
+      --card: rgba(255,255,255,0.92);
+      --text: #1f2937;
+      --muted: #566074;
+      --line: rgba(31,41,55,0.08);
+      --success: #2bb673;
+    }
+    * { box-sizing: border-box; }
+    html, body {
+      margin: 0; min-height: 100%; font-family: Arial, "Noto Sans Bengali", sans-serif; background: linear-gradient(135deg, #ffd7df 0%, #f9d7ff 50%, #fbe6dd 100%); color: var(--text);
+    }
+    body { padding: 24px; }
+    .container { max-width: 980px; margin: 0 auto; }
+    .topbar {
+      display: flex; justify-content: space-between; align-items: center; gap: 16px; background: rgba(255,255,255,0.75); border: 1px solid var(--line); border-radius: 18px; padding: 16px 20px; margin-bottom: 24px; backdrop-filter: blur(8px);
+    }
+    .brand { font-size: 1.3rem; font-weight: 800; text-decoration: none; color: var(--text); }
+    .nav { display: flex; gap: 10px; flex-wrap: wrap; }
+    .nav a { text-decoration: none; color: var(--text); font-weight: 600; padding: 8px 10px; border-radius: 999px; }
+    .nav a:hover { background: rgba(255,77,109,0.08); }
+    .nav .active { background: rgba(255,77,109,0.12); }
+    .card {
+      background: var(--card); border: 1px solid var(--line); border-radius: 24px; padding: 30px 24px; box-shadow: 0 18px 48px rgba(46,22,39,0.08);
+    }
+    .layout { display: grid; grid-template-columns: 1.05fr 0.95fr; gap: 24px; }
+    .panel { background: #fff; border:1px solid var(--line); border-radius: 18px; padding: 20px; }
+    h1 { margin: 0 0 12px; font-size: clamp(2.1rem, 4vw, 3.2rem); }
+    .intro { margin: 0 0 20px; color: var(--muted); line-height: 1.8; }
+    label { display:block; font-weight:700; margin-bottom:8px; }
+    input {
+      width:100%; border:1px solid rgba(31,41,55,0.12); border-radius: 12px; padding: 14px 16px; font-size: 1rem; margin-bottom: 18px; outline:none;
+    }
+    input:focus { border-color: var(--primary); box-shadow: 0 0 0 3px rgba(255,77,109,0.15); }
+    button {
+      width:100%; border:none; border-radius:12px; padding: 14px 18px; background: linear-gradient(135deg, var(--primary), var(--secondary)); color: white; font-weight: 800; font-size: 1rem; cursor:pointer; box-shadow: 0 10px 18px rgba(106,0,244,0.18);
+    }
+    button:hover { transform: translateY(-1px); }
+    .result {
+      min-height: 220px; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align:center; background: linear-gradient(135deg, rgba(255,77,109,0.08), rgba(106,0,244,0.06)); border: 1px solid var(--line); border-radius: 18px; padding: 20px;
+    }
+    .score { font-size: clamp(2.5rem, 6vw, 4rem); font-weight: 900; color: var(--primary-dark); margin: 6px 0; }
+    .status { font-size: 1.08rem; color: var(--muted); line-height: 1.75; }
+    .meta { margin-top: 26px; color: var(--muted); line-height: 1.8; }
+    .badge { display:inline-block; border-radius: 999px; background: rgba(43,182,115,0.12); color: var(--success); padding: 7px 10px; font-weight:800; font-size: 0.72rem; margin-bottom: 10px; }
+    @media (max-width: 760px) {
+      body { padding: 14px; }
+      .topbar { flex-direction: column; align-items: flex-start; }
+      .nav { width:100%; }
+      .layout { grid-template-columns: 1fr; }
+      .card { padding: 18px 16px; }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header class="topbar">
+      <a class="brand" href="index.html">💕 Couple in Bond</a>
+      <nav class="nav" aria-label="বাংলা নেভিগেশন">
+        <a href="index.html">হোম</a>
+        <a href="blog.html">ব্লগ</a>
+        <a href="about.html">আমাদের সম্পর্কে</a>
+        <a href="privacy.html">গোপনীয়তা</a>
+        <a href="../calculator.html" lang="en">English</a>
+      </nav>
+    </header>
+
+    <main class="card">
+      <div class="layout">
+        <section class="panel">
+          <div class="badge">খেলার মতো স্কোর</div>
+          <h1>Love Calculator</h1>
+          <p class="intro">দুইটি নাম লিখুন। এটি শুধু বিনোদনের জন্য। কৃতিত্ব নয়, বরং একটি সুন্দর শুরু—যাতে আপনি একটি ছোট কথোপকথন শুরু করতে পারেন।</p>
+
+          <label for="nameA">প্রথম নাম</label>
+          <input id="nameA" type="text" placeholder="যেমন: রিয়া" />
+
+          <label for="nameB">দ্বিতীয় নাম</label>
+          <input id="nameB" type="text" placeholder="যেমন: আয়ান" />
+
+          <button id="calculateBtn" type="button">স্কোর দেখুন 💘</button>
+        </section>
+
+        <aside class="panel result" aria-live="polite">
+          <div class="score" id="scoreText">--</div>
+          <div class="status" id="resultText">এখানে আপনার ফলাফল আসবে।</div>
+        </aside>
+      </div>
+
+      <p class="meta">এই টুলটি বিনোদন ও অনুপ্রেরণার জন্য। এটি কোনো বৈজ্ঞানিক পরীক্ষা নয়—শুধু সম্পর্কের কথোপকথনের জন্য একটি হালকা সূচনা।</p>
+    </main>
+  </div>
+
+  <script>
+    const calculateBtn = document.getElementById('calculateBtn');
+    const nameAInput = document.getElementById('nameA');
+    const nameBInput = document.getElementById('nameB');
+    const scoreText = document.getElementById('scoreText');
+    const resultText = document.getElementById('resultText');
+
+    function normalize(value) {
+      return String(value || '').toLowerCase().replace(/[^a-z]/g, '');
+    }
+
+    function getScore(names) {
+      const combined = normalize(names[0] + names[1]);
+      if (!combined) return 0;
+      let total = 0;
+      for (let i = 0; i < combined.length; i += 1) {
+        total += combined.charCodeAt(i);
+      }
+      return Math.max(30, Math.min(99, total % 100));
+    }
+
+    function getMessage(score) {
+      if (score >= 85) return 'অত্যন্ত সমন্বিত! আপনার দুজনের মধ্যে শক্তিশালী চমক আছে।';
+      if (score >= 70) return 'খুবই ভালো সম্ভাবনা। আপনার দুজনের মধ্যে মেলামেশা আর গল্পের ঘনত্ব আছে।';
+      if (score >= 55) return 'ভালো শুরু। কিছুটা সমন্বয়, কিছুটা চমক, আর একটু আরও বোঝাপড়া বাকি আছে।';
+      if (score >= 40) return 'একটু আরও একটু কথা দরকার। সম্পর্কটা প্রাণবন্ত করতে ছোট ছোট সংস্কার দরকার।';
+      return 'হালকা মজার ফলাফল—এটা আরও ভালভাবে বোঝার জন্য একটি কথা শুরু করার সুযোগ।';
+    }
+
+    calculateBtn.addEventListener('click', () => {
+      const a = nameAInput.value.trim();
+      const b = nameBInput.value.trim();
+
+      if (!a || !b) {
+        scoreText.textContent = '--';
+        resultText.textContent = 'দুইটি নাম লিখে তারপর স্কোর দেখুন।';
+        return;
+      }
+
+      const score = getScore([a, b]);
+      scoreText.textContent = `${score}%`;
+      resultText.textContent = getMessage(score);
+    });
+  </script>
+</body>
+</html>
