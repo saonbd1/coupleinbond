@@ -5,6 +5,7 @@ description: "Choose the first-date setting that helps two people relax and be t
 intro: "First dates are auditions for comfort. This poll asks which setting gives two strangers the best chance to become something more."
 topic: "Date night"
 slug: ideal-first-date-spot-20261001
+listOrder: 10
 ogImage: "https://couplein.bond/assets/polls-hero-illustration.png"
 ogImageAlt: "Hands placing colorful relationship poll cards into a ballot box"
 options:

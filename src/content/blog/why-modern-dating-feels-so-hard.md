@@ -10,6 +10,11 @@ datePublished: "2026-08-13"
 dateModified: "2026-08-13"
 section: "Dating"
 slug: why-modern-dating-feels-so-hard
+tag: "DATING"
+excerpt: "A steadier way to think about dating-app fatigue, uncertainty, and the pressure to decide quickly."
+cardTitle: "Why Modern Dating Feels So Hard"
+cardOrder: 8
+ldOrder: 3
 headline: "Why Modern Dating Feels So Hard"
 author: "Couple in Bond Editorial"
 disclaimer: "This article is for general reflection. It is not mental-health diagnosis or professional advice."

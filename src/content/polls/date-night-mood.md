@@ -5,6 +5,7 @@ description: "A quick date-night poll for couples deciding whether to stay in, g
 intro: "Date night does not need to be elaborate to feel meaningful. This poll is a small prompt for noticing what kind of energy you both want this week."
 topic: "Date night"
 slug: date-night-mood
+listOrder: 1
 ogImage: "https://couplein.bond/assets/polls/date-night-mood-share.jpg"
 ogImageAlt: "Hands placing colorful relationship poll cards into a ballot box"
 options:

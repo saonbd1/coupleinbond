@@ -10,6 +10,11 @@ datePublished: "2026-10-02"
 dateModified: "2026-10-02"
 section: "Date night"
 slug: best-way-end-perfect-date-20261002-companion
+tag: "DATE NIGHT"
+excerpt: "Endings shape memories. Here is the closing moment that turns a good date into one you talk about for weeks."
+cardTitle: "How to End a Perfect Date Night"
+cardOrder: 16
+ldOrder: 15
 headline: "How to End a Perfect Date Night"
 variant: companion
 author: "Couple in Bond Editorial"

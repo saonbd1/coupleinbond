@@ -5,6 +5,7 @@ description: "Choose the moment of the day when connection feels strongest for y
 intro: "Closeness has a rhythm. Some couples bond over morning coffee, others over late-night talks. This poll maps the moments when two people feel most themselves together."
 topic: "Connection"
 slug: feel-closest-partner-20260930
+listOrder: 8
 ogImage: "https://couplein.bond/assets/polls-hero-illustration.png"
 ogImageAlt: "Hands placing colorful relationship poll cards into a ballot box"
 options:

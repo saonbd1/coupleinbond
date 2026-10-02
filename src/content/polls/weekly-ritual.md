@@ -5,6 +5,7 @@ description: "A weekly relationship poll about simple rituals that help couples 
 intro: "A good weekly ritual is realistic enough to repeat and meaningful enough to look forward to. Choose the kind of moment your relationship could use this week."
 topic: "Connection"
 slug: weekly-ritual
+listOrder: 3
 ogImage: "https://couplein.bond/assets/polls/weekly-ritual-share.jpg"
 ogImageAlt: "Hands placing colorful relationship poll cards into a ballot box"
 options:

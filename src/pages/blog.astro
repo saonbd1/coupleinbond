@@ -1,0 +1,150 @@
+---
+import { getCollection } from 'astro:content';
+
+// Blog index. Reproduces public/blog.html exactly: same shell, same
+// featured post, same card grid (newest first via cardOrder) and the
+// same Blog/ItemList/Organization JSON-LD (ItemList ordered by ldOrder,
+// which is a separate hand-maintained order from the visible grid).
+const SITE = 'https://couplein.bond';
+const url = `${SITE}/blog.html`;
+
+const all = await getCollection('blog');
+const posts = all.filter((p) => !p.data.draft)
+  .sort((a, b) => b.data.cardOrder - a.data.cardOrder);
+const ldPosts = all.filter((p) => !p.data.draft)
+  .sort((a, b) => a.data.ldOrder - b.data.ldOrder);
+
+// The card "X min read" chip is the tail of the kicker
+// ("Couple bonding · 6 min read").
+const readTime = (kicker) => (kicker.match(/\d+\s*min\s*read/i) || [''])[0];
+
+const ld = {
+  '@context': 'https://schema.org',
+  '@graph': [
+    {
+      '@type': 'Blog',
+      '@id': `${url}#blog`,
+      'name': 'Couple in Bond Blog',
+      'description': 'Thoughtful ideas about couple bonding, communication, dating, Valentine’s Day, and friendship.',
+      'url': url,
+      'inLanguage': 'en',
+      'publisher': { '@id': `${SITE}/#organization` },
+    },
+    {
+      '@type': 'ItemList',
+      '@id': `${url}#article-list`,
+      'name': 'Couple in Bond articles',
+      'itemListOrder': 'https://schema.org/ItemListOrderDescending',
+      'numberOfItems': ldPosts.length,
+      'itemListElement': ldPosts.map((post, i) => ({
+        '@type': 'ListItem',
+        'position': i + 1,
+        'url': `${SITE}/blog-posts/${post.id}.html`,
+        'name': post.data.cardTitle,
+      })),
+    },
+    {
+      '@type': 'Organization',
+      '@id': `${SITE}/#organization`,
+      'name': 'Couple in Bond',
+      'url': `${SITE}/`,
+      'logo': { '@type': 'ImageObject', 'url': `${SITE}/social-share.jpg` },
+    },
+  ],
+};
+---
+<!-- Current CoupleIn theme reminder: preserve the pink-to-lilac gradient, rounded white cards, coral/plum accents, and playful relationship tone. -->
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Relationship & Couple Bonding Blog — Couple in Bond</title>
+  <link rel="stylesheet" href="blog.css">
+  <script src="blog-nav.js" defer></script>
+  <script type="application/ld+json" set:html={JSON.stringify(ld, null, 2)}></script>
+  <meta name="description" content="Read practical relationship ideas about couple bonding, communication, dating, friendship, and Valentine’s Day from Couple in Bond.">
+  <meta name="robots" content="index,follow,max-image-preview:large">
+  <meta name="theme-color" content="#ff4d6d">
+  <link rel="canonical" href={url}>
+  <link rel="icon" href="assets/coupleinbond-favicon.png">
+  <link rel="apple-touch-icon" href="assets/coupleinbond-favicon.png">
+  <meta property="og:title" content="Relationship &amp; Couple Bonding Blog — Couple in Bond">
+  <meta property="og:description" content="Read practical relationship ideas about couple bonding, communication, dating, friendship, and Valentine’s Day from Couple in Bond.">
+  <meta property="og:url" content={url}>
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Couple in Bond">
+  <meta property="og:locale" content="en_US">
+  <meta property="og:image" content="https://couplein.bond/assets/social-share.jpg">
+  <meta property="og:image:alt" content="Couple in Bond relationship tools and bonding ideas">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Relationship &amp; Couple Bonding Blog — Couple in Bond">
+  <meta name="twitter:description" content="Read practical relationship ideas about couple bonding, communication, dating, friendship, and Valentine’s Day from Couple in Bond.">
+  <meta name="twitter:image" content="https://couplein.bond/assets/social-share.jpg">
+
+</head>
+<body>
+  <div class="blog-shell">
+    <div class="blog-wrap">
+      <header class="blog-nav" data-root=".">
+        <a class="blog-brand" href="index.html">💕 Couple in Bond</a>
+        <nav class="blog-nav-links" aria-label="Blog navigation">
+          <a href="index.html">Home</a>
+          <a href="blog.html" aria-current="page">Blog</a>
+          <a href="about.html">About Us</a>
+          <a href="privacy.html">Privacy</a>
+          <a class="blog-nav-cta" href="calculator.html#calcBtn">Try the calculator</a>
+        </nav>
+      </header>
+
+      <main>
+        <section class="blog-hero" aria-labelledby="blog-title">
+          <div class="blog-hero-copy">
+            <div class="blog-kicker">From the heart · Couple in Bond</div>
+            <h1>Good ideas for <span>real connection.</span></h1>
+            <p>Thoughtful, playful, and practical notes for couples, daters, friends, and anyone who wants to make a little more room for love.</p>
+          </div>
+          <aside class="blog-feature-note">
+            <div class="blog-feature-icon" aria-hidden="true">✦</div>
+            <h2>Read something that helps you choose each other.</h2>
+            <p>Start with a tiny idea. Send a better question. Plan a night that feels like you.</p>
+          </aside>
+        </section>
+
+        <section class="featured-post" aria-labelledby="featured-post-title">
+          <div class="featured-post-mark" aria-hidden="true">✦</div>
+          <div class="featured-post-copy">
+            <div class="blog-kicker">Editor’s pick · this week</div>
+            <h2 id="featured-post-title">Featured Post of The Week</h2>
+            <p class="featured-post-title"><a href="blog-posts/couple-bonding-activities-at-home.html">25 Couple Bonding Activities at Home</a></p>
+            <p>Simple, meaningful ideas for reconnecting when staying in sounds better than going out.</p>
+          </div>
+          <a class="featured-post-link" href="blog-posts/couple-bonding-activities-at-home.html">Read the featured story →</a>
+        </section>
+
+        <div class="blog-toolbar">
+          <h2 id="blog-title">Latest ideas</h2>
+          <p>Fresh starting points for kinder conversations, brighter rituals, and more thoughtful check-ins.</p>
+        </div>
+
+        <section class="blog-grid" aria-label="Latest blog posts">
+          {posts.map((post) => (
+            <article class="blog-card">
+              <div class="blog-card-top"><span class="blog-tag">{post.data.tag}</span><span>{readTime(post.data.kicker)}</span></div>
+              <h3><a href={`blog-posts/${post.id}.html`}>{post.data.cardTitle}</a></h3>
+              <p>{post.data.excerpt}</p>
+              <a class="blog-card-link" href={`blog-posts/${post.id}.html`}>Read the story →</a>
+            </article>
+          ))}
+        </section>
+      </main>
+
+      <footer class="blog-footer">
+        <p>© 2026 Couple in Bond. All rights reserved.</p>
+        <p><a href="calculator.html">Love calculator</a> · <a href="privacy.html">Privacy</a> · Love, for fun and reflection.</p>
+      </footer>
+    </div>
+  </div>
+</body>
+</html>
+

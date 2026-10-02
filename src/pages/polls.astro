@@ -1,3 +1,57 @@
+---
+import { getCollection } from 'astro:content';
+
+// Polls index. Reproduces public/polls.html exactly: the shell, hero,
+// topic toolbar and aside are static, and the poll cards themselves are
+// still rendered client-side by public/polls.js from public/poll-data.js
+// (voting state lives in localStorage, so that behaviour is untouched).
+// Only the CollectionPage/ImageObject/ItemList JSON-LD is generated
+// here, from the polls collection ordered by listOrder.
+const SITE = 'https://couplein.bond';
+const url = `${SITE}/polls.html`;
+
+const polls = (await getCollection('polls'))
+  .filter((p) => !p.data.draft)
+  .sort((a, b) => a.data.listOrder - b.data.listOrder);
+
+const ld = {
+  '@context': 'https://schema.org',
+  '@graph': [
+    {
+      '@type': 'CollectionPage',
+      '@id': `${url}#collection`,
+      'url': url,
+      'name': 'Community Relationship Polls',
+      'description': 'Answer lighthearted relationship polls about dating, connection, family, and couple habits. Vote once in your browser and compare the local split.',
+      'inLanguage': 'en',
+      'primaryImageOfPage': { '@id': `${url}#hero-image` },
+      'publisher': { '@id': `${SITE}/#organization` },
+      'mainEntity': { '@id': `${url}#poll-list` },
+    },
+    {
+      '@type': 'ImageObject',
+      '@id': `${url}#hero-image`,
+      'url': `${SITE}/assets/polls-hero-illustration.png`,
+      'contentUrl': `${SITE}/assets/polls-hero-illustration.png`,
+      'caption': 'Hands placing colorful relationship poll cards into a ballot box',
+    },
+    {
+      '@type': 'ItemList',
+      '@id': `${url}#poll-list`,
+      'name': 'Couple in Bond relationship polls',
+      'description': 'Lighthearted questions about connection, relationships, date nights, and seasonal celebrations.',
+      'itemListOrder': 'https://schema.org/ItemListOrderAscending',
+      'numberOfItems': polls.length,
+      'itemListElement': polls.map((poll, i) => ({
+        '@type': 'ListItem',
+        'position': i + 1,
+        'name': poll.data.question,
+        'url': `${SITE}/polls/${poll.id}.html`,
+      })),
+    },
+  ],
+};
+---
 <!doctype html>
 <html lang="en">
 <head>
@@ -10,15 +64,15 @@
   <script src="blog-nav.js" defer></script>
   <script src="poll-data.js" defer></script>
   <script src="polls.js" defer></script>
-    <meta name="description" content="Answer lighthearted relationship polls about dating, connection, family, and couple habits. Vote once in your browser and compare the local split.">
+  <meta name="description" content="Answer lighthearted relationship polls about dating, connection, family, and couple habits. Vote once in your browser and compare the local split.">
   <meta name="robots" content="index,follow,max-image-preview:large">
   <meta name="theme-color" content="#ff4d6d">
-  <link rel="canonical" href="https://couplein.bond/polls.html">
+  <link rel="canonical" href={url}>
   <link rel="icon" href="assets/coupleinbond-favicon.png">
   <link rel="apple-touch-icon" href="assets/coupleinbond-favicon.png">
   <meta property="og:title" content="Relationship Polls &amp; Couple Questions — Couple in Bond">
   <meta property="og:description" content="Answer lighthearted relationship polls about dating, connection, family, and couple habits. Vote once in your browser and compare the local split.">
-  <meta property="og:url" content="https://couplein.bond/polls.html">
+  <meta property="og:url" content={url}>
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="Couple in Bond">
   <meta property="og:locale" content="en_US">
@@ -28,58 +82,7 @@
   <meta name="twitter:title" content="Relationship Polls &amp; Couple Questions — Couple in Bond">
   <meta name="twitter:description" content="Answer lighthearted relationship polls about dating, connection, family, and couple habits. Vote once in your browser and compare the local split.">
   <meta name="twitter:image" content="https://couplein.bond/assets/social-share.jpg">
-  <script type="application/ld+json" data-seo-enhancement>
-  {
-    "@context": "https://schema.org",
-    "@graph": [
-      {
-        "@type": "CollectionPage",
-        "@id": "https://couplein.bond/polls.html#collection",
-        "url": "https://couplein.bond/polls.html",
-        "name": "Community Relationship Polls",
-        "description": "Answer lighthearted relationship polls about dating, connection, family, and couple habits. Vote once in your browser and compare the local split.",
-        "inLanguage": "en",
-        "primaryImageOfPage": { "@id": "https://couplein.bond/polls.html#hero-image" },
-        "publisher": { "@id": "https://couplein.bond/#organization" },
-        "mainEntity": { "@id": "https://couplein.bond/polls.html#poll-list" }
-      },
-      {
-        "@type": "ImageObject",
-        "@id": "https://couplein.bond/polls.html#hero-image",
-        "url": "https://couplein.bond/assets/polls-hero-illustration.png",
-        "contentUrl": "https://couplein.bond/assets/polls-hero-illustration.png",
-        "caption": "Hands placing colorful relationship poll cards into a ballot box"
-      },
-      {
-        "@type": "ItemList",
-        "@id": "https://couplein.bond/polls.html#poll-list",
-        "name": "Couple in Bond relationship polls",
-        "description": "Lighthearted questions about connection, relationships, date nights, and seasonal celebrations.",
-        "itemListOrder": "https://schema.org/ItemListOrderAscending",
-        "numberOfItems": 17,
-        "itemListElement": [
-          { "@type": "ListItem", "position": 1, "name": "What kind of date night sounds best this week?", "url": "https://couplein.bond/polls/date-night-mood.html" },
-          { "@type": "ListItem", "position": 2, "name": "What helps two people feel most connected?", "url": "https://couplein.bond/polls/connection-ritual.html" },
-          { "@type": "ListItem", "position": 3, "name": "What should a couple make time for this week?", "url": "https://couplein.bond/polls/weekly-ritual.html" },
-          { "@type": "ListItem", "position": 4, "name": "Do you believe family-arranged marriages last longer?", "url": "https://couplein.bond/polls/family-marriage-lasted-longer.html" },
-          { "@type": "ListItem", "position": 5, "name": "Which Valentine’s Day mood fits you best?", "url": "https://couplein.bond/polls/seasonal-mood.html" },
-          { "@type": "ListItem", "position": 6, "name": "What makes an apology feel sincere?", "url": "https://couplein.bond/polls/sincere-apology.html" },
-          { "@type": "ListItem", "position": 7, "name": "What kind of weekend reset would help your relationship?", "url": "https://couplein.bond/polls/weekend-reset.html" },
-          { "@type": "ListItem", "position": 8, "name": "When do you feel closest to your partner?", "url": "https://couplein.bond/polls/feel-closest-partner-20260930.html" },
-          { "@type": "ListItem", "position": 9, "name": "What ruins a date night fastest?", "url": "https://couplein.bond/polls/ruins-date-night-fastest-20260930.html" },
-          { "@type": "ListItem", "position": 10, "name": "What is your ideal first-date spot?", "url": "https://couplein.bond/polls/ideal-first-date-spot-20261001.html" },
-          { "@type": "ListItem", "position": 11, "name": "How do you show love on an ordinary Tuesday?", "url": "https://couplein.bond/polls/show-love-ordinary-tuesday-20261001.html" },
-          { "@type": "ListItem", "position": 12, "name": "What is the best rainy-day date?", "url": "https://couplein.bond/polls/best-rainy-day-date-20261001.html" },
-          { "@type": "ListItem", "position": 13, "name": "How do you and your partner reconnect after a hard day?", "url": "https://couplein.bond/polls/partner-reconnect-after-hard-day-20261001.html" },
-          { "@type": "ListItem", "position": 14, "name": "Who should plan the next date?", "url": "https://couplein.bond/polls/who-plan-next-date-20261001.html" },
-          { "@type": "ListItem", "position": 15, "name": "What is your favorite way to start the day as a couple?", "url": "https://couplein.bond/polls/favorite-way-start-day-couple-20261001.html" },
-          { "@type": "ListItem", "position": 16, "name": "What is the best way to end a perfect date?", "url": "https://couplein.bond/polls/best-way-end-perfect-date-20261002.html" },
-          { "@type": "ListItem", "position": 17, "name": "How should couples handle different love languages?", "url": "https://couplein.bond/polls/couples-handle-different-love-languages-20261002.html" }
-        ]
-      }
-    ]
-  }
-  </script>
+  <script type="application/ld+json" data-seo-enhancement set:html={JSON.stringify(ld, null, 2)}></script>
 </head>
 <body>
   <div class="blog-shell polls-shell">
@@ -144,3 +147,4 @@
   </div>
 </body>
 </html>
+

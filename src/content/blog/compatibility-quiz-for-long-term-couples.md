@@ -10,6 +10,11 @@ datePublished: "2026-08-14"
 dateModified: "2026-08-14"
 section: "Compatibility"
 slug: compatibility-quiz-for-long-term-couples
+tag: "LONG-TERM LOVE"
+excerpt: "A gentle check-in for couples who want to make room for change, affection, shared work, and fresh curiosity."
+cardTitle: "Compatibility Quiz for Long-Term Couples: Reconnect"
+cardOrder: 1
+ldOrder: 10
 headline: "Compatibility Quiz for Long-Term Couples: Reconnect"
 author: "Couple in Bond Editorial"
 disclaimer: "This article is for general reflection and entertainment. It is not therapy or professional relationship advice."

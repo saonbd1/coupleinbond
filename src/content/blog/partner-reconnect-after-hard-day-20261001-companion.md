@@ -10,6 +10,11 @@ datePublished: "2026-10-01"
 dateModified: "2026-10-01"
 section: "Connection"
 slug: partner-reconnect-after-hard-day-20261001-companion
+tag: "CONNECTION"
+excerpt: "Stress comes home with you unless you leave it at the door on purpose. Here are gentle ways to land softly together at the end of a hard day."
+cardTitle: "How Couples Reconnect After a Hard Day"
+cardOrder: 11
+ldOrder: 12
 headline: "How Couples Reconnect After a Hard Day"
 variant: companion
 author: "Couple in Bond Editorial"

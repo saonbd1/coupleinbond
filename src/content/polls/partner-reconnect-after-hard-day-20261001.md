@@ -5,6 +5,7 @@ description: "Choose the simple reset that helps two people soften the stress of
 intro: "Stress follows people home whether they want it to or not. Use this poll to compare the little rituals that help a couple land softly at the end of a hard day."
 topic: "Connection"
 slug: partner-reconnect-after-hard-day-20261001
+listOrder: 13
 ogImage: "https://couplein.bond/assets/polls-hero-illustration.png"
 ogImageAlt: "Hands placing colorful relationship poll cards into a ballot box"
 companionHref: "../blog-posts/partner-reconnect-after-hard-day-20261001-companion.html"

@@ -10,6 +10,11 @@ datePublished: "2026-10-01"
 dateModified: "2026-10-01"
 section: "Date night"
 slug: best-rainy-day-date-20261001-companion
+tag: "DATE NIGHT"
+excerpt: "Rain cancels plans but creates possibilities. Here is the rainy-day date that turns gray weather into a memory."
+cardTitle: "Cozy Rainy-Day Date Ideas for Couples"
+cardOrder: 12
+ldOrder: 11
 headline: "Cozy Rainy-Day Date Ideas for Couples"
 variant: companion
 author: "Couple in Bond Editorial"

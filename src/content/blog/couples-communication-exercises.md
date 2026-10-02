@@ -10,6 +10,11 @@ datePublished: "2026-08-13"
 dateModified: "2026-08-13"
 section: "Communication"
 slug: couples-communication-exercises
+tag: "COMMUNICATION"
+excerpt: "Gentle prompts and small practices that make room for listening, repair, and appreciation."
+cardTitle: "Couples Communication Exercises for More Emotional Intimacy"
+cardOrder: 9
+ldOrder: 2
 headline: "Couples Communication Exercises for More Emotional Intimacy"
 author: "Couple in Bond Editorial"
 disclaimer: "This article is for general reflection and entertainment. It is not therapy, diagnosis, or professional relationship advice."

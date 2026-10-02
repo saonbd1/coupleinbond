@@ -10,6 +10,11 @@ datePublished: "2026-10-01"
 dateModified: "2026-10-01"
 section: "Connection"
 slug: favorite-way-start-day-couple-20261001-companion
+tag: "CONNECTION"
+excerpt: "Mornings set the emotional weather for the whole day. Here is the small shared start that helps a couple face everything as a team."
+cardTitle: "The Couple Morning Ritual That Starts the Day Right"
+cardOrder: 13
+ldOrder: 14
 headline: "The Couple Morning Ritual That Starts the Day Right"
 variant: companion
 author: "Couple in Bond Editorial"

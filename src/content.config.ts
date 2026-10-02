@@ -18,6 +18,14 @@ const blog = defineCollection({
     dateModified: z.string(),
     section: z.string(),
     slug: z.string(),
+    // Index-page card + ItemList fields, backfilled from the
+    // hand-maintained public/blog.html by backfill_index_fields.py.
+    // cardOrder is a recency rank (higher = newer; grid sorts desc).
+    tag: z.string(),
+    excerpt: z.string(),
+    cardTitle: z.string(),
+    cardOrder: z.number(),
+    ldOrder: z.number(),
     headline: z.string().optional(),
     author: z.string(),
     disclaimer: z.string(),
@@ -43,6 +51,8 @@ const polls = defineCollection({
     intro: z.string(),
     topic: z.string(),
     slug: z.string(),
+    // Index-page ItemList position, backfilled from public/polls.html.
+    listOrder: z.number(),
     ogImage: z.string(),
     ogImageAlt: z.string().default(""),
     companionHref: z.string().optional(),

@@ -5,6 +5,7 @@ description: "Choose the Valentine’s Day style that feels most like you, from 
 intro: "There is no single right way to celebrate affection. This seasonal poll is a light prompt for comparing the mood, pace, and company you want."
 topic: "Seasonal"
 slug: seasonal-mood
+listOrder: 5
 ogImage: "https://couplein.bond/assets/polls/seasonal-mood-share.jpg"
 ogImageAlt: "Hands placing colorful relationship poll cards into a ballot box"
 options:

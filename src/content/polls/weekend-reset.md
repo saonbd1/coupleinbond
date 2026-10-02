@@ -5,6 +5,7 @@ description: "Choose the simple weekend reset that could help two people slow do
 intro: "A reset does not need to be expensive or elaborate. Use this poll to compare the kind of time, rest, or attention your relationship could use next."
 topic: "Date night"
 slug: weekend-reset
+listOrder: 7
 ogImage: "https://couplein.bond/assets/polls/weekend-reset-share.jpg"
 ogImageAlt: "What kind of weekend reset would help your relationship? poll card with answer options"
 options:

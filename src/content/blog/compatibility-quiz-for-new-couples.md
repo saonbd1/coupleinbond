@@ -10,6 +10,11 @@ datePublished: "2026-08-14"
 dateModified: "2026-08-14"
 section: "Compatibility"
 slug: compatibility-quiz-for-new-couples
+tag: "NEW COUPLES"
+excerpt: "Explore boundaries, routines, values, and future expectations without rushing a new relationship."
+cardTitle: "Compatibility Quiz for New Couples: What to Notice"
+cardOrder: 3
+ldOrder: 8
 headline: "Compatibility Quiz for New Couples: What to Notice"
 author: "Couple in Bond Editorial"
 disclaimer: "This article is for general reflection and entertainment. It is not therapy or professional relationship advice."

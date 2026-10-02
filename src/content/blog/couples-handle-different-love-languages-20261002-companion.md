@@ -10,6 +10,11 @@ datePublished: "2026-10-02"
 dateModified: "2026-10-02"
 section: "Connection"
 slug: couples-handle-different-love-languages-20261002-companion
+tag: "CONNECTION"
+excerpt: "One person shows love with words, the other with actions, and both wonder if they are understood. Here is how to meet in the middle."
+cardTitle: "How Couples Bridge Different Love Languages"
+cardOrder: 15
+ldOrder: 16
 headline: "How Couples Bridge Different Love Languages"
 variant: companion
 author: "Couple in Bond Editorial"

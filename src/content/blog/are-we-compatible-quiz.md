@@ -10,6 +10,11 @@ datePublished: "2026-08-14"
 dateModified: "2026-08-14"
 section: "Compatibility"
 slug: are-we-compatible-quiz
+tag: "REFLECTION"
+excerpt: "Replace a yes-or-no verdict with better questions about communication, values, conflict, and daily life."
+cardTitle: "Are We Compatible? A Gentle Quiz for Couples"
+cardOrder: 4
+ldOrder: 7
 headline: "Are We Compatible? A Gentle Quiz for Couples"
 author: "Couple in Bond Editorial"
 disclaimer: "This article is for general reflection and entertainment. It is not therapy or professional relationship advice."

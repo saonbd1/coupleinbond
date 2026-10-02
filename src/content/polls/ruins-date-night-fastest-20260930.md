@@ -5,6 +5,7 @@ description: "Vote on the date-night killer couples should avoid at all costs."
 intro: "One bad habit can sink a lovely evening. This poll names the fastest way to ruin a date so couples can dodge it."
 topic: "Date night"
 slug: ruins-date-night-fastest-20260930
+listOrder: 9
 ogImage: "https://couplein.bond/assets/polls-hero-illustration.png"
 ogImageAlt: "Hands placing colorful relationship poll cards into a ballot box"
 options:

@@ -5,6 +5,7 @@ description: "Choose the coziest way to spend a rainy day with your person."
 intro: "Rain cancels plans but creates possibilities. This poll asks which rainy-day date turns gray weather into a memory."
 topic: "Date night"
 slug: best-rainy-day-date-20261001
+listOrder: 12
 ogImage: "https://couplein.bond/assets/polls-hero-illustration.png"
 ogImageAlt: "Hands placing colorful relationship poll cards into a ballot box"
 companionHref: "../blog-posts/best-rainy-day-date-20261001-companion.html"

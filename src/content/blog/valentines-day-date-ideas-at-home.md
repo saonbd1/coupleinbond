@@ -10,6 +10,11 @@ datePublished: "2026-08-13"
 dateModified: "2026-08-13"
 section: "Valentine’s Day"
 slug: valentines-day-date-ideas-at-home
+tag: "VALENTINE’S"
+excerpt: "Warm, budget-friendly ideas for a romantic day that feels personal instead of performative."
+cardTitle: "Valentine’s Day Date Ideas at Home"
+cardOrder: 7
+ldOrder: 4
 headline: "Valentine’s Day Date Ideas at Home"
 author: "Couple in Bond Editorial"
 disclaimer: "This article is for general inspiration and entertainment."

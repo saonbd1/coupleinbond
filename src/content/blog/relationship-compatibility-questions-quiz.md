@@ -10,6 +10,11 @@ datePublished: "2026-08-14"
 dateModified: "2026-08-14"
 section: "Compatibility"
 slug: relationship-compatibility-questions-quiz
+tag: "QUESTIONS"
+excerpt: "Twenty prompts for honest conversations about emotional safety, repair, values, and shared direction."
+cardTitle: "Relationship Compatibility Questions Quiz for Couples"
+cardOrder: 2
+ldOrder: 9
 headline: "Relationship Compatibility Questions Quiz for Couples"
 author: "Couple in Bond Editorial"
 disclaimer: "This article is for general reflection and entertainment. It is not therapy or professional relationship advice."

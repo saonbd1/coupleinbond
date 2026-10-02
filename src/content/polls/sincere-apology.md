@@ -5,6 +5,7 @@ description: "Vote on the gestures that help an apology feel honest, accountable
 intro: "A sincere apology is more than a quick phrase. This poll is a gentle prompt for noticing the words and actions that help trust grow after a difficult moment."
 topic: "Connection"
 slug: sincere-apology
+listOrder: 6
 ogImage: "https://couplein.bond/assets/polls/sincere-apology-share.jpg"
 ogImageAlt: "What makes an apology feel sincere? poll card with answer options"
 options:

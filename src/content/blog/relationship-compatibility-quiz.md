@@ -10,6 +10,11 @@ datePublished: "2026-08-14"
 dateModified: "2026-08-14"
 section: "Compatibility"
 slug: relationship-compatibility-quiz
+tag: "COMPATIBILITY"
+excerpt: "Use a playful quiz to notice values, communication, effort, and the questions worth asking next."
+cardTitle: "Relationship Compatibility Quiz: A Better Way to Start the Conversation"
+cardOrder: 5
+ldOrder: 6
 headline: "Relationship Compatibility Quiz: A Better Way to Start the Conversation"
 author: "Couple in Bond Editorial"
 disclaimer: "This article is for general reflection and entertainment. It is not therapy or professional relationship advice."

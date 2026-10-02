@@ -10,6 +10,11 @@ datePublished: "2026-10-01"
 dateModified: "2026-10-01"
 section: "Date night"
 slug: who-plan-next-date-20261001-companion
+tag: "DATE NIGHT"
+excerpt: "Planning is part of the romance, but it should not always fall on one person. Here is the fairest way to share it."
+cardTitle: "Who Should Plan Date Night in a Relationship"
+cardOrder: 14
+ldOrder: 13
 headline: "Who Should Plan Date Night in a Relationship"
 variant: companion
 author: "Couple in Bond Editorial"

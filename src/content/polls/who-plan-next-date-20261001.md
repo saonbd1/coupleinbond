@@ -5,6 +5,7 @@ description: "Vote on the fairest way to share the planning of date nights."
 intro: "Planning is part of the romance, but it should not always fall on one person. This poll asks who should take the lead next."
 topic: "Date night"
 slug: who-plan-next-date-20261001
+listOrder: 14
 ogImage: "https://couplein.bond/assets/polls-hero-illustration.png"
 ogImageAlt: "Hands placing colorful relationship poll cards into a ballot box"
 companionHref: "../blog-posts/who-plan-next-date-20261001-companion.html"

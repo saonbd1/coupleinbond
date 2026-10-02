@@ -5,6 +5,7 @@ description: "Vote on the kindest way to bridge the gap when two people give and
 intro: "One person shows love with words, the other with actions, and both wonder if they are understood. This poll explores how couples can meet in the middle."
 topic: "Connection"
 slug: couples-handle-different-love-languages-20261002
+listOrder: 17
 ogImage: "https://couplein.bond/assets/polls-hero-illustration.png"
 ogImageAlt: "Hands placing colorful relationship poll cards into a ballot box"
 companionHref: "../blog-posts/couples-handle-different-love-languages-20261002-companion.html"

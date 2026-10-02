@@ -10,6 +10,11 @@ datePublished: "2026-08-13"
 dateModified: "2026-08-13"
 section: "Friendship"
 slug: galentines-day-ideas-self-love
+tag: "FRIENDSHIP"
+excerpt: "Brunch, care packages, honest check-ins, and other ways to celebrate the people who keep you going."
+cardTitle: "Galentine’s Day Ideas for Friendship and Self-Love"
+cardOrder: 6
+ldOrder: 5
 headline: "Galentine’s Day Ideas for Friendship and Self-Love"
 author: "Couple in Bond Editorial"
 disclaimer: "This article is for general inspiration and entertainment."

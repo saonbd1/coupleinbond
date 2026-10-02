@@ -10,6 +10,11 @@ datePublished: "2026-08-13"
 dateModified: "2026-08-13"
 section: "Couple Bonding"
 slug: couple-bonding-activities-at-home
+tag: "BONDING"
+excerpt: "Simple, meaningful ways to connect deeper when staying in sounds better than going out."
+cardTitle: "25 Couple Bonding Activities at Home"
+cardOrder: 10
+ldOrder: 1
 author: "Couple in Bond Editorial"
 disclaimer: "This article is for general reflection and entertainment. It is not therapy or professional relationship advice."
 draft: false

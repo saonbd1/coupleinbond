@@ -5,6 +5,7 @@ description: "Choose the everyday gesture that says love louder than grand occas
 intro: "Valentine's Day gets the spotlight, but ordinary Tuesdays carry the relationship. This poll celebrates the small midweek gestures that matter most."
 topic: "Connection"
 slug: show-love-ordinary-tuesday-20261001
+listOrder: 11
 ogImage: "https://couplein.bond/assets/polls-hero-illustration.png"
 ogImageAlt: "Hands placing colorful relationship poll cards into a ballot box"
 options:

@@ -5,6 +5,7 @@ description: "Explore a thoughtful relationship question about family-arranged a
 intro: "Marriage outcomes are shaped by many factors, including communication, expectations, support, and choice. This poll is designed for reflection rather than a one-size-fits-all answer."
 topic: "Relationships"
 slug: family-marriage-lasted-longer
+listOrder: 4
 ogImage: "https://couplein.bond/assets/polls/family-marriage-lasted-longer-share.jpg"
 ogImageAlt: "Hands placing colorful relationship poll cards into a ballot box"
 options:
