@@ -1,0 +1,148 @@
+"""Compare Astro-built output against the original hand-written page.
+
+Run: python scripts/verify_migration.py [<slug>]
+"""
+import html as html_lib
+import json
+import os
+import re
+import subprocess
+import sys
+
+ROOT = r"C:\Users\saonb\git\coupleinbond-astro"
+SLUG = sys.argv[1] if len(sys.argv) > 1 else "couple-bonding-activities-at-home"
+REL = "public/blog-posts/%s.html" % SLUG
+
+
+def grab(pattern, text, default=""):
+    m = re.search(pattern, text, re.S)
+    return m.group(1).strip() if m else default
+
+
+def ld_json(html, index=0, strip_attrs=False):
+    if strip_attrs:
+        blocks = re.findall(
+            r'<script type="application/ld\+json"[^>]*>(.*?)</script>', html, re.S)
+    else:
+        blocks = re.findall(
+            r'<script type="application/ld\+json">(.*?)</script>', html, re.S)
+    if index >= len(blocks):
+        return None
+    try:
+        return json.loads(blocks[index].strip())
+    except Exception as exc:
+        return {"_error": str(exc)}
+
+
+def main():
+    for rev in ["HEAD:%s" % REL, "HEAD~1:%s" % REL, "main:%s" % REL,
+                "origin/main:public/blog-posts/%s.html" % SLUG]:
+        original = subprocess.run(
+            ["git", "-C", ROOT, "show", rev],
+            capture_output=True, text=True, encoding="utf-8-sig")
+        if original.returncode == 0:
+            break
+    if original.returncode != 0:
+        print("cannot read original from git:", original.stderr[:200])
+        return 1
+
+    out_path = os.path.join(ROOT, "dist", "blog-posts", SLUG + ".html")
+    if not os.path.exists(out_path):
+        print("OUTPUT MISSING:", out_path)
+        return 1
+
+    old = original.stdout
+    new = open(out_path, encoding="utf-8").read()
+
+    checks = []
+
+    def eq(label, a, b):
+        ok = a == b
+        checks.append((ok, label))
+        if not ok:
+            print("  DIFF %s\n    old=%r\n    new=%r" % (label, a, b))
+
+    # entity-encoded titles (&mdash; etc.): pageTitle comes back raw from the old
+    # HTML but decoded from Astro output, so compare after unescaping both.
+    eq("title",
+       html_lib.unescape(grab(r"<title>(.*?)</title>", old)),
+       html_lib.unescape(grab(r"<title>(.*?)</title>", new)))
+    eq("meta description",
+       html_lib.unescape(grab(r'<meta name="description" content="(.*?)"', old)),
+       html_lib.unescape(grab(r'<meta name="description" content="(.*?)"', new)))
+    eq("canonical",
+       grab(r'<link rel="canonical" href="(.*?)"', old),
+       grab(r'<link rel="canonical" href="(.*?)"', new))
+    for prop in ["og:title", "og:description", "og:url", "og:image", "og:type",
+                 "twitter:title", "twitter:description", "twitter:image"]:
+        eq(prop,
+           html_lib.unescape(grab(r'<meta property="%s" content="(.*?)"' % prop, old) or
+           grab(r'<meta name="%s" content="(.*?)"' % prop, old)),
+           html_lib.unescape(grab(r'<meta property="%s" content="(.*?)"' % prop, new) or
+           grab(r'<meta name="%s" content="(.*?)"' % prop, new)))
+
+    # h1 + every h2 in the body must survive the markdown round-trip
+    eq("h1", re.sub(r"<[^>]+>", "", grab(r"<h1>(.*?)</h1>", old)),
+       re.sub(r"<[^>]+>", "", grab(r"<h1>(.*?)</h1>", new)))
+    eq("h2 list", re.findall(r"<h2>(.*?)</h2>", old), re.findall(r"<h2>(.*?)</h2>", new))
+
+    # body word count should match closely
+    def words(html):
+        body = grab(r'<div class="article-body">(.*?)</div><footer', html) or \
+               grab(r'<div class="article-body">(.*?)</footer>', html)
+        return len(re.sub(r"<[^>]+>", " ", body).split())
+    ow, nw = words(old), words(new)
+    ok = abs(ow - nw) <= 5
+    checks.append((ok, "body word count (old=%d new=%d)" % (ow, nw)))
+    if not ok:
+        print("  DIFF body words old=%d new=%d" % (ow, nw))
+
+    # JSON-LD BlogPosting equivalence (ignore formatting). Companions nest
+    # the posting inside a @graph wrapper; editorial pages use a bare block.
+    old_ld = ld_json(old, 0)
+    new_ld = ld_json(new, 0)
+    if new_ld is None:
+        new_ld = ld_json(new, 0, strip_attrs=True)
+    for doc in (old_ld, new_ld):
+        if isinstance(doc, dict) and "@graph" in doc:
+            for node in doc["@graph"]:
+                if isinstance(node, dict) and node.get("@type") == "BlogPosting":
+                    if doc is old_ld:
+                        old_ld = node
+                    else:
+                        new_ld = node
+                    break
+    if old_ld and new_ld and "_error" not in new_ld:
+        for key in ["headline", "description", "url", "datePublished",
+                    "articleSection", "keywords"]:
+            eq("ld.%s" % key, old_ld.get(key), new_ld.get(key))
+    else:
+        checks.append((False, "ld parse old=%s new=%s" % (old_ld is not None, new_ld)))
+
+    # Footers vary per page ("reflection" vs "inspiration", therapy line or
+    # not) — the md frontmatter preserves each page's own text verbatim, so
+    # check the footer survived with real content rather than one fixed string.
+    for label, pat in [("blog.css", r'<link rel="stylesheet" href="\.\./blog\.css">'),
+                       ("blog-nav.js", r'<script src="\.\./blog-nav\.js"'),
+                       ("article-body", r'<div class="article-body">'),
+                       ("article-footer", r'<footer class="article-footer">'),
+                       ("blog-footer", r'<footer class="blog-footer">')]:
+        checks.append((re.search(pat, new) is not None, label))
+
+    # relative asset hrefs must be identical in form (../)
+    eq("stylesheet hrefs",
+       re.findall(r'<link rel="stylesheet" href="([^"]+)"', old),
+       re.findall(r'<link rel="stylesheet" href="([^"]+)"', new))
+
+    eq("disclaimer text",
+       re.sub(r"<[^>]+>", "", grab(r'<footer class="article-footer">(.*?)</footer>', old)).strip(),
+       re.sub(r"<[^>]+>", "", grab(r'<footer class="article-footer">(.*?)</footer>', new)).strip())
+    passed = sum(1 for ok, _ in checks if ok)
+    print("\n== %d/%d checks passed ==" % (passed, len(checks)))
+    for ok, label in checks:
+        print(("  PASS  " if ok else "  FAIL  ") + label)
+    return 0 if passed == len(checks) else 1
+
+
+if __name__ == "__main__":
+    sys.exit(main())

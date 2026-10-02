@@ -1,0 +1,150 @@
+---
+import { getCollection } from 'astro:content';
+
+// Polls index. Reproduces public/polls.html exactly: the shell, hero,
+// topic toolbar and aside are static, and the poll cards themselves are
+// still rendered client-side by public/polls.js from public/poll-data.js
+// (voting state lives in localStorage, so that behaviour is untouched).
+// Only the CollectionPage/ImageObject/ItemList JSON-LD is generated
+// here, from the polls collection ordered by listOrder.
+const SITE = 'https://couplein.bond';
+const url = `${SITE}/polls.html`;
+
+const polls = (await getCollection('polls'))
+  .filter((p) => !p.data.draft)
+  .sort((a, b) => a.data.listOrder - b.data.listOrder);
+
+const ld = {
+  '@context': 'https://schema.org',
+  '@graph': [
+    {
+      '@type': 'CollectionPage',
+      '@id': `${url}#collection`,
+      'url': url,
+      'name': 'Community Relationship Polls',
+      'description': 'Answer lighthearted relationship polls about dating, connection, family, and couple habits. Vote once in your browser and compare the local split.',
+      'inLanguage': 'en',
+      'primaryImageOfPage': { '@id': `${url}#hero-image` },
+      'publisher': { '@id': `${SITE}/#organization` },
+      'mainEntity': { '@id': `${url}#poll-list` },
+    },
+    {
+      '@type': 'ImageObject',
+      '@id': `${url}#hero-image`,
+      'url': `${SITE}/assets/polls-hero-illustration.png`,
+      'contentUrl': `${SITE}/assets/polls-hero-illustration.png`,
+      'caption': 'Hands placing colorful relationship poll cards into a ballot box',
+    },
+    {
+      '@type': 'ItemList',
+      '@id': `${url}#poll-list`,
+      'name': 'Couple in Bond relationship polls',
+      'description': 'Lighthearted questions about connection, relationships, date nights, and seasonal celebrations.',
+      'itemListOrder': 'https://schema.org/ItemListOrderAscending',
+      'numberOfItems': polls.length,
+      'itemListElement': polls.map((poll, i) => ({
+        '@type': 'ListItem',
+        'position': i + 1,
+        'name': poll.data.question,
+        'url': `${SITE}/polls/${poll.id}.html`,
+      })),
+    },
+  ],
+};
+---
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Relationship Polls & Couple Questions — Couple in Bond</title>
+  <link rel="stylesheet" href="blog.css">
+  <link rel="stylesheet" href="polls.css">
+  <link rel="stylesheet" href="poll-detail.css">
+  <script src="blog-nav.js" defer></script>
+  <script src="poll-data.js" defer></script>
+  <script src="polls.js" defer></script>
+  <meta name="description" content="Answer lighthearted relationship polls about dating, connection, family, and couple habits. Vote once in your browser and compare the local split.">
+  <meta name="robots" content="index,follow,max-image-preview:large">
+  <meta name="theme-color" content="#ff4d6d">
+  <link rel="canonical" href={url}>
+  <link rel="icon" href="assets/coupleinbond-favicon.png">
+  <link rel="apple-touch-icon" href="assets/coupleinbond-favicon.png">
+  <meta property="og:title" content="Relationship Polls &amp; Couple Questions — Couple in Bond">
+  <meta property="og:description" content="Answer lighthearted relationship polls about dating, connection, family, and couple habits. Vote once in your browser and compare the local split.">
+  <meta property="og:url" content={url}>
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Couple in Bond">
+  <meta property="og:locale" content="en_US">
+  <meta property="og:image" content="https://couplein.bond/assets/social-share.jpg">
+  <meta property="og:image:alt" content="Couple in Bond relationship tools and bonding ideas">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Relationship Polls &amp; Couple Questions — Couple in Bond">
+  <meta name="twitter:description" content="Answer lighthearted relationship polls about dating, connection, family, and couple habits. Vote once in your browser and compare the local split.">
+  <meta name="twitter:image" content="https://couplein.bond/assets/social-share.jpg">
+  <script type="application/ld+json" data-seo-enhancement set:html={JSON.stringify(ld, null, 2)}></script>
+</head>
+<body>
+  <div class="blog-shell polls-shell">
+    <div class="blog-wrap">
+      <header class="blog-nav" data-root=".">
+        <a class="blog-brand" href="index.html">💕 Couple in Bond</a>
+      </header>
+
+      <main>
+        <section class="polls-hero" aria-labelledby="polls-title">
+          <div class="polls-hero-copy">
+            <div class="blog-kicker">Community questions · Couple in Bond</div>
+            <h1 id="polls-title">Choose a side.<br><span>Share the feeling.</span></h1>
+            <p>Open a topic, pick the option that feels most like you, and see what your browser’s poll community is choosing.</p>
+          </div>
+          <aside class="polls-hero-note">
+            <div class="polls-hero-art"><img src="assets/polls-hero-illustration.png" alt="Hands placing colorful relationship poll cards into a ballot box"></div>
+            <div class="blog-feature-icon" aria-hidden="true">?</div>
+            <h2>Small questions make good conversations.</h2>
+            <p>New topics can open over time, from date-night preferences to the little rituals that help people feel close.</p>
+          </aside>
+        </section>
+
+        <section class="polls-layout" aria-labelledby="poll-list-title">
+          <div class="polls-main-panel">
+            <div class="blog-toolbar polls-toolbar">
+              <div>
+                <h2 id="poll-list-title">Open polls</h2>
+                <p>Choose one answer per topic.</p>
+              </div>
+              <div class="topic-filter" role="group" aria-label="Filter polls by topic">
+                <button type="button" class="is-active" data-topic="all" aria-pressed="true">All</button>
+                <button type="button" data-topic="connection" aria-pressed="false">Connection</button>
+                <button type="button" data-topic="relationships" aria-pressed="false">Relationships</button>
+                <button type="button" data-topic="date-night" aria-pressed="false">Date night</button>
+                <button type="button" data-topic="seasonal" aria-pressed="false">Seasonal</button>
+              </div>
+            </div>
+            <div id="pollsList" class="polls-list" aria-live="polite"></div>
+            <div id="pollsEmpty" class="polls-empty" hidden>
+              <div class="polls-empty-icon" aria-hidden="true">✦</div>
+              <h2>No polls in this topic yet.</h2>
+              <p>Try another filter, or come back when a new question opens.</p>
+            </div>
+          </div>
+
+          <aside class="polls-aside" aria-label="How polls work">
+            <div class="polls-aside-icon" aria-hidden="true">✦</div>
+            <div class="blog-kicker">How it works</div>
+            <h2>Pick what feels true.</h2>
+            <p>Each topic accepts one choice in this browser. After you vote, you can see the answer split and the total recorded here.</p>
+            <div class="polls-note">This static edition stores votes locally on your device. A shared global vote count can be connected later with a database.</div>
+          </aside>
+        </section>
+      </main>
+
+      <footer class="blog-footer">
+        <p>© 2026 Couple in Bond. All rights reserved.</p>
+        <p><a href="calculator.html">Love calculator</a> · <a href="blog.html">Blog</a> · <a href="quotes.html">Love quotes</a> · Polls, for fun and reflection.</p>
+      </footer>
+    </div>
+  </div>
+</body>
+</html>
+
