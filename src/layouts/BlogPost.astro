@@ -16,7 +16,7 @@ const blogPosting = {
   '@context': 'https://schema.org',
   '@type': 'BlogPosting',
   '@id': `${url}#article`,
-  headline: d.title,
+  headline: d.headline || d.title,
   description: d.schemaDescription,
   url,
   mainEntityOfPage: { '@type': 'WebPage', '@id': url },

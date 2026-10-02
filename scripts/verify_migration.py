@@ -9,7 +9,7 @@ import subprocess
 import sys
 
 ROOT = r"C:\Users\saonb\git\coupleinbond-astro"
-SLUG = "couple-bonding-activities-at-home"
+SLUG = sys.argv[1] if len(sys.argv) > 1 else "couple-bonding-activities-at-home"
 REL = "public/blog-posts/%s.html" % SLUG
 
 
@@ -34,9 +34,13 @@ def ld_json(html, index=0, strip_attrs=False):
 
 
 def main():
-    original = subprocess.run(
-        ["git", "-C", ROOT, "show", "HEAD:%s" % REL],
-        capture_output=True, text=True, encoding="utf-8")
+    for rev in ["HEAD:%s" % REL, "HEAD~1:%s" % REL, "main:%s" % REL,
+                "origin/main:public/blog-posts/%s.html" % SLUG]:
+        original = subprocess.run(
+            ["git", "-C", ROOT, "show", rev],
+            capture_output=True, text=True, encoding="utf-8-sig")
+        if original.returncode == 0:
+            break
     if original.returncode != 0:
         print("cannot read original from git:", original.stderr[:200])
         return 1
