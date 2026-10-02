@@ -1219,11 +1219,17 @@ def main():
     print("  updated poll-data.js, polls.html, blog.html, sitemap.xml")
 
     # Validate hard: a failure here blocks the commit/push below.
-    print("  validation: %s" % validate_poll_js())
-    print("  validation: %s" % validate_jsonld(
-        [POLLS_HTML, BLOG_HTML]
-        + [os.path.join(POLLS_DIR, p["id"] + ".html") for p in new_polls]
-        + [os.path.join(BLOG_POSTS_DIR, a["slug"] + ".html") for a in articles]))
+    try:
+        print("  validation: %s" % validate_poll_js())
+        print("  validation: %s" % validate_jsonld(
+            [POLLS_HTML, BLOG_HTML]
+            + [os.path.join(POLLS_DIR, p["id"] + ".html") for p in new_polls]
+            + [os.path.join(BLOG_POSTS_DIR, a["slug"] + ".html") for a in articles]))
+    except Exception as exc:  # noqa: BLE001 - fail closed, do not commit
+        print("  FAILED VALIDATION - nothing committed or pushed.")
+        print("  reason: %s" % exc)
+        print("  fix the issue above, then re-run. Files on disk were regenerated.")
+        return 1
 
     for p in new_polls:
         used_ids.add("%d:%s" % (p["bank_index"], POLL_BANK[p["bank_index"]][1]))
