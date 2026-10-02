@@ -715,7 +715,10 @@ def render_detail_page(poll, related_polls, companion=None):
             '<section class="poll-companion" aria-labelledby="companion-reading">'
             '<div class="blog-kicker">Read the guide</div>'
             '<h2 id="companion-reading">Go deeper on this topic</h2>'
-            '<p><a href="../blog-posts/%s.html">%s</a></p></section>'
+            '<p class="poll-companion-text">A companion article with practical '
+            'ideas for this exact question, so you can act on your answer.</p>'
+            '<a class="poll-companion-link" href="../blog-posts/%s.html">%s'
+            '<span aria-hidden="true">&rarr;</span></a></section>'
             % (companion["slug"], esc(companion["title"])))
     else:
         companion_html = ""
@@ -779,8 +782,8 @@ def render_detail_page(poll, related_polls, companion=None):
         </form>
         <section id="pollDetailResults" class="poll-detail-results" aria-live="polite"></section>
       </article>
-      <section class="poll-related" aria-labelledby="related-polls-title"><div class="blog-kicker">Keep exploring</div><h2 id="related-polls-title">Related relationship polls</h2><div class="poll-related-grid">%s</div></section>
       %s
+      <section class="poll-related" aria-labelledby="related-polls-title"><div class="blog-kicker">Keep exploring</div><h2 id="related-polls-title">Related relationship polls</h2><div class="poll-related-grid">%s</div></section>
       <p class="poll-detail-note">This static poll records one vote in your browser so you can compare your own choice with the local result. It is designed for conversation and reflection, not scientific measurement.</p>
     </main>
     <footer class="blog-footer"><p>&copy; 2026 Couple in Bond. All rights reserved.</p><p><a href="../calculator.html">Love calculator</a> &middot; <a href="../quotes.html">Love quotes</a> &middot; <a href="../polls.html">All polls</a></p></footer>
@@ -789,7 +792,7 @@ def render_detail_page(poll, related_polls, companion=None):
 </html>
 """ % (title, desc, url, title, desc, url, og_image, title, desc, og_image,
         ld, poll["id"], poll["label"], poll["label"], title, desc, intro,
-        title, options_html, rel_cards, companion_html)
+        title, options_html, companion_html, rel_cards)
 def rewire_related(new_polls):
     """Point the first two entries that precede the new batch at the first
     new poll, so the new content is linked from the established list. New
