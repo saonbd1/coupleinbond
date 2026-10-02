@@ -1,0 +1,17 @@
+---
+import { getCollection } from 'astro:content';
+import PollDetail from '../../layouts/PollDetail.astro';
+
+// Emits polls/<id>.html because astro.config.mjs sets
+// build.format: 'file' — matching every existing URL and canonical tag.
+export async function getStaticPaths() {
+  const polls = await getCollection('polls');
+  return polls.map((poll) => ({
+    params: { slug: poll.id },
+    props: { poll },
+  }));
+}
+
+const { poll } = Astro.props;
+---
+<PollDetail poll={poll} />

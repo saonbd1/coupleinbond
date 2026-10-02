@@ -31,4 +31,26 @@ const blog = defineCollection({
   }),
 });
 
-export const collections = { blog };
+// Poll detail pages in src/content/polls/*.md, from scripts/migrate_polls.py.
+// Options/related/companion links are frontmatter; the layout re-renders the
+// voting scaffolding that poll-detail.js hydrates at runtime.
+const polls = defineCollection({
+  loader: glob({ pattern: '**/*.md', base: './src/content/polls' }),
+  schema: z.object({
+    question: z.string(),
+    pageTitle: z.string(),
+    description: z.string(),
+    intro: z.string(),
+    topic: z.string(),
+    slug: z.string(),
+    ogImage: z.string(),
+    ogImageAlt: z.string().default(""),
+    companionHref: z.string().optional(),
+    companionTitle: z.string().optional(),
+    options: z.array(z.string()).default([]),
+    related: z.array(z.object({ href: z.string(), title: z.string() })).default([]),
+    draft: z.boolean().default(false),
+  }),
+});
+
+export const collections = { blog, polls };
