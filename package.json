@@ -7,7 +7,13 @@
     "dev": "astro dev",
     "build": "astro build",
     "preview": "astro preview",
-    "astro": "astro"
+    "astro": "astro",
+    "generate:localized": "node scripts/generate-localized-content.mjs",
+    "validate:localized": "node scripts/validate-localized-content.mjs",
+    "generate:bn": "node scripts/generate-bn-content.mjs",
+    "validate:bn": "node scripts/validate-bn-content.mjs",
+    "content:check": "npm run generate:localized && npm run validate:localized",
+    "validate:release": "npm run content:check && npm run build"
   },
   "dependencies": {
     "astro": "^7.3.5"
