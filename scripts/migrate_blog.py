@@ -44,6 +44,9 @@ def migrate(slug):
 
     description = grab(r'<meta name="description" content="(.*?)"', html)
     kicker = grab(r'<div class="blog-kicker">(.*?)</div>', html)
+    # Frontmatter holds decoded text; a raw &middot; would be
+    # double-escaped by Astro and display literally.
+    kicker = html_lib.unescape(kicker)
     dek = grab(r'<p class="article-dek">(.*?)</p>', html)
     date_line = grab(r'<div class="article-meta">(.*?)</div>', html)
     published = grab(r"<span>(Published.*?)</span>", date_line)
