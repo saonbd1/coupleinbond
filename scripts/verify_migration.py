@@ -1,7 +1,8 @@
 """Compare Astro-built output against the original hand-written page.
 
-Run: python scripts/verify_migration.py
+Run: python scripts/verify_migration.py [<slug>]
 """
+import html as html_lib
 import json
 import os
 import re
@@ -61,20 +62,24 @@ def main():
         if not ok:
             print("  DIFF %s\n    old=%r\n    new=%r" % (label, a, b))
 
-    eq("title", grab(r"<title>(.*?)</title>", old), grab(r"<title>(.*?)</title>", new))
+    # entity-encoded titles (&mdash; etc.): pageTitle comes back raw from the old
+    # HTML but decoded from Astro output, so compare after unescaping both.
+    eq("title",
+       html_lib.unescape(grab(r"<title>(.*?)</title>", old)),
+       html_lib.unescape(grab(r"<title>(.*?)</title>", new)))
     eq("meta description",
-       grab(r'<meta name="description" content="(.*?)"', old),
-       grab(r'<meta name="description" content="(.*?)"', new))
+       html_lib.unescape(grab(r'<meta name="description" content="(.*?)"', old)),
+       html_lib.unescape(grab(r'<meta name="description" content="(.*?)"', new)))
     eq("canonical",
        grab(r'<link rel="canonical" href="(.*?)"', old),
        grab(r'<link rel="canonical" href="(.*?)"', new))
     for prop in ["og:title", "og:description", "og:url", "og:image", "og:type",
                  "twitter:title", "twitter:description", "twitter:image"]:
         eq(prop,
-           grab(r'<meta property="%s" content="(.*?)"' % prop, old) or
-           grab(r'<meta name="%s" content="(.*?)"' % prop, old),
-           grab(r'<meta property="%s" content="(.*?)"' % prop, new) or
-           grab(r'<meta name="%s" content="(.*?)"' % prop, new))
+           html_lib.unescape(grab(r'<meta property="%s" content="(.*?)"' % prop, old) or
+           grab(r'<meta name="%s" content="(.*?)"' % prop, old)),
+           html_lib.unescape(grab(r'<meta property="%s" content="(.*?)"' % prop, new) or
+           grab(r'<meta name="%s" content="(.*?)"' % prop, new)))
 
     # h1 + every h2 in the body must survive the markdown round-trip
     eq("h1", re.sub(r"<[^>]+>", "", grab(r"<h1>(.*?)</h1>", old)),
@@ -92,11 +97,21 @@ def main():
     if not ok:
         print("  DIFF body words old=%d new=%d" % (ow, nw))
 
-    # JSON-LD BlogPosting equivalence (ignore formatting)
+    # JSON-LD BlogPosting equivalence (ignore formatting). Companions nest
+    # the posting inside a @graph wrapper; editorial pages use a bare block.
     old_ld = ld_json(old, 0)
     new_ld = ld_json(new, 0)
     if new_ld is None:
         new_ld = ld_json(new, 0, strip_attrs=True)
+    for doc in (old_ld, new_ld):
+        if isinstance(doc, dict) and "@graph" in doc:
+            for node in doc["@graph"]:
+                if isinstance(node, dict) and node.get("@type") == "BlogPosting":
+                    if doc is old_ld:
+                        old_ld = node
+                    else:
+                        new_ld = node
+                    break
     if old_ld and new_ld and "_error" not in new_ld:
         for key in ["headline", "description", "url", "datePublished",
                     "articleSection", "keywords"]:

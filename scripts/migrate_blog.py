@@ -8,6 +8,7 @@ Single-post behaviour matches the first migration exactly, except
 dates/section/tags now come from each page's own JSON-LD instead of
 hard-coded values for the pilot post.
 """
+import html as html_lib
 import os
 import re
 import sys
@@ -32,7 +33,10 @@ def migrate(slug):
     html = open(src, encoding="utf-8-sig").read()
 
     # <title> is the page/OG title; <h1> is the headline (they differ).
+    # Titles may use an HTML entity (&mdash;) or a literal em dash for the
+    # " — Couple in Bond" suffix; unescape first so both strip cleanly.
     page_title = grab(r"<title>(.*?)</title>", html)
+    page_title = html_lib.unescape(page_title)
     page_title = page_title.replace(" — Couple in Bond", "").replace(" � Couple in Bond", "").strip()
 
     title = grab(r"<h1[^>]*>(.*?)</h1>", html)
@@ -59,7 +63,9 @@ def migrate(slug):
 
     # JSON-LD carries its own description/section/keywords/dates.
     # NOTE: headline can differ from <h1> (older pages truncated it) —
-    # preserve it verbatim for SEO continuity.
+    # preserve it verbatim for SEO continuity. Companions use a @graph
+    # wrapper instead of a bare BlogPosting; the headline regex works either way.
+    variant = "companion" if slug.endswith("-companion") else "editorial"
     ld_block = grab(r'<script type="application/ld\+json">\s*(\{.*?\})\s*</script>', html, "{}")
     ld_headline = grab(r'"headline":\s*"([^"]+)"', ld_block) or title
     schema_description = grab(r'"description":\s*"(.*?)"', ld_block)
@@ -92,6 +98,7 @@ def migrate(slug):
     md.append("section: %s" % yq(section))
     md.append("slug: %s" % slug)
     md.append("headline: %s" % yq(ld_headline))
+    md.append("variant: %s" % variant)
     md.append("author: %s" % yq(author))
     md.append("disclaimer: %s" % yq(disclaimer))
     md.append("draft: false")

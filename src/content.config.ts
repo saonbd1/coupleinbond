@@ -25,6 +25,9 @@ const blog = defineCollection({
     keywords: z.array(z.string()).default([]),
     tags: z.array(z.string()).default([]),
     asideHtml: z.string().default(""),
+    // Machine-generated poll companions use a slightly different shell:
+    // Blog/Polls/Calculator nav links and a two-link footer.
+    variant: z.string().default("editorial"),
   }),
 });
 
