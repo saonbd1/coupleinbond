@@ -2,8 +2,7 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url><loc>https://couplein.bond/</loc></url>
   <url><loc>https://couplein.bond/calculator.html</loc></url>
-  <url><loc>https://couplein.bond/keep-the-moment.html</loc></url>
-  <url><loc>https://couplein.bond/keep-the-moment-info.html</loc></url>
+  <url><loc>https://couplein.bond/keep-yours-moments-on-blockchain.html</loc></url>
   <url><loc>https://couplein.bond/compatibility-quiz.html</loc></url>
   <url><loc>https://couplein.bond/blog.html</loc></url>
   <url><loc>https://couplein.bond/polls.html</loc></url>
@@ -38,4 +37,20 @@
   <url><loc>https://couplein.bond/polls/couples-handle-different-love-languages-20261002.html</loc></url>
   <url><loc>https://couplein.bond/blog-posts/best-way-end-perfect-date-20261002-companion.html</loc></url>
   <url><loc>https://couplein.bond/blog-posts/couples-handle-different-love-languages-20261002-companion.html</loc></url>
+  
+  <!-- Bengali version (/bn/) -->
+  <url><loc>https://couplein.bond/bn/</loc></url>
+  <url><loc>https://couplein.bond/bn/about.html</loc></url>
+  <url><loc>https://couplein.bond/bn/blog.html</loc></url>
+  <url><loc>https://couplein.bond/bn/calculator.html</loc></url>
+  <url><loc>https://couplein.bond/bn/polls.html</loc></url>
+  <url><loc>https://couplein.bond/bn/privacy.html</loc></url>
+  <url><loc>https://couplein.bond/bn/valentines-day.html</loc></url>
+  <url><loc>https://couplein.bond/bn/meaningful-questions.html</loc></url>
+  <url><loc>https://couplein.bond/bn/quiet-love.html</loc></url>
+  <url><loc>https://couplein.bond/bn/shared-rituals.html</loc></url>
+  <url><loc>https://couplein.bond/bn/article-bonding-at-home.html</loc></url>
+  <url><loc>https://couplein.bond/bn/article-shared-rituals.html</loc></url>
+  <url><loc>https://couplein.bond/bn/article-meaningful-questions.html</loc></url>
+  <url><loc>https://couplein.bond/bn/article-quiet-love.html</loc></url>
 </urlset>

@@ -28,6 +28,32 @@ const requiredChecks = [
   { name: 'h1', regex: /<h1\b/i },
 ];
 
+// Page parity guard: every key English page must have a Bengali counterpart in bn/.
+// Without this, an entire missing bn page (for example a Valentine's Day page)
+// passes validation silently, because nothing compares the two page sets.
+const requiredBengaliPages = [
+  'index.html',
+  'about.html',
+  'blog.html',
+  'calculator.html',
+  'polls.html',
+  'privacy.html',
+  'valentines-day.html',
+];
+
+function checkBengaliPageParity(errors) {
+  const bnDir = path.join(rootDir, 'bn');
+  if (!fs.existsSync(bnDir)) {
+    errors.push('Missing bn/ directory');
+    return;
+  }
+  for (const page of requiredBengaliPages) {
+    if (!fs.existsSync(path.join(bnDir, page))) {
+      errors.push(`Missing Bengali page for EN parity: bn/${page}`);
+    }
+  }
+}
+
 const main = () => {
   const errors = [];
 
@@ -77,6 +103,8 @@ const main = () => {
       }
     }
   }
+
+  checkBengaliPageParity(errors);
 
   if (errors.length > 0) {
     console.error('Localized content validation failed:');

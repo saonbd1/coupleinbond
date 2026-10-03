@@ -51,6 +51,13 @@
     return window.location.pathname.includes("/blog-posts/") ? ".." : ".";
   }
 
+  // Shared assets live at the site root. Nested pages such as /blog-posts/ and
+  // /bn/ need one level up, otherwise the script resolves to a path that 404s.
+  function siteRoot() {
+    const path = window.location.pathname;
+    return path.includes("/blog-posts/") || path.includes("/bn/") ? ".." : ".";
+  }
+
   function renderFooter(footer) {
     if (footer.querySelector(".footer-grid")) return;
     const root = pageRoot();
@@ -90,7 +97,7 @@
     document.querySelectorAll(".site-footer, .blog-footer, .footer").forEach(renderFooter);
     if (!document.querySelector('script[data-couple-share="true"]')) {
       const shareScript = document.createElement("script");
-      shareScript.src = `${pageRoot()}/social-share.js`;
+      shareScript.src = `${siteRoot()}/social-share.js`;
       shareScript.defer = true;
       shareScript.dataset.coupleShare = "true";
       document.head.appendChild(shareScript);

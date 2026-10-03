@@ -15,7 +15,50 @@
   var messageEl = document.getElementById("valentinesCountdownMessage");
 
   var MONTH = "February";
+  var MONTH_BN = "ফেব্রুয়ারি";
   var DAY = 14;
+
+  // Bengali numerals (০-৯). The timer renders in Bengali digits when the page
+  // declares a Bengali locale, and in Latin digits everywhere else.
+  var BENGALI_DIGITS = ["০", "১", "২", "৩", "৪", "৫", "৬", "৭", "৮", "৯"];
+
+  function toBengaliDigits(value) {
+    return String(value).replace(/[0-9]/g, function (digit) {
+      return BENGALI_DIGITS[Number(digit)];
+    });
+  }
+
+  // One shared script serves both languages: only the digits and wording change.
+  // The locale comes from data-locale on the countdown section, falling back to
+  // the document language, so English pages keep their existing behaviour.
+  var LOCALE = (function () {
+    var declared = root.getAttribute("data-locale") || document.documentElement.getAttribute("lang") || "en";
+    var isBengali = declared.toLowerCase().indexOf("bn") === 0;
+
+    if (isBengali) {
+      return {
+        numerals: toBengaliDigits,
+        target: function (date) {
+          return toBengaliDigits(DAY + " " + MONTH_BN + ", " + date.getFullYear()) + " পর্যন্ত";
+        },
+        today: function (date) {
+          return "আজকেই সেই দিন — " + toBengaliDigits(DAY + " " + MONTH_BN + ", " + date.getFullYear());
+        },
+        message: "আজ ভ্যালেন্টাইন ডে!"
+      };
+    }
+
+    return {
+      numerals: function (value) { return String(value); },
+      target: function (date) {
+        return "Until " + MONTH + " " + DAY + ", " + date.getFullYear();
+      },
+      today: function (date) {
+        return "Today is the day — February 14, " + date.getFullYear();
+      },
+      message: "Happy Valentine's Day!"
+    };
+  }());
 
   function pad(value) {
     return value < 10 ? "0" + value : String(value);
@@ -25,7 +68,7 @@
     if (!element) {
       return;
     }
-    var next = padDigits ? pad(value) : String(value);
+    var next = LOCALE.numerals(padDigits ? pad(value) : String(value));
     if (element.textContent !== next) {
       element.textContent = next;
     }
@@ -60,10 +103,10 @@
       set(0, secondsEl, true);
       root.classList.add("is-today");
       if (messageEl) {
-        messageEl.textContent = "Happy Valentine's Day!";
+        messageEl.textContent = LOCALE.message;
       }
       if (targetEl) {
-        targetEl.textContent = "Today is the day \u2014 February 14, " + target.date.getFullYear();
+        targetEl.textContent = LOCALE.today(target.date);
       }
       return;
     }
@@ -82,7 +125,7 @@
     set(seconds, secondsEl, true);
 
     if (targetEl) {
-      targetEl.textContent = "Until " + MONTH + " " + DAY + ", " + target.date.getFullYear();
+      targetEl.textContent = LOCALE.target(target.date);
     }
     if (messageEl) {
       messageEl.textContent = "";
