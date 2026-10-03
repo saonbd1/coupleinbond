@@ -1,9 +1,14 @@
-// Temporary: verify hreflang reciprocity across the built output.
+// Verifies hreflang reciprocity across the built output. Runs after `astro build`
+// as part of `npm run verify:seo`, so a non-reciprocal or dangling hreflang fails
+// the build instead of shipping.
 import fs from 'node:fs';
 import path from 'node:path';
+import { fileURLToPath } from 'node:url';
 
-const dist = 'C:/Users/saonb/git/coupleinbond/dist';
-const SITE = 'https://couplein.bond';
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
+const rootDir = path.resolve(__dirname, '..');
+const dist = path.join(rootDir, 'dist');
 
 function walk(dir, out = []) {
   for (const e of fs.readdirSync(dir, { withFileTypes: true })) {
@@ -12,6 +17,11 @@ function walk(dir, out = []) {
     else if (e.name.endsWith('.html')) out.push(p);
   }
   return out;
+}
+
+if (!fs.existsSync(dist)) {
+  console.error(`No build output at ${dist}. Run "npm run build" first.`);
+  process.exit(1);
 }
 
 const pages = walk(dist);
