@@ -18,7 +18,8 @@
     "validate:bn": "node scripts/validate-bn-content.mjs",
     "content:check": "npm run generate:localized && npm run validate:localized",
     "verify:seo": "node scripts/verify-hreflang.mjs",
-    "validate:release": "npm run content:check && npm run build && npm run verify:seo"
+    "verify:links": "node scripts/verify-links.mjs",
+    "validate:release": "npm run content:check && npm run build && npm run verify:seo && npm run verify:links"
   },
   "dependencies": {
     "astro": "^7.3.5"

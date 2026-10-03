@@ -67,8 +67,14 @@
     const article = document.querySelector(".article-shell");
     if (article) {
       const row = createShareRow();
-      const footer = article.querySelector(".article-footer");
-      article.insertBefore(row, footer || null);
+      const anchor = article.querySelector(".article-footer");
+      // insertBefore only accepts a direct child, so fall back to appending when
+      // the footer sits deeper in the tree.
+      if (anchor && anchor.parentNode === article) {
+        article.insertBefore(row, anchor);
+      } else {
+        article.appendChild(row);
+      }
       return;
     }
     const quotesSection = document.querySelector(".quotes-section");

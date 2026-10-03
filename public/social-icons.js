@@ -47,44 +47,70 @@
     document.head.appendChild(style);
   }
 
-  function pageRoot() {
-    return window.location.pathname.includes("/blog-posts/") ? ".." : ".";
+  // How many directories deep is the current page? Each level needs one "../".
+// Counting beats matching folder names: a new nested section works automatically
+// instead of silently inheriting a wrong root.
+function depthRoot() {
+    const path = window.location.pathname;
+    // A trailing slash means we are already "inside" that directory, so it does
+    // not count as the filename segment.
+    const depth = path.split("/").filter(Boolean).length - (path.endsWith("/") ? 0 : 1);
+    return depth > 0 ? Array(depth).fill("..").join("/") : ".";
   }
 
-  // Shared assets live at the site root. Nested pages such as /blog-posts/ and
-  // /bn/ need one level up, otherwise the script resolves to a path that 404s.
+  // Footer links stay inside the Bengali section when the page is a Bengali page,
+  // so /bn/ pages link to their bn/ siblings rather than jumping to the English ones.
+  function pageRoot() {
+    return window.location.pathname.startsWith("/bn/") ? "." : depthRoot();
+  }
+
+  // Shared scripts such as social-share.js always live at the site root.
   function siteRoot() {
-    const path = window.location.pathname;
-    return path.includes("/blog-posts/") || path.includes("/bn/") ? ".." : ".";
+    return depthRoot();
+  }
+
+  // Bengali pages that exist, so the footer can stay inside the Bengali section.
+  const BENGALI_FOOTER_PAGES = new Set([
+    "index.html", "calculator.html", "blog.html", "polls.html",
+    "valentines-day.html", "about.html", "privacy.html",
+  ]);
+
+  // On a Bengali page, link to the Bengali sibling when there is one, and fall
+  // back to the English page otherwise (Love Quotes and Contact have no Bengali
+  // version yet). On every other page, resolve normally.
+  function footerHref(page) {
+    if (window.location.pathname.startsWith("/bn/")) {
+      return BENGALI_FOOTER_PAGES.has(page) ? `./${page}` : `../${page}`;
+    }
+    return `${pageRoot()}/${page}`;
   }
 
   function renderFooter(footer) {
     if (footer.querySelector(".footer-grid")) return;
-    const root = pageRoot();
     footer.innerHTML = `
       <div class="footer-grid">
         <section class="footer-section footer-left">
             <nav class="footer-nav-links" aria-label="Footer navigation">
-              <a href="${root}/index.html">Home Page</a>
-              <a href="${root}/calculator.html">Love Calculator</a>
-              <a href="${root}/blog.html">Blog Post</a>
-              <a href="${root}/polls.html">Public Polls</a>
+              <a href="${footerHref("index.html")}">Home Page</a>
+              <a href="${footerHref("calculator.html")}">Love Calculator</a>
+              <a href="${footerHref("blog.html")}">Blog Post</a>
+              <a href="${footerHref("polls.html")}">Public Polls</a>
           </nav>
         </section>
         <section class="footer-section footer-brand-section">
-          <a class="footer-brand-mark" href="${root}/index.html">💕 Couple in Bond</a>
+          <a class="footer-brand-mark" href="${footerHref("index.html")}">💕 Couple in Bond</a>
           <p>Playful tools, thoughtful words, and small rituals for the people who matter.</p>
           <p class="footer-copyright">Made for lighthearted connection and shared moments.</p>
-          <a class="footer-cta" href="${root}/calculator.html#calcBtn">Try the calculator</a>
+          <a class="footer-cta" href="${footerHref("calculator.html")}#calcBtn">Try the calculator</a>
           <div class="social-links" aria-label="Social links"><span class="social-links-label">Follow along</span><span class="social-links-list">${socials.map(({ name, href, icon }) => `<a class="social-link" href="${href}" target="_blank" rel="noopener noreferrer" aria-label="${name}">${icon}</a>`).join("")}</span></div>
         </section>
         <section class="footer-section footer-right">
           <nav class="footer-nav-links" aria-label="More footer navigation">
-            <a href="${root}/quotes.html">Love Quotes</a>
-            <a href="${root}/valentines-day.html">Valentine’s Day</a>
-            <a href="${root}/about.html">About Us</a>
-            <a href="${root}/privacy.html">Privacy</a>
-            <a href="${root}/contact.html">Contact</a>
+            <a href="${footerHref("quotes.html")}">Love Quotes</a>
+            <a href="${footerHref("valentines-day.html")}">Valentine’s Day</a>
+            <a href="${footerHref("about.html")}">About Us</a>
+            <a href="${footerHref("privacy.html")}">Privacy</a>
+            <a href="${footerHref("contact.html")}">Contact</a>
           </nav>
         </section>
       </div>
