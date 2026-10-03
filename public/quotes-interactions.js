@@ -68,8 +68,53 @@
     }
   }
 
+  const cardShareButtons = Array.from(document.querySelectorAll("[data-share-card]"));
+
+  function shareCard(button) {
+    const image = button.dataset.shareImage || "";
+    const text = button.dataset.shareText || "";
+    const author = button.dataset.shareAuthor || "";
+    const url = new URL(image, window.location.href).href;
+    const line = author ? `${text} — ${author}` : text;
+    const shareData = { text: `${line} · Couple in Bond`, url };
+
+    function copied() {
+      button.textContent = "Copied";
+      button.classList.add("is-copied");
+      window.setTimeout(() => {
+        button.textContent = "Share";
+        button.classList.remove("is-copied");
+      }, 1800);
+    }
+
+    function copyFallback() {
+      navigator.clipboard
+        .writeText(`${line}\n${url}`)
+        .then(copied)
+        .catch(() => {
+          button.textContent = "Copy failed";
+          window.setTimeout(() => {
+            button.textContent = "Share";
+          }, 1800);
+        });
+    }
+
+    if (navigator.share) {
+      navigator.share(shareData).catch((error) => {
+        if (error && error.name === "AbortError") return;
+        copyFallback();
+      });
+      return;
+    }
+    copyFallback();
+  }
+
   filters.forEach((button) => {
     button.addEventListener("click", () => setFilter(button.dataset.filter));
+  });
+
+  cardShareButtons.forEach((button) => {
+    button.addEventListener("click", () => shareCard(button));
   });
 
   document.querySelectorAll("[data-lightbox-trigger]").forEach((link) => {

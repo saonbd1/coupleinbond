@@ -17,9 +17,11 @@
     "generate:bn": "node scripts/generate-bn-content.mjs",
     "validate:bn": "node scripts/validate-bn-content.mjs",
     "content:check": "npm run generate:localized && npm run validate:localized",
+    "quotes:generate": "node scripts/generate-quote-cards.mjs",
+    "quotes:check": "node scripts/generate-quote-cards.mjs --check",
     "verify:seo": "node scripts/verify-hreflang.mjs",
     "verify:links": "node scripts/verify-links.mjs",
-    "validate:release": "npm run content:check && npm run build && npm run verify:seo && npm run verify:links"
+    "validate:release": "npm run content:check && npm run quotes:generate && npm run build && npm run verify:seo && npm run verify:links"
   },
   "dependencies": {
     "astro": "^7.3.5"
