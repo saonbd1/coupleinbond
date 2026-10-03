@@ -86,6 +86,36 @@ for (const file of all.filter(f => f.endsWith('.html'))) {
   }
 }
 
+// A Bengali page should link to its Bengali sibling, not to the English page when
+// a Bengali twin exists. This is invisible in the browser - the link works, it just
+// quietly sends the reader out of their language.
+const BENGALI_TWINS = new Set([
+  'index.html', 'about.html', 'blog.html', 'calculator.html', 'polls.html',
+  'privacy.html', 'valentines-day.html',
+]);
+
+function hasBengaliTwin(resolvedPath) {
+  if (!resolvedPath.startsWith('/') || resolvedPath.startsWith('/bn/')) return false;
+  return BENGALI_TWINS.has(path.posix.basename(resolvedPath));
+}
+
+for (const file of all.filter(f => f.endsWith('.html') && path.dirname(f).endsWith('bn'))) {
+  const html = fs.readFileSync(file, 'utf8');
+  const rel = '/' + path.relative(dist, file).replace(/\\/g, '/');
+  const pageDir = path.posix.dirname(rel);
+  // Anchor tags only: <link rel="alternate" hreflang> must keep pointing at English.
+  for (const m of html.matchAll(/<a[^>]+href="([^"]+)"/g)) {
+    const href = m[1].split('#')[0].split('?')[0];
+    if (!href || /^(https?:)?\/\//i.test(href)) continue;
+    const resolved = href.startsWith('/')
+      ? path.posix.normalize(href)
+      : path.posix.normalize(path.posix.join(pageDir, href));
+    if (hasBengaliTwin(resolved)) {
+      problems.push(`${rel}: link "${m[1]}" resolves to English ${resolved} but bn/${path.posix.basename(resolved)} exists`);
+    }
+  }
+}
+
 // ---------- 3. simulate the injected footer on every built page ----------
 const FOOTER_PAGES = ['index.html', 'calculator.html', 'blog.html', 'polls.html',
   'quotes.html', 'valentines-day.html', 'about.html', 'privacy.html', 'contact.html'];

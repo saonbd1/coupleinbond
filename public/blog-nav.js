@@ -22,9 +22,43 @@
     // from the page language instead of hard-coding one wording.
     const isBengaliPage = (document.documentElement.lang || "").toLowerCase().indexOf("bn") === 0;
     const valentinesLabel = isBengaliPage ? "ভ্যালেন্টাইন ডে" : "Valentine's Day";
+
+    // Nav links must stay in the reader's language. Without this, a Bengali page
+    // sent readers back to the English site for every nav item.
+    const NAV_PAGES = new Set([
+      "index.html", "blog.html", "calculator.html", "polls.html",
+      "valentines-day.html", "about.html", "privacy.html",
+    ]);
+
+    function navHref(page) {
+      if (isBengaliPage && NAV_PAGES.has(page)) return `./${page}`;
+      return `${root}/${page}`;
+    }
+
+    // Bengali pages that have a direct English counterpart, for the language switch.
+    const BENGALI_TO_EN = {
+      "index.html": "index.html",
+      "blog.html": "blog.html",
+      "calculator.html": "calculator.html",
+      "polls.html": "polls.html",
+      "valentines-day.html": "valentines-day.html",
+      "about.html": "about.html",
+      "privacy.html": "privacy.html",
+      "article-bonding-at-home.html": "blog-posts/couple-bonding-activities-at-home.html",
+    };
+
+    const currentPage = window.location.pathname.split("/").pop() || "index.html";
+    const languageSwitch = isBengaliPage
+      ? `${root}/${BENGALI_TO_EN[currentPage] || "index.html"}`
+      : `${root}/bn/index.html`;
+    const languageSwitchLabel = isBengaliPage ? "English" : "বাংলা";
+    const languageSwitchAttrs = isBengaliPage
+      ? `lang="en" aria-label="Switch to the English version"`
+      : `lang="bn" aria-label="Switch to Bengali version"`;
+
     nav.innerHTML = `
       <div class="blog-nav-main">
-        <a class="blog-brand" href="${root}/index.html">💕 Couple in Bond</a>
+        <a class="blog-brand" href="${navHref("index.html")}">💕 Couple in Bond</a>
         <div class="blog-nav-actions">
           <div class="blog-wallet-wrap">
             <span class="blog-wallet-status" id="blogWalletStatus" aria-live="polite">Wallet: Not connected</span>
@@ -34,7 +68,7 @@
         </div>
       </div>
       <nav class="blog-mobile-menu" id="blogMobileMenu" aria-label="More navigation">
-        <a href="${root}/blog.html">Blog</a><a href="${root}/calculator.html">Calculator</a><a href="${root}/polls.html">Polls</a><a href="${root}/valentines-day.html">${valentinesLabel}</a><a href="${root}/about.html">About Us</a><a href="${root}/privacy.html">Privacy</a><a href="${root}/contact.html">Contact</a><a href="${root}/bn/index.html" lang="bn" aria-label="Switch to Bengali version">বাংলা</a>
+        <a href="${navHref("blog.html")}">Blog</a><a href="${navHref("calculator.html")}">Calculator</a><a href="${navHref("polls.html")}">Polls</a><a href="${navHref("valentines-day.html")}">${valentinesLabel}</a><a href="${navHref("about.html")}">About Us</a><a href="${navHref("privacy.html")}">Privacy</a><a href="${navHref("contact.html")}">Contact</a><a href="${languageSwitch}" ${languageSwitchAttrs}>${languageSwitchLabel}</a>
       </nav>`;
 
     const socialScript = document.createElement("script");
