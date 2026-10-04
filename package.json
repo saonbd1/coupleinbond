@@ -25,6 +25,7 @@
   },
   "dependencies": {
     "@vercel/connect": "^2.3.6",
-    "astro": "^7.3.5"
+    "astro": "^7.3.5",
+    "sharp": "^0.35.5"
   }
 }

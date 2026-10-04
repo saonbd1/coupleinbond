@@ -81,7 +81,9 @@ const articleTemplate = (article) => `<!doctype html>
         <p>${section.body}</p>
       `).join('')}
     </main>
+    <footer class="site-footer"></footer>
   </div>
+  <script src="../social-icons.js" defer></script>
 </body>
 </html>
 `;
@@ -162,7 +164,9 @@ const blogTemplate = (articles) => `<!doctype html>
         `).join('')}
       </div>
     </main>
+    <footer class="site-footer"></footer>
   </div>
+  <script src="../social-icons.js" defer></script>
 </body>
 </html>
 `;
