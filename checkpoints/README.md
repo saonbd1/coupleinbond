@@ -28,7 +28,7 @@ Use this folder as the lightweight checkpoint log for the Bengali launch work.
 
 Before leaving the project, update the checkpoint note and keep one active task only.
 
-## Current checkpoint
+## Previous checkpoint — quote card image generator
 
 - Date: 2026-10-04
 - Milestone: quote card image generator
@@ -38,6 +38,17 @@ Before leaving the project, update the checkpoint note and keep one active task 
 - Next task: read through the Bengali blog and poll translations line by line, fixing grammar and register
 - Blocker: none
 - Notes: the quote card generator is shipped and wired into validate:release (`npm run quotes:generate` runs before the build, `npm run quotes:check` fails on a stale committed page). The generated/ files show as modified in `git status` from line-ending normalization only - their content diff is empty.
+
+## Current checkpoint
+
+- Date: 2026-10-04
+- Milestone: shared footer left-nav label rename
+- Status: complete
+- Last completed task: renamed the four left footer navigation links in the shared renderer (`public/social-icons.js`) to Home · Love Calculator · Blog · Polls, and made them render Bengali labels (হোম · লাভ ক্যালকুলেটর · ব্লগ · পোলস) on `/bn/` pages. Destinations, order, and column layout are unchanged (the `footerHref()` helper already resolved Bengali siblings). Verified with `npm run build` (39 pages) and `npm run verify:links` (1,653 internal links, no problems).
+- Current task: none active - pick up the high-priority Bengali footer coverage next
+- Next task: add the shared footer to the 12 `/bn/` pages that still have no footer placeholder, starting with `scripts/generate-bn-content.mjs`
+- Blocker: none
+- Notes: only the four left links are localized; the right footer column, brand copy, CTA, and bottom bar are still English on Bengali pages.
 
 ## Priority queue
 

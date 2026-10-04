@@ -52,10 +52,10 @@
 
 ## Footer Blog link
 
-- [ ] Audit the shared footer renderer and current left-side footer links.
-- [ ] Add the Blog link to the left footer navigation and preserve responsive alignment.
-- [ ] Preview and validate footer coverage, links, accessibility, and whitespace.
-- [ ] Present the footer preview and wait for approval before committing or pushing.
+- [x] Audit the shared footer renderer and current left-side footer links.
+- [x] Add the Blog link to the left footer navigation and preserve responsive alignment.
+- [x] Preview and validate footer coverage, links, accessibility, and whitespace.
+- [x] Present the footer preview and wait for approval before committing or pushing.
 
 ## Love Calculator card button
 
@@ -66,7 +66,7 @@
 
 ## Footer navigation label rename
 
-- [ ] Audit the shared footer renderer and current left-side navigation labels.
-- [ ] Rename the four left footer links without changing their destinations or layout.
-- [ ] Preview and validate footer labels, destinations, accessibility, and whitespace.
-- [ ] Present the renamed footer preview and wait for approval before committing or pushing.
+- [x] Audit the shared footer renderer and current left-side navigation labels.
+- [x] Rename the four left footer links without changing their destinations or layout.
+- [x] Preview and validate footer labels, destinations, accessibility, and whitespace.
+- [x] Present the renamed footer preview and wait for approval before committing or pushing.

@@ -87,14 +87,19 @@ function depthRoot() {
 
   function renderFooter(footer) {
     if (footer.querySelector(".footer-grid")) return;
+    // One shared footer for both languages: only the four left navigation labels
+    // change on Bengali pages. Destinations are already language-aware via footerHref().
+    const leftNav = window.location.pathname.startsWith("/bn/")
+      ? { home: "হোম", calculator: "লাভ ক্যালকুলেটর", blog: "ব্লগ", polls: "পোলস" }
+      : { home: "Home", calculator: "Love Calculator", blog: "Blog", polls: "Polls" };
     footer.innerHTML = `
       <div class="footer-grid">
         <section class="footer-section footer-left">
             <nav class="footer-nav-links" aria-label="Footer navigation">
-              <a href="${footerHref("index.html")}">Home Page</a>
-              <a href="${footerHref("calculator.html")}">Love Calculator</a>
-              <a href="${footerHref("blog.html")}">Blog Post</a>
-              <a href="${footerHref("polls.html")}">Public Polls</a>
+              <a href="${footerHref("index.html")}">${leftNav.home}</a>
+              <a href="${footerHref("calculator.html")}">${leftNav.calculator}</a>
+              <a href="${footerHref("blog.html")}">${leftNav.blog}</a>
+              <a href="${footerHref("polls.html")}">${leftNav.polls}</a>
           </nav>
         </section>
         <section class="footer-section footer-brand-section">
