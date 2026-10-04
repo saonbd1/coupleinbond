@@ -104,8 +104,10 @@ for (const file of all.filter(f => f.endsWith('.html') && path.dirname(f).endsWi
   const rel = '/' + path.relative(dist, file).replace(/\\/g, '/');
   const pageDir = path.posix.dirname(rel);
   // Anchor tags only: <link rel="alternate" hreflang> must keep pointing at English.
-  for (const m of html.matchAll(/<a[^>]+href="([^"]+)"/g)) {
-    const href = m[1].split('#')[0].split('?')[0];
+  for (const m of html.matchAll(/<a\b([^>]*?)\bhref="([^"]+)"([^>]*)>/g)) {
+    const attributes = `${m[1]} ${m[3]}`;
+    if (/\blang=["']en["']/i.test(attributes)) continue;
+    const href = m[2].split('#')[0].split('?')[0];
     if (!href || /^(https?:)?\/\//i.test(href)) continue;
     const resolved = href.startsWith('/')
       ? path.posix.normalize(href)
