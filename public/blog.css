@@ -43,6 +43,8 @@ a { color: inherit; }
 .blog-nav-main { display: flex; align-items: center; justify-content: space-between; gap: 18px; }
 .blog-brand { color: var(--blog-primary); font-size: 1.25rem; font-weight: 900; text-decoration: none; white-space: nowrap; }
 .blog-nav-actions { display: flex; align-items: center; justify-content: end; gap: 10px; }
+.blog-language-switcher { display: inline-flex; align-items: center; justify-content: center; min-height: 36px; padding: 8px 12px; color: var(--blog-ink); background: rgba(255,255,255,0.82); border: 1px solid var(--blog-border); border-radius: 999px; font-size: 0.72rem; font-weight: 800; text-decoration: none; white-space: nowrap; }
+.blog-language-switcher:hover, .blog-language-switcher:focus-visible { color: var(--blog-primary); border-color: var(--blog-primary); outline: 2px solid rgba(255,77,109,0.22); outline-offset: 2px; }
 .blog-wallet-wrap { display: flex; align-items: center; gap: 8px; }
 .blog-wallet-status { color: var(--blog-muted); font-size: 0.66rem; white-space: nowrap; }
 .blog-wallet-button, .blog-menu-toggle { padding: 9px 13px; color: #fff; background: linear-gradient(135deg, var(--blog-primary), var(--blog-secondary)); border: 0; border-radius: 999px; font-size: 0.72rem; font-weight: 800; cursor: pointer; transition: transform 0.2s ease, opacity 0.2s ease; white-space: nowrap; }
@@ -147,8 +149,9 @@ a { color: inherit; }
 @media (max-width: 560px) {
   .blog-shell { padding: 12px 11px 30px; }
   .blog-nav { align-items: stretch; flex-direction: column; margin-bottom: 17px; padding: 12px; gap: 9px; }
+  .blog-nav-main { flex-wrap: wrap; }
   .blog-brand { font-size: 1rem; }
-  .blog-nav-actions { gap: 6px; }
+  .blog-nav-actions { flex: 1 1 auto; gap: 6px; }
   .blog-wallet-status { display: none; }
   .blog-wallet-button, .blog-menu-toggle { padding: 8px 9px; font-size: 0.64rem; }
   .blog-nav-links { display: none; }

@@ -60,6 +60,7 @@
       <div class="blog-nav-main">
         <a class="blog-brand" href="${navHref("index.html")}">💕 Couple in Bond</a>
         <div class="blog-nav-actions">
+          <a class="blog-language-switcher" href="${languageSwitch}" ${languageSwitchAttrs}>${languageSwitchLabel}</a>
           <div class="blog-wallet-wrap">
             <span class="blog-wallet-status" id="blogWalletStatus" aria-live="polite">Wallet: Not connected</span>
             <button class="blog-wallet-button" id="blogWalletButton" type="button" aria-pressed="false">Connect wallet</button>
