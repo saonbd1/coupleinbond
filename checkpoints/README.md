@@ -53,6 +53,17 @@ Before leaving the project, update the checkpoint note and keep one active task 
 ## Current checkpoint
 
 - Date: 2026-10-04
+- Milestone: Bengali footer coverage
+- Status: complete
+- Last completed task: added the shared footer to every Bengali page. The 12 pages listed in the todo (`about`, `article-bonding-at-home`, `article-meaningful-questions`, `article-quiet-love`, `article-shared-rituals`, `blog`, `calculator`, `meaningful-questions`, `polls`, `privacy`, `quiet-love`, `shared-rituals`) now carry `<footer class="site-footer"></footer>` plus `<script src="../social-icons.js" defer></script>`, and `scripts/generate-bn-content.mjs` emits the same placeholder + injector in the article and blog templates so regenerations stay covered. The Bengali homepage (`bn/index.html`) and `bn/valentines-day.html` already load `blog-nav.js`, which injects `social-icons.js`, so all 14 `/bn/` pages render the footer with Bengali left-nav labels (হোম · লাভ ক্যালকুলেটর · ব্লগ · পোলস) and resolve Bengali-sibling links where a sibling exists. Added a footer-coverage guard to `scripts/validate-bn-content.mjs` so a missing footer placeholder or injector now fails `npm run validate:release`.
+- Current task: none active - pick up the Bengali translation review pass next
+- Next task: read through the Bengali blog and poll translations line by line, fixing grammar and register (carried from the quote-card checkpoint)
+- Blocker: none
+- Notes: `public/bn/` is a committed build snapshot refreshed by `prebuild` → `copy-bn-static.mjs`; the 12 refreshed files are committed alongside this milestone. `data/.quote-card-hashes.json` shows as modified from LF→CRLF normalization only (content diff is empty). Remaining LOW audit findings stay deferred (82 redirect-hop `index.html` links, 10 missing `robots` meta, 3 orphan bn `article-*` pages, 2 long English companion titles). Confirm the intended Vercel deployment branch before pushing — this workspace is on `main`, while `astro-migration` was previously reported as the connected branch.
+
+## Previous checkpoint — full-site audit (HIGH + MED fixes)
+
+- Date: 2026-10-04
 - Milestone: full-site audit (HIGH + MED fixes)
 - Status: complete
 - Last completed task: audited the built site (62 pages) for broken links, non-canonical/redirect-hop links, canonicals, hreflang reciprocity, heading structure, image alt text, meta/OG/Twitter, JSON-LD asset URLs, sitemap coverage, and orphan pages. Cleared every HIGH and MED finding: fixed the `blog.html` JSON-LD Organization logo URL (`/social-share.jpg` -> `/assets/social-share.jpg`), added `og:site_name` and capped `<title>` length on poll pages, added `og:image`/`twitter:image` to the Bengali generator templates, added the 7 legacy polls to `sitemap.xml`, and differentiated the three duplicate Bengali article titles. Re-audit result: HIGH=0 MED=0; `build`, `verify:seo`, `verify:links`, `content:check`, and `quotes:check` all pass.

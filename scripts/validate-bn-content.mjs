@@ -62,6 +62,21 @@ const main = () => {
     errors.push(...validateHtml(slug, html));
   }
 
+  // Footer coverage: every built Bengali page must render the shared footer.
+  // Each page needs a footer placeholder (.site-footer or .blog-footer) plus a
+  // footer injector — the shared social-icons.js script, loaded directly or via
+  // blog-nav.js (which injects social-icons.js on the homepage and valentines-day).
+  const bnFiles = fs.readdirSync(targetDir).filter((file) => file.endsWith('.html'));
+  for (const file of bnFiles) {
+    const html = fs.readFileSync(path.join(targetDir, file), 'utf8');
+    if (!/class="(?:site-footer|blog-footer)"/.test(html)) {
+      errors.push(`Missing footer placeholder in ${file}`);
+    }
+    if (!/social-icons\.js|blog-nav\.js/.test(html)) {
+      errors.push(`Missing footer injector (social-icons.js or blog-nav.js) in ${file}`);
+    }
+  }
+
   if (errors.length > 0) {
     console.error('Validation failed:');
     for (const error of errors) console.error(`- ${error}`);
