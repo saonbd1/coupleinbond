@@ -39,7 +39,7 @@ Before leaving the project, update the checkpoint note and keep one active task 
 - Blocker: none
 - Notes: the quote card generator is shipped and wired into validate:release (`npm run quotes:generate` runs before the build, `npm run quotes:check` fails on a stale committed page). The generated/ files show as modified in `git status` from line-ending normalization only - their content diff is empty.
 
-## Current checkpoint
+## Previous checkpoint — shared footer left-nav label rename
 
 - Date: 2026-10-04
 - Milestone: shared footer left-nav label rename
@@ -49,6 +49,17 @@ Before leaving the project, update the checkpoint note and keep one active task 
 - Next task: add the shared footer to the 12 `/bn/` pages that still have no footer placeholder, starting with `scripts/generate-bn-content.mjs`
 - Blocker: none
 - Notes: only the four left links are localized; the right footer column, brand copy, CTA, and bottom bar are still English on Bengali pages.
+
+## Current checkpoint
+
+- Date: 2026-10-04
+- Milestone: full-site audit (HIGH + MED fixes)
+- Status: complete
+- Last completed task: audited the built site (62 pages) for broken links, non-canonical/redirect-hop links, canonicals, hreflang reciprocity, heading structure, image alt text, meta/OG/Twitter, JSON-LD asset URLs, sitemap coverage, and orphan pages. Cleared every HIGH and MED finding: fixed the `blog.html` JSON-LD Organization logo URL (`/social-share.jpg` -> `/assets/social-share.jpg`), added `og:site_name` and capped `<title>` length on poll pages, added `og:image`/`twitter:image` to the Bengali generator templates, added the 7 legacy polls to `sitemap.xml`, and differentiated the three duplicate Bengali article titles. Re-audit result: HIGH=0 MED=0; `build`, `verify:seo`, `verify:links`, `content:check`, and `quotes:check` all pass.
+- Current task: none active - pick up the high-priority Bengali footer coverage next
+- Next task: add the shared footer to the 12 `/bn/` pages that still have no footer placeholder, starting with `scripts/generate-bn-content.mjs`
+- Blocker: none
+- Notes: remaining LOW findings are intentionally deferred - 82 redirect-hop links (nav/footer emit `index.html` instead of `/`), 10 Bengali pages missing a `robots` meta, 3 orphan bn `article-*` pages reachable only via the sitemap, and 2 long English companion titles. The audit crawler was authored at `/tmp/audit/audit.mjs` and is not committed.
 
 ## Priority queue
 

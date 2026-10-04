@@ -70,3 +70,13 @@
 - [x] Rename the four left footer links without changing their destinations or layout.
 - [x] Preview and validate footer labels, destinations, accessibility, and whitespace.
 - [x] Present the renamed footer preview and wait for approval before committing or pushing.
+
+## Site audit: HIGH + MED fixes
+
+- [x] Audit the built site for broken links, non-canonical links, canonicals/hreflang, headings, alt text, meta/OG/Twitter, JSON-LD, sitemap coverage, and orphans.
+- [x] Fix the `blog.html` Organization logo schema URL (missing `/assets/`).
+- [x] Add `og:site_name` and cap over-long `<title>` tags on poll pages.
+- [x] Add `og:image`/`twitter:image` to the generated Bengali blog + article templates.
+- [x] Add the 7 legacy poll pages to `sitemap.xml`.
+- [x] Differentiate the duplicate Bengali article titles.
+- [ ] Deferred (LOW): 82 `index.html` redirect-hop links, 10 missing `robots` meta, 3 orphan bn `article-*` pages, 2 long English companion titles.

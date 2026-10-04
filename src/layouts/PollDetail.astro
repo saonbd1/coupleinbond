@@ -10,8 +10,11 @@ const d = poll.data;
 
 const SITE = 'https://couplein.bond';
 const url = `${SITE}/polls/${poll.id}.html`;
-const pageLabel = `${d.pageTitle} — Relationship Poll | Couple in Bond`;
 const ogTitle = `${d.pageTitle} — Couple in Bond`;
+// Keep the <title> under ~65 characters so search engines don't truncate it; the
+// brand still surfaces through og:site_name and the og/twitter titles.
+const fullTitle = `${d.pageTitle} — Couple in Bond`;
+const pageLabel = fullTitle.length <= 65 ? fullTitle : d.pageTitle;
 
 const graphLd = {
   '@context': 'https://schema.org',
@@ -67,6 +70,7 @@ const graphLd = {
   <meta property="og:description" content={d.description}>
   <meta property="og:url" content={url}>
   <meta property="og:type" content="article">
+  <meta property="og:site_name" content="Couple in Bond">
   <meta property="og:image" content={d.ogImage}>
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
