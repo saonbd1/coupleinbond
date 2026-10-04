@@ -53,3 +53,9 @@ Before leaving the project, update the checkpoint note and keep one active task 
 - The nav labels are still English on Bengali pages (Blog, Calculator, Polls, About Us, Privacy, Contact). Only the Valentine's Day label is localized so far. These are static strings in `blog-nav.js` and want localizing as part of the copy review.
 - Six bridge article pages (`meaningful-questions`, `quiet-love`, `shared-rituals`, and the three `article-*` copies) previously pointed their `hreflang en` at `/blog.html`, which made one English page the alternate for seven different Bengali pages. They are now self-referential instead. Give each one a proper 1:1 English counterpart during the translation pass, then add the pair to `BENGALI_TRANSLATIONS` in `src/layouts/BlogPost.astro`.
 - `BENGALI_TRANSLATIONS` in `src/layouts/BlogPost.astro` currently holds only `couple-bonding-activities-at-home`. Every new 1:1 article translation needs an entry there or the pair will not be reciprocal.
+
+## Bengali build handoff
+
+- The local `prebuild` hook runs `generate:bn`, `validate:bn`, then copies `bn/` into `public/bn/`. After pulling `origin/main` at `663ee16`, `npm run validate:release` passed: 39 Astro pages built, hreflang reciprocity passed, and 1,653 internal links were checked.
+- `src/content/bn/articles.json` is the Bengali article source. Keep the translation review as the active task before adding new content, as noted above.
+- Confirm the intended Vercel deployment branch before publishing; this workspace is on `main`, while `astro-migration` was previously reported as the connected branch.

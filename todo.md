@@ -4,6 +4,13 @@
 - [ ] Create or update the daily 14:37 GMT+6 compatibility-article schedule — blocked because no managed WebDev project is deployed.
 - [x] Verify the schedule status and report any deployment limitation.
 
+## High priority: Bengali footer coverage
+
+- [ ] Add a consistent Bengali-localized shared footer to the 12 built Bengali pages currently missing one: `about.html`, `article-bonding-at-home.html`, `article-meaningful-questions.html`, `article-quiet-love.html`, `article-shared-rituals.html`, `blog.html`, `calculator.html`, `meaningful-questions.html`, `polls.html`, `privacy.html`, `quiet-love.html`, and `shared-rituals.html` under `/bn/`.
+- [ ] Update `scripts/generate-bn-content.mjs` so generated Bengali blog and article pages include the footer placeholder and load the shared footer injector.
+- [ ] Add the footer placeholder and injector to the remaining hand-maintained Bengali pages; keep Bengali footer labels and destinations localized where translations exist.
+- [ ] Verify every built Bengali page renders one footer, links resolve to Bengali siblings when available, and missing footer coverage fails `npm run validate:release`.
+
 ## Publish five compatibility articles and compress images
 
 - [x] Audit article drafts, blog structure, image assets, and SEO inventories.

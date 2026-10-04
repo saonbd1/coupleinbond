@@ -21,9 +21,8 @@ const articleTemplate = (article) => `<!doctype html>
   <meta name="description" content="${article.description}">
   <meta name="theme-color" content="#ff4d6d">
   <link rel="canonical" href="https://couplein.bond/bn/${article.slug}.html">
-  <link rel="alternate" hreflang="en" href="https://couplein.bond/blog.html">
   <link rel="alternate" hreflang="bn" href="https://couplein.bond/bn/${article.slug}.html">
-  <link rel="alternate" hreflang="x-default" href="https://couplein.bond/blog.html">
+  <link rel="alternate" hreflang="x-default" href="https://couplein.bond/bn/${article.slug}.html">
   <link rel="icon" href="../assets/coupleinbond-favicon.png">
   <meta property="og:title" content="${article.title} — Couple in Bond বাংলা">
   <meta property="og:description" content="${article.description}">

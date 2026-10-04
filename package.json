@@ -8,7 +8,7 @@
   },
   "scripts": {
     "dev": "astro dev",
-    "prebuild": "node scripts/copy-bn-static.mjs",
+    "prebuild": "npm run generate:bn && npm run validate:bn && node scripts/copy-bn-static.mjs",
     "build": "astro build",
     "preview": "astro preview",
     "astro": "astro",
@@ -24,6 +24,7 @@
     "validate:release": "npm run content:check && npm run quotes:generate && npm run build && npm run verify:seo && npm run verify:links"
   },
   "dependencies": {
+    "@vercel/connect": "^2.3.6",
     "astro": "^7.3.5"
   }
 }
