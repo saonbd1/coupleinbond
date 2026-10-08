@@ -22,11 +22,11 @@
 
 ## Homepage editorial redesign
 
-- [ ] Audit the current homepage against the blog page’s structure, styles, assets, and responsive behavior.
-- [ ] Define the homepage information architecture and editorial design direction based on the blog page.
-- [ ] Implement the homepage redesign while preserving the existing brand, tools, wallet connector, community features, and Web3 keepsake flow.
-- [ ] Run visual, content, link, and SEO validation across the redesigned homepage and affected shared components.
-- [ ] Present the homepage preview and change summary for user approval before any commit or push.
+- [x] Audit the current homepage against the blog page’s structure, styles, assets, and responsive behavior.
+- [x] Define the homepage information architecture and editorial design direction based on the blog page.
+- [x] Implement the homepage redesign while preserving the existing brand, tools, wallet connector, community features, and Web3 keepsake flow.
+- [x] Run visual, content, link, and SEO validation across the redesigned homepage and affected shared components.
+- [x] Present the homepage preview and change summary for user approval before any commit or push.
 
 ## Homepage latest-post hero image
 
