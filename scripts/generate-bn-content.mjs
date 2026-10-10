@@ -19,10 +19,12 @@ const articleTemplate = (article) => `<!doctype html>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>${article.title} — Couple in Bond বাংলা</title>
   <meta name="description" content="${article.description}">
+  <meta name="robots" content="index,follow,max-image-preview:large">
   <meta name="theme-color" content="#ff4d6d">
   <link rel="canonical" href="https://couplein.bond/bn/${article.slug}.html">
+  <link rel="alternate" hreflang="en" href="https://couplein.bond/${article.slug}.html">
   <link rel="alternate" hreflang="bn" href="https://couplein.bond/bn/${article.slug}.html">
-  <link rel="alternate" hreflang="x-default" href="https://couplein.bond/bn/${article.slug}.html">
+  <link rel="alternate" hreflang="x-default" href="https://couplein.bond/${article.slug}.html">
   <link rel="icon" href="../assets/coupleinbond-favicon.png">
   <meta property="og:title" content="${article.title} — Couple in Bond বাংলা">
   <meta property="og:description" content="${article.description}">
@@ -95,6 +97,7 @@ const blogTemplate = (articles) => `<!doctype html>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>ব্লগ — Couple in Bond বাংলা</title>
   <meta name="description" content="Couple in Bond বাংলা ব্লগ: রিলেশনশিপ কনটেন্ট, প্র্যাকটিক্যাল টিপস, এবং ছোট ছোট অনুপ্রেরণামূলক পোস্ট।">
+  <meta name="robots" content="index,follow,max-image-preview:large">
   <meta name="theme-color" content="#ff4d6d">
   <link rel="canonical" href="https://couplein.bond/bn/blog.html">
   <link rel="alternate" hreflang="en" href="https://couplein.bond/blog.html">

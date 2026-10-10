@@ -11,6 +11,7 @@ const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 const rootDir = path.resolve(__dirname, '..');
 const dist = path.join(rootDir, 'dist');
+const publicBn = path.join(rootDir, 'public', 'bn');
 
 const problems = [];
 
@@ -62,17 +63,30 @@ if (!fs.existsSync(dist)) {
   process.exit(1);
 }
 
-const all = walk(dist);
-const allSet = new Set(all.map(f => path.resolve(f)));
+const treeRoots = [];
+for (const dir of [dist, publicBn]) {
+  if (fs.existsSync(dir)) treeRoots.push(dir);
+}
+const allSets = treeRoots.map(tree => {
+  const files = walk(tree);
+  const set = new Set(files.map(f => path.resolve(f)));
+  return [tree, set];
+});
+const allSet = new Set([...allSets.flatMap(([, s]) => s)]);
 
 // Resolve a root-relative or relative URL the way the browser would, from `fromFile`.
 function targetExists(fromFile, url) {
   const clean = url.split('#')[0].split('?')[0];
   if (!clean) return true;
   if (/^(https?:)?\/\//i.test(clean) || /^(mailto|tel):/i.test(clean)) return true;
-  const base = clean.startsWith('/') ? path.join(dist, clean) : path.resolve(path.dirname(fromFile), clean);
-  const candidates = [base, path.join(base, 'index.html')];
-  return candidates.some(c => allSet.has(path.resolve(c)));
+  for (const [tree] of allSets) {
+    const base = clean.startsWith('/')
+      ? path.join(tree, clean)
+      : path.resolve(path.dirname(fromFile), clean);
+    const candidates = [base, path.join(base, 'index.html')];
+    if (candidates.some(c => allSet.has(path.resolve(c)))) return true;
+  }
+  return false;
 }
 
 let linksChecked = 0;
@@ -86,34 +100,31 @@ for (const file of all.filter(f => f.endsWith('.html'))) {
   }
 }
 
-// A Bengali page should link to its Bengali sibling, not to the English page when
-// a Bengali twin exists. This is invisible in the browser - the link works, it just
-// quietly sends the reader out of their language.
-const BENGALI_TWINS = new Set([
-  'index.html', 'about.html', 'blog.html', 'calculator.html', 'polls.html',
-  'privacy.html', 'valentines-day.html',
-]);
-
-function hasBengaliTwin(resolvedPath) {
-  if (!resolvedPath.startsWith('/') || resolvedPath.startsWith('/bn/')) return false;
-  return BENGALI_TWINS.has(path.posix.basename(resolvedPath));
-}
-
-for (const file of all.filter(f => f.endsWith('.html') && path.dirname(f).endsWith('bn'))) {
-  const html = fs.readFileSync(file, 'utf8');
-  const rel = '/' + path.relative(dist, file).replace(/\\/g, '/');
-  const pageDir = path.posix.dirname(rel);
-  // Anchor tags only: <link rel="alternate" hreflang> must keep pointing at English.
-  for (const m of html.matchAll(/<a\b([^>]*?)\bhref="([^"]+)"([^>]*)>/g)) {
-    const attributes = `${m[1]} ${m[3]}`;
-    if (/\blang=["']en["']/i.test(attributes)) continue;
-    const href = m[2].split('#')[0].split('?')[0];
-    if (!href || /^(https?:)?\/\//i.test(href)) continue;
-    const resolved = href.startsWith('/')
-      ? path.posix.normalize(href)
-      : path.posix.normalize(path.posix.join(pageDir, href));
-    if (hasBengaliTwin(resolved)) {
-      problems.push(`${rel}: link "${m[1]}" resolves to English ${resolved} but bn/${path.posix.basename(resolved)} exists`);
+// The same structural checks on the committed public static snapshot (v3 commit
+// of the BN tree, served at /bn).
+if (fs.existsSync(publicBn)) {
+  for (const file of walk(publicBn)) {
+    if (!file.endsWith('.html')) continue;
+    const html = fs.readFileSync(file, 'utf8');
+    const rel = '/' + path.relative(publicBn, file).replace(/\\/g, '/');
+    for (const m of html.matchAll(/(?:href|src)="([^"]+)"/g)) {
+      linksChecked++;
+      if (!targetExists(file, m[1])) problems.push(`[public/bn] ${rel}: broken reference "${m[1]}"`);
+    }
+    // A Bengali page should link to its Bengali sibling, not to the English page
+    // when a Bengali twin exists. This is invisible in the browser - the link
+    // works, it just quietly sends the reader out of their language.
+    for (const m of html.matchAll(/<a\b([^>]*?)\bhref="([^"]+)"([^>]*)>/g)) {
+      const attributes = `${m[1]} ${m[3]}`;
+      if (/\blang=["']en["']/i.test(attributes)) continue;
+      const href = m[2].split('#')[0].split('?')[0];
+      if (!href || /^(https?:)?\/\//i.test(href)) continue;
+      const resolved = href.startsWith('/')
+        ? path.posix.normalize(href)
+        : path.posix.normalize(path.posix.join(path.posix.dirname(rel), href));
+      if (BENGALI_TWINS.has(path.posix.basename(resolved))) {
+        problems.push(`[public/bn] ${rel}: link resolves to English ${resolved} but bn/${path.posix.basename(resolved)} exists`);
+      }
     }
   }
 }

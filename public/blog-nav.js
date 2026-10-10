@@ -45,6 +45,9 @@
       "about.html": "about.html",
       "privacy.html": "privacy.html",
       "article-bonding-at-home.html": "blog-posts/couple-bonding-activities-at-home.html",
+      "article-shared-rituals.html": "blog-posts/shared-rituals.html",
+      "article-meaningful-questions.html": "blog-posts/meaningful-questions.html",
+      "article-quiet-love.html": "blog-posts/quiet-love.html",
     };
 
     const currentPage = window.location.pathname.split("/").pop() || "index.html";

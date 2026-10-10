@@ -6,7 +6,8 @@ const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 const rootDir = path.resolve(__dirname, '..');
 const sourceFile = path.join(rootDir, 'src/content/bn/articles.json');
-const targetDir = path.join(rootDir, 'bn');
+const bnDir = path.join(rootDir, 'bn');
+const publicBnDir = path.join(rootDir, 'public', 'bn');
 
 const requiredChecks = [
   { name: 'title', regex: /<title>.*?<\/title>/is },
@@ -41,41 +42,44 @@ const main = () => {
   const articles = JSON.parse(fs.readFileSync(sourceFile, 'utf8'));
   const errors = [];
 
-  const blogFile = path.join(targetDir, 'blog.html');
-  if (!fs.existsSync(blogFile)) {
-    errors.push('Missing generated Bengali blog landing page.');
-  } else {
-    const blogHtml = fs.readFileSync(blogFile, 'utf8');
-    errors.push(...validateHtml('blog', blogHtml));
+  const blogFile = path.join(bnDir, 'blog.html');
+if (!fs.existsSync(blogFile) && !fs.existsSync(publicBnDir)) {
+  errors.push('Missing Bengali blog landing page.');
+} else {
+  const blogHtml = fs.readFileSync(blogFile, 'utf8');
+  errors.push(...validateHtml('blog', blogHtml));
+}
+
+for (const article of articles) {
+  const slug = String(article.slug || '').trim();
+  const filePath = path.join(bnDir, `${slug}.html`);
+
+  if (!fs.existsSync(filePath)) {
+    errors.push(`Missing Bengali article for slug: ${slug}`);
+    continue;
   }
 
-  for (const article of articles) {
-    const slug = String(article.slug || '').trim();
-    const filePath = path.join(targetDir, `${slug}.html`);
+  const html = fs.readFileSync(filePath, 'utf8');
+  errors.push(...validateHtml(slug, html));
+}
 
-    if (!fs.existsSync(filePath)) {
-      errors.push(`Missing generated file for slug: ${slug}`);
-      continue;
-    }
-
-    const html = fs.readFileSync(filePath, 'utf8');
-    errors.push(...validateHtml(slug, html));
-  }
-
-  // Footer coverage: every built Bengali page must render the shared footer.
-  // Each page needs a footer placeholder (.site-footer or .blog-footer) plus a
-  // footer injector — the shared social-icons.js script, loaded directly or via
-  // blog-nav.js (which injects social-icons.js on the homepage and valentines-day).
-  const bnFiles = fs.readdirSync(targetDir).filter((file) => file.endsWith('.html'));
+// Footer coverage: every built Bengali page must render the shared footer.
+// Each page needs a footer placeholder (.site-footer or .blog-footer) plus a
+// footer injector — the shared social-icons.js script, loaded directly or via
+// blog-nav.js (which injects social-icons.js on the homepage and valentines-day).
+for (const dir of [bnDir, publicBnDir]) {
+  if (!fs.existsSync(dir)) continue;
+  const bnFiles = fs.readdirSync(dir).filter((file) => file.endsWith('.html'));
   for (const file of bnFiles) {
-    const html = fs.readFileSync(path.join(targetDir, file), 'utf8');
+    const html = fs.readFileSync(path.join(dir, file), 'utf8');
     if (!/class="(?:site-footer|blog-footer)"/.test(html)) {
-      errors.push(`Missing footer placeholder in ${file}`);
+      errors.push(`Missing footer placeholder in ${dir === bnDir ? 'bn' : 'public/bn'}/${file}`);
     }
     if (!/social-icons\.js|blog-nav\.js/.test(html)) {
-      errors.push(`Missing footer injector (social-icons.js or blog-nav.js) in ${file}`);
+      errors.push(`Missing footer injector (social-icons.js or blog-nav.js) in ${dir === bnDir ? 'bn' : 'public/bn'}/${file}`);
     }
   }
+}
 
   if (errors.length > 0) {
     console.error('Validation failed:');
