@@ -6,7 +6,7 @@ window.COUPLE_POLL_DATA = [
     title: "What kind of date night sounds best this week?",
     description: "A quick date-night poll for couples deciding whether to stay in, go out, or make room for a little spontaneity.",
     intro: "Date night does not need to be elaborate to feel meaningful. This poll is a small prompt for noticing what kind of energy you both want this week.",
-    related: ["keeps-spark-alive-long-relationship-20261004", "best-way-end-perfect-date-20261002"],
+    related: ["quality-time-mean-20261011", "keeps-spark-alive-long-relationship-20261004"],
     options: ["A cozy night at home", "An unplanned adventure", "A long dinner and good conversation", "A little of everything"]
   },
   {
@@ -16,7 +16,7 @@ window.COUPLE_POLL_DATA = [
     title: "What helps two people feel most connected?",
     description: "Vote on the everyday relationship habits that help couples feel close, understood, and emotionally present.",
     intro: "Connection can grow through grand gestures, but it is often shaped by ordinary moments. Use this poll to compare the small things that matter to you.",
-    related: ["keeps-spark-alive-long-relationship-20261004", "best-way-end-perfect-date-20261002"],
+    related: ["quality-time-mean-20261011", "keeps-spark-alive-long-relationship-20261004"],
     options: ["Small acts of care", "Uninterrupted conversation", "Shared goals", "Laughing together"]
   },
   {
@@ -182,6 +182,26 @@ window.COUPLE_POLL_DATA = [
     intro: "Surprises show you pay attention. This poll asks which unexpected date would make your partner light up.",
     related: ["keeps-spark-alive-long-relationship-20261004", "date-night-mood"],
     options: ["A secret picnic spot", "Tickets to something they love", "A hometown tour of memories", "Breakfast delivered in bed"]
+  },
+  {
+    id: "quality-time-mean-20261011",
+    topic: "connection",
+    label: "Connection",
+    title: "What does quality time mean to you?",
+    description: "Choose the version of togetherness that actually fills your cup.",
+    intro: "Being in the same room is not the same as being together. This poll asks what quality time really looks like when both people are fully present.",
+    related: ["perfect-home-date-night-20261011", "date-night-mood"],
+    options: ["Phones away, eyes up", "Trying something new together", "Deep talk with no agenda", "Comfortable silence side by side"]
+  },
+  {
+    id: "perfect-home-date-night-20261011",
+    topic: "date-night",
+    label: "Date night",
+    title: "What is the perfect at-home date night?",
+    description: "Vote on the cozy home date that beats any expensive night out.",
+    intro: "The best dates do not always need reservations. This poll asks which at-home evening feels most romantic with the right person.",
+    related: ["quality-time-mean-20261011", "date-night-mood"],
+    options: ["Movie night with snacks", "Cooking a new recipe together", "Board games and wine", "Stargazing from the balcony"]
   },
 ];
 
