@@ -25,7 +25,7 @@ const htmlEscape = (value = '') => value
   .replace(/"/g, '&quot;');
 
 const frontmatterValue = (text, key) => {
-  const m = text.match(new RegExp(`(?m)^${key}:\\s*"?([^"\\n]*)"?\\s*$`));
+  const m = text.match(new RegExp(`^${key}:\\s*"?([^"\n]*)"?\\s*$`, 'm'));
   return m ? m[1].trim() : '';
 };
 
@@ -51,25 +51,38 @@ if (posts.length < COUNT) {
   throw new Error(`Expected at least ${COUNT} blog posts, found ${posts.length}`);
 }
 
-const listItems = (hrefPrefix) => posts
-  .map((p) => `              <li><a href="${hrefPrefix}${htmlEscape(p.slug)}.html">${htmlEscape(p.cardTitle)}</a></li>`)
-  .join('\n');
+// Rebuild the whole aside inner content (idempotent): icon + kicker +
+// heading stay, old image/excerpt/CTA are dropped and replaced by the
+// fresh 5-title list + "browse all" link. The EN and BN asides have
+// different inner wrappers, so each target declares its own builder.
+const asideInner = (cfg, hrefPrefix, linkHref, linkLabel) => {
+  const list = posts
+    .map((p) => {
+      const href = `${hrefPrefix}${htmlEscape(p.slug)}.html`;
+      const langAttr = cfg.postLang ? ` lang="${cfg.postLang}"` : '';
+      return `              <li><a href="${href}"${langAttr}>${htmlEscape(p.cardTitle)}</a></li>`;
+    })
+    .join('\n');
+  const listHtml = `<ul class="home-latest-list">\n${list}\n            </ul>\n            <a class="blog-card-link" href="${linkHref}">${linkLabel}</a>`;
+  if (cfg.wrapper === 'body') {
+    return `\n            <div class="home-latest-body">\n              <div class="blog-feature-icon" aria-hidden="true">✦</div>\n              <div class="blog-kicker home-latest-kicker">${cfg.kicker}</div>\n              <h2 id="home-latest-title">${cfg.heading}</h2>\n${listHtml}\n            </div>\n          `;
+  }
+  return `\n            <div class="blog-feature-icon" aria-hidden="true">✦</div>\n            <div class="blog-kicker home-latest-kicker">${cfg.kicker}</div>\n            <h2 id="home-latest-title">${cfg.heading}</h2>\n${listHtml}\n          `;
+};
 
-const listBlock = (hrefPrefix, linkHref, linkLabel) =>
-  `<ul class="home-latest-list">\n${listItems(hrefPrefix)}\n            </ul>\n            <a class="blog-card-link" href="${linkHref}">${linkLabel}</a>`;
-
-// Replace everything between the aside heading and </aside>, keeping the
-// icon + kicker + heading intact and swapping the body for the fresh list.
-const patchAside = (html, hrefPrefix, linkHref, linkLabel) => {
+const patchAside = (html, cfg) => {
   const openTag = '<aside class="blog-feature-note home-latest-note"';
   const openIdx = html.indexOf(openTag);
   if (openIdx === -1) throw new Error('home-latest aside not found');
-  const h2Close = html.indexOf('</h2>', openIdx);
-  if (h2Close === -1) throw new Error('home-latest heading not found');
-  const asideClose = html.indexOf('</aside>', h2Close);
+  const tagEnd = html.indexOf('>', openIdx);
+  if (tagEnd === -1) throw new Error('home-latest aside tag never closes');
+  const asideClose = html.indexOf('</aside>', tagEnd);
   if (asideClose === -1) throw new Error('home-latest aside has no closing tag');
-  const body = `\n${listBlock(hrefPrefix, linkHref, linkLabel)}\n          `;
-  return html.slice(0, h2Close + '</h2>'.length) + body + html.slice(asideClose);
+  return (
+    html.slice(0, tagEnd + 1) +
+    asideInner(cfg, cfg.hrefPrefix, cfg.linkHref, cfg.linkLabel) +
+    html.slice(asideClose)
+  );
 };
 
 const targets = [
@@ -78,19 +91,26 @@ const targets = [
     hrefPrefix: 'blog-posts/',
     linkHref: 'blog.html',
     linkLabel: 'Browse all stories →',
+    kicker: 'Fresh from the blog · 5 latest stories',
+    heading: 'Start with something recent.',
   },
   {
     file: path.join(rootDir, 'bn', 'index.html'),
-    // BN homepage has no local copies of the daily companions, so link out
-    // to the English posts (hreflang already pairs EN<->BN where pairs exist).
+    // BN homepage has no local copies of the daily companions, so post links
+    // point out to the English posts (marked lang="en" to satisfy the BN
+    // twin-link validator). The "browse all" link stays on the BN blog.
+    wrapper: 'body',
     hrefPrefix: '../blog-posts/',
-    linkHref: '../blog.html',
+    linkHref: 'blog.html',
     linkLabel: 'সব গল্প দেখুন →',
+    postLang: 'en',
+    kicker: 'ব্লগ থেকে · সাম্প্রতিক ৫টি গল্প',
+    heading: 'সাম্প্রতিক গল্প দিয়ে শুরু করুন।',
   },
 ];
 
 for (const t of targets) {
   const html = fs.readFileSync(t.file, 'utf8');
-  fs.writeFileSync(t.file, patchAside(html, t.hrefPrefix, t.linkHref, t.linkLabel));
+  fs.writeFileSync(t.file, patchAside(html, t));
   console.log(`Updated latest-stories list in ${path.relative(rootDir, t.file)} (${posts.length} posts)`);
 }
