@@ -111,9 +111,12 @@ def js_escape(text: str) -> str:
 def yaml_value(val):
     if isinstance(val, bool):
         return "true" if val else "false"
-    if isinstance(val, int):
+    if isinstance(val, (int, float)) and not isinstance(val, bool):
         return str(val)
-    return '"%s"' % str(val).replace('"', '\\"')
+    # json.dumps output (double-quoted strings, flow mappings/sequences) is
+    # valid YAML, so quotes, colons and unicode inside titles cannot break
+    # frontmatter parsing. dicts/lists (e.g. related cards) need this too.
+    return json.dumps(val, ensure_ascii=False)
 
 
 def frontmatter(fields: dict) -> str:

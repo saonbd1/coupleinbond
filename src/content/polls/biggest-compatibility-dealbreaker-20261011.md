@@ -16,6 +16,7 @@ options:
   - "Clashing life goals and timelines"
   - "Different ways of handling emotions"
 related:
-  - "{'href': 'which-compatibility-quiz-topic-20261011.html', 'title': ''}"
+  - href: "which-compatibility-quiz-topic-20261011.html"
+    title: "Which topic matters most in a relationship compatibility quiz?"
 draft: false
 ---

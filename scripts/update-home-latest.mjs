@@ -25,7 +25,7 @@ const htmlEscape = (value = '') => value
   .replace(/"/g, '&quot;');
 
 const frontmatterValue = (text, key) => {
-  const m = text.match(new RegExp(`^${key}:\\s*"?([^"\n]*)"?\\s*$`, 'm'));
+  const m = text.match(new RegExp(`^${key}:\\s*"?([^"\r\n]*)"?\\s*$`, 'm'));
   return m ? m[1].trim() : '';
 };
 
@@ -34,7 +34,7 @@ const posts = fs.readdirSync(blogDir)
   .map((name) => {
     const text = fs.readFileSync(path.join(blogDir, name), 'utf8');
     const head = text.slice(0, text.indexOf('\n---', 3));
-    if (!head.startsWith('---\n')) throw new Error(`${name}: missing frontmatter fence`);
+    if (!/^---(\r?\n)/.test(head)) throw new Error(`${name}: missing frontmatter fence`);
     const draft = /^draft:\s*true/m.test(head);
     return {
       slug: frontmatterValue(head, 'slug') || name.replace(/\.md$/, ''),

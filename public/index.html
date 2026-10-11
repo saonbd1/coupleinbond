@@ -9,6 +9,7 @@
   <link rel="stylesheet" href="home.css">
   <script src="blog-nav.js" defer></script>
   <script src="poll-data.js" defer></script>
+  <script src="quote-data.js" defer></script>
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -172,8 +173,10 @@
           <article class="blog-card home-tool-card quote-home-card">
             <div class="blog-card-top"><span class="blog-tag">LOVE QUOTES</span><span>For today</span></div>
             <h3><a href="quotes.html">A small line to carry with you.</a></h3>
-            <blockquote>“Love is the small choice to notice each other again.”</blockquote>
-            <p class="quote-context">For everyday connection</p>
+            <a class="home-quote-media" href="quotes.html" id="featuredQuoteLink">
+              <img id="featuredQuoteImage" src="assets/quotes/quote-tell-the-truth-early.jpg" alt="Quote card: Tell the truth early. A hard conversation now is easier than a broken promise later." width="1080" height="1350" loading="lazy" decoding="async">
+            </a>
+            <p class="quote-context" id="featuredQuoteContext">For today's connection</p>
             <a class="blog-card-link" href="quotes.html">Open the Love Quotes page →</a>
           </article>
         </section>
@@ -291,6 +294,34 @@
         document.addEventListener("DOMContentLoaded", initFeaturedPoll);
       } else {
         initFeaturedPoll();
+      }
+
+      // The love-quotes card follows the same pattern: quote-data.js is the
+      // source of truth (last entry = newest quote). The markup ships the
+      // current latest quote as a no-JavaScript fallback; this re-renders it.
+      function initFeaturedQuote() {
+        const card = document.querySelector(".home-tool-card.quote-home-card");
+        if (!card) return;
+        const quotes = Array.isArray(window.COUPLE_QUOTE_DATA) ? window.COUPLE_QUOTE_DATA : [];
+        const quote = quotes.length ? quotes[quotes.length - 1] : null;
+        if (!quote) return;
+
+        const image = document.getElementById("featuredQuoteImage");
+        const media = document.getElementById("featuredQuoteLink");
+        const context = document.getElementById("featuredQuoteContext");
+
+        if (media) media.href = "quotes.html";
+        if (image && quote.image) {
+          image.src = quote.image;
+          image.alt = `Quote card: ${quote.text}`;
+        }
+        if (context) context.textContent = quote.author ? `— ${quote.author}` : "For today's connection";
+      }
+
+      if (document.readyState === "loading") {
+        document.addEventListener("DOMContentLoaded", initFeaturedQuote);
+      } else {
+        initFeaturedQuote();
       }
     })();
   </script>

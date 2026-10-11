@@ -256,16 +256,26 @@
   letter-spacing: -0.035em;
 }
 
+.home-quote-media {
+  display: block;
+  margin: 16px 0 2px;
+  border-radius: 12px;
+  overflow: hidden;
+  border: 1px solid rgba(106, 0, 244, 0.12);
+  background: rgba(255, 255, 255, 0.6);
+}
+
+.home-quote-media img {
+  display: block;
+  width: 100%;
+  height: auto;
+  max-height: 220px;
+  object-fit: cover;
+  object-position: center top;
+}
+
 .quote-home-card blockquote::before {
-  position: absolute;
-  top: -31px;
-  right: 2px;
-  color: rgba(106, 0, 244, 0.09);
-  content: "“";
-  font-family: Georgia, "Times New Roman", serif;
-  font-size: 7.5rem;
-  line-height: 1;
-  pointer-events: none;
+  content: none;
 }
 
 .quote-home-card .quote-context {
