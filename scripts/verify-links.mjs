@@ -35,10 +35,6 @@ const expected = [
   ['/quotes.html', '.', '.'],
   ['/polls/weekly-ritual.html', '..', '..'],
   ['/blog-posts/why-modern-dating-feels-so-hard.html', '..', '..'],
-  ['/bn/index.html', '.', '..'],
-  ['/bn/', '.', '..'],
-  ['/bn/valentines-day.html', '.', '..'],
-  ['/bn/blog.html', '.', '..'],
 ];
 
 for (const [pathname, wantPage, wantSite] of expected) {
@@ -83,38 +79,6 @@ for (const file of all.filter(f => f.endsWith('.html'))) {
   for (const m of html.matchAll(/(?:href|src)="([^"]+)"/g)) {
     linksChecked++;
     if (!targetExists(file, m[1])) problems.push(`${rel}: broken reference "${m[1]}"`);
-  }
-}
-
-// A Bengali page should link to its Bengali sibling, not to the English page when
-// a Bengali twin exists. This is invisible in the browser - the link works, it just
-// quietly sends the reader out of their language.
-const BENGALI_TWINS = new Set([
-  'index.html', 'about.html', 'blog.html', 'calculator.html', 'polls.html',
-  'privacy.html', 'valentines-day.html',
-]);
-
-function hasBengaliTwin(resolvedPath) {
-  if (!resolvedPath.startsWith('/') || resolvedPath.startsWith('/bn/')) return false;
-  return BENGALI_TWINS.has(path.posix.basename(resolvedPath));
-}
-
-for (const file of all.filter(f => f.endsWith('.html') && path.dirname(f).endsWith('bn'))) {
-  const html = fs.readFileSync(file, 'utf8');
-  const rel = '/' + path.relative(dist, file).replace(/\\/g, '/');
-  const pageDir = path.posix.dirname(rel);
-  // Anchor tags only: <link rel="alternate" hreflang> must keep pointing at English.
-  for (const m of html.matchAll(/<a\b([^>]*?)\bhref="([^"]+)"([^>]*)>/g)) {
-    const attributes = `${m[1]} ${m[3]}`;
-    if (/\blang=["']en["']/i.test(attributes)) continue;
-    const href = m[2].split('#')[0].split('?')[0];
-    if (!href || /^(https?:)?\/\//i.test(href)) continue;
-    const resolved = href.startsWith('/')
-      ? path.posix.normalize(href)
-      : path.posix.normalize(path.posix.join(pageDir, href));
-    if (hasBengaliTwin(resolved)) {
-      problems.push(`${rel}: link "${m[1]}" resolves to English ${resolved} but bn/${path.posix.basename(resolved)} exists`);
-    }
   }
 }
 

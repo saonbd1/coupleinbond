@@ -16,15 +16,6 @@ const locales = {
     siteName: 'Couple in Bond',
     nav: 'Home',
   },
-  bn: {
-    source: path.join(rootDir, 'src/content/bn/articles.json'),
-    output: path.join(rootDir, 'generated/bn'),
-    baseUrl: 'https://couplein.bond/bn',
-    label: 'বাংলা',
-    lang: 'bn',
-    siteName: 'Couple in Bond বাংলা',
-    nav: 'হোম',
-  },
 };
 
 const ensureDir = (dirPath) => fs.mkdirSync(dirPath, { recursive: true });
@@ -46,14 +37,13 @@ const articleTemplate = (article, locale) => `<!doctype html>
   <meta name="theme-color" content="#ff4d6d">
   <link rel="canonical" href="${locale.baseUrl}/${article.slug}.html">
   <link rel="alternate" hreflang="en" href="https://couplein.bond/${article.slug}.html">
-  <link rel="alternate" hreflang="bn" href="https://couplein.bond/bn/${article.slug}.html">
   <link rel="alternate" hreflang="x-default" href="https://couplein.bond/${article.slug}.html">
   <link rel="icon" href="../assets/coupleinbond-favicon.png">
   <meta property="og:title" content="${htmlEscape(article.title)} — ${htmlEscape(locale.siteName)}">
   <meta property="og:description" content="${htmlEscape(article.description)}">
   <meta property="og:type" content="article">
   <meta property="og:url" content="${locale.baseUrl}/${article.slug}.html">
-  <meta property="og:locale" content="${locale.lang === 'bn' ? 'bn_BD' : 'en_US'}">
+  <meta property="og:locale" content="en_US">
   <meta property="og:site_name" content="${htmlEscape(locale.siteName)}">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="${htmlEscape(article.title)} — ${htmlEscape(locale.siteName)}">
@@ -117,13 +107,12 @@ const blogTemplate = (articles, locale) => `<!doctype html>
   <meta name="theme-color" content="#ff4d6d">
   <link rel="canonical" href="${locale.baseUrl}/blog.html">
   <link rel="alternate" hreflang="en" href="https://couplein.bond/blog.html">
-  <link rel="alternate" hreflang="bn" href="https://couplein.bond/bn/blog.html">
   <link rel="alternate" hreflang="x-default" href="https://couplein.bond/">
   <meta property="og:title" content="${locale.lang === 'bn' ? 'বাংলা ব্লগ' : 'Blog'} — ${htmlEscape(locale.siteName)}">
   <meta property="og:description" content="${locale.lang === 'bn' ? 'রিলেশনশিপ, বন্ধন, এবং ছোট ছোট অনুপ্রেরণামূলক লেখার বাংলা ব্লগ।' : 'Thoughtful ideas to strengthen connection, communication, and care.'}">
   <meta property="og:type" content="website">
   <meta property="og:url" content="${locale.baseUrl}/blog.html">
-  <meta property="og:locale" content="${locale.lang === 'bn' ? 'bn_BD' : 'en_US'}">
+  <meta property="og:locale" content="en_US">
   <meta property="og:site_name" content="${htmlEscape(locale.siteName)}">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="${locale.lang === 'bn' ? 'বাংলা ব্লগ' : 'Blog'} — ${htmlEscape(locale.siteName)}">

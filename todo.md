@@ -1,5 +1,17 @@
 # CoupleIn Bond schedule setup
 
+## Completed: English-only detach (Bengali retired)
+- [x] Remove `/bn/` content, hreflang, sitemap entries, language switchers, and build wiring.
+- [x] Collapse shared JS (nav/footer/countdown) and localized content scripts to English-only.
+- [x] Replace dead `/bn/` Vercel rules with a catch-all 301 to the English home.
+- [x] Verify build (46 pages), hreflang (55 pages OK), and links (1,534 checked OK).
+
+## Completed: Compatibility content hub (pillar)
+- [x] Create the `relationship-compatibility-guide` pillar hub linking all 5 compatibility/quiz articles, the quiz tool, the calculator, and the 2 compatibility polls.
+- [x] Add reciprocal upward links from each of the 5 spoke articles back to the pillar.
+- [x] Add the pillar to `sitemap.xml`; it auto-surfaces as the lead blog-index card.
+
+
 - [x] Check the current schedule state and deployment prerequisite.
 - [ ] Create or update the daily 14:37 GMT+6 compatibility-article schedule — blocked because no managed WebDev project is deployed.
 - [x] Verify the schedule status and report any deployment limitation.

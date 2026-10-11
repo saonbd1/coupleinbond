@@ -37,15 +37,6 @@ const blogPosting = {
 
 const isCompanion = d.variant === 'companion';
 
-// Articles that currently have a Bengali translation. Each entry must be a 1:1
-// pair, because hreflang annotations only work when both sides point at each
-// other. Add a new entry here whenever a blog post is translated into bn/.
-const BENGALI_TRANSLATIONS: Record<string, string> = {
-  'couple-bonding-activities-at-home': '/bn/article-bonding-at-home.html',
-};
-
-const bengaliUrl = BENGALI_TRANSLATIONS[post.id];
-
 // Companion pages were generated with a @graph JSON-LD block holding the
 // BlogPosting plus its BreadcrumbList; editorial pages use two separate
 // script blocks. Emit the same shape each page had so crawlers see no change.
@@ -113,7 +104,6 @@ const companionLd = {
   <meta name="theme-color" content="#ff4d6d">
   <link rel="canonical" href={url}>
   <link rel="alternate" hreflang="en" href={url}>
-  {bengaliUrl && <link rel="alternate" hreflang="bn" href={`${SITE}${bengaliUrl}`} />}
   <link rel="alternate" hreflang="x-default" href={url}>
   <link rel="icon" href="../assets/coupleinbond-favicon.png">
   <link rel="apple-touch-icon" href="../assets/coupleinbond-favicon.png">
@@ -123,7 +113,6 @@ const companionLd = {
   <meta property="og:type" content="article">
   <meta property="og:site_name" content="Couple in Bond">
   <meta property="og:locale" content="en_US">
-  {bengaliUrl && <meta property="og:locale:alternate" content="bn_BD" />}
   <meta property="og:image" content={socialImage}>
   <meta property="og:image:alt" content="Couple in Bond relationship tools and bonding ideas">
   <meta name="twitter:card" content="summary_large_image">

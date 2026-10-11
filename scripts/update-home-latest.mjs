@@ -1,8 +1,7 @@
-// Refresh the "latest stories" list on the static homepages from the blog
+// Refresh the "latest stories" list on the static homepage from the blog
 // content collection. Picks the 5 newest posts by cardOrder (higher = newer)
 // and rewrites the tight title-only list inside the hero aside on:
 //   - public/index.html (English)
-//   - bn/index.html     (Bengali source; copied to public/bn/ by copy-bn-static.mjs)
 //
 // The aside heading + icon + kicker stay untouched; only the list items and
 // the "browse all" link are regenerated. Run via `npm run update:home-latest`
@@ -93,19 +92,6 @@ const targets = [
     linkLabel: 'Browse all stories →',
     kicker: 'Fresh from the blog · 5 latest stories',
     heading: 'Start with something recent.',
-  },
-  {
-    file: path.join(rootDir, 'bn', 'index.html'),
-    // BN homepage has no local copies of the daily companions, so post links
-    // point out to the English posts (marked lang="en" to satisfy the BN
-    // twin-link validator). The "browse all" link stays on the BN blog.
-    wrapper: 'body',
-    hrefPrefix: '../blog-posts/',
-    linkHref: 'blog.html',
-    linkLabel: 'সব গল্প দেখুন →',
-    postLang: 'en',
-    kicker: 'ব্লগ থেকে · সাম্প্রতিক ৫টি গল্প',
-    heading: 'সাম্প্রতিক গল্প দিয়ে শুরু করুন।',
   },
 ];
 

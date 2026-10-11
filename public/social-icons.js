@@ -58,10 +58,9 @@ function depthRoot() {
     return depth > 0 ? Array(depth).fill("..").join("/") : ".";
   }
 
-  // Footer links stay inside the Bengali section when the page is a Bengali page,
-  // so /bn/ pages link to their bn/ siblings rather than jumping to the English ones.
+  // Footer links resolve to the site root via depth-relative paths.
   function pageRoot() {
-    return window.location.pathname.startsWith("/bn/") ? "." : depthRoot();
+    return depthRoot();
   }
 
   // Shared scripts such as social-share.js always live at the site root.
@@ -69,29 +68,13 @@ function depthRoot() {
     return depthRoot();
   }
 
-  // Bengali pages that exist, so the footer can stay inside the Bengali section.
-  const BENGALI_FOOTER_PAGES = new Set([
-    "index.html", "calculator.html", "blog.html", "polls.html",
-    "valentines-day.html", "about.html", "privacy.html",
-  ]);
-
-  // On a Bengali page, link to the Bengali sibling when there is one, and fall
-  // back to the English page otherwise (Love Quotes and Contact have no Bengali
-  // version yet). On every other page, resolve normally.
   function footerHref(page) {
-    if (window.location.pathname.startsWith("/bn/")) {
-      return BENGALI_FOOTER_PAGES.has(page) ? `./${page}` : `../${page}`;
-    }
     return `${pageRoot()}/${page}`;
   }
 
   function renderFooter(footer) {
     if (footer.querySelector(".footer-grid")) return;
-    // One shared footer for both languages: only the four left navigation labels
-    // change on Bengali pages. Destinations are already language-aware via footerHref().
-    const leftNav = window.location.pathname.startsWith("/bn/")
-      ? { home: "হোম", calculator: "লাভ ক্যালকুলেটর", blog: "ব্লগ", polls: "পোলস" }
-      : { home: "Home", calculator: "Love Calculator", blog: "Blog", polls: "Polls" };
+    const leftNav = { home: "Home", calculator: "Love Calculator", blog: "Blog", polls: "Polls" };
     footer.innerHTML = `
       <div class="footer-grid">
         <section class="footer-section footer-left">

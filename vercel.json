@@ -21,8 +21,8 @@
       "permanent": true
     },
     {
-      "source": "/bn/index.html",
-      "destination": "/bn/",
+      "source": "/bn/:path*",
+      "destination": "/",
       "permanent": true
     }
   ]

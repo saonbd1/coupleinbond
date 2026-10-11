@@ -15,6 +15,15 @@ The GitBook-ready documentation lives in [`docs/`](docs/README.md). Start with t
 - Community Book notes stored in the visitor's browser
 - Optional Love Result and Quote Image NFTs on Ink Chain
 
+## Language
+
+The site is **English-only**. A Bengali (`/bn/`) version was retired and fully
+detached: all `/bn/` content, `hreflang` alternates, `og:locale:alternate` tags,
+sitemap entries, language switchers, and the build/validate wiring were removed.
+Any old `/bn/*` URL now issues a `301` to the English home via
+[`vercel.json`](vercel.json), so existing backlinks keep their equity. No Bengali
+content or code paths remain in the shipped site.
+
 ## Local preview
 
 This is a static site. Serve the repository root with any local static-file server, then open `index.html` through that server. For example, with Python installed:

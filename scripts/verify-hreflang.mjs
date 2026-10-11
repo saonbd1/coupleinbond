@@ -42,34 +42,13 @@ const problems = [];
 for (const p of info.values()) {
   if (!p.canon) { problems.push(`${p.route}: no canonical`); continue; }
   if (!p.alts['x-default']) problems.push(`${p.route}: missing x-default`);
-
-  const isBn = p.route.startsWith('/bn/');
-  if (isBn) {
-    if (p.alts.bn !== p.canon) problems.push(`${p.route}: bn self-ref should equal canonical (got ${p.alts.bn})`);
-  } else {
-    if (p.alts.en !== p.canon) problems.push(`${p.route}: en self-ref should equal canonical (got ${p.alts.en})`);
-  }
+  if (p.alts.en !== p.canon) problems.push(`${p.route}: en self-ref should equal canonical (got ${p.alts.en})`);
 }
 
-// True reciprocity: if A points at B via hreflang, B must point back at A.
-for (const p of info.values()) {
-  const other = p.route.startsWith('/bn/') ? p.alts.en : p.alts.bn;
-  if (!other) continue;
-  const target = info.get(other);
-  if (!target) { problems.push(`${p.route}: hreflang points at ${other}, which has no built page`); continue; }
-  const back = target.route.startsWith('/bn/') ? target.alts.en : target.alts.bn;
-  if (back !== p.canon) {
-    problems.push(`${p.route} -> ${other} is NOT reciprocal (${other} points back at ${back}, expected ${p.canon})`);
-  }
-}
-
-const paired = [...info.values()].filter(p => p.alts.bn).length;
 console.log(`Pages audited: ${pages.length}`);
-console.log(`Pages with an EN<->BN pair: ${paired}`);
-console.log(`Bengali pages: ${[...info.values()].filter(p => p.route.startsWith('/bn/')).length}`);
 if (problems.length) {
   console.log(`\nPROBLEMS (${problems.length}):`);
   problems.forEach(p => console.log(' - ' + p));
   process.exit(1);
 }
-console.log('\nhreflang reciprocity: OK - no problems found.');
+console.log('\nhreflang check: OK - no problems found.');
