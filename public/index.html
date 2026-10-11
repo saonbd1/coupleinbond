@@ -8,6 +8,7 @@
   <link rel="stylesheet" href="blog.css">
   <link rel="stylesheet" href="home.css">
   <script src="blog-nav.js" defer></script>
+  <script src="poll-data.js" defer></script>
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -137,20 +138,20 @@
           </article>
 
           <article class="blog-card home-tool-card poll-home-card" aria-labelledby="featured-poll-title">
-            <div class="blog-card-top"><span class="blog-tag">COMMUNITY</span><span>Have your say</span></div>
-            <h3><a id="featured-poll-title" href="polls/sincere-apology.html">Featured poll of the week.</a></h3>
+            <div class="blog-card-top"><span class="blog-tag" id="featuredPollTag">Relationships</span><span>Have your say</span></div>
+            <h3><a id="featured-poll-title" href="polls/which-compatibility-quiz-topic-20261011.html" data-featured-poll-heading>Featured poll of the week.</a></h3>
             <div class="home-poll-preview">
-              <p class="home-poll-question">What makes an apology feel sincere?</p>
+              <p class="home-poll-question" id="featuredPollQuestion">Which topic matters most in a relationship compatibility quiz?</p>
               <form id="featuredPollForm">
-                <label class="home-poll-option"><input type="radio" name="featuredApology" value="0"> <span>Taking responsibility</span></label>
-                <label class="home-poll-option"><input type="radio" name="featuredApology" value="1"> <span>Listening without defending</span></label>
-                <label class="home-poll-option"><input type="radio" name="featuredApology" value="2"> <span>Following through with change</span></label>
-                <label class="home-poll-option"><input type="radio" name="featuredApology" value="3"> <span>Giving space, then reconnecting</span></label>
+                <label class="home-poll-option"><input type="radio" name="featuredPoll" value="0"> <span>How we handle conflict</span></label>
+                <label class="home-poll-option"><input type="radio" name="featuredPoll" value="1"> <span>Our daily routines and habits</span></label>
+                <label class="home-poll-option"><input type="radio" name="featuredPoll" value="2"> <span>Shared values and future goals</span></label>
+                <label class="home-poll-option"><input type="radio" name="featuredPoll" value="3"> <span>How we communicate day to day</span></label>
                 <button class="home-poll-submit" type="submit">Vote on this topic</button>
                 <p class="home-poll-feedback" id="featuredPollFeedback" aria-live="polite">Choose one option. Your vote stays in this browser.</p>
               </form>
             </div>
-            <a class="blog-card-link" href="polls/sincere-apology.html">Open the full poll →</a>
+            <a class="blog-card-link" id="featuredPollOpen" href="polls/which-compatibility-quiz-topic-20261011.html">Open the full poll →</a>
           </article>
 
           <article class="blog-card home-tool-card keep-home-card">
@@ -183,64 +184,115 @@
   </div>
 
   <script>
-    const featuredPollForm = document.getElementById("featuredPollForm");
-    const featuredPollFeedback = document.getElementById("featuredPollFeedback");
-    const featuredPollId = "sincere-apology";
-    const featuredPollOptions = [
-      "Taking responsibility",
-      "Listening without defending",
-      "Following through with change",
-      "Giving space, then reconnecting"
-    ];
+    // Featured poll on the homepage always reflects the newest entry in
+    // poll-data.js (the array's last item), the same source the polls pages
+    // render from. The markup above ships the current latest poll as a
+    // no-JavaScript fallback; this script re-renders it from live data.
+    // poll-data.js is deferred, so it runs before DOMContentLoaded — we read
+    // window.COUPLE_POLL_DATA inside the listener to be sure it is available.
+    (function () {
+      const VOTES_KEY = "coupleinbond-poll-votes-v1";
+      const RESULTS_KEY = "coupleinbond-poll-results-v1";
 
-    function readFeaturedPollStorage(key, fallback) {
-      try {
-        const value = localStorage.getItem(key);
-        return value ? JSON.parse(value) : fallback;
-      } catch (error) {
-        return fallback;
+      function readFeaturedPollStorage(key, fallback) {
+        try {
+          const value = localStorage.getItem(key);
+          return value ? JSON.parse(value) : fallback;
+        } catch (error) {
+          return fallback;
+        }
       }
-    }
 
-    function syncFeaturedPoll() {
-      const votes = readFeaturedPollStorage("coupleinbond-poll-votes-v1", {});
-      const selected = Number.isInteger(votes[featuredPollId]) ? votes[featuredPollId] : null;
-      featuredPollForm.querySelectorAll("input").forEach((input) => {
-        input.checked = Number(input.value) === selected;
-        input.disabled = selected !== null;
-      });
-      const submit = featuredPollForm.querySelector("button");
-      submit.disabled = selected !== null;
-      submit.textContent = selected === null ? "Vote on this topic" : "Vote recorded";
-      featuredPollFeedback.textContent = selected === null
-        ? "Choose one option. Your vote stays in this browser."
-        : `Your choice: ${featuredPollOptions[selected]}`;
-    }
+      function initFeaturedPoll() {
+        const form = document.getElementById("featuredPollForm");
+        if (!form) return;
+        const feedback = document.getElementById("featuredPollFeedback");
+        const tag = document.getElementById("featuredPollTag");
+        const heading = document.getElementById("featured-poll-title");
+        const question = document.getElementById("featuredPollQuestion");
+        const openLink = document.getElementById("featuredPollOpen");
+        const polls = Array.isArray(window.COUPLE_POLL_DATA) ? window.COUPLE_POLL_DATA : [];
+        const poll = polls.length ? polls[polls.length - 1] : null;
+        if (!poll) return;
 
-    featuredPollForm.addEventListener("submit", (event) => {
-      event.preventDefault();
-      const selected = featuredPollForm.querySelector("input:checked");
-      if (!selected) {
-        featuredPollFeedback.textContent = "Choose an option first.";
-        return;
+        const pollId = poll.id;
+        const options = Array.isArray(poll.options) ? poll.options : [];
+
+        function render() {
+          const pollHref = `polls/${pollId}.html`;
+          if (tag) tag.textContent = poll.label || "Community";
+          if (heading) {
+            heading.textContent = "Featured poll of the week.";
+            heading.href = pollHref;
+          }
+          if (question) question.textContent = poll.title || "";
+          if (openLink) openLink.href = pollHref;
+          form.querySelectorAll(".home-poll-option").forEach((label, index) => {
+            const input = label.querySelector("input");
+            const span = label.querySelector("span");
+            const option = options[index];
+            if (option == null) {
+              label.hidden = true;
+              if (input) input.disabled = true;
+              return;
+            }
+            label.hidden = false;
+            if (input) {
+              input.value = String(index);
+              input.name = `featuredPoll-${pollId}`;
+            }
+            if (span) span.textContent = option;
+          });
+        }
+
+        function sync() {
+          const votes = readFeaturedPollStorage(VOTES_KEY, {});
+          const selected = Number.isInteger(votes[pollId]) ? votes[pollId] : null;
+          form.querySelectorAll("input").forEach((input) => {
+            input.checked = Number(input.value) === selected;
+            input.disabled = selected !== null;
+          });
+          const submit = form.querySelector("button");
+          submit.disabled = selected !== null;
+          submit.textContent = selected === null ? "Vote on this topic" : "Vote recorded";
+          feedback.textContent = selected === null
+            ? "Choose one option. Your vote stays in this browser."
+            : `Your choice: ${options[selected]}`;
+        }
+
+        form.addEventListener("submit", (event) => {
+          event.preventDefault();
+          const selected = form.querySelector("input:checked");
+          if (!selected) {
+            feedback.textContent = "Choose an option first.";
+            return;
+          }
+          const votes = readFeaturedPollStorage(VOTES_KEY, {});
+          const results = readFeaturedPollStorage(RESULTS_KEY, {});
+          if (Number.isInteger(votes[pollId])) {
+            sync();
+            return;
+          }
+          const counts = Array.isArray(results[pollId]) ? results[pollId].slice(0, 4) : [0, 0, 0, 0];
+          while (counts.length < 4) counts.push(0);
+          counts[Number(selected.value)] += 1;
+          votes[pollId] = Number(selected.value);
+          results[pollId] = counts;
+          localStorage.setItem(VOTES_KEY, JSON.stringify(votes));
+          localStorage.setItem(RESULTS_KEY, JSON.stringify(results));
+          sync();
+        });
+
+        render();
+        sync();
       }
-      const votes = readFeaturedPollStorage("coupleinbond-poll-votes-v1", {});
-      const results = readFeaturedPollStorage("coupleinbond-poll-results-v1", {});
-      if (Number.isInteger(votes[featuredPollId])) {
-        syncFeaturedPoll();
-        return;
-      }
-      const counts = Array.isArray(results[featuredPollId]) ? results[featuredPollId].slice(0, 4) : [0, 0, 0, 0];
-      while (counts.length < 4) counts.push(0);
-      counts[Number(selected.value)] += 1;
-      votes[featuredPollId] = Number(selected.value);
-      results[featuredPollId] = counts;
-      localStorage.setItem("coupleinbond-poll-votes-v1", JSON.stringify(votes));
-      localStorage.setItem("coupleinbond-poll-results-v1", JSON.stringify(results));
-      syncFeaturedPoll();
-    });
 
-    syncFeaturedPoll();
+      if (document.readyState === "loading") {
+        document.addEventListener("DOMContentLoaded", initFeaturedPoll);
+      } else {
+        initFeaturedPoll();
+      }
+    })();
   </script>
 </body>
 </html>
