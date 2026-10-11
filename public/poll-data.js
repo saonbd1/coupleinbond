@@ -212,6 +212,16 @@ window.COUPLE_POLL_DATA = [
     intro: "Compatibility quizzes cover many themes. This poll asks which one actually predicts a good conversation and a good relationship. Vote, then bring your answer to your partner tonight.",
     related: [],
     options: ["How we handle conflict", "Our daily routines and habits", "Shared values and future goals", "How we communicate day to day"]
+  },
+  {
+    id: "biggest-compatibility-dealbreaker-20261011",
+    topic: "relationships",
+    label: "Relationships",
+    title: "What is the biggest compatibility dealbreaker for you?",
+    description: "Vote on the difference that would make you rethink a relationship.",
+    intro: "Every couple argues about small things. But some differences feel heavier than others. This poll asks which gap would make you pause and ask are we actually compatible. Vote honestly, then talk about it with your partner.",
+    related: ["which-compatibility-quiz-topic-20261011"],
+    options: ["Different views on honesty", "One person always gives more effort", "Clashing life goals and timelines", "Different ways of handling emotions"]
   }
 ];
 
