@@ -226,6 +226,7 @@ def update_poll_data_js(poll_dict: dict, related_ids: list) -> None:
         raise RuntimeError(
             "refusing to duplicate existing poll-data.js id: %s" % poll_dict["id"])
     related_js = ", ".join('"%s"' % js_escape(r) for r in related_ids)
+    opts_js = ", ".join('"%s"' % js_escape(o) for o in poll_dict["options"])
     entry = ("  {\n"
              "    id: \"%s\",\n"
              "    topic: \"%s\",\n"
@@ -246,7 +247,9 @@ def update_poll_data_js(poll_dict: dict, related_ids: list) -> None:
     before = content[:last_bracket].rstrip()
     after = content[last_bracket:]
     if before.endswith("}"):
-        before += ",\n"
+        before += ","
+    if not before.endswith("\n"):
+        before += "\n"
     new_content = before + entry + "\n" + after
     with open(POLL_DATA_JS, "w", encoding="utf-8", newline="\n") as fh:
         fh.write(new_content)

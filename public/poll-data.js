@@ -203,6 +203,16 @@ window.COUPLE_POLL_DATA = [
     related: ["quality-time-mean-20261011", "date-night-mood"],
     options: ["Movie night with snacks", "Cooking a new recipe together", "Board games and wine", "Stargazing from the balcony"]
   },
+  {
+    id: "which-compatibility-quiz-topic-20261011",
+    topic: "relationships",
+    label: "Relationships",
+    title: "Which topic matters most in a relationship compatibility quiz?",
+    description: "Vote on the theme that tells you the most about whether two people fit well together.",
+    intro: "Compatibility quizzes cover many themes. This poll asks which one actually predicts a good conversation and a good relationship. Vote, then bring your answer to your partner tonight.",
+    related: [],
+    options: ["How we handle conflict", "Our daily routines and habits", "Shared values and future goals", "How we communicate day to day"]
+  }
 ];
 
 window.getCouplePoll = function (id) {
