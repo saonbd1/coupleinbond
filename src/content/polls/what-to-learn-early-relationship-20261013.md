@@ -5,7 +5,7 @@ description: "Vote on the first thing you wish you had understood when a relatio
 intro: "Early love moves fast. Before the next date, this poll asks which area of compatibility deserves your attention first. Vote, share your answer, and turn it into a real conversation."
 topic: "Connection"
 slug: "what-to-learn-early-relationship-20261013"
-listOrder: 24
+listOrder: 25
 ogImage: "https://couplein.bond/assets/polls-hero-illustration.png"
 ogImageAlt: "Hands placing colorful relationship poll cards into a ballot box"
 companionHref: "../blog-posts/compatibility-quiz-for-new-couples.html"
