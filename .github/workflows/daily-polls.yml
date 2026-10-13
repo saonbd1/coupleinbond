@@ -18,12 +18,26 @@ on:
 permissions:
   contents: write
 
+concurrency:
+  group: daily-polls
+  cancel-in-progress: false
+
 jobs:
   publish:
     runs-on: ubuntu-latest
+    timeout-minutes: 15
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          persist-credentials: true
+
+      - name: Configure git for bot commit
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git pull --rebase || true
 
       - name: Setup Python
         uses: actions/setup-python@v5
@@ -39,15 +53,47 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
-      - name: Generate and publish daily polls
+      - name: Generate daily polls (no commit yet)
+        env:
+          INPUT_COUNT: ${{ github.event.inputs.count }}
+          INPUT_DATE: ${{ github.event.inputs.date }}
         run: |
-          COUNT="${{ inputs.count }}"
-          DATE="${{ inputs.date }}"
-          ARGS="--count ${COUNT:-2} --commit --push"
+          set -xe
+          COUNT="${INPUT_COUNT:-2}"
+          DATE="$INPUT_DATE"
+          # Guard count to 1-3 (script choices=[1,2,3])
+          case "$COUNT" in
+            1|2|3) ;;
+            *) echo "Invalid count '$COUNT', defaulting to 2"; COUNT=2 ;;
+          esac
+          ARGS="--count ${COUNT}"
           if [ -n "$DATE" ]; then
             ARGS="$ARGS --date $DATE"
           fi
+          # NOTE: no --commit/--push here. We validate first,
+          # then commit+push in the dedicated step below so a
+          # broken build never gets pushed.
           python3 scripts/daily_polls.py $ARGS
 
       - name: Validate release (localized content + build + SEO + links)
         run: npm run validate:release
+
+      - name: Commit and push (only if files changed)
+        run: |
+          set -xe
+          git add public/poll-data.js src/content/polls src/content/blog public/sitemap.xml scripts/poll_history.json
+          if git diff --cached --quiet; then
+            echo "No changes to commit — polls already up to date."
+            exit 0
+          fi
+          DATE_LABEL=$(date -u +%F)
+          git commit -m "Add daily poll(s) for ${DATE_LABEL}"
+          git pull --rebase || true
+          # Retry push 3x in case main moved under us
+          for i in 1 2 3; do
+            git push origin HEAD:main && break
+            echo "push attempt $i failed, rebasing..."
+            git pull --rebase || true
+            sleep 5
+          done
+          git status --short
