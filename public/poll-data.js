@@ -6,7 +6,7 @@ window.COUPLE_POLL_DATA = [
     title: "What kind of date night sounds best this week?",
     description: "A quick date-night poll for couples deciding whether to stay in, go out, or make room for a little spontaneity.",
     intro: "Date night does not need to be elaborate to feel meaningful. This poll is a small prompt for noticing what kind of energy you both want this week.",
-    related: ["quality-time-mean-20261011", "keeps-spark-alive-long-relationship-20261004"],
+    related: ["best-way-say-sorry-after-20261013", "quality-time-mean-20261011"],
     options: ["A cozy night at home", "An unplanned adventure", "A long dinner and good conversation", "A little of everything"]
   },
   {
@@ -16,7 +16,7 @@ window.COUPLE_POLL_DATA = [
     title: "What helps two people feel most connected?",
     description: "Vote on the everyday relationship habits that help couples feel close, understood, and emotionally present.",
     intro: "Connection can grow through grand gestures, but it is often shaped by ordinary moments. Use this poll to compare the small things that matter to you.",
-    related: ["quality-time-mean-20261011", "keeps-spark-alive-long-relationship-20261004"],
+    related: ["best-way-say-sorry-after-20261013", "quality-time-mean-20261011"],
     options: ["Small acts of care", "Uninterrupted conversation", "Shared goals", "Laughing together"]
   },
   {
@@ -222,7 +222,17 @@ window.COUPLE_POLL_DATA = [
     intro: "Every couple argues about small things. But some differences feel heavier than others. This poll asks which gap would make you pause and ask are we actually compatible. Vote honestly, then talk about it with your partner.",
     related: ["which-compatibility-quiz-topic-20261011"],
     options: ["Different views on honesty", "One person always gives more effort", "Clashing life goals and timelines", "Different ways of handling emotions"]
-  }
+  },
+  {
+    id: "best-way-say-sorry-after-20261013",
+    topic: "connection",
+    label: "Connection",
+    title: "What is the best way to say sorry after a silly fight?",
+    description: "Vote on the small repair gestures that end little arguments with warmth instead of pride.",
+    intro: "Small fights are normal; staying stuck in them is optional. This poll compares the light, honest gestures that help a couple laugh it off and move on.",
+    related: ["date-night-mood", "connection-ritual"],
+    options: ["A genuine sorry first", "A hug before words", "Making their favorite snack", "A funny apology note"]
+  },
 ];
 
 window.getCouplePoll = function (id) {
