@@ -233,6 +233,16 @@ window.COUPLE_POLL_DATA = [
     related: ["date-night-mood", "connection-ritual"],
     options: ["A genuine sorry first", "A hug before words", "Making their favorite snack", "A funny apology note"]
   },
+  {
+    id: "what-to-learn-early-relationship-20261013",
+    topic: "connection",
+    label: "Connection",
+    title: "What should new couples learn about each other first?",
+    description: "Vote on the first thing you wish you had understood when a relationship was new.",
+    intro: "Early love moves fast. Before the next date, this poll asks which area of compatibility deserves your attention first. Vote, share your answer, and turn it into a real conversation.",
+    related: ["biggest-compatibility-dealbreaker-20261011"],
+    options: ["How they handle a bad day", "Their ideal weekend routine", "How they apologize and repair", "What they expect from commitment"]
+  }
 ];
 
 window.getCouplePoll = function (id) {
