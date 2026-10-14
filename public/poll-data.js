@@ -6,7 +6,7 @@ window.COUPLE_POLL_DATA = [
     title: "What kind of date night sounds best this week?",
     description: "A quick date-night poll for couples deciding whether to stay in, go out, or make room for a little spontaneity.",
     intro: "Date night does not need to be elaborate to feel meaningful. This poll is a small prompt for noticing what kind of energy you both want this week.",
-    related: ["best-way-say-sorry-after-20261013", "quality-time-mean-20261011"],
+    related: ["makes-feel-most-appreciated-relationship-20261014", "best-way-say-sorry-after-20261013"],
     options: ["A cozy night at home", "An unplanned adventure", "A long dinner and good conversation", "A little of everything"]
   },
   {
@@ -16,7 +16,7 @@ window.COUPLE_POLL_DATA = [
     title: "What helps two people feel most connected?",
     description: "Vote on the everyday relationship habits that help couples feel close, understood, and emotionally present.",
     intro: "Connection can grow through grand gestures, but it is often shaped by ordinary moments. Use this poll to compare the small things that matter to you.",
-    related: ["best-way-say-sorry-after-20261013", "quality-time-mean-20261011"],
+    related: ["makes-feel-most-appreciated-relationship-20261014", "best-way-say-sorry-after-20261013"],
     options: ["Small acts of care", "Uninterrupted conversation", "Shared goals", "Laughing together"]
   },
   {
@@ -242,7 +242,27 @@ window.COUPLE_POLL_DATA = [
     intro: "Early love moves fast. Before the next date, this poll asks which area of compatibility deserves your attention first. Vote, share your answer, and turn it into a real conversation.",
     related: ["biggest-compatibility-dealbreaker-20261011"],
     options: ["How they handle a bad day", "Their ideal weekend routine", "How they apologize and repair", "What they expect from commitment"]
-  }
+  },
+  {
+    id: "makes-feel-most-appreciated-relationship-20261014",
+    topic: "connection",
+    label: "Connection",
+    title: "What makes you feel most appreciated in a relationship?",
+    description: "Vote on the gestures that make appreciation feel real instead of routine.",
+    intro: "Everyone wants to feel noticed. This poll explores which kind of appreciation lands deepest, from spoken thanks to small thoughtful surprises.",
+    related: ["often-couples-have-date-night-20261014", "date-night-mood"],
+    options: ["Hearing thank you out loud", "A thoughtful surprise", "Help without being asked", "Being noticed for small efforts"]
+  },
+  {
+    id: "often-couples-have-date-night-20261014",
+    topic: "date-night",
+    label: "Date night",
+    title: "How often should couples have date night?",
+    description: "Vote on the rhythm that keeps dating each other going long after the wedding.",
+    intro: "Dating should not stop when commitment starts. This poll asks how often couples should protect time that is just for the two of them.",
+    related: ["makes-feel-most-appreciated-relationship-20261014", "date-night-mood"],
+    options: ["Every single week", "Twice a month", "Once a month, done well", "Whenever it happens naturally"]
+  },
 ];
 
 window.getCouplePoll = function (id) {
