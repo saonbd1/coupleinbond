@@ -8,7 +8,7 @@
 
 ## Completed: Compatibility content hub (pillar)
 - [x] Create the `relationship-compatibility-guide` pillar hub linking all 5 compatibility/quiz articles, the quiz tool, the calculator, and the 2 compatibility polls.
-- [x] Add reciprocal upward links from each of the 5 spoke articles back to the pillar.
+- [x] Add reciprocal upward links from each of the 5 spoke articles back to the pillwwar.
 - [x] Add the pillar to `sitemap.xml`; it auto-surfaces as the lead blog-index card.
 
 

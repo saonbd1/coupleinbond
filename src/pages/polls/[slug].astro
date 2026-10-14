@@ -1,4 +1,112 @@
 ---
+import { getCollection } from 'astro:content'
+
+const { all: polls } = await getCollection('polls')
+const pollId = Astro.params.slug
+
+// Find the matching poll by slug (filename without .md)
+const poll = polls.find(p => 
+  p.id === pollId || 
+  p.fileSlug === pollId || 
+  p.slug === pollId
+)
+
+if (!poll) {
+  throw Astro.redirect('/polls', 301)
+}
+
+// Extract the filename from the slug
+const fileName = poll.fileSlug || `${pollId}.md`
+
+// Read the poll content to get question and options
+const pollContent = await Bun.file(`src/content/polls/${fileName}`).text()
+
+// Simple parsing - in a real implementation, use a markdown parser
+const lines = pollContent.split('\n')
+let question = ''
+const options = []
+
+// Look for the first substantial line as question
+for (const line of lines) {
+  const trimmed = line.trim()
+  if (trimmed && !trimmed.startsWith('#') && !trimmed.startsWith('---') && trimmed.length > 10) {
+    question = trimmed
+    break
+  }
+}
+
+// Look for options (lines that might be choices)
+// This is a simplified parser - adjust based on actual markdown structure
+const optionMatches = pollContent.match(/- (.+)/g)
+if (optionMatches) {
+  options.push(...optionMatches.slice(0, 4).map(m => m.replace('- ', '')))
+}
+
+if (options.length === 0) {
+  options = ['Option A', 'Option B']
+}
+---
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>{poll.data.title || question || 'Couple Poll'}</title>
+  
+  <!-- Open Graph / Social Media Tags -->
+  <meta property="og:title" content="{poll.data.title || question || 'Couple Poll'}" />
+  <meta property="og:description" content="Check out this couple relationship poll: {question || 'What would you choose?'}" />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content={`https://couplein.bond/polls/${pollId}`} />
+  
+  <!-- OG Image - dynamically generated -->
+  <meta property="og:image" content={`/api/og-poll-image?question=${encodeURIComponent(question || 'Couple Poll')}&options=${options.join(',')}`} />
+  <meta property="og:image:alt" content="{question || 'Couple Poll'} - {poll.data.title || 'Relationship Poll'}" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="{poll.data.title || question || 'Couple Poll'}" />
+  <meta name="twitter:description" content="Check out this couple relationship poll: {question || 'What would you choose?'}" />
+  <meta name="twitter:image" content={`/api/og-poll-image?question=${encodeURIComponent(question || 'Couple Poll')}&options=${options.join(',')}`} />
+</head>
+<body>
+  <main>
+    <article>
+      <header>
+        <h1>{poll.data.title || question || 'Couple Poll'}</h1>
+        <p class="meta">{poll.data.date || new Date().toLocaleDateString()}</p>
+      </header>
+      
+      <section class="poll-content">
+        {#if question}
+          <h2>{question}</h2>
+        {/if}
+        
+        {#if options.length > 0}
+          <div class="poll-options">
+            {#each options as option (option)}
+              <div class="poll-option">
+                <label>
+                  <input type="radio" name="poll-option" value="{option}" />
+                  {option}
+                </label>
+              </div>
+            {/each}
+          </div>
+        {/if}
+        
+        <div class="poll-actions">
+          <button class="vote-btn">Vote</button>
+          <span class="results">Results will appear here</span>
+        </div>
+      </section>
+    </article>
+  </main>
+</body>
+</html>
+---
 import { getCollection } from 'astro:content';
 import PollDetail from '../../layouts/PollDetail.astro';
 
