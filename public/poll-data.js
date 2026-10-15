@@ -6,7 +6,7 @@ window.COUPLE_POLL_DATA = [
     title: "What kind of date night sounds best this week?",
     description: "A quick date-night poll for couples deciding whether to stay in, go out, or make room for a little spontaneity.",
     intro: "Date night does not need to be elaborate to feel meaningful. This poll is a small prompt for noticing what kind of energy you both want this week.",
-    related: ["makes-feel-most-appreciated-relationship-20261014", "best-way-say-sorry-after-20261013"],
+    related: ["small-habit-keeps-couple-feeling-20261015", "makes-feel-most-appreciated-relationship-20261014"],
     options: ["A cozy night at home", "An unplanned adventure", "A long dinner and good conversation", "A little of everything"]
   },
   {
@@ -16,7 +16,7 @@ window.COUPLE_POLL_DATA = [
     title: "What helps two people feel most connected?",
     description: "Vote on the everyday relationship habits that help couples feel close, understood, and emotionally present.",
     intro: "Connection can grow through grand gestures, but it is often shaped by ordinary moments. Use this poll to compare the small things that matter to you.",
-    related: ["makes-feel-most-appreciated-relationship-20261014", "best-way-say-sorry-after-20261013"],
+    related: ["small-habit-keeps-couple-feeling-20261015", "makes-feel-most-appreciated-relationship-20261014"],
     options: ["Small acts of care", "Uninterrupted conversation", "Shared goals", "Laughing together"]
   },
   {
@@ -262,6 +262,26 @@ window.COUPLE_POLL_DATA = [
     intro: "Dating should not stop when commitment starts. This poll asks how often couples should protect time that is just for the two of them.",
     related: ["makes-feel-most-appreciated-relationship-20261014", "date-night-mood"],
     options: ["Every single week", "Twice a month", "Once a month, done well", "Whenever it happens naturally"]
+  },
+  {
+    id: "small-habit-keeps-couple-feeling-20261015",
+    topic: "connection",
+    label: "Connection",
+    title: "What small habit keeps a couple feeling close?",
+    description: "Vote on the everyday habits that help two people stay emotionally close through a busy week.",
+    intro: "Closeness is built in ordinary minutes more than grand gestures. This poll is a small prompt for noticing which everyday habit keeps you feeling like a team.",
+    related: ["phones-be-banned-date-night-20261015", "date-night-mood"],
+    options: ["A good-morning message", "A nightly check-in chat", "Undivided attention at dinner", "A shared joke every day"]
+  },
+  {
+    id: "phones-be-banned-date-night-20261015",
+    topic: "date-night",
+    label: "Date night",
+    title: "Should phones be banned on date night?",
+    description: "Vote on whether date night deserves a strict no-phone rule.",
+    intro: "The phone is the third wheel on most modern dates. This poll asks whether couples should ban it outright for one evening.",
+    related: ["small-habit-keeps-couple-feeling-20261015", "date-night-mood"],
+    options: ["Yes, phones in a drawer", "Only for photos and emergencies", "No rule, just be present", "One phone-free hour is enough"]
   },
 ];
 
