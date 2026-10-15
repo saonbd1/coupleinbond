@@ -283,6 +283,16 @@ window.COUPLE_POLL_DATA = [
     related: ["small-habit-keeps-couple-feeling-20261015", "date-night-mood"],
     options: ["Yes, phones in a drawer", "Only for photos and emergencies", "No rule, just be present", "One phone-free hour is enough"]
   },
+  {
+    id: "best-compatibility-question-20261015",
+    topic: "connection",
+    label: "Connection",
+    title: "Which compatibility question reveals the most about a couple?",
+    description: "Vote on the question that would surprise you most by how differently your partner answers.",
+    intro: "Not all questions are equal. Some open a door you did not know was closed. This poll asks which compatibility question reveals the most and it might change how you talk tonight. Vote, then ask your partner.",
+    related: ["what-to-learn-early-relationship-20261013"],
+    options: ["What helps you feel heard?", "What does fair disagreement look like?", "Which value would you never compromise?", "What small action makes you feel close?"]
+  }
 ];
 
 window.getCouplePoll = function (id) {
