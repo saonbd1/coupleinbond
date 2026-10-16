@@ -100,11 +100,11 @@ function wrap(text, maxUnits) {
   return lines;
 }
 
-function layout(text, { height, fontSize, maxUnits, lineGap = 1.32 }) {
+function layout(text, { height, fontSize, maxUnits, lineGap = 1.32, fitFrac = 0.52 }) {
   let size = fontSize;
   let lines = wrap(text, maxUnits);
   // Shrink until the block fits the canvas, so a long quote never overflows.
-  const maxLines = Math.floor((height * 0.52) / (size * lineGap));
+  const maxLines = Math.max(2, Math.floor((height * fitFrac) / (size * lineGap)));
   while (lines.length > maxLines && size > 22) {
     size -= 2;
     lines = wrap(text, maxUnits * (size / fontSize));
@@ -158,12 +158,14 @@ function renderCard(quote, template) {
   const pad = Math.round(w * 0.1);
   const maxUnits = (w - pad * 2) / quoteSize;
 
-  const { lines, size } = layout(quote.quote_text, { height: h, fontSize: quoteSize, maxUnits });
+  const zoneTop = Number(template.textZoneTop || 0);
+  const zoneH = zoneTop > 0 ? (h - zoneTop) : h;
+  const { lines, size } = layout(quote.quote_text, { height: zoneTop > 0 ? zoneH * 0.92 : h, fontSize: quoteSize, maxUnits, fitFrac: zoneTop > 0 ? 0.82 : 0.52 });
   const lineHeight = size * 1.32;
   const authorSize = Math.round(size * 0.5);
   const authorLine = author ? authorSize * 1.4 : 0;
   const blockHeight = lines.length * lineHeight + authorLine;
-  const startY = Math.round((h - blockHeight) / 2 + size);
+  const startY = zoneTop > 0 ? Math.round(zoneTop + (zoneH - blockHeight) / 2 + size * 0.85) : Math.round((h - blockHeight) / 2 + size);
 
   // Judge the backdrop from its background rect, not from any color in
   // the SVG: the editorial template has a violet strip but a light
@@ -177,8 +179,8 @@ function renderCard(quote, template) {
     return 0.2126 * r + 0.7152 * g + 0.0722 * b;
   };
   const dark = luminance(bg) < 0.5;
-  const textFill = dark ? "#fffaf6" : "#24162d";
-  const authorFill = dark ? "#ffd36a" : "#ff5574";
+  const textFill = template.textFill || (dark ? "#fffaf6" : "#24162d");
+  const authorFill = template.authorFill || (dark ? "#ffd36a" : "#ff5574");
 
   const tspans = lines
     .map((l, i) => `<tspan x="${w / 2}" y="${Math.round(startY + i * lineHeight)}">${esc(l)}</tspan>`)
@@ -221,7 +223,7 @@ if (!quotes.length) throw new Error(`No quotes found in ${path.relative(root, CS
 const pickTemplate = quote => templates.find(t => t.mood === quote.mood) || templates[0];
 
 // Bump when renderCard's output changes, so every card re-renders.
-const RENDER_VERSION = 2;
+const RENDER_VERSION = 4;
 
 const cardHash = (quote, template) =>
   crypto.createHash("md5")
