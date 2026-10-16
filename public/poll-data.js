@@ -6,7 +6,7 @@ window.COUPLE_POLL_DATA = [
     title: "What kind of date night sounds best this week?",
     description: "A quick date-night poll for couples deciding whether to stay in, go out, or make room for a little spontaneity.",
     intro: "Date night does not need to be elaborate to feel meaningful. This poll is a small prompt for noticing what kind of energy you both want this week.",
-    related: ["small-habit-keeps-couple-feeling-20261015", "makes-feel-most-appreciated-relationship-20261014"],
+    related: ["best-budget-friendly-date-20261016", "small-habit-keeps-couple-feeling-20261015"],
     options: ["A cozy night at home", "An unplanned adventure", "A long dinner and good conversation", "A little of everything"]
   },
   {
@@ -16,7 +16,7 @@ window.COUPLE_POLL_DATA = [
     title: "What helps two people feel most connected?",
     description: "Vote on the everyday relationship habits that help couples feel close, understood, and emotionally present.",
     intro: "Connection can grow through grand gestures, but it is often shaped by ordinary moments. Use this poll to compare the small things that matter to you.",
-    related: ["small-habit-keeps-couple-feeling-20261015", "makes-feel-most-appreciated-relationship-20261014"],
+    related: ["best-budget-friendly-date-20261016", "small-habit-keeps-couple-feeling-20261015"],
     options: ["Small acts of care", "Uninterrupted conversation", "Shared goals", "Laughing together"]
   },
   {
@@ -292,7 +292,27 @@ window.COUPLE_POLL_DATA = [
     intro: "Not all questions are equal. Some open a door you did not know was closed. This poll asks which compatibility question reveals the most and it might change how you talk tonight. Vote, then ask your partner.",
     related: ["what-to-learn-early-relationship-20261013"],
     options: ["What helps you feel heard?", "What does fair disagreement look like?", "Which value would you never compromise?", "What small action makes you feel close?"]
-  }
+  },
+  {
+    id: "best-budget-friendly-date-20261016",
+    topic: "date-night",
+    label: "Date night",
+    title: "What is the best budget-friendly date?",
+    description: "Choose the low-cost date that still feels special.",
+    intro: "Romance does not need a big budget. This poll asks which simple, cheap date still feels like a real occasion.",
+    related: ["couples-split-household-responsibilities-20261016", "date-night-mood"],
+    options: ["Sunset walk and street food", "Free museum or gallery day", "Home-cooked candlelight dinner", "Night drive with good music"]
+  },
+  {
+    id: "couples-split-household-responsibilities-20261016",
+    topic: "relationships",
+    label: "Relationships",
+    title: "How should couples split household responsibilities?",
+    description: "Choose the fairest way to share the work of running a home together.",
+    intro: "Dishes and laundry have ended more peace than anyone admits. This poll compares the systems couples use to keep home life fair.",
+    related: ["best-budget-friendly-date-20261016", "date-night-mood"],
+    options: ["Split everything evenly", "Play to each strength", "Rotate chores weekly", "Share the effort naturally"]
+  },
 ];
 
 window.getCouplePoll = function (id) {
