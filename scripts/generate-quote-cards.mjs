@@ -33,6 +33,7 @@ const PAGES = pagesRaw === undefined
       .filter(p => p && p !== "-")
       .map(p => path.resolve(root, p));
 const START = "<!-- QUOTE_CARDS:START -->";
+const SCENES_FILE = path.join(root, "data", "scenes.json");
 const END = "<!-- QUOTE_CARDS:END -->";
 
 const checkOnly = process.argv.includes("--check");
@@ -167,20 +168,8 @@ function renderCard(quote, template) {
   const blockHeight = lines.length * lineHeight + authorLine;
   const startY = zoneTop > 0 ? Math.round(zoneTop + (zoneH - blockHeight) / 2 + size * 0.85) : Math.round((h - blockHeight) / 2 + size);
 
-  // Judge the backdrop from its background rect, not from any color in
-  // the SVG: the editorial template has a violet strip but a light
-  // canvas, and white text on it would be invisible.
-  const bgMatch = template.svg.match(/<rect[^>]*\bfill="(#[0-9a-f]{6})"/i);
-  const bg = bgMatch ? bgMatch[1] : "#ffffff";
-  const luminance = hex => {
-    const r = parseInt(hex.slice(1, 3), 16) / 255;
-    const g = parseInt(hex.slice(3, 5), 16) / 255;
-    const b = parseInt(hex.slice(5, 7), 16) / 255;
-    return 0.2126 * r + 0.7152 * g + 0.0722 * b;
-  };
-  const dark = luminance(bg) < 0.5;
-  const textFill = template.textFill || (dark ? "#fffaf6" : "#24162d");
-  const authorFill = template.authorFill || (dark ? "#ffd36a" : "#ff5574");
+  const textFill = template.textFill || "#fffaf6";
+  const authorFill = template.authorFill || "#ffd36a";
 
   const tspans = lines
     .map((l, i) => `<tspan x="${w / 2}" y="${Math.round(startY + i * lineHeight)}">${esc(l)}</tspan>`)
@@ -192,10 +181,29 @@ function renderCard(quote, template) {
     : "";
 
   const brand = `<text x="${pad}" y="${h - pad * 0.7}" font-family="Georgia, serif" font-size="${Math.round(w * 0.028)}" fill="${textFill}" opacity="0.45">Couple in Bond</text>`;
+  const credit = template.credit
+    ? `<text x="${w - pad}" y="${h - pad * 0.7}" text-anchor="end" font-family="Georgia, serif" font-size="${Math.round(w * 0.018)}" fill="${textFill}" opacity="0.35">${esc(template.credit)}</text>`
+    : "";
 
-  // Drop the template's own <svg> wrapper: we rebuild it with text layered on top.
+  // Readability scrim: transparent at top, dark at text zone.
+  const scrimTop = Math.max(0, Math.round(zoneTop > 0 ? zoneTop - zoneH * 0.25 : h * 0.35));
+  const overlay = `<svg xmlns="http://www.w3.org/2000/svg" width="${w}" height="${h}" viewBox="0 0 ${w} ${h}">` +
+    `<defs><linearGradient id="scrim" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#1a0e1e" stop-opacity="0"/><stop offset="0.55" stop-color="#1a0e1e" stop-opacity="0.55"/><stop offset="1" stop-color="#1a0e1e" stop-opacity="0.82"/></linearGradient></defs>` +
+    `<rect x="0" y="${scrimTop}" width="${w}" height="${h - scrimTop}" fill="url(#scrim)"/>` +
+    `<text text-anchor="middle" font-family="${font}" font-size="${size}" fill="${textFill}">${tspans}</text>` +
+    authorMarkup + brand + credit + `</svg>`;
+
+  const photoFile = template.photo ? path.join(root, template.photo) : null;
+  if (photoFile && fs.existsSync(photoFile)) {
+    return sharp(photoFile)
+      .resize(w, h, { fit: "cover", position: "centre" })
+      .composite([{ input: Buffer.from(overlay), gravity: "centre" }])
+      .jpeg({ quality: 84, mozjpeg: true })
+      .toBuffer();
+  }
+
+  // Fallback: illustrated SVG scene when no photo file.
   const backdrop = template.svg.replace(/^<svg[^>]*>/, "").replace(/<\/svg>$/, "");
-
   return sharp(Buffer.from(
     `<svg xmlns="http://www.w3.org/2000/svg" width="${w}" height="${h}" viewBox="0 0 ${w} ${h}">` +
     backdrop +
@@ -223,12 +231,14 @@ if (!quotes.length) throw new Error(`No quotes found in ${path.relative(root, CS
 const pickTemplate = quote => templates.find(t => t.mood === quote.mood) || templates[0];
 
 // Bump when renderCard's output changes, so every card re-renders.
-const RENDER_VERSION = 4;
+const RENDER_VERSION = 5;
 
 const cardHash = (quote, template) =>
   crypto.createHash("md5")
-    .update([RENDER_VERSION, quote.quote_text, quote.author || "", quote.mood || "", template.name, template.svg].join("¬"))
+    .update([RENDER_VERSION, quote.quote_text, quote.author || "", quote.mood || "", template.name, template.svg, template.photo || "", template.credit || "", photoMtime(template)].join("¬"))
     .digest("hex");
+
+const photoMtime = t => { try { return t.photo ? String(fs.statSync(path.join(root, t.photo)).mtimeMs) : ""; } catch { return "missing"; } };
 
 const escapeRegExp = s => s.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
 

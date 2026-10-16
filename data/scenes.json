@@ -1,0 +1,38 @@
+{
+  "midnight": {
+    "photo": "public/assets/scenes/street-night.jpg",
+    "title": "Street Couple",
+    "creator": "Fire At Will [Photography]",
+    "license": "CC BY-SA 2.0",
+    "license_url": "https://creativecommons.org/licenses/by-sa/2.0/",
+    "source_url": "https://live.staticflickr.com/5580/14785568917_c79be93580_b.jpg",
+    "provider": "Flickr via Openverse"
+  },
+  "blush": {
+    "photo": "public/assets/scenes/hillside-golden.jpg",
+    "title": "Sharing a moment",
+    "creator": "Jams_123",
+    "license": "CC BY 2.0",
+    "license_url": "https://creativecommons.org/licenses/by/2.0/",
+    "source_url": "https://live.staticflickr.com/1169/955698246_88d8b817a8_b.jpg",
+    "provider": "Flickr via Openverse"
+  },
+  "violet": {
+    "photo": "public/assets/scenes/beach-sunset.jpg",
+    "title": "couple holding hands Myrtle beach sunrise",
+    "creator": "David N Cooper",
+    "license": "CC BY 2.0",
+    "license_url": "https://creativecommons.org/licenses/by/2.0/",
+    "source_url": "https://live.staticflickr.com/8429/7743234318_d958794361_b.jpg",
+    "provider": "Flickr via Openverse"
+  },
+  "editorial": {
+    "photo": "public/assets/scenes/ocean-embrace.jpg",
+    "title": "Picture 076",
+    "creator": "ben pollard",
+    "license": "CC BY-SA 2.0",
+    "license_url": "https://creativecommons.org/licenses/by-sa/2.0/",
+    "source_url": "https://live.staticflickr.com/2164/2136758209_3c00144429_b.jpg",
+    "provider": "Flickr via Openverse"
+  }
+}
