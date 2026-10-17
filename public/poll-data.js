@@ -6,7 +6,7 @@ window.COUPLE_POLL_DATA = [
     title: "What kind of date night sounds best this week?",
     description: "A quick date-night poll for couples deciding whether to stay in, go out, or make room for a little spontaneity.",
     intro: "Date night does not need to be elaborate to feel meaningful. This poll is a small prompt for noticing what kind of energy you both want this week.",
-    related: ["best-budget-friendly-date-20261016", "small-habit-keeps-couple-feeling-20261015"],
+    related: ["who-plan-next-date-20261017", "best-budget-friendly-date-20261016"],
     options: ["A cozy night at home", "An unplanned adventure", "A long dinner and good conversation", "A little of everything"]
   },
   {
@@ -16,7 +16,7 @@ window.COUPLE_POLL_DATA = [
     title: "What helps two people feel most connected?",
     description: "Vote on the everyday relationship habits that help couples feel close, understood, and emotionally present.",
     intro: "Connection can grow through grand gestures, but it is often shaped by ordinary moments. Use this poll to compare the small things that matter to you.",
-    related: ["best-budget-friendly-date-20261016", "small-habit-keeps-couple-feeling-20261015"],
+    related: ["who-plan-next-date-20261017", "best-budget-friendly-date-20261016"],
     options: ["Small acts of care", "Uninterrupted conversation", "Shared goals", "Laughing together"]
   },
   {
@@ -312,6 +312,26 @@ window.COUPLE_POLL_DATA = [
     intro: "Dishes and laundry have ended more peace than anyone admits. This poll compares the systems couples use to keep home life fair.",
     related: ["best-budget-friendly-date-20261016", "date-night-mood"],
     options: ["Split everything evenly", "Play to each strength", "Rotate chores weekly", "Share the effort naturally"]
+  },
+  {
+    id: "who-plan-next-date-20261017",
+    topic: "date-night",
+    label: "Date night",
+    title: "Who should plan the next date?",
+    description: "Vote on the fairest way to share the planning of date nights.",
+    intro: "Planning is part of the romance, but it should not always fall on one person. This poll asks who should take the lead next.",
+    related: ["makes-relationship-feel-equal-20261017", "date-night-mood"],
+    options: ["Take turns planning", "Whoever feels inspired", "Plan it together", "Surprise each other alternately"]
+  },
+  {
+    id: "makes-relationship-feel-equal-20261017",
+    topic: "relationships",
+    label: "Relationships",
+    title: "What makes a relationship feel equal?",
+    description: "Vote on the sign that tells you a partnership is truly balanced.",
+    intro: "Equality is felt in small daily moments. This poll explores what makes both people feel like true partners rather than passengers.",
+    related: ["who-plan-next-date-20261017", "date-night-mood"],
+    options: ["Sharing decisions together", "Splitting effort fairly", "Respecting each other's goals", "Both feeling heard"]
   },
 ];
 
