@@ -1,1 +1,11 @@
-
+$schema: https://api.gitbook.com/gitbook-docs.yaml
+site:
+  title: Coupleinbond
+  structure:
+    - type: space
+      key: space-1
+      title: Documentation
+      path: documentation
+      default: true
+      content:
+        directory: ./documentation
