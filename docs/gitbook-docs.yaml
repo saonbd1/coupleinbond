@@ -9,3 +9,10 @@ site:
       default: true
       content:
         directory: ./documentation
+    - type: space
+      key: space-2
+      title: Imported content
+      path: imported-content
+      draft: true
+      content:
+        directory: ./imported-content
