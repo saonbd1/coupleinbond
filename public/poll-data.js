@@ -6,7 +6,7 @@ window.COUPLE_POLL_DATA = [
     title: "What kind of date night sounds best this week?",
     description: "A quick date-night poll for couples deciding whether to stay in, go out, or make room for a little spontaneity.",
     intro: "Date night does not need to be elaborate to feel meaningful. This poll is a small prompt for noticing what kind of energy you both want this week.",
-    related: ["phones-be-banned-date-night-20261018", "who-plan-next-date-20261017"],
+    related: ["keeps-spark-alive-long-relationship-20261019", "phones-be-banned-date-night-20261018"],
     options: ["A cozy night at home", "An unplanned adventure", "A long dinner and good conversation", "A little of everything"]
   },
   {
@@ -16,7 +16,7 @@ window.COUPLE_POLL_DATA = [
     title: "What helps two people feel most connected?",
     description: "Vote on the everyday relationship habits that help couples feel close, understood, and emotionally present.",
     intro: "Connection can grow through grand gestures, but it is often shaped by ordinary moments. Use this poll to compare the small things that matter to you.",
-    related: ["phones-be-banned-date-night-20261018", "who-plan-next-date-20261017"],
+    related: ["keeps-spark-alive-long-relationship-20261019", "phones-be-banned-date-night-20261018"],
     options: ["Small acts of care", "Uninterrupted conversation", "Shared goals", "Laughing together"]
   },
   {
@@ -362,7 +362,27 @@ window.COUPLE_POLL_DATA = [
     intro: "Long love changes shape. The needs that worked two years ago may not describe today. This poll asks which area of your relationship deserves a check-in right now. Vote honestly, then use it as a gentle conversation starter.",
     related: ["best-compatibility-question-20261015"],
     options: ["How we split daily responsibilities", "Whether we still feel understood", "How we handle conflict after years", "Where we each want more independence"]
-  }
+  },
+  {
+    id: "keeps-spark-alive-long-relationship-20261019",
+    topic: "connection",
+    label: "Connection",
+    title: "What keeps the spark alive in a long relationship?",
+    description: "Choose the habit that keeps long-term love feeling fresh instead of routine.",
+    intro: "The spark does not fade on its own; it fades when couples stop being curious. This poll compares the habits that keep long love feeling alive.",
+    related: ["best-way-support-stressed-partner-20261019", "date-night-mood"],
+    options: ["Trying new things together", "Regular surprise dates", "Flirting like the early days", "Growing side by side"]
+  },
+  {
+    id: "best-way-support-stressed-partner-20261019",
+    topic: "relationships",
+    label: "Relationships",
+    title: "What is the best way to support a stressed partner?",
+    description: "Vote on the kind of support that actually helps when your partner is overwhelmed.",
+    intro: "When someone you love is stressed, good intentions can miss the mark. This poll asks what support really lands.",
+    related: ["keeps-spark-alive-long-relationship-20261019", "date-night-mood"],
+    options: ["Listen without fixing", "Take tasks off their plate", "Offer comfort and closeness", "Give them quiet space"]
+  },
 ];
 
 window.getCouplePoll = function (id) {
