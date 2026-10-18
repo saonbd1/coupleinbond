@@ -2,7 +2,18 @@ name: Daily polls
 
 on:
   schedule:
-    # 09:00 Asia/Dhaka (GMT+6) = 03:00 UTC every day
+    # GitHub's cron scheduler is best-effort ("delays can be multiple hours
+    # during periods of high load", and 03:00 UTC is exactly an hour
+    # boundary). This workflow was starting 4-7 hours after its slot, so a
+    # single 03:00 UTC trigger published the daily content around 13:30
+    # Asia/Dhaka instead of 09:00.
+    #
+    # Three slots per day (01:00, 05:00, 09:00 Asia/Dhaka = 19:00, 23:00,
+    # 03:00 UTC): whichever fires first publishes the day's polls, the
+    # "Skip when today's polls already exist" guard makes the remaining
+    # slots cheap no-ops, and `concurrency` keeps them from overlapping.
+    - cron: "0 19 * * *"
+    - cron: "0 23 * * *"
     - cron: "0 3 * * *"
   workflow_dispatch:
     inputs:
@@ -11,7 +22,7 @@ on:
         required: false
         default: "2"
       date:
-        description: "Target date YYYY-MM-DD (default: today)"
+        description: "Target date YYYY-MM-DD (default: today in Asia/Dhaka)"
         required: false
         default: ""
 
@@ -21,6 +32,12 @@ permissions:
 concurrency:
   group: daily-polls
   cancel-in-progress: false
+
+# Run everything in Asia/Dhaka so "today", the poll date label and the
+# commit message all match the intended publishing day (UTC runners would
+# otherwise roll over at 06:00 Dhaka time).
+env:
+  TZ: Asia/Dhaka
 
 jobs:
   publish:
@@ -53,41 +70,73 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
+      - name: Resolve target date (Asia/Dhaka)
+        id: target
+        run: |
+          set -e
+          DATE="${{ github.event.inputs.date }}"
+          if [ -z "$DATE" ]; then
+            DATE="$(date +%F)"
+          fi
+          case "$DATE" in
+            [0-9][0-9][0-9][0-9]-[0-9][0-9]-[0-9][0-9]) ;;
+            *) echo "Invalid target date '$DATE' (expected YYYY-MM-DD)" >&2; exit 1 ;;
+          esac
+          # Reject impossible dates (e.g. 2026-02-31) before doing any work.
+          if [ "$(date -d "$DATE" +%F 2>/dev/null)" != "$DATE" ]; then
+            echo "Invalid target date '$DATE' (not a real calendar date)" >&2
+            exit 1
+          fi
+          echo "Target date: $DATE  (timezone: $(date +%Z), now: $(date '+%F %T'))"
+          echo "date=$DATE" >> "$GITHUB_OUTPUT"
+
+      - name: Skip when today's polls already exist
+        id: guard
+        run: |
+          set -e
+          STAMP="$(printf '%s' '${{ steps.target.outputs.date }}' | tr -d '-')"
+          if ls src/content/polls/*-"$STAMP".md >/dev/null 2>&1; then
+            echo "Polls dated $STAMP already exist - nothing to generate."
+            echo "skip=true" >> "$GITHUB_OUTPUT"
+          else
+            echo "No polls dated $STAMP yet - generating."
+            echo "skip=false" >> "$GITHUB_OUTPUT"
+          fi
+
       - name: Generate daily polls (no commit yet)
+        if: steps.guard.outputs.skip != 'true'
         env:
           INPUT_COUNT: ${{ github.event.inputs.count }}
-          INPUT_DATE: ${{ github.event.inputs.date }}
+          TARGET_DATE: ${{ steps.target.outputs.date }}
         run: |
           set -xe
           COUNT="${INPUT_COUNT:-2}"
-          DATE="$INPUT_DATE"
           # Guard count to 1-3 (script choices=[1,2,3])
           case "$COUNT" in
             1|2|3) ;;
             *) echo "Invalid count '$COUNT', defaulting to 2"; COUNT=2 ;;
           esac
-          ARGS="--count ${COUNT}"
-          if [ -n "$DATE" ]; then
-            ARGS="$ARGS --date $DATE"
-          fi
           # NOTE: no --commit/--push here. We validate first,
           # then commit+push in the dedicated step below so a
           # broken build never gets pushed.
-          python3 scripts/daily_polls.py $ARGS
+          python3 scripts/daily_polls.py --count "$COUNT" --date "$TARGET_DATE"
 
       - name: Validate release (localized content + build + SEO + links)
+        if: steps.guard.outputs.skip != 'true'
         run: npm run validate:release
 
       - name: Commit and push (only if files changed)
+        if: steps.guard.outputs.skip != 'true'
+        env:
+          TARGET_DATE: ${{ steps.target.outputs.date }}
         run: |
           set -xe
           git add public/poll-data.js src/content/polls src/content/blog public/sitemap.xml scripts/poll_history.json
           if git diff --cached --quiet; then
-            echo "No changes to commit — polls already up to date."
+            echo "No changes to commit - polls already up to date."
             exit 0
           fi
-          DATE_LABEL=$(date -u +%F)
-          git commit -m "Add daily poll(s) for ${DATE_LABEL}"
+          git commit -m "Add daily poll(s) for ${TARGET_DATE}"
           git pull --rebase || true
           # Retry push 3x in case main moved under us
           for i in 1 2 3; do
