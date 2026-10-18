@@ -6,7 +6,7 @@ window.COUPLE_POLL_DATA = [
     title: "What kind of date night sounds best this week?",
     description: "A quick date-night poll for couples deciding whether to stay in, go out, or make room for a little spontaneity.",
     intro: "Date night does not need to be elaborate to feel meaningful. This poll is a small prompt for noticing what kind of energy you both want this week.",
-    related: ["who-plan-next-date-20261017", "best-budget-friendly-date-20261016"],
+    related: ["phones-be-banned-date-night-20261018", "who-plan-next-date-20261017"],
     options: ["A cozy night at home", "An unplanned adventure", "A long dinner and good conversation", "A little of everything"]
   },
   {
@@ -16,7 +16,7 @@ window.COUPLE_POLL_DATA = [
     title: "What helps two people feel most connected?",
     description: "Vote on the everyday relationship habits that help couples feel close, understood, and emotionally present.",
     intro: "Connection can grow through grand gestures, but it is often shaped by ordinary moments. Use this poll to compare the small things that matter to you.",
-    related: ["who-plan-next-date-20261017", "best-budget-friendly-date-20261016"],
+    related: ["phones-be-banned-date-night-20261018", "who-plan-next-date-20261017"],
     options: ["Small acts of care", "Uninterrupted conversation", "Shared goals", "Laughing together"]
   },
   {
@@ -332,6 +332,26 @@ window.COUPLE_POLL_DATA = [
     intro: "Equality is felt in small daily moments. This poll explores what makes both people feel like true partners rather than passengers.",
     related: ["who-plan-next-date-20261017", "date-night-mood"],
     options: ["Sharing decisions together", "Splitting effort fairly", "Respecting each other's goals", "Both feeling heard"]
+  },
+  {
+    id: "phones-be-banned-date-night-20261018",
+    topic: "date-night",
+    label: "Date night",
+    title: "Should phones be banned on date night?",
+    description: "Vote on whether date night deserves a strict no-phone rule.",
+    intro: "The phone is the third wheel on most modern dates. This poll asks whether couples should ban it outright for one evening.",
+    related: ["keep-friendships-alive-while-relationship-20261018", "date-night-mood"],
+    options: ["Yes, phones in a drawer", "Only for photos and emergencies", "No rule, just be present", "One phone-free hour is enough"]
+  },
+  {
+    id: "keep-friendships-alive-while-relationship-20261018",
+    topic: "relationships",
+    label: "Relationships",
+    title: "How do you keep friendships alive while in a relationship?",
+    description: "Choose the balance that keeps love and friendship both thriving.",
+    intro: "New love can quietly swallow old friendships. This poll explores how couples protect the friendships that matter.",
+    related: ["phones-be-banned-date-night-20261018", "date-night-mood"],
+    options: ["Schedule regular friend time", "Blend friend groups together", "Protect solo friend nights", "Invite friends into couple plans"]
   },
 ];
 
