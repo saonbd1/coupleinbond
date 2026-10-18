@@ -353,6 +353,16 @@ window.COUPLE_POLL_DATA = [
     related: ["phones-be-banned-date-night-20261018", "date-night-mood"],
     options: ["Schedule regular friend time", "Blend friend groups together", "Protect solo friend nights", "Invite friends into couple plans"]
   },
+  {
+    id: "long-term-couples-check-in-20261018",
+    topic: "connection",
+    label: "Connection",
+    title: "What do long-term couples most need to check in about?",
+    description: "Vote on the area that long relationships forget to revisit until it feels urgent.",
+    intro: "Long love changes shape. The needs that worked two years ago may not describe today. This poll asks which area of your relationship deserves a check-in right now. Vote honestly, then use it as a gentle conversation starter.",
+    related: ["best-compatibility-question-20261015"],
+    options: ["How we split daily responsibilities", "Whether we still feel understood", "How we handle conflict after years", "Where we each want more independence"]
+  }
 ];
 
 window.getCouplePoll = function (id) {
