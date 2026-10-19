@@ -6,7 +6,7 @@ window.COUPLE_POLL_DATA = [
     title: "What kind of date night sounds best this week?",
     description: "A quick date-night poll for couples deciding whether to stay in, go out, or make room for a little spontaneity.",
     intro: "Date night does not need to be elaborate to feel meaningful. This poll is a small prompt for noticing what kind of energy you both want this week.",
-    related: ["keeps-spark-alive-long-relationship-20261019", "phones-be-banned-date-night-20261018"],
+    related: ["makes-meeting-family-less-stressful-20261020", "keeps-spark-alive-long-relationship-20261019"],
     options: ["A cozy night at home", "An unplanned adventure", "A long dinner and good conversation", "A little of everything"]
   },
   {
@@ -16,7 +16,7 @@ window.COUPLE_POLL_DATA = [
     title: "What helps two people feel most connected?",
     description: "Vote on the everyday relationship habits that help couples feel close, understood, and emotionally present.",
     intro: "Connection can grow through grand gestures, but it is often shaped by ordinary moments. Use this poll to compare the small things that matter to you.",
-    related: ["keeps-spark-alive-long-relationship-20261019", "phones-be-banned-date-night-20261018"],
+    related: ["makes-meeting-family-less-stressful-20261020", "keeps-spark-alive-long-relationship-20261019"],
     options: ["Small acts of care", "Uninterrupted conversation", "Shared goals", "Laughing together"]
   },
   {
@@ -382,6 +382,26 @@ window.COUPLE_POLL_DATA = [
     intro: "When someone you love is stressed, good intentions can miss the mark. This poll asks what support really lands.",
     related: ["keeps-spark-alive-long-relationship-20261019", "date-night-mood"],
     options: ["Listen without fixing", "Take tasks off their plate", "Offer comfort and closeness", "Give them quiet space"]
+  },
+  {
+    id: "makes-meeting-family-less-stressful-20261020",
+    topic: "relationships",
+    label: "Relationships",
+    title: "What makes meeting the family less stressful?",
+    description: "Vote on the strategy that turns a nerve-wracking introduction into a warm one.",
+    intro: "Meeting the family is a milestone with high stakes. This poll asks what makes that first big introduction go smoothly.",
+    related: ["keep-friendships-alive-while-relationship-20261020", "date-night-mood"],
+    options: ["Bring a thoughtful gift", "Let your partner brief you", "Ask genuine questions", "Keep the first visit short"]
+  },
+  {
+    id: "keep-friendships-alive-while-relationship-20261020",
+    topic: "relationships",
+    label: "Relationships",
+    title: "How do you keep friendships alive while in a relationship?",
+    description: "Choose the balance that keeps love and friendship both thriving.",
+    intro: "New love can quietly swallow old friendships. This poll explores how couples protect the friendships that matter.",
+    related: ["makes-meeting-family-less-stressful-20261020", "date-night-mood"],
+    options: ["Schedule regular friend time", "Blend friend groups together", "Protect solo friend nights", "Invite friends into couple plans"]
   },
 ];
 
