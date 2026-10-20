@@ -6,7 +6,7 @@ window.COUPLE_POLL_DATA = [
     title: "What kind of date night sounds best this week?",
     description: "A quick date-night poll for couples deciding whether to stay in, go out, or make room for a little spontaneity.",
     intro: "Date night does not need to be elaborate to feel meaningful. This poll is a small prompt for noticing what kind of energy you both want this week.",
-    related: ["makes-meeting-family-less-stressful-20261020", "keeps-spark-alive-long-relationship-20261019"],
+    related: ["best-way-say-sorry-after-20261021", "makes-meeting-family-less-stressful-20261020"],
     options: ["A cozy night at home", "An unplanned adventure", "A long dinner and good conversation", "A little of everything"]
   },
   {
@@ -16,7 +16,7 @@ window.COUPLE_POLL_DATA = [
     title: "What helps two people feel most connected?",
     description: "Vote on the everyday relationship habits that help couples feel close, understood, and emotionally present.",
     intro: "Connection can grow through grand gestures, but it is often shaped by ordinary moments. Use this poll to compare the small things that matter to you.",
-    related: ["makes-meeting-family-less-stressful-20261020", "keeps-spark-alive-long-relationship-20261019"],
+    related: ["best-way-say-sorry-after-20261021", "makes-meeting-family-less-stressful-20261020"],
     options: ["Small acts of care", "Uninterrupted conversation", "Shared goals", "Laughing together"]
   },
   {
@@ -402,6 +402,26 @@ window.COUPLE_POLL_DATA = [
     intro: "New love can quietly swallow old friendships. This poll explores how couples protect the friendships that matter.",
     related: ["makes-meeting-family-less-stressful-20261020", "date-night-mood"],
     options: ["Schedule regular friend time", "Blend friend groups together", "Protect solo friend nights", "Invite friends into couple plans"]
+  },
+  {
+    id: "best-way-say-sorry-after-20261021",
+    topic: "connection",
+    label: "Connection",
+    title: "What is the best way to say sorry after a silly fight?",
+    description: "Vote on the small repair gestures that end little arguments with warmth instead of pride.",
+    intro: "Small fights are normal; staying stuck in them is optional. This poll compares the light, honest gestures that help a couple laugh it off and move on.",
+    related: ["couple-talk-about-future-20261021", "date-night-mood"],
+    options: ["A genuine sorry first", "A hug before words", "Making their favorite snack", "A funny apology note"]
+  },
+  {
+    id: "couple-talk-about-future-20261021",
+    topic: "relationships",
+    label: "Relationships",
+    title: "When should a couple talk about the future?",
+    description: "Choose the right moment to turn someday into a real plan.",
+    intro: "Future talk can feel exciting or scary depending on the timing. This poll asks when couples should start mapping the road ahead together.",
+    related: ["best-way-say-sorry-after-20261021", "date-night-mood"],
+    options: ["Early, to align expectations", "When things feel serious", "After the first big trip", "Let it unfold naturally"]
   },
 ];
 
