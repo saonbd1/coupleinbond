@@ -11,6 +11,6 @@ ogImageAlt: "Hands placing colorful relationship poll cards into a ballot box"
 companionHref: "../blog-posts/best-way-support-stressed-partner-20261019-companion.html"
 companionTitle: "How to Support a Stressed Partner the Right Way"
 options: ["Listen without fixing", "Take tasks off their plate", "Offer comfort and closeness", "Give them quiet space"]
-related: [{"href": "keeps-spark-alive-long-relationship-20261019.html", "title": "What keeps the spark alive in a long relationship?"}, {"href": "date-night-mood.html", "title": "What kind of date night sounds best this week?"}]
+related: [{"href": "keeps-spark-alive-long-relationship-20261004.html", "title": "What keeps the spark alive in a long relationship?"}, {"href": "date-night-mood.html", "title": "What kind of date night sounds best this week?"}]
 draft: false
 ---

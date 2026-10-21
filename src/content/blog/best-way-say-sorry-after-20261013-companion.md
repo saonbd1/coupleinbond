@@ -7,7 +7,7 @@ kicker: "Connection · 3 min read"
 dek: "Small fights are normal; staying stuck in them is optional. Here is how to end a silly argument with warmth instead of pride."
 publishedLabel: "Published 2026-10-13"
 datePublished: "2026-10-13"
-dateModified: "2026-10-13"
+dateModified: "2026-10-21"
 section: "Connection"
 slug: "best-way-say-sorry-after-20261013-companion"
 tag: "CONNECTION"
@@ -34,7 +34,7 @@ asideHtml: ""
       <ul><li>Say the plain words first: I was wrong about that</li><li>Offer a hug before rehashing who said what</li><li>Make their favorite snack as a peace offering</li><li>Write a two-line funny apology note and leave it on their pillow</li></ul>
       <h2>Make it yours</h2>
       <p>Agree on a silly-fight ritual while you are happy, not while you are annoyed. A code word, a hug rule, a snack protocol. Then both of you can reach for it when pride is loud. The couples who laugh about fights later are the ones who repaired them warmly at the time.</p>
-      <p>If you want to go further, read our guide to <a href="couples-communication-exercises.html">couples communication exercises for more emotional intimacy</a>, or share a playful result from the <a href="../calculator.html">love calculator</a>.</p>
+      <p>The extended version, with lines you can actually say out loud, is <a href="best-way-say-sorry-after-20261021-companion.html">Repair Scripts: What to Say in the First Hour After a Fight</a>. For the underlying skills, read our guide to <a href="couples-communication-exercises.html">couples communication exercises for more emotional intimacy</a>, or share a playful result from the <a href="../calculator.html">love calculator</a>.</p>
       <div class="article-callout"><strong>Your turn:</strong> Take the 10-second poll, <a href="../polls/best-way-say-sorry-after-20261013.html">What is the best way to say sorry after a silly fight?</a>, and compare your answer with your partner tonight.</div>
       <h2>Frequently Asked Questions</h2>
-      <h3>How should we use this poll as a couple?</h3><p>Vote separately, then compare. The poll below is a conversation starter, not a test, and the gap between your two answers is where the most useful talk begins.</p><h3>What is the fastest way to start?</h3><p>Pick one idea from &quot;Four repairs that end silly fights&quot; and try it this week. One small, repeatable action beats a long list you never get around to.</p><h3>Does this apply to long-term couples too?</h3><p>Yes. These ideas work best repeated over years, not performed once. Long-term couples get more from a small habit they keep than a grand gesture they do once.</p>
+      <h3>How often should a couple talk about the relationship?</h3><p>Less often than you might expect, but at a set time. A short weekly check-in is easier to keep than daily heavy conversations, and it stops small irritations from stacking up until they arrive all at once. Start with one item under &quot;Four repairs that end silly fights&quot;.</p><h3>What does emotional availability actually mean?</h3><p>Answering instead of deflecting, and staying present when the topic is uncomfortable. If one partner routinely leaves the conversation, availability is the thing to work on before the subject of the conversation changes at all.</p><h3>We like each other but feel flat. Is that a problem?</h3><p>It is a signal rather than a verdict. Liking someone and feeling connected to them are different things, and flatness usually means the shared-attention habit lapsed first. Repeat one item from &quot;Four repairs that end silly fights&quot; for three weeks before you judge whether anything moved.</p>

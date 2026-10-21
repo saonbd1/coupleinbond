@@ -7,7 +7,7 @@ kicker: "Relationships · 3 min read"
 dek: "Dishes and laundry have ended more peace than anyone admits. Here is the system that keeps home life fair without scorekeeping."
 publishedLabel: "Published 2026-10-16"
 datePublished: "2026-10-16"
-dateModified: "2026-10-16"
+dateModified: "2026-10-21"
 section: "Relationships"
 slug: "couples-split-household-responsibilities-20261016-companion"
 tag: "RELATIONSHIPS"
@@ -37,4 +37,4 @@ asideHtml: ""
       <p>If you want to go further, read our guide to <a href="relationship-compatibility-quiz.html">relationship compatibility quiz</a>, or share a playful result from the <a href="../calculator.html">love calculator</a>.</p>
       <div class="article-callout"><strong>Your turn:</strong> Take the 10-second poll, <a href="../polls/couples-split-household-responsibilities-20261016.html">How should couples split household responsibilities?</a>, and compare your answer with your partner tonight.</div>
       <h2>Frequently Asked Questions</h2>
-      <h3>How should we use this poll as a couple?</h3><p>Vote separately, then compare. The poll below is a conversation starter, not a test, and the gap between your two answers is where the most useful talk begins.</p><h3>What is the fastest way to start?</h3><p>Pick one idea from &quot;Four systems that end chore fights&quot; and try it this week. One small, repeatable action beats a long list you never get around to.</p><h3>Does this apply to long-term couples too?</h3><p>Yes. These ideas work best repeated over years, not performed once. Long-term couples get more from a small habit they keep than a grand gesture they do once.</p>
+      <h3>One of us feels the relationship is uneven. What now?</h3><p>Name the specific job rather than the general unfairness. Who plans the dates is discussable; you do less is not. Work down &quot;Four systems that end chore fights&quot; and agree one change each, then check back in a month.</p><h3>Is compatibility tested or built?</h3><p>Both, in that order. A compatibility conversation shows where the friction is likely to sit; the everyday habits decide whether that friction turns into resentment. The two lists under &quot;Four systems that end chore fights&quot; are the part worth acting on.</p><h3>Should couples keep separate friendships?</h3><p>Yes. Time apart is not a tax on the relationship; it is what gives each person something new to bring back into it. Couples who cancel their other plans as a rule tend to notice the cost later rather than immediately.</p>

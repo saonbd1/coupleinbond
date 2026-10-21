@@ -6,7 +6,7 @@ window.COUPLE_POLL_DATA = [
     title: "What kind of date night sounds best this week?",
     description: "A quick date-night poll for couples deciding whether to stay in, go out, or make room for a little spontaneity.",
     intro: "Date night does not need to be elaborate to feel meaningful. This poll is a small prompt for noticing what kind of energy you both want this week.",
-    related: ["best-way-say-sorry-after-20261021", "makes-meeting-family-less-stressful-20261020"],
+    related: ["best-way-say-sorry-after-20261013", "makes-meeting-family-less-stressful-20261020"],
     options: ["A cozy night at home", "An unplanned adventure", "A long dinner and good conversation", "A little of everything"]
   },
   {
@@ -16,7 +16,7 @@ window.COUPLE_POLL_DATA = [
     title: "What helps two people feel most connected?",
     description: "Vote on the everyday relationship habits that help couples feel close, understood, and emotionally present.",
     intro: "Connection can grow through grand gestures, but it is often shaped by ordinary moments. Use this poll to compare the small things that matter to you.",
-    related: ["best-way-say-sorry-after-20261021", "makes-meeting-family-less-stressful-20261020"],
+    related: ["best-way-say-sorry-after-20261013", "makes-meeting-family-less-stressful-20261020"],
     options: ["Small acts of care", "Uninterrupted conversation", "Shared goals", "Laughing together"]
   },
   {
@@ -314,34 +314,14 @@ window.COUPLE_POLL_DATA = [
     options: ["Split everything evenly", "Play to each strength", "Rotate chores weekly", "Share the effort naturally"]
   },
   {
-    id: "who-plan-next-date-20261017",
-    topic: "date-night",
-    label: "Date night",
-    title: "Who should plan the next date?",
-    description: "Vote on the fairest way to share the planning of date nights.",
-    intro: "Planning is part of the romance, but it should not always fall on one person. This poll asks who should take the lead next.",
-    related: ["makes-relationship-feel-equal-20261017", "date-night-mood"],
-    options: ["Take turns planning", "Whoever feels inspired", "Plan it together", "Surprise each other alternately"]
-  },
-  {
     id: "makes-relationship-feel-equal-20261017",
     topic: "relationships",
     label: "Relationships",
     title: "What makes a relationship feel equal?",
     description: "Vote on the sign that tells you a partnership is truly balanced.",
     intro: "Equality is felt in small daily moments. This poll explores what makes both people feel like true partners rather than passengers.",
-    related: ["who-plan-next-date-20261017", "date-night-mood"],
+    related: ["who-plan-next-date-20261001", "date-night-mood"],
     options: ["Sharing decisions together", "Splitting effort fairly", "Respecting each other's goals", "Both feeling heard"]
-  },
-  {
-    id: "phones-be-banned-date-night-20261018",
-    topic: "date-night",
-    label: "Date night",
-    title: "Should phones be banned on date night?",
-    description: "Vote on whether date night deserves a strict no-phone rule.",
-    intro: "The phone is the third wheel on most modern dates. This poll asks whether couples should ban it outright for one evening.",
-    related: ["keep-friendships-alive-while-relationship-20261018", "date-night-mood"],
-    options: ["Yes, phones in a drawer", "Only for photos and emergencies", "No rule, just be present", "One phone-free hour is enough"]
   },
   {
     id: "keep-friendships-alive-while-relationship-20261018",
@@ -350,7 +330,7 @@ window.COUPLE_POLL_DATA = [
     title: "How do you keep friendships alive while in a relationship?",
     description: "Choose the balance that keeps love and friendship both thriving.",
     intro: "New love can quietly swallow old friendships. This poll explores how couples protect the friendships that matter.",
-    related: ["phones-be-banned-date-night-20261018", "date-night-mood"],
+    related: ["phones-be-banned-date-night-20261015", "date-night-mood"],
     options: ["Schedule regular friend time", "Blend friend groups together", "Protect solo friend nights", "Invite friends into couple plans"]
   },
   {
@@ -364,23 +344,13 @@ window.COUPLE_POLL_DATA = [
     options: ["How we split daily responsibilities", "Whether we still feel understood", "How we handle conflict after years", "Where we each want more independence"]
   },
   {
-    id: "keeps-spark-alive-long-relationship-20261019",
-    topic: "connection",
-    label: "Connection",
-    title: "What keeps the spark alive in a long relationship?",
-    description: "Choose the habit that keeps long-term love feeling fresh instead of routine.",
-    intro: "The spark does not fade on its own; it fades when couples stop being curious. This poll compares the habits that keep long love feeling alive.",
-    related: ["best-way-support-stressed-partner-20261019", "date-night-mood"],
-    options: ["Trying new things together", "Regular surprise dates", "Flirting like the early days", "Growing side by side"]
-  },
-  {
     id: "best-way-support-stressed-partner-20261019",
     topic: "relationships",
     label: "Relationships",
     title: "What is the best way to support a stressed partner?",
     description: "Vote on the kind of support that actually helps when your partner is overwhelmed.",
     intro: "When someone you love is stressed, good intentions can miss the mark. This poll asks what support really lands.",
-    related: ["keeps-spark-alive-long-relationship-20261019", "date-night-mood"],
+    related: ["keeps-spark-alive-long-relationship-20261004", "date-night-mood"],
     options: ["Listen without fixing", "Take tasks off their plate", "Offer comfort and closeness", "Give them quiet space"]
   },
   {
@@ -390,28 +360,8 @@ window.COUPLE_POLL_DATA = [
     title: "What makes meeting the family less stressful?",
     description: "Vote on the strategy that turns a nerve-wracking introduction into a warm one.",
     intro: "Meeting the family is a milestone with high stakes. This poll asks what makes that first big introduction go smoothly.",
-    related: ["keep-friendships-alive-while-relationship-20261020", "date-night-mood"],
+    related: ["keep-friendships-alive-while-relationship-20261018", "date-night-mood"],
     options: ["Bring a thoughtful gift", "Let your partner brief you", "Ask genuine questions", "Keep the first visit short"]
-  },
-  {
-    id: "keep-friendships-alive-while-relationship-20261020",
-    topic: "relationships",
-    label: "Relationships",
-    title: "How do you keep friendships alive while in a relationship?",
-    description: "Choose the balance that keeps love and friendship both thriving.",
-    intro: "New love can quietly swallow old friendships. This poll explores how couples protect the friendships that matter.",
-    related: ["makes-meeting-family-less-stressful-20261020", "date-night-mood"],
-    options: ["Schedule regular friend time", "Blend friend groups together", "Protect solo friend nights", "Invite friends into couple plans"]
-  },
-  {
-    id: "best-way-say-sorry-after-20261021",
-    topic: "connection",
-    label: "Connection",
-    title: "What is the best way to say sorry after a silly fight?",
-    description: "Vote on the small repair gestures that end little arguments with warmth instead of pride.",
-    intro: "Small fights are normal; staying stuck in them is optional. This poll compares the light, honest gestures that help a couple laugh it off and move on.",
-    related: ["couple-talk-about-future-20261021", "date-night-mood"],
-    options: ["A genuine sorry first", "A hug before words", "Making their favorite snack", "A funny apology note"]
   },
   {
     id: "couple-talk-about-future-20261021",
@@ -420,7 +370,7 @@ window.COUPLE_POLL_DATA = [
     title: "When should a couple talk about the future?",
     description: "Choose the right moment to turn someday into a real plan.",
     intro: "Future talk can feel exciting or scary depending on the timing. This poll asks when couples should start mapping the road ahead together.",
-    related: ["best-way-say-sorry-after-20261021", "date-night-mood"],
+    related: ["best-way-say-sorry-after-20261013", "date-night-mood"],
     options: ["Early, to align expectations", "When things feel serious", "After the first big trip", "Let it unfold naturally"]
   },
 ];

@@ -7,7 +7,7 @@ kicker: "Connection · 3 min read"
 dek: "One person shows love with words, the other with actions, and both wonder if they are understood. Here is how to meet in the middle."
 publishedLabel: "Published 2026-10-02"
 datePublished: "2026-10-02"
-dateModified: "2026-10-02"
+dateModified: "2026-10-21"
 section: "Connection"
 slug: couples-handle-different-love-languages-20261002-companion
 tag: "CONNECTION"
@@ -43,4 +43,4 @@ asideHtml: ""
       <p>If you want to go further, read our guide to <a href="couples-communication-exercises.html">couples communication exercises for more emotional intimacy</a>, or share a playful result from the <a href="../calculator.html">love calculator</a>.</p>
       <div class="article-callout"><strong>Your turn:</strong> Take the 10-second poll, <a href="../polls/couples-handle-different-love-languages-20261002.html">How should couples handle different love languages?</a>, and compare your answer with your partner tonight.</div>
       <h2>Frequently Asked Questions</h2>
-      <h3>How should we use this poll as a couple?</h3><p>Vote separately, then compare. The poll below is a conversation starter, not a test, and the gap between your two answers is where the most useful talk begins.</p><h3>What is the fastest way to start?</h3><p>Pick one idea from &quot;Four bridges worth building&quot; and try it this week. One small, repeatable action beats a long list you never get around to.</p><h3>Does this apply to long-term couples too?</h3><p>Yes. These ideas work best repeated over years, not performed once. Long-term couples get more from a small habit they keep than a grand gesture they do once.</p>
+      <h3>Does spending more time together build connection?</h3><p>Not by itself. Two people can share a sofa for three hours and exchange nothing. Connection follows attention, so one short undistracted conversation tends to do more than a long evening spent side by side on separate screens.</p><h3>How often should a couple talk about the relationship?</h3><p>Less often than you might expect, but at a set time. A short weekly check-in is easier to keep than daily heavy conversations, and it stops small irritations from stacking up until they arrive all at once. Start with one item under &quot;Four bridges worth building&quot;.</p><h3>What does emotional availability actually mean?</h3><p>Answering instead of deflecting, and staying present when the topic is uncomfortable. If one partner routinely leaves the conversation, availability is the thing to work on before the subject of the conversation changes at all.</p>

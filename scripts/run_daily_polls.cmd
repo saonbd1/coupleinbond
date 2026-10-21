@@ -15,8 +15,11 @@ REM untracked file in git status.
 REM ---------------------------------------------------------------------------
 setlocal
 
-set "ROOT=C:\Users\saonb\git\coupleinbond"
-set "PYTHON=C:\Users\saonb\AppData\Local\Microsoft\WindowsApps\python.exe"
+set "ROOT=C:\Users\saonb\coupleinbond"
+REM The bare WindowsApps\python.exe is a Store *alias stub*: when no Store
+REM build is registered it prints "Python was not found" and exits 49. The
+REM versioned alias is the one that resolves to the real 3.13 interpreter.
+set "PYTHON=C:\Users\saonb\AppData\Local\Microsoft\WindowsApps\python3.13.exe"
 set "LOGDIR=%LOCALAPPDATA%\coupleinbond\logs"
 set "LOG=%LOGDIR%\daily_polls.log"
 
@@ -25,6 +28,16 @@ rem generator shells out to (validation, commit, push) are reachable.
 set "PATH=C:\Program Files\nodejs;C:\Program Files\Git\cmd;%PATH%"
 
 if not exist "%LOGDIR%" mkdir "%LOGDIR%"
+
+rem Fail loudly into the log instead of cd'ing into a path that moved.
+if not exist "%ROOT%\scripts\daily_polls.py" (
+  echo FATAL: repo not found at "%ROOT%" - update ROOT in this file. >> "%LOG%"
+  endlocal & exit /b 2
+)
+if not exist "%PYTHON%" (
+  echo FATAL: interpreter not found at "%PYTHON%" - update PYTHON in this file. >> "%LOG%"
+  endlocal & exit /b 2
+)
 
 cd /d "%ROOT%"
 

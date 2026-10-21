@@ -3,8 +3,8 @@ name: Daily polls
 on:
   schedule:
     # Publishing cadence: one poll + one companion article, Mon/Wed/Fri.
-    # The 30-entry POLL_BANK in scripts/daily_polls.py is what sets this
-    # pace -- at the old 2-per-day the whole bank was recycled in 15 days
+    # The 38-entry POLL_BANK in scripts/daily_polls.py is what sets this
+    # pace -- at the old 2-per-day a 30-entry bank was recycled in 15 days
     # and repeated entries re-emitted their article byte for byte. The
     # publishing days themselves are chosen by the "Skip on non-publishing
     # weekdays" step below (Asia/Dhaka), so changing the cadence is a

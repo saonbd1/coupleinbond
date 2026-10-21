@@ -11,6 +11,6 @@ ogImageAlt: "Hands placing colorful relationship poll cards into a ballot box"
 companionHref: "../blog-posts/makes-meeting-family-less-stressful-20261020-companion.html"
 companionTitle: "How to Make Meeting the Family Go Smoothly"
 options: ["Bring a thoughtful gift", "Let your partner brief you", "Ask genuine questions", "Keep the first visit short"]
-related: [{"href": "keep-friendships-alive-while-relationship-20261020.html", "title": "How do you keep friendships alive while in a relationship?"}, {"href": "date-night-mood.html", "title": "What kind of date night sounds best this week?"}]
+related: [{"href": "keep-friendships-alive-while-relationship-20261018.html", "title": "How do you keep friendships alive while in a relationship?"}, {"href": "date-night-mood.html", "title": "What kind of date night sounds best this week?"}]
 draft: false
 ---

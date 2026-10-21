@@ -7,7 +7,7 @@ kicker: "Date night · 3 min read"
 dek: "The phone is the third wheel on most modern dates. Here is whether date night deserves a strict no-phone rule, and what works instead."
 publishedLabel: "Published 2026-10-15"
 datePublished: "2026-10-15"
-dateModified: "2026-10-15"
+dateModified: "2026-10-21"
 section: "Date night"
 slug: "phones-be-banned-date-night-20261015-companion"
 tag: "DATE NIGHT"
@@ -34,7 +34,7 @@ asideHtml: ""
       <ul><li>Full drawer mode: phones parked from hello to goodnight</li><li>Camera-only exception: photos welcome, scrolling banned</li><li>First-hour lockdown: total presence, then relaxed evening</li><li>Stack-and-penalty game: first to peek pays for dessert</li></ul>
       <h2>Make it yours</h2>
       <p>Vote in the poll and agree on one rule before the next date, not during it. Then watch what happens to the conversation when the third wheel leaves the table. Most couples report the same shock: we talked like we used to. The phones did not add anything. Their absence did.</p>
-      <p>If you want to go further, read our guide to <a href="couple-bonding-activities-at-home.html">couple bonding activities at home</a>, or share a playful result from the <a href="../calculator.html">love calculator</a>.</p>
+      <p>The full version of this advice is <a href="phones-be-banned-date-night-20261018-companion.html">A Phone Policy That Actually Works on Date Night</a>, which covers the tiers and the exceptions. You can also read our guide to <a href="couple-bonding-activities-at-home.html">couple bonding activities at home</a>, or share a playful result from the <a href="../calculator.html">love calculator</a>.</p>
       <div class="article-callout"><strong>Your turn:</strong> Take the 10-second poll, <a href="../polls/phones-be-banned-date-night-20261015.html">Should phones be banned on date night?</a>, and compare your answer with your partner tonight.</div>
       <h2>Frequently Asked Questions</h2>
-      <h3>How should we use this poll as a couple?</h3><p>Vote separately, then compare. The poll below is a conversation starter, not a test, and the gap between your two answers is where the most useful talk begins.</p><h3>What is the fastest way to start?</h3><p>Pick one idea from &quot;Four phone rules that actually stick&quot; and try it this week. One small, repeatable action beats a long list you never get around to.</p><h3>Does this apply to long-term couples too?</h3><p>Yes. These ideas work best repeated over years, not performed once. Long-term couples get more from a small habit they keep than a grand gesture they do once.</p>
+      <h3>What if one of us is bored of our usual night?</h3><p>Change one variable at a time - the place, the time, or the activity. Replacing all three at once is why grand reinventions tend not to survive a month, while one swapped detail usually sticks.</p><h3>Are phones really the problem on date night?</h3><p>They are the visible part of it. A phone lying face down is a decision; a phone checked repeatedly is information about how the evening is landing. Worth noticing which of the two it is before agreeing any rules.</p><h3>How do you decide whose turn it is to plan?</h3><p>Both names on the plan, one owner per night. Rotating ownership ends the loop of two people who cannot choose a restaurant, and it keeps the work from quietly defaulting to whoever asked last.</p>

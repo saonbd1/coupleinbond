@@ -11,6 +11,6 @@ ogImageAlt: "Hands placing colorful relationship poll cards into a ballot box"
 companionHref: "../blog-posts/couple-talk-about-future-20261021-companion.html"
 companionTitle: "When Should Couples Start Talking About the Future"
 options: ["Early, to align expectations", "When things feel serious", "After the first big trip", "Let it unfold naturally"]
-related: [{"href": "best-way-say-sorry-after-20261021.html", "title": "What is the best way to say sorry after a silly fight?"}, {"href": "date-night-mood.html", "title": "What kind of date night sounds best this week?"}]
+related: [{"href": "best-way-say-sorry-after-20261013.html", "title": "What is the best way to say sorry after a silly fight?"}, {"href": "date-night-mood.html", "title": "What kind of date night sounds best this week?"}]
 draft: false
 ---

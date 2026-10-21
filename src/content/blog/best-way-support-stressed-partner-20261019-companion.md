@@ -7,7 +7,7 @@ kicker: "Relationships · 3 min read"
 dek: "When someone you love is stressed, good intentions can miss the mark. Here is the support that actually lands."
 publishedLabel: "Published 2026-10-19"
 datePublished: "2026-10-19"
-dateModified: "2026-10-19"
+dateModified: "2026-10-21"
 section: "Relationships"
 slug: "best-way-support-stressed-partner-20261019-companion"
 tag: "RELATIONSHIPS"
@@ -37,4 +37,4 @@ asideHtml: ""
       <p>If you want to go further, read our guide to <a href="relationship-compatibility-quiz.html">relationship compatibility quiz</a>, or share a playful result from the <a href="../calculator.html">love calculator</a>.</p>
       <div class="article-callout"><strong>Your turn:</strong> Take the 10-second poll, <a href="../polls/best-way-support-stressed-partner-20261019.html">What is the best way to support a stressed partner?</a>, and compare your answer with your partner tonight.</div>
       <h2>Frequently Asked Questions</h2>
-      <h3>How should we use this poll as a couple?</h3><p>Vote separately, then compare. The poll below is a conversation starter, not a test, and the gap between your two answers is where the most useful talk begins.</p><h3>What is the fastest way to start?</h3><p>Pick one idea from &quot;Four supports that actually help&quot; and try it this week. One small, repeatable action beats a long list you never get around to.</p><h3>Does this apply to long-term couples too?</h3><p>Yes. These ideas work best repeated over years, not performed once. Long-term couples get more from a small habit they keep than a grand gesture they do once.</p>
+      <h3>How do you know a boundary is reasonable?</h3><p>A reasonable boundary protects your own time, energy, or values rather than controlling someone else&#x27;s. If the request is about what you will do next, it is usually sound. If it is about what your partner must stop doing, it needs another conversation.</p><h3>Should couples keep separate friendships?</h3><p>Yes. Time apart is not a tax on the relationship; it is what gives each person something new to bring back into it. Couples who cancel their other plans as a rule tend to notice the cost later rather than immediately.</p><h3>Is compatibility tested or built?</h3><p>Both, in that order. A compatibility conversation shows where the friction is likely to sit; the everyday habits decide whether that friction turns into resentment. The two lists under &quot;Four supports that actually help&quot; are the part worth acting on.</p>

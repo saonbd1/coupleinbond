@@ -11,6 +11,6 @@ ogImageAlt: "Hands placing colorful relationship poll cards into a ballot box"
 companionHref: "../blog-posts/makes-relationship-feel-equal-20261017-companion.html"
 companionTitle: "What Makes a Relationship Feel Truly Equal"
 options: ["Sharing decisions together", "Splitting effort fairly", "Respecting each other's goals", "Both feeling heard"]
-related: [{"href": "who-plan-next-date-20261017.html", "title": "Who should plan the next date?"}, {"href": "date-night-mood.html", "title": "What kind of date night sounds best this week?"}]
+related: [{"href": "who-plan-next-date-20261001.html", "title": "Who should plan the next date?"}, {"href": "date-night-mood.html", "title": "What kind of date night sounds best this week?"}]
 draft: false
 ---

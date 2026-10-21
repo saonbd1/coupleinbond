@@ -583,6 +583,145 @@ POLL_BANK = [
       "Planning the next date together before saying goodnight"],
      "Make it yours",
      "Vote in the poll, then try the winner after your next date night. Notice how the whole evening feels different in memory the next morning. Great dates are not just lived well. They are ended well, on purpose, together."),
+    # --- v3 additions: the bank below was empty for `seasonal` and had no
+    # unused entries left in `connection` or `date-night`. Written to the same
+    # 14-field shape as the rest of the bank.
+    ("seasonal",
+     "What matters most on an anniversary?",
+     "Vote on the part of an anniversary that makes the date feel worth marking at all.",
+     "Anniversaries quietly ask for a verdict on the year just passed. This poll asks what makes the day feel meaningful instead of obligatory.",
+     ["Repeating the first date", "A letter and no plan at all", "A trip put aside for months", "An ordinary day, made deliberate"],
+     "How to Mark an Anniversary Without Turning It Into a Test",
+     "Anniversaries land when they say something specific about the two of you. Here is how to decide what you are saying before you book anything.",
+     "Why anniversaries carry more weight than birthdays",
+     "A birthday asks nothing about the relationship. An anniversary asks for a verdict, which is why couples handle it so badly. Some overinvest and turn one evening into proof that the whole year worked. Some underinvest and let the date pass with a text, as though acknowledging it would make the number real. Both reactions come from the same assumption: that the day has to carry meaning rather than receive it. An anniversary means whatever you decide it means. If the year was hard, a quiet evening that says we are still here can land harder than a weekend away. If the year was easy, marking it is how you keep the ease from being mistaken for indifference. The options in the poll above are not ranked by cost. They are ranked by how much of the relationship each one requires you to name out loud, and that naming is the part most couples skip.",
+     "One honest test: the plan should be impossible to send to somebody else by mistake.",
+     "Four anniversary formats and what each one says",
+     ["Repeating the first date: says the story still matters more than the upgrade",
+      "A letter and no plan: says the thing never said out loud finally got said",
+      "A trip saved for months: says the relationship beat the spending",
+      "An ordinary day made deliberate: says closeness does not need a stage"],
+     "Match the gesture to the year you actually had",
+     "Look back at the last twelve months before you book anything. A year of small friction calls for relief rather than spectacle: an evening with no logistics, no queue at a restaurant, no performance. A year of distance calls for something with a beginning and an end, a shared event you can both refer back to. A year that simply flew by calls for the cheapest thing available, which is attention. Whatever you choose, say why you chose it. An anniversary plan explained in one sentence lands better than an expensive one left unexplained."),
+    ("seasonal",
+     "How should couples handle the holiday season together?",
+     "Vote on the plan that keeps the holidays a shared season rather than a source of arguments.",
+     "The holidays ask couples to negotiate family, money, and exhaustion inside the same fortnight. This poll compares the ways through.",
+     ["Alternate families year by year", "Split each day down the middle", "Host our own small thing", "Keep the season deliberately quiet"],
+     "How Couples Get Through the Holiday Season Without Turning on Each Other",
+     "Holiday friction is rarely about the holidays. It is about two plans, two families, and far too little notice. Here is how to sort it early.",
+     "Most holiday arguments are scheduling arguments wearing a costume",
+     "Nobody fights about the turkey. They fight because the plan changed on the fourth, because one person was consulted and the other was informed, and because the drive to a relative's house was agreed in September and remembered in December. Holiday tension is almost always a logistics problem that arrived too late to fix quietly. That is why the four options in the poll above work: each one removes a decision from the week in which it has to be executed. Alternating by year settles the largest question well in advance. Splitting a day settles it daily. Hosting your own thing replaces an obligation with a plan you chose. Keeping the season small is the honest answer for couples already running on empty, and it is more common than anybody admits out loud at a family dinner.",
+     "A fair rule: the plan is agreed by the first of December, and any change after that costs whoever proposes it something.",
+     "Four conversations to have before the season starts",
+     ["Which relatives, in which order, and for how many hours",
+      "What each of you is willing to spend, said out loud rather than assumed",
+      "Which traditions you are keeping and which you are quietly dropping",
+      "What counts as a break, and whether either of you may take one alone"],
+     "Protect the season, not just the day",
+     "The mistake is treating the holidays as one long celebration. For most couples they are a fortnight of obligations with two genuinely good evenings inside them. Book those two evenings first, the ones where nothing is expected of you, and let the rest be logistics. Couples who schedule rest during December stop mistaking their own exhaustion for dissatisfaction with each other, and that single substitution prevents more holiday damage than any gesture."),
+    ("seasonal",
+     "What is the best gift a couple can give each other?",
+     "Vote on the kinds of present that actually land in a long relationship.",
+     "Most couples are bad at gifts and good at loving each other. This poll looks at what turns attention into something a partner can hold.",
+     ["Something they mentioned weeks ago", "A day planned entirely around them", "A chore removed from their list", "An experience booked for later"],
+     "What Makes a Gift Land in a Long Relationship",
+     "Expensive is not the same as noticed. Here is why the best presents prove you were paying attention long before the occasion arrived.",
+     "Attention is the only thing a gift can prove",
+     "A gift is a receipt for attention, which is why an expensive object chosen from a website can lose to a cheap thing someone mentioned in passing back in June. The second one cannot be bought that afternoon. It required that you heard something, stored it, and connected it to a date on the calendar. In a long relationship that evidence matters more than the object, because the everyday danger is not falling out of love. It is going unobserved. The four options in the poll above deliver the same proof along different routes: a remembered detail, a day built around a preference, a burden taken quietly off somebody's list, or a future plan that says the relationship still has things to look forward to. Price is the least informative part of any of them.",
+     "A gentle rule: if you bought it that afternoon, add the sentence that explains why it is for them.",
+     "Four gifts that work without a large budget",
+     ["The detail you remembered: mention it now, then buy it later",
+      "The planned day: no decisions required of the recipient from morning to night",
+      "The removed burden: the appointment, the call, or the chore they dreaded",
+      "The booked future: a date with a ticket attached, however small"],
+     "Give the evidence, not the object",
+     "Ask what each of you has mentioned twice and then forgotten. That list is a gift guide neither of you wrote on purpose. Then agree a rough ceiling so spending stops becoming a silent scoreboard. A present that costs what you can afford and says I was listening does everything a gift is supposed to do, and the receipt is the least interesting part of it."),
+    ("connection",
+     "What helps you feel understood without explaining yourself?",
+     "Vote on the everyday signals that tell a partner they are being read correctly.",
+     "Being understood is mostly a matter of being noticed. This poll asks which small signal does that best for you.",
+     ["A message out of nowhere", "Noticing a change before it is named", "The right silence on a bad day", "A question about something mentioned once"],
+     "How Couples Feel Understood Without Having to Explain Themselves",
+     "Explanation is work, and being read correctly is relief. Here is what makes a partner feel understood before they say anything.",
+     "Understanding is a habit of attention, not a talent",
+     "Some people seem easy to read and others seem impossible, and most of that difference is where attention was aimed rather than how much love was felt. A partner who notices that your tone changed at dinner is not gifted. They have simply kept a record of your ordinary baseline and can tell when it moves. That record is what makes understanding look effortless, and it is available to anybody willing to pay attention on purpose. The poll above lists the four ways people most often report feeling understood, and they share one property: each requires the other person to have noticed something first and then acted on it without being asked. This is also why being understood cannot be requested. A demand to be read is a contradiction, and the moment the explanation is required the evidence has gone.",
+     "One honest test: name one thing about your partner that changed this month and that they never mentioned.",
+     "Four ways to prove you are paying attention",
+     ["Say the thing you noticed instead of waiting to be asked about it",
+      "Ask about the meeting, the neighbour, or the worry from three days ago",
+      "Match the room: company on a flat day, quiet on an overloaded one",
+      "Send one message during the day that proves they were on your mind"],
+     "Build the baseline you want to be read from",
+     "Understanding runs on ordinary data. The less a couple talk about nothing, the harder it becomes to notice when something is wrong, because there is no normal left to compare against. Start by trading one daily summary for one specific question. Not how was your day, which returns a shrug, but what happened with the thing you were dreading on Tuesday. The record builds quickly, and being understood gets easier in proportion to it."),
+    ("connection",
+     "What makes a difficult conversation feel safe?",
+     "Vote on the conditions that let a couple raise a hard topic without it turning into a fight.",
+     "Most couples avoid the difficult conversation rather than lose the argument. This poll asks what makes raising one feel survivable.",
+     ["Asking permission to bring it up", "Choosing a neutral time, not a charged one", "One person speaks without answering", "Agreeing the outcome need not be instant"],
+     "How to Make a Difficult Conversation Feel Safe",
+     "Safety in a hard talk is mostly a matter of sequence and exit. Here is how couples make difficult topics discussable rather than avoidable.",
+     "People avoid hard talks because the cost of starting them is unclear",
+     "A difficult conversation feels unsafe for one specific and fixable reason: nobody knows how it ends. If raising a topic has previously produced a fight, a shutdown, or a promise that went nowhere, the brain files the subject as expensive and stops permitting the opening sentence. That is why two people can be devoted to each other and structurally unable to discuss one particular thing. The remedy is not more love. It is a clearer frame. When both people know the length, the order, and what may actually be decided, the subject stops costing an unknown amount. The four options in the poll above each reduce that unknown in a different way. Asking permission makes the opening mutual. A neutral time makes it low-stakes. One person speaking without answering makes it safe to be incomplete. Agreeing that nothing must be settled tonight makes it safe to stop.",
+     "A gentle rule: raise hard topics while you are both calm, not while one of you is right.",
+     "Four frames that make a difficult conversation shorter",
+     ["Ask first: is now a workable time for a difficult subject",
+      "Set a limit: twenty minutes, one topic, nothing in the way",
+      "One at a time: the first person finishes before the second answers",
+      "End with a next step, however small, or say plainly that there is none yet"],
+     "Safety is built out of finished conversations",
+     "The first difficult talk will be clumsy, which is the argument for attempting it while the stakes are still small. Choose a cheap subject before the expensive one: the chore arrangement rather than the family problem. Every conversation that starts and ends without damage lowers the price of the next one. Couples who can discuss hard things are not couples who stopped caring about the outcome. They are couples who have evidence, collected one awkward twenty-minute talk at a time."),
+    ("date-night",
+     "How far ahead should date night be planned?",
+     "Vote on how much notice a good date night actually needs.",
+     "Some couples need a plan on the calendar and others need the possibility of one. This poll compares the two instincts.",
+     ["Booked weeks in advance", "Decided that morning", "A standing weekly night, planned later", "Spontaneous, whenever the evening opens up"],
+     "How Much Notice Does Date Night Really Need",
+     "Planned too early, it becomes an event to prepare for. Planned too late, it does not happen at all. Here is where the balance sits.",
+     "Advance planning protects the evening from the week",
+     "The reason a booked date survives and an improvised one usually does not is that a week quietly expands to fill every available evening. A plan made three weeks ahead puts a wall around one of them before the tiredness, the lift to run, and the family obligation arrive to claim it. A standing weekly night works for the same reason: the decision is taken once and then defended automatically, leaving the couple to negotiate only the content. Where advance planning fails is when the plan becomes a production. An evening that requires bookings, outfits, and travel can turn a chance to connect into a piece of logistics that one person has to manage alone, which is a poor romantic foundation for anything. The poll above sorts couples by how much of the evening they want settled in advance, and the honest answer usually depends on whose calendar the week belongs to.",
+     "A fair rule: decide the date early and the activity late. Fixed evening, open content.",
+     "Four planning styles and what each one costs",
+     ["Booked weeks ahead: reliable, but it can become an event to prepare for",
+      "Decided that morning: fresh, and the first thing a busy week destroys",
+      "Standing night, planned later: the least effort and the best survival rate",
+      "Purely spontaneous: thrilling, and statistically rare after the first year"],
+     "Put the wall on the calendar, not the plan",
+     "If date night keeps failing, stop diagnosing the activities and look at the schedule instead. Most couples are short of a defended hour rather than short of ideas. Book the recurring evening first, keep the content deliberately modest, and let the good plans be the ones that happened by accident. A protected night with nothing in it usually beats an elaborate night that needed three weeks of coordination and left both of you tired."),
+    ("date-night",
+     "What makes a date night feel like a real break from routine?",
+     "Vote on what actually separates a memorable evening from the same week repeated in a different room.",
+     "Two people can leave the house and change nothing. This poll asks what turns an ordinary evening into an exception.",
+     ["Somewhere neither of us has been", "An activity with our hands busy", "No phones and no logistics talk", "A night with no fixed ending time"],
+     "What Makes a Date Night Feel Different From an Ordinary Evening",
+     "Novelty is not an expensive venue. It is a change of context, and it can be produced cheaply on purpose.",
+     "A date night fails when it changes the location but not the mode",
+     "A couple can drive forty minutes to a restaurant and have the same conversation they had at the kitchen table, about the same logistics, on the same tired frequency. The location changed and the mode did not. What makes an evening memorable is that it interrupted the running topics, and interruption requires either new input or a removed obligation. New input is the unfamiliar street, the class, the walk on which neither of you knows the way. A removed obligation is the phone in the other room, the bills not discussed, the absence of a hard stop at ten. The four options in the poll above are those four levers, and they work for one reason: each makes the ordinary week temporarily unavailable. That is also why the cheapest date can beat the expensive one, provided it pulls a lever rather than spending money.",
+     "One honest test: could this evening have happened on any ordinary Tuesday? If it could, it was not a date.",
+     "Four levers, in rough order of effect",
+     ["Change the place: somewhere neither of you has been, however small",
+      "Change the input: an activity with your hands busy and no script",
+      "Remove the phone: not face down on the table, in another room",
+      "Remove the clock: an evening with no fixed ending time"],
+     "Use one lever, not four",
+     "Attempting to change everything at once produces a schedule, which is the opposite of the effect you wanted. Pick one lever per evening and rotate through the rest. In practice a walk in an unfamiliar neighbourhood with the phones left at home outperforms a booked dinner that arrives with a timeline, a dress code, and a conversation about the plumbing. Novelty is cheap. The scarce resource is unstructured time."),
+    ("relationships",
+     "How do you handle wanting different amounts of time apart?",
+     "Vote on the workable way to live with different needs for space inside one relationship.",
+     "One person wants the weekend together and the other wants the weekend alone. This poll compares how couples handle that gap.",
+     ["Schedule the alone time like anything else", "One shared day, one separate day", "Ask what the space is for, then agree", "Say honestly that the gap is hurting us"],
+     "When One Partner Needs More Space Than the Other",
+     "Different needs for time apart are common and rarely a verdict on the relationship. Here is how couples make the gap livable.",
+     "Space is a difference of regulation, not of love",
+     "The person who needs an afternoon alone is not the person who loves less, and the two things are almost unrelated. What differs is how each nervous system returns to baseline. Some people recover in company and some recover in quiet, and a couple made of one of each will keep misreading the other's need as a statement about the relationship. That misreading is the actual problem. The gap in temperament is manageable; the story built on top of it is not. The options in the poll above differ mainly in how explicit they are. Scheduled alone time stops reading as rejection once it is agreed in advance. Splitting the week makes the trade visible rather than argued about. Asking what the space is for separates a need from a withdrawal. Saying honestly that the gap hurts is the uncomfortable version, and occasionally the necessary one.",
+     "A gentle rule: name the reason for the space the first time you take it, because an unexplained afternoon alone gets a story attached to it.",
+     "Four arrangements that survive contact with a busy week",
+     ["A fixed solo block each week, agreed in advance and defended by both",
+      "One shared day and one separate day, alternating who chooses the shared one",
+      "The check-in question: is this space or distance, asked kindly and answered plainly",
+      "A review date: if the arrangement still hurts in a month, renegotiate rather than resent it"],
+     "Watch for withdrawal, not for want",
+     "Needing time alone is ordinary. Needing time away from your partner specifically, and becoming less interested in explaining why, is a different thing. The useful distinction is whether the person comes back. A partner who takes an evening alone and returns warm and talkative was regulating, not leaving. A partner who takes the same evening and returns further away has told you something worth discussing while the subject is still small enough to hold."),
 ]
 # --------------------------------------------------------------------------
 # Helpers
@@ -822,16 +961,206 @@ def article_slug(poll_id):
     return poll_id + "-companion"
 
 
-TOPIC_RELATED_ARTICLE = {
-    "connection": ("couples-communication-exercises.html",
-                   "couples communication exercises for more emotional intimacy"),
-    "relationships": ("relationship-compatibility-quiz.html",
-                      "relationship compatibility quiz"),
-    "date-night": ("couple-bonding-activities-at-home.html",
-                   "couple bonding activities at home"),
-    "seasonal": ("valentines-day-date-ideas-at-home.html",
-                 "Valentine's Day date ideas at home"),
+TOPIC_RELATED_ARTICLES = {
+    "connection": [
+        ("couples-communication-exercises.html",
+         "couples communication exercises for more emotional intimacy"),
+        ("why-modern-dating-feels-so-hard.html",
+         "why modern dating feels so hard"),
+        ("relationship-compatibility-guide.html",
+         "the relationship compatibility guide"),
+    ],
+    "relationships": [
+        ("relationship-compatibility-quiz.html",
+         "relationship compatibility quiz"),
+        ("compatibility-quiz-for-long-term-couples.html",
+         "the compatibility quiz for long-term couples"),
+        ("are-we-compatible-quiz.html",
+         "the are we compatible quiz"),
+    ],
+    "date-night": [
+        ("couple-bonding-activities-at-home.html",
+         "couple bonding activities at home"),
+        ("why-modern-dating-feels-so-hard.html",
+         "why modern dating feels so hard"),
+        ("relationship-compatibility-questions-quiz.html",
+         "relationship compatibility questions"),
+    ],
+    "seasonal": [
+        ("valentines-day-date-ideas-at-home.html",
+         "Valentine's Day date ideas at home"),
+        ("galentines-day-ideas-self-love.html",
+         "Galentine's Day ideas and self-love"),
+        ("couple-bonding-activities-at-home.html",
+         "couple bonding activities at home"),
+    ],
 }
+
+# Every companion article used to ship the same opening line, the same "read
+# our guide to X" sentence, the same CTA and the same three FAQs. Across 27
+# published articles that shared block was about a third of every page, and it
+# made unrelated posts look like near-duplicates of each other. The pools below
+# let those four slots vary: the topic keeps the wording relevant and
+# _variant_n() picks a stable offset per poll, so the same entry always
+# regenerates identically while neighbouring entries no longer read the same.
+INTRO_VARIANTS = (
+    "{intro} Vote on the question below, then use this short guide to act "
+    "on your answer.",
+    "{intro} Cast your vote first, then read on for a short guide you can "
+    "act on this week.",
+    "{intro} Make your call in the poll below, and use the guide that "
+    "follows to turn it into a conversation.",
+    "{intro} Answer the poll first - the short guide below turns its "
+    "options into something you can try tonight.",
+)
+
+LINK_FRAMES = (
+    'If you want to go further, read our guide to <a href="{file}">{anchor}</a>, '
+    'or share a playful result from the <a href="../calculator.html">love '
+    'calculator</a>.',
+    'For the wider pattern behind this, our guide to <a href="{file}">{anchor}</a> '
+    'goes deeper; the <a href="../calculator.html">love calculator</a> is the '
+    'lighter way to start the same conversation.',
+    'The <a href="{file}">{anchor}</a> guide covers the longer version of this. '
+    'For something quicker, run a <a href="../calculator.html">love calculator</a> '
+    'result and show your partner before you say anything.',
+    'Two places to take this further: <a href="{file}">{anchor}</a>, or a '
+    '<a href="../calculator.html">love calculator</a> result if you would '
+    'rather keep it light.',
+)
+
+CTA_VARIANTS = (
+    '<div class="article-callout"><strong>Your turn:</strong> Take the 10-second '
+    'poll, <a href="{href}">{title}</a>, and compare your answer with your partner '
+    'tonight.</div>',
+    '<div class="article-callout"><strong>Keep going:</strong> Answer <a '
+    'href="{href}">{title}</a>, then show your partner the gap between your two '
+    'picks.</div>',
+    '<div class="article-callout"><strong>One more thing:</strong> The poll on <a '
+    'href="{href}">{title}</a> takes ten seconds and works best answered '
+    'separately.</div>',
+    '<div class="article-callout"><strong>Try this tonight:</strong> Both of you '
+    'vote on <a href="{href}">{title}</a> before you discuss it, in whichever '
+    'order feels least risky.</div>',
+)
+
+# Three of the four are used per article, selected and ordered by _variant_n.
+# Templates may take {h2b} (the list heading of this article) so the answer
+# still points at content that exists on the page. Keep them true of any poll
+# in the topic: the rotation cannot know which entry it landed on.
+FAQ_TEMPLATES = {
+    "connection": [
+        ("Does spending more time together build connection?",
+         "Not by itself. Two people can share a sofa for three hours and "
+         "exchange nothing. Connection follows attention, so one short "
+         "undistracted conversation tends to do more than a long evening "
+         "spent side by side on separate screens."),
+        ("How often should a couple talk about the relationship?",
+         "Less often than you might expect, but at a set time. A short weekly "
+         "check-in is easier to keep than daily heavy conversations, and it "
+         "stops small irritations from stacking up until they arrive all at "
+         "once. Start with one item under \"{h2b}\".",),
+        ("What does emotional availability actually mean?",
+         "Answering instead of deflecting, and staying present when the topic "
+         "is uncomfortable. If one partner routinely leaves the conversation, "
+         "availability is the thing to work on before the subject of the "
+         "conversation changes at all."),
+        ("We like each other but feel flat. Is that a problem?",
+         "It is a signal rather than a verdict. Liking someone and feeling "
+         "connected to them are different things, and flatness usually means "
+         "the shared-attention habit lapsed first. Repeat one item from "
+         "\"{h2b}\" for three weeks before you judge whether anything moved."),
+    ],
+    "relationships": [
+        ("Is compatibility tested or built?",
+         "Both, in that order. A compatibility conversation shows where the "
+         "friction is likely to sit; the everyday habits decide whether that "
+         "friction turns into resentment. The two lists under \"{h2b}\" are "
+         "the part worth acting on."),
+        ("How do you know a boundary is reasonable?",
+         "A reasonable boundary protects your own time, energy, or values "
+         "rather than controlling someone else's. If the request is about "
+         "what you will do next, it is usually sound. If it is about what "
+         "your partner must stop doing, it needs another conversation."),
+        ("Should couples keep separate friendships?",
+         "Yes. Time apart is not a tax on the relationship; it is what gives "
+         "each person something new to bring back into it. Couples who cancel "
+         "their other plans as a rule tend to notice the cost later rather "
+         "than immediately."),
+        ("One of us feels the relationship is uneven. What now?",
+         "Name the specific job rather than the general unfairness. Who plans "
+         "the dates is discussable; you do less is not. Work down \"{h2b}\" "
+         "and agree one change each, then check back in a month."),
+    ],
+    "date-night": [
+        ("Does date night have to cost money?",
+         "No. The point is a protected change of context, and a walk with "
+         "both phones out of reach delivers that as reliably as a booked "
+         "table. Spending usually impresses the person paying for it more "
+         "than the couple."),
+        ("How do you decide whose turn it is to plan?",
+         "Both names on the plan, one owner per night. Rotating ownership "
+         "ends the loop of two people who cannot choose a restaurant, and it "
+         "keeps the work from quietly defaulting to whoever asked last."),
+        ("What if one of us is bored of our usual night?",
+         "Change one variable at a time - the place, the time, or the "
+         "activity. Replacing all three at once is why grand reinventions "
+         "tend not to survive a month, while one swapped detail usually "
+         "sticks."),
+        ("Are phones really the problem on date night?",
+         "They are the visible part of it. A phone lying face down is a "
+         "decision; a phone checked repeatedly is information about how the "
+         "evening is landing. Worth noticing which of the two it is before "
+         "agreeing any rules."),
+    ],
+    "seasonal": [
+        ("How do you handle different expectations for an occasion?",
+         "Write them down separately before discussing them. Expectations "
+         "said out loud usually sound reasonable to both people; expectations "
+         "guessed at tend to sound like a test one of you is already failing."),
+        ("Do gifts have to match in value?",
+         "They should match in attention. A small gift that shows you "
+         "remembered a detail usually lands better than an expensive one that "
+         "could have been bought for anyone at all."),
+        ("Which occasion deserves the most effort?",
+         "The one you both actually mention during the year, not the one with "
+         "the strongest commercial build-up. Spending big on a date nobody "
+         "cares about while skipping the one your partner brought up twice is "
+         "how an occasion starts to feel like administration."),
+        ("What if a marked date starts feeling like an obligation?",
+         "That usually means the plan was chosen for appearance rather than "
+         "for the two of you. Swap the format and keep the date: a shorter "
+         "evening you both wanted beats a longer one neither of you did. "
+         "Notice it early, while it is still a plan and not a grievance."),
+    ],
+}
+
+
+def _variant_n(poll_id, salt=0):
+    """Stable pseudo-random offset per poll id.
+
+    Deterministic, so regenerating an entry reproduces the same wording. The
+    salt gives each rotating slot (intro, links, related article, CTA, FAQ)
+    its own independent offset: reusing one number everywhere would tie the
+    choices together and cut the number of distinct combinations sharply.
+    """
+    return sum((i + 1) * ord(c) for i, c in enumerate(poll_id)) + salt * 7919
+
+
+def _split_callout(text):
+    """Render the body callout as "<strong>Label:</strong> rest".
+
+    Bank entries write their own lead-in ("A gentle rule: ...", "A fair rule: ...",
+    "One honest test: ..."), so the label travels with the content instead of
+    being hardcoded for every article. A callout that opens with a sentence
+    rather than a short label keeps the original fallback box.
+    """
+    head, sep, tail = text.partition(": ")
+    if sep and head and len(head) <= 45 and len(head.split()) <= 6 \
+            and ". " not in head and "?" not in head:
+        return "<strong>%s:</strong> %s" % (html_lib.escape(head),
+                                            html_lib.escape(tail))
+    return "<strong>Gentle rule:</strong> " + html_lib.escape(text)
 
 
 def _article_plain_text(poll):
@@ -862,10 +1191,7 @@ def write_companion_md(path, poll, date_str, card_order, ld_order):
     read_time = max(3, int(round(words / 130.0)))
 
     co = a["callout"]
-    if co.startswith("A gentle rule: "):
-        callout_html = "<strong>A gentle rule:</strong> " + esc(co[len("A gentle rule: "):])
-    else:
-        callout_html = "<strong>Gentle rule:</strong> " + esc(co)
+    callout_html = _split_callout(co)
 
     first_sentence = a["h2a_body"].split(". ")[0].strip()
     if first_sentence and not first_sentence.endswith("."):
@@ -875,31 +1201,26 @@ def write_companion_md(path, poll, date_str, card_order, ld_order):
 
     items_html = "".join("<li>%s</li>" % esc(x) for x in a["h2b_items"])
 
-    intro_p = ("%s Vote on the question below, then use this short guide to act "
-               "on your answer." % poll["intro"])
+    v = _variant_n(poll["id"])
 
-    rel_file, rel_anchor = TOPIC_RELATED_ARTICLE[poll["topic"]]
-    links_p = ("If you want to go further, read our guide to "
-               '<a href="%s">%s</a>, or share a playful result from the '
-               '<a href="../calculator.html">love calculator</a>.'
-               % (rel_file, esc(rel_anchor)))
+    intro_p = INTRO_VARIANTS[v % len(INTRO_VARIANTS)].format(intro=poll["intro"])
 
-    cta_html = ('<div class="article-callout"><strong>Your turn:</strong> '
-                'Take the 10-second poll, <a href="%s">%s</a>, and compare your '
-                'answer with your partner tonight.</div>' % (poll_href, esc(poll["title"])))
+    rel_file, rel_anchor = TOPIC_RELATED_ARTICLES[poll["topic"]][
+        _variant_n(poll["id"], 3) % 3]
+    links_p = LINK_FRAMES[_variant_n(poll["id"], 2) % len(LINK_FRAMES)].format(
+        file=rel_file, anchor=esc(rel_anchor))
 
-    faqs = [
-        ("How should we use this poll as a couple?",
-         "Vote separately, then compare. The poll below is a conversation starter, not a "
-         "test, and the gap between your two answers is where the most useful talk begins."),
-        ("What is the fastest way to start?",
-         'Pick one idea from "%s" and try it this week. One small, repeatable action beats '
-         "a long list you never get around to." % a["h2b"]),
-        ("Does this apply to long-term couples too?",
-         "Yes. These ideas work best repeated over years, not performed once. Long-term "
-         "couples get more from a small habit they keep than a grand gesture they do once."),
-    ]
-    faq_html = "".join("<h3>%s</h3><p>%s</p>" % (esc(q), esc(ans)) for q, ans in faqs)
+    cta_html = CTA_VARIANTS[_variant_n(poll["id"], 4) % len(CTA_VARIANTS)].format(
+        href=poll_href, title=esc(poll["title"]))
+
+    pool = FAQ_TEMPLATES[poll["topic"]]
+    faqs = [pool[(v + k) % len(pool)] for k in range(3)]
+    faqs = faqs[_variant_n(poll["id"], 5) % 3:] + \
+        faqs[:_variant_n(poll["id"], 5) % 3]
+    faq_html = "".join(
+        "<h3>%s</h3><p>%s</p>" % (esc(q), esc(ans.format(h2b=a["h2b"],
+                                                         section=section)))
+        for q, ans in faqs)
 
     body = (
         '      <div class="article-callout key-takeaways"><strong>Key Takeaways</strong>'

@@ -5,6 +5,31 @@
   "outputDirectory": "dist",
   "redirects": [
     {
+      "source": "/polls/who-plan-next-date-20261017.html",
+      "destination": "/polls/who-plan-next-date-20261001.html",
+      "permanent": true
+    },
+    {
+      "source": "/polls/keeps-spark-alive-long-relationship-20261019.html",
+      "destination": "/polls/keeps-spark-alive-long-relationship-20261004.html",
+      "permanent": true
+    },
+    {
+      "source": "/polls/phones-be-banned-date-night-20261018.html",
+      "destination": "/polls/phones-be-banned-date-night-20261015.html",
+      "permanent": true
+    },
+    {
+      "source": "/polls/keep-friendships-alive-while-relationship-20261020.html",
+      "destination": "/polls/keep-friendships-alive-while-relationship-20261018.html",
+      "permanent": true
+    },
+    {
+      "source": "/polls/best-way-say-sorry-after-20261021.html",
+      "destination": "/polls/best-way-say-sorry-after-20261013.html",
+      "permanent": true
+    },
+    {
       "source": "/:path*",
       "has": [
         {

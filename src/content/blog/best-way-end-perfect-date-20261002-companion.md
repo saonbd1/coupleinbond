@@ -7,7 +7,7 @@ kicker: "Date night · 3 min read"
 dek: "Endings shape memories. Here is the closing moment that turns a good date into one you talk about for weeks."
 publishedLabel: "Published 2026-10-02"
 datePublished: "2026-10-02"
-dateModified: "2026-10-02"
+dateModified: "2026-10-21"
 section: "Date night"
 slug: best-way-end-perfect-date-20261002-companion
 tag: "DATE NIGHT"
@@ -43,4 +43,4 @@ asideHtml: ""
       <p>If you want to go further, read our guide to <a href="couple-bonding-activities-at-home.html">couple bonding activities at home</a>, or share a playful result from the <a href="../calculator.html">love calculator</a>.</p>
       <div class="article-callout"><strong>Your turn:</strong> Take the 10-second poll, <a href="../polls/best-way-end-perfect-date-20261002.html">What is the best way to end a perfect date?</a>, and compare your answer with your partner tonight.</div>
       <h2>Frequently Asked Questions</h2>
-      <h3>How should we use this poll as a couple?</h3><p>Vote separately, then compare. The poll below is a conversation starter, not a test, and the gap between your two answers is where the most useful talk begins.</p><h3>What is the fastest way to start?</h3><p>Pick one idea from &quot;Four endings worth lingering for&quot; and try it this week. One small, repeatable action beats a long list you never get around to.</p><h3>Does this apply to long-term couples too?</h3><p>Yes. These ideas work best repeated over years, not performed once. Long-term couples get more from a small habit they keep than a grand gesture they do once.</p>
+      <h3>Are phones really the problem on date night?</h3><p>They are the visible part of it. A phone lying face down is a decision; a phone checked repeatedly is information about how the evening is landing. Worth noticing which of the two it is before agreeing any rules.</p><h3>Does date night have to cost money?</h3><p>No. The point is a protected change of context, and a walk with both phones out of reach delivers that as reliably as a booked table. Spending usually impresses the person paying for it more than the couple.</p><h3>How do you decide whose turn it is to plan?</h3><p>Both names on the plan, one owner per night. Rotating ownership ends the loop of two people who cannot choose a restaurant, and it keeps the work from quietly defaulting to whoever asked last.</p>
