@@ -9,7 +9,7 @@ listOrder: 33
 ogImage: "https://couplein.bond/assets/polls-hero-illustration.png"
 ogImageAlt: "Hands placing colorful relationship poll cards into a ballot box"
 companionHref: "../blog-posts/who-plan-next-date-20261017-companion.html"
-companionTitle: "Who Should Plan Date Night in a Relationship"
+companionTitle: "Who Should Plan Date Night? A Fair Way to Split the Invisible Work"
 options: ["Take turns planning", "Whoever feels inspired", "Plan it together", "Surprise each other alternately"]
 related: [{"href": "makes-relationship-feel-equal-20261017.html", "title": "What makes a relationship feel equal?"}, {"href": "date-night-mood.html", "title": "What kind of date night sounds best this week?"}]
 draft: false

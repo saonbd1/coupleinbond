@@ -1,8 +1,8 @@
 #!/usr/bin/env python3
 """Daily Poll Generator for Couple in Bond.
 
-Generates 2-3 fresh relationship polls per day from a curated template bank
-and posts them directly to the Astro site:
+Generates a fresh relationship poll from a curated template bank and posts it
+directly to the Astro site:
 
   1. Appends new poll entries to poll-data.js (window.COUPLE_POLL_DATA)
   2. Creates src/content/polls/<id>.md (PollDetail.astro renders the page)
@@ -16,14 +16,20 @@ regenerate their card grids and ItemList JSON-LD from the content collections,
 ordered by the cardOrder/ldOrder/listOrder frontmatter this script extends.
 
 Usage:
-    python scripts/daily_polls.py                      # 2 polls, dated today
-    python scripts/daily_polls.py --count 3            # 3 polls
+    python scripts/daily_polls.py                      # 1 poll, dated today
+    python scripts/daily_polls.py --count 2            # 2 polls
     python scripts/daily_polls.py --date 2026-10-05    # backfill a date
     python scripts/daily_polls.py --dry-run            # preview only
     python scripts/daily_polls.py --commit --push      # commit + push
 
 Idempotent: scripts/poll_history.json tracks every id ever used, so
 re-running for the same date never duplicates content.
+
+Cadence: the bank below holds a fixed number of entries, so publishing is
+deliberately slow (Mon/Wed/Fri, one poll per run -- see
+.github/workflows/daily-polls.yml). When the unused entries run out the
+script exits non-zero rather than republishing one, because a repeated bank
+entry emits a byte-identical companion article at a second URL.
 """
 
 from __future__ import annotations
@@ -615,32 +621,33 @@ def existing_ids_in_data_js():
 
 
 def pick_new_polls(count, date_str, used_ids):
-    """Pick `count` bank entries not used before; mix topics when possible."""
+    """Pick `count` bank entries that were never used before, one per topic.
+
+    Returns fewer than `count` when the bank runs out, and never falls back
+    to a used entry: a repeat would re-emit its companion article verbatim.
+    """
     seed = int(date_str.replace("-", ""))
     rng = random.Random(seed)
-    in_file = existing_ids_in_data_js()
     pool = [(i, e) for i, e in enumerate(POLL_BANK)]
     rng.shuffle(pool)
     by_topic = {}
     for i, e in pool:
         by_topic.setdefault(e[0], []).append((i, e))
-    picked, seen_topics = [], set()
-    for topic in sorted(by_topic):
+    # Rotate the topic order by date. Iterating `sorted(by_topic)` alone
+    # always started at "connection", so at --count 1 that one topic drained
+    # completely before any other was reached.
+    topics = sorted(by_topic)
+    start = seed % len(topics)
+    topics = topics[start:] + topics[:start]
+    picked = []
+    for topic in topics:
         if len(picked) >= count:
             break
         for i, e in by_topic[topic]:
-            key = "%d:%s" % (i, e[1])
-            if key in used_ids:
+            if "%d:%s" % (i, e[1]) in used_ids:
                 continue
             picked.append((i, e))
-            seen_topics.add(topic)
             break
-    if len(picked) < count:  # bank exhausted -> allow reuse, oldest first
-        for i, e in pool:
-            if len(picked) >= count:
-                break
-            if (i, e) not in picked:
-                picked.append((i, e))
     rng.shuffle(picked)
     return picked
 def js_escape(text):
@@ -1038,8 +1045,8 @@ def validate_frontmatter(checked):
 
 def main():
     ap = argparse.ArgumentParser(description="Generate daily Couple in Bond polls.")
-    ap.add_argument("--count", type=int, default=2, choices=[1, 2, 3],
-                    help="polls to generate (default: 2)")
+    ap.add_argument("--count", type=int, default=1, choices=[1, 2, 3],
+                    help="polls to generate (default: 1)")
     ap.add_argument("--date", default=None,
                     help="target date YYYY-MM-DD (default: today)")
     ap.add_argument("--dry-run", action="store_true", help="preview only, write nothing")
@@ -1056,6 +1063,13 @@ def main():
 
     used_ids, used_slugs = load_history()
     picked = pick_new_polls(args.count, date_str, used_ids)
+    if len(picked) < args.count:
+        print("ERROR: poll bank exhausted - %d unused entry(ies), %d requested."
+              % (len(picked), args.count), file=sys.stderr)
+        print("Add entries to POLL_BANK in scripts/daily_polls.py. Nothing was"
+              " written: republishing a bank entry would duplicate an existing"
+              " poll and companion article byte for byte.", file=sys.stderr)
+        return 1
     taken_ids = existing_ids_in_data_js()
     new_polls = [build_poll_dict(i, e, date_str, used_slugs, taken_ids) for i, e in picked]
     for p in new_polls:

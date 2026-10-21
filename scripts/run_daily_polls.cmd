@@ -1,7 +1,10 @@
 @echo off
 REM ---------------------------------------------------------------------------
-REM Daily Couple in Bond publisher: 2 polls + 2 companion articles, then commit
+REM Daily Couple in Bond publisher: 1 poll + 1 companion article, then commit
 REM and push (Vercel redeploys automatically).
+REM
+REM Cadence is deliberately slow: the poll bank in daily_polls.py is a fixed
+REM list, and publishing two entries a day recycled all of it in 15 days.
 REM
 REM Usage (from Task Scheduler):
 REM   run_daily_polls.cmd              -> real run (generate + commit + push)
@@ -30,7 +33,7 @@ echo ========================================================= >> "%LOG%"
 echo %DATE% %TIME%  args=[%*] >> "%LOG%"
 echo ========================================================= >> "%LOG%"
 
-"%PYTHON%" "%ROOT%\scripts\daily_polls.py" --count 2 --commit --push %* >> "%LOG%" 2>&1
+"%PYTHON%" "%ROOT%\scripts\daily_polls.py" --count 1 --commit --push %* >> "%LOG%" 2>&1
 set "RC=%ERRORLEVEL%"
 
 echo exit code: %RC% >> "%LOG%"

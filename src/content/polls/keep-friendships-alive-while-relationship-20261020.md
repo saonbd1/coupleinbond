@@ -9,7 +9,7 @@ listOrder: 41
 ogImage: "https://couplein.bond/assets/polls-hero-illustration.png"
 ogImageAlt: "Hands placing colorful relationship poll cards into a ballot box"
 companionHref: "../blog-posts/keep-friendships-alive-while-relationship-20261020-companion.html"
-companionTitle: "How to Keep Friendships Alive in a Relationship"
+companionTitle: "Friendships After Coupling: How to Keep Both Circles Alive"
 options: ["Schedule regular friend time", "Blend friend groups together", "Protect solo friend nights", "Invite friends into couple plans"]
 related: [{"href": "makes-meeting-family-less-stressful-20261020.html", "title": "What makes meeting the family less stressful?"}, {"href": "date-night-mood.html", "title": "What kind of date night sounds best this week?"}]
 draft: false

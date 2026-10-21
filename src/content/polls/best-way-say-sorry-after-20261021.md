@@ -9,7 +9,7 @@ listOrder: 42
 ogImage: "https://couplein.bond/assets/polls-hero-illustration.png"
 ogImageAlt: "Hands placing colorful relationship poll cards into a ballot box"
 companionHref: "../blog-posts/best-way-say-sorry-after-20261021-companion.html"
-companionTitle: "How to Say Sorry After a Silly Fight"
+companionTitle: "Repair Scripts: What to Say in the First Hour After a Fight"
 options: ["A genuine sorry first", "A hug before words", "Making their favorite snack", "A funny apology note"]
 related: [{"href": "couple-talk-about-future-20261021.html", "title": "When should a couple talk about the future?"}, {"href": "date-night-mood.html", "title": "What kind of date night sounds best this week?"}]
 draft: false

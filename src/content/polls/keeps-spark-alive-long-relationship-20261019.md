@@ -9,7 +9,7 @@ listOrder: 38
 ogImage: "https://couplein.bond/assets/polls-hero-illustration.png"
 ogImageAlt: "Hands placing colorful relationship poll cards into a ballot box"
 companionHref: "../blog-posts/keeps-spark-alive-long-relationship-20261019-companion.html"
-companionTitle: "How to Keep the Spark Alive in a Long Relationship"
+companionTitle: "Keeping the Spark Alive: A 30-Day Curiosity Plan for Long-Term Couples"
 options: ["Trying new things together", "Regular surprise dates", "Flirting like the early days", "Growing side by side"]
 related: [{"href": "best-way-support-stressed-partner-20261019.html", "title": "What is the best way to support a stressed partner?"}, {"href": "date-night-mood.html", "title": "What kind of date night sounds best this week?"}]
 draft: false

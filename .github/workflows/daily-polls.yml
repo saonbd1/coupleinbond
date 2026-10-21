@@ -2,6 +2,14 @@ name: Daily polls
 
 on:
   schedule:
+    # Publishing cadence: one poll + one companion article, Mon/Wed/Fri.
+    # The 30-entry POLL_BANK in scripts/daily_polls.py is what sets this
+    # pace -- at the old 2-per-day the whole bank was recycled in 15 days
+    # and repeated entries re-emitted their article byte for byte. The
+    # publishing days themselves are chosen by the "Skip on non-publishing
+    # weekdays" step below (Asia/Dhaka), so changing the cadence is a
+    # one-line edit there, not a cron rewrite.
+    #
     # GitHub's cron scheduler is best-effort ("delays can be multiple hours
     # during periods of high load", and 03:00 UTC is exactly an hour
     # boundary). This workflow was starting 4-7 hours after its slot, so a
@@ -9,7 +17,7 @@ on:
     # Asia/Dhaka instead of 09:00.
     #
     # Three slots per day (01:00, 05:00, 09:00 Asia/Dhaka = 19:00, 23:00,
-    # 03:00 UTC): whichever fires first publishes the day's polls, the
+    # 03:00 UTC): whichever fires first publishes the day's poll, the
     # "Skip when today's polls already exist" guard makes the remaining
     # slots cheap no-ops, and `concurrency` keeps them from overlapping.
     - cron: "0 19 * * *"
@@ -20,7 +28,7 @@ on:
       count:
         description: "Polls to generate (1-3)"
         required: false
-        default: "2"
+        default: "1"
       date:
         description: "Target date YYYY-MM-DD (default: today in Asia/Dhaka)"
         required: false
@@ -56,22 +64,48 @@ jobs:
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git pull --rebase || true
 
+      - name: Skip on non-publishing weekdays
+        id: weekday
+        run: |
+          set -e
+          # The crons fire every day so GitHub's scheduler lag is absorbed by
+          # the repeat slots; the cadence itself lives here. Weekday numbers
+          # are 1=Mon .. 7=Sun in Asia/Dhaka. Manual runs always publish.
+          # This runs before the toolchain setup so a non-publishing day is
+          # a ~10 second no-op.
+          if [ "${{ github.event_name }}" = "workflow_dispatch" ]; then
+            echo "Manual dispatch - publishing."
+            echo "publish=true" >> "$GITHUB_OUTPUT"
+            exit 0
+          fi
+          DOW="$(date +%u)"
+          case "$DOW" in
+            1|3|5) echo "Publishing day (weekday $DOW)."
+                   echo "publish=true" >> "$GITHUB_OUTPUT" ;;
+            *)     echo "Not a publishing day (weekday $DOW) - nothing to do."
+                   echo "publish=false" >> "$GITHUB_OUTPUT" ;;
+          esac
+
       - name: Setup Python
+        if: steps.weekday.outputs.publish == 'true'
         uses: actions/setup-python@v5
         with:
           python-version: "3.12"
 
       - name: Setup Node.js
+        if: steps.weekday.outputs.publish == 'true'
         uses: actions/setup-node@v4
         with:
           node-version: 22
           cache: npm
 
       - name: Install dependencies
+        if: steps.weekday.outputs.publish == 'true'
         run: npm ci
 
       - name: Resolve target date (Asia/Dhaka)
         id: target
+        if: steps.weekday.outputs.publish == 'true'
         run: |
           set -e
           DATE="${{ github.event.inputs.date }}"
@@ -92,6 +126,7 @@ jobs:
 
       - name: Skip when today's polls already exist
         id: guard
+        if: steps.weekday.outputs.publish == 'true'
         run: |
           set -e
           STAMP="$(printf '%s' '${{ steps.target.outputs.date }}' | tr -d '-')"
@@ -104,7 +139,7 @@ jobs:
           fi
 
       - name: Generate daily polls (no commit yet)
-        if: steps.guard.outputs.skip != 'true'
+        if: steps.weekday.outputs.publish == 'true' && steps.guard.outputs.skip != 'true'
         env:
           INPUT_COUNT: ${{ github.event.inputs.count }}
           TARGET_DATE: ${{ steps.target.outputs.date }}
@@ -122,11 +157,11 @@ jobs:
           python3 scripts/daily_polls.py --count "$COUNT" --date "$TARGET_DATE"
 
       - name: Validate release (localized content + build + SEO + links)
-        if: steps.guard.outputs.skip != 'true'
+        if: steps.weekday.outputs.publish == 'true' && steps.guard.outputs.skip != 'true'
         run: npm run validate:release
 
       - name: Commit and push (only if files changed)
-        if: steps.guard.outputs.skip != 'true'
+        if: steps.weekday.outputs.publish == 'true' && steps.guard.outputs.skip != 'true'
         env:
           TARGET_DATE: ${{ steps.target.outputs.date }}
         run: |
