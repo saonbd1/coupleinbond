@@ -8,7 +8,7 @@ site:
       path: documentation
       default: true
       content:
-        directory: ./documentation
+        directory: .
     - type: space
       key: space-2
       title: Imported content
