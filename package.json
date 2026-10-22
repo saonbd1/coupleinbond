@@ -20,11 +20,15 @@
     "quotes:check": "node scripts/generate-quote-cards.mjs --check",
     "verify:seo": "node scripts/verify-hreflang.mjs",
     "verify:links": "node scripts/verify-links.mjs",
-    "validate:release": "npm run content:check && npm run quotes:generate && npm run build && npm run verify:seo && npm run verify:links"
+    "verify:pagination": "node scripts/verify-blog-pagination.mjs && node scripts/verify-polls-pagination.mjs",
+    "validate:release": "npm run content:check && npm run quotes:generate && npm run build && npm run verify:seo && npm run verify:links && npm run verify:pagination"
   },
   "dependencies": {
     "@vercel/connect": "^2.3.6",
     "astro": "^7.3.5",
     "sharp": "^0.35.5"
+  },
+  "devDependencies": {
+    "jsdom": "^30.1.3"
   }
 }

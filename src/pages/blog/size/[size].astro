@@ -1,0 +1,43 @@
+---
+import { getCollection } from 'astro:content';
+import BlogIndex from '../../../components/BlogIndex.astro';
+import { ALLOWED_PAGE_SIZES, DEFAULT_PAGE_SIZE, pageCount, pageSlice } from '../../../lib/pagination';
+
+// Blog listing with a non-default number of posts per page (8 or 10).
+// The default size (6) lives at /blog.html and /blog/page/N.html, so this
+// route only handles the other sizes in ALLOWED_PAGE_SIZES.
+export async function getStaticPaths() {
+  const all = await getCollection('blog');
+  const posts = all.filter((p) => !p.data.draft)
+    .sort((a, b) => b.data.cardOrder - a.data.cardOrder);
+  const ldPosts = all.filter((p) => !p.data.draft)
+    .sort((a, b) => a.data.ldOrder - b.data.ldOrder);
+
+  return ALLOWED_PAGE_SIZES
+    .filter((size) => size !== DEFAULT_PAGE_SIZE)
+    .map((size) => ({
+      params: { size: String(size) },
+      props: {
+        size,
+        totalPages: pageCount(posts.length, size),
+        posts: pageSlice(posts, 1, size),
+        ldPosts,
+        totalPosts: posts.length,
+      },
+    }));
+}
+
+const { size, totalPages, posts, ldPosts, totalPosts } = Astro.props;
+
+// /blog/size/8.html sits two levels below the site root.
+const root = '../../';
+---
+<BlogIndex
+  posts={posts}
+  page={1}
+  totalPages={totalPages}
+  allPosts={ldPosts}
+  root={root}
+  pageSize={size}
+  totalPosts={totalPosts}
+/>

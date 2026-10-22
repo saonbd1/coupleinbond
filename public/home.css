@@ -62,13 +62,18 @@
   justify-self: end;
 }
 
+/* Every card in the homepage tool grid keeps the same shape: one row height for
+   the whole grid, so cards stay identical no matter how much text is inside. */
 .home-tool-grid {
   margin-top: 0;
-  align-items: start;
+  align-items: stretch;
+  grid-auto-rows: minmax(620px, auto);
 }
 
 .home-tool-card {
   min-height: 0;
+  height: 100%;
+  overflow: hidden;
 }
 
 .home-tool-symbol {
@@ -307,6 +312,8 @@
 
 @media (max-width: 820px) {
   .home-tool-card { min-height: 0; }
+  .home-tool-grid { grid-auto-rows: auto; }
+  .home-tool-card { height: auto; }
 }
 
 @media (max-width: 560px) {
