@@ -1,0 +1,48 @@
+---
+import { getCollection } from 'astro:content';
+import BlogIndex from '../../../components/BlogIndex.astro';
+import { DEFAULT_PAGE_SIZE, pageCount, pageSlice } from '../../../lib/pagination';
+
+// Paginated blog listing: page 2 and up, at the default page size.
+// Page 1 stays at /blog.html (src/pages/blog.astro) so the existing
+// canonical URL keeps working; every later page is a real static page at
+// /blog/page/N.html.
+export async function getStaticPaths() {
+  const all = await getCollection('blog');
+  const posts = all.filter((p) => !p.data.draft)
+    .sort((a, b) => b.data.cardOrder - a.data.cardOrder);
+  const ldPosts = all.filter((p) => !p.data.draft)
+    .sort((a, b) => a.data.ldOrder - b.data.ldOrder);
+  const totalPages = pageCount(posts.length, DEFAULT_PAGE_SIZE);
+
+  // Only pages 2..N exist here; page 1 is the /blog.html route.
+  return Array.from({ length: Math.max(0, totalPages - 1) }, (_, i) => {
+    const page = i + 2;
+    return {
+      params: { page: String(page) },
+      props: {
+        page,
+        totalPages,
+        posts: pageSlice(posts, page, DEFAULT_PAGE_SIZE),
+        ldPosts,
+        totalPosts: posts.length,
+      },
+    };
+  });
+}
+
+const { page, totalPages, posts, ldPosts, totalPosts } = Astro.props;
+
+// These pages live two levels down from the site root, so every relative
+// asset and link needs the ../../ prefix.
+const root = '../../';
+---
+<BlogIndex
+  posts={posts}
+  page={page}
+  totalPages={totalPages}
+  allPosts={ldPosts}
+  root={root}
+  pageSize={DEFAULT_PAGE_SIZE}
+  totalPosts={totalPosts}
+/>

@@ -1,0 +1,52 @@
+﻿<!DOCTYPE html>
+<html><head><meta charset="utf-8"><title>probe</title></head>
+<body>
+<iframe id="f" src="index.html" style="width: 360px; height: 800px; border: 0px;"></iframe>
+<pre id="out">target: index.html
+iframe width: 360
+viewport width: 345
+document scrollWidth: 345
+horizontal overflow: false
+--- overflowing elements (0) ---</pre>
+<script>
+// Same-origin probe: loads a target page in a fixed-width iframe and reports
+// the document scroll width plus the elements that overflow the viewport.
+const target = new URLSearchParams(location.search).get('t') || 'blog.html';
+const width = Number(new URLSearchParams(location.search).get('w') || 390);
+const f = document.getElementById('f');
+const out = document.getElementById('out');
+f.style.width = width + 'px';
+
+f.addEventListener('load', () => {
+  const doc = f.contentDocument;
+  const vw = doc.documentElement.clientWidth;
+  const lines = [];
+  lines.push('target: ' + target);
+  lines.push('iframe width: ' + width);
+  lines.push('viewport width: ' + vw);
+  lines.push('document scrollWidth: ' + doc.documentElement.scrollWidth);
+  lines.push('horizontal overflow: ' + (doc.documentElement.scrollWidth > vw));
+
+  const offenders = [];
+  doc.querySelectorAll('*').forEach((el) => {
+    const r = el.getBoundingClientRect();
+    if (r.width > vw + 1 || r.right > vw + 1) {
+      offenders.push({
+        tag: el.tagName.toLowerCase(),
+        cls: (el.className && el.className.baseVal !== undefined ? el.className.baseVal : el.className) || '',
+        width: Math.round(r.width),
+        right: Math.round(r.right),
+      });
+    }
+  });
+  lines.push('--- overflowing elements (' + offenders.length + ') ---');
+  offenders.slice(0, 25).forEach((o) => {
+    lines.push(o.tag + '.' + o.cls + '  w=' + o.width + ' right=' + o.right);
+  });
+  out.textContent = lines.join('\n');
+});
+f.src = target;
+</script>
+
+
+</body></html>

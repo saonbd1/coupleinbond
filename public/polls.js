@@ -8,9 +8,22 @@
   const RESULTS_KEY = "coupleinbond-poll-results-v1";
   const list = document.getElementById("pollsList");
   const empty = document.getElementById("pollsEmpty");
+  const pagination = document.getElementById("pollsPagination");
   const requestedTopic = new URLSearchParams(window.location.search).get("topic");
   const validTopics = new Set(["all", "connection", "relationships", "date-night", "seasonal"]);
   let activeTopic = validTopics.has(requestedTopic) ? requestedTopic : "all";
+
+  // Listing pagination: the polls index is rendered client-side (voting state
+  // lives in localStorage), so the page split happens in the browser.
+  // The default size matches the blog listing so both feel like one system;
+  // the reader can switch between 6, 8 and 10 polls per page.
+  const DEFAULT_PAGE_SIZE = 6;
+  const ALLOWED_PAGE_SIZES = [6, 8, 10];
+  const query = new URLSearchParams(window.location.search);
+  let pageSize = DEFAULT_PAGE_SIZE;
+  const requestedSize = Number(query.get("size"));
+  if (ALLOWED_PAGE_SIZES.indexOf(requestedSize) !== -1) pageSize = requestedSize;
+  let currentPage = 1;
 
   function readStorage(key, fallback) {
     try {
@@ -170,13 +183,100 @@
     return card;
   }
 
+  function pageCountFor(total) {
+    return Math.max(1, Math.ceil(total / pageSize));
+  }
+
+  function syncPageSizeOptions() {
+    document.querySelectorAll("[data-page-size]").forEach((option) => {
+      const isCurrent = Number(option.dataset.pageSize) === pageSize;
+      option.classList.toggle("is-current", isCurrent);
+      if (isCurrent) {
+        option.setAttribute("aria-current", "true");
+        option.setAttribute("aria-label", `${option.dataset.pageSize} polls per page, current`);
+      } else {
+        option.removeAttribute("aria-current");
+      }
+    });
+  }
+
+  function buildPaginationControls(totalPages) {
+    if (!pagination) return;
+    pagination.innerHTML = "";
+    if (totalPages <= 1) return;
+
+    const nav = createElement("nav", "pagination", "");
+    nav.setAttribute("aria-label", "Poll pages");
+
+    const step = (label, target, disabled, rel) => {
+      if (disabled) {
+        const span = createElement("span", "pagination-step is-disabled", label);
+        span.setAttribute("aria-hidden", "true");
+        return span;
+      }
+      const link = createElement("a", "pagination-step", label);
+      link.href = `#polls-page-${target}`;
+      link.setAttribute("rel", rel);
+      link.addEventListener("click", (event) => {
+        event.preventDefault();
+        goToPage(target);
+      });
+      return link;
+    };
+
+    nav.append(step("← Previous", currentPage - 1, currentPage === 1, "prev"));
+
+    const pages = createElement("ul", "pagination-pages");
+    for (let page = 1; page <= totalPages; page += 1) {
+      if (page !== 1 && page !== totalPages && Math.abs(page - currentPage) > 1) continue;
+      const item = createElement("li", "");
+      if (page === currentPage) {
+        const current = createElement("span", "pagination-number is-current", String(page));
+        current.setAttribute("aria-current", "page");
+        current.setAttribute("aria-label", `Page ${page}, current page`);
+        item.append(current);
+      } else {
+        const link = createElement("a", "pagination-number", String(page));
+        link.href = `#polls-page-${page}`;
+        link.setAttribute("aria-label", `Go to page ${page}`);
+        link.addEventListener("click", (event) => {
+          event.preventDefault();
+          goToPage(page);
+        });
+        item.append(link);
+      }
+      pages.append(item);
+    }
+    nav.append(pages);
+
+    nav.append(step("Next →", currentPage + 1, currentPage === totalPages, "next"));
+    pagination.append(nav);
+  }
+
+  function goToPage(page) {
+    currentPage = page;
+    const url = new URL(window.location.href);
+    url.searchParams.set("page", String(page));
+    window.history.replaceState({}, "", url);
+    render();
+    if (list && typeof list.scrollIntoView === "function") {
+      list.scrollIntoView({ behavior: "smooth", block: "start" });
+    }
+  }
+
   function render() {
     const votes = readStorage(VOTES_KEY, {});
     const results = readStorage(RESULTS_KEY, {});
     const visible = POLLS.filter((poll) => activeTopic === "all" || poll.topic === activeTopic);
+    const totalPages = pageCountFor(visible.length);
+    if (currentPage > totalPages) currentPage = totalPages;
+    const start = (currentPage - 1) * pageSize;
+    const pagePolls = visible.slice(start, start + pageSize);
     list.innerHTML = "";
-    visible.forEach((poll) => list.append(renderPoll(poll, votes, results)));
+    pagePolls.forEach((poll) => list.append(renderPoll(poll, votes, results)));
     empty.hidden = visible.length > 0;
+    buildPaginationControls(totalPages);
+    syncPageSizeOptions();
     document.querySelectorAll(".topic-filter button").forEach((button) => {
       const isActive = button.dataset.topic === activeTopic;
       button.classList.toggle("is-active", isActive);
@@ -187,9 +287,30 @@
   document.querySelectorAll(".topic-filter button").forEach((button) => {
     button.addEventListener("click", () => {
       activeTopic = button.dataset.topic;
+      currentPage = 1;
       render();
     });
   });
+
+  // "Show N per page" links switch the page size without a reload.
+  document.querySelectorAll("[data-page-size]").forEach((option) => {
+    option.addEventListener("click", (event) => {
+      event.preventDefault();
+      const size = Number(option.dataset.pageSize);
+      if (ALLOWED_PAGE_SIZES.indexOf(size) === -1 || size === pageSize) return;
+      pageSize = size;
+      currentPage = 1;
+      const url = new URL(window.location.href);
+      url.searchParams.set("size", String(pageSize));
+      url.searchParams.delete("page");
+      window.history.replaceState({}, "", url);
+      render();
+    });
+  });
+
+  // Deep link support: /polls.html?page=3 opens that page of the listing.
+  const requestedPage = Number(query.get("page"));
+  if (Number.isInteger(requestedPage) && requestedPage > 1) currentPage = requestedPage;
 
   render();
 }());

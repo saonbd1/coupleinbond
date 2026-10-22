@@ -1,0 +1,223 @@
+---
+import { ALLOWED_PAGE_SIZES, DEFAULT_PAGE_SIZE, blogPageHref } from '../lib/pagination';
+
+// Blog index renderer, shared by /blog.html (page 1) and the paginated
+// /blog/page/N.html pages. The whole page shell lives here so the first page
+// and the later pages stay visually identical.
+interface Props {
+  posts: any[];        // posts shown on this page
+  page: number;        // 1-based page number
+  totalPages: number;
+  allPosts: any[];     // every published post, ordered for the ItemList JSON-LD
+  root?: string;       // relative prefix so links resolve from /blog/page/N.html
+  pageSize?: number;   // posts per page for this listing
+  // Total number of posts, so the size selector can say how many there are.
+  totalPosts?: number;
+}
+
+const { posts, page, totalPages, allPosts, root = '', pageSize = DEFAULT_PAGE_SIZE, totalPosts = 0 } = Astro.props;
+
+const SITE = 'https://couplein.bond';
+const isFirstPage = page === 1;
+const pageUrl = isFirstPage
+  ? `${SITE}/${blogPageHref(1, pageSize).replace(root, '')}`
+  : `${SITE}/${blogPageHref(page, pageSize).replace(root, '')}`;
+
+// Relative URL for a page of the listing, then its absolute form for
+// rel=prev / rel=next.
+const pageHref = (target: number) => blogPageHref(target, pageSize, root);
+const absolute = (href: string) => `${SITE}/${href.replace(root, '')}`;
+
+// The card "X min read" chip is the tail of the kicker
+// ("Couple bonding · 6 min read").
+const readTime = (kicker: string) => (kicker.match(/\d+\s*min\s*read/i) || [''])[0];
+
+// Page link set: first page, a window around the current page, last page.
+const pageLinks: { label: string; href: string; current: boolean; ariaLabel: string }[] = [];
+for (let p = 1; p <= totalPages; p += 1) {
+  if (p !== 1 && p !== totalPages && Math.abs(p - page) > 1) continue;
+  pageLinks.push({
+    label: String(p),
+    href: pageHref(p),
+    current: p === page,
+    ariaLabel: p === page ? `Page ${p}, current page` : `Go to page ${p}`,
+  });
+}
+
+const prevHref = page > 1 ? pageHref(page - 1) : null;
+const nextHref = page < totalPages ? pageHref(page + 1) : null;
+
+const ld = {
+  '@context': 'https://schema.org',
+  '@graph': [
+    {
+      '@type': 'Blog',
+      '@id': `${pageUrl}#blog`,
+      'name': 'Couple in Bond Blog',
+      'description': 'Thoughtful ideas about couple bonding, communication, dating, Valentine’s Day, and friendship.',
+      'url': pageUrl,
+      'inLanguage': 'en',
+      'publisher': { '@id': `${SITE}/#organization` },
+    },
+    {
+      '@type': 'ItemList',
+      '@id': `${pageUrl}#article-list`,
+      'name': 'Couple in Bond articles',
+      'itemListOrder': 'https://schema.org/ItemListOrderDescending',
+      'numberOfItems': allPosts.length,
+      // The visible grid is ordered by cardOrder (newest first); the ItemList
+      // keeps its own hand-maintained ldOrder. Page 1 keeps the full list so
+      // crawlers still see every article from the canonical blog URL; later
+      // pages list only their own slice, offset by the pages before them.
+      'itemListElement': (isFirstPage ? allPosts : posts).map((post: any, i: number) => ({
+        '@type': 'ListItem',
+        'position': isFirstPage ? i + 1 : (page - 1) * pageSize + i + 1,
+        'url': `${SITE}/blog-posts/${post.id}.html`,
+        'name': post.data.cardTitle,
+      })),
+    },
+    {
+      '@type': 'Organization',
+      '@id': `${SITE}/#organization`,
+      'name': 'Couple in Bond',
+      'url': `${SITE}/`,
+      'logo': { '@type': 'ImageObject', 'url': `${SITE}/assets/social-share.jpg` },
+    },
+  ],
+};
+---
+<!-- Current CoupleIn theme reminder: preserve the pink-to-lilac gradient, rounded white cards, coral/plum accents, and playful relationship tone. -->
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Relationship & Couple Bonding Blog — Couple in Bond</title>
+  <link rel="stylesheet" href={`${root}blog.css`}>
+  <script src={`${root}blog-nav.js`} defer></script>
+  <script type="application/ld+json" set:html={JSON.stringify(ld, null, 2)}></script>
+  <meta name="description" content="Read practical relationship ideas about couple bonding, communication, dating, friendship, and Valentine’s Day from Couple in Bond.">
+  <meta name="robots" content="index,follow,max-image-preview:large">
+  <meta name="theme-color" content="#ff4d6d">
+  <link rel="canonical" href={pageUrl}>
+  <link rel="alternate" hreflang="en" href={pageUrl}>
+  <link rel="alternate" hreflang="x-default" href={pageUrl}>
+  {prevHref && <link rel="prev" href={absolute(prevHref)} />}
+  {nextHref && <link rel="next" href={absolute(nextHref)} />}
+  <link rel="icon" href={`${root}assets/coupleinbond-favicon.png`}>
+  <link rel="apple-touch-icon" href={`${root}assets/coupleinbond-favicon.png`}>
+  <meta property="og:title" content="Relationship &amp; Couple Bonding Blog — Couple in Bond">
+  <meta property="og:description" content="Read practical relationship ideas about couple bonding, communication, dating, friendship, and Valentine’s Day from Couple in Bond.">
+  <meta property="og:url" content={pageUrl}>
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Couple in Bond">
+  <meta property="og:locale" content="en_US">
+  <meta property="og:image" content="https://couplein.bond/assets/social-share.jpg">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Relationship &amp; Couple Bonding Blog — Couple in Bond">
+  <meta name="twitter:description" content="Read practical relationship ideas about couple bonding, communication, dating, friendship, and Valentine’s Day from Couple in Bond.">
+  <meta name="twitter:image" content="https://couplein.bond/assets/social-share.jpg">
+
+</head>
+<body>
+  <div class="blog-shell">
+    <div class="blog-wrap">
+      <header class="blog-nav" data-root={root || '.'}>
+        <a class="blog-brand" href={`${root}index.html`}>💕 Couple in Bond</a>
+        <nav class="blog-nav-links" aria-label="Blog navigation">
+          <a href={`${root}index.html`}>Home</a>
+          <a href={`${root}blog.html`} aria-current="page">Blog</a>
+          <a href={`${root}about.html`}>About Us</a>
+          <a href={`${root}privacy.html`}>Privacy</a>
+          <a class="blog-nav-cta" href={`${root}calculator.html#calcBtn`}>Try the calculator</a>
+        </nav>
+      </header>
+
+      <main>
+        <section class="blog-hero" aria-labelledby="blog-title">
+          <div class="blog-hero-copy">
+            <div class="blog-kicker">From the heart · Couple in Bond</div>
+            <h1>Good ideas for <span>real connection.</span></h1>
+            <p>Thoughtful, playful, and practical notes for couples, daters, friends, and anyone who wants to make a little more room for love.</p>
+          </div>
+          <aside class="blog-feature-note">
+            <div class="blog-feature-icon" aria-hidden="true">✦</div>
+            <h2>Read something that helps you choose each other.</h2>
+            <p>Start with a tiny idea. Send a better question. Plan a night that feels like you.</p>
+          </aside>
+        </section>
+
+        {isFirstPage && (
+        <section class="featured-post" aria-labelledby="featured-post-title">
+          <div class="featured-post-mark" aria-hidden="true">✦</div>
+          <div class="featured-post-copy">
+            <div class="blog-kicker">Editor’s pick · this week</div>
+            <h2 id="featured-post-title">Featured Post of The Week</h2>
+            <p class="featured-post-title"><a href={`${root}blog-posts/couple-bonding-activities-at-home.html`}>25 Couple Bonding Activities at Home</a></p>
+            <p>Simple, meaningful ideas for reconnecting when staying in sounds better than going out.</p>
+          </div>
+          <a class="featured-post-link" href={`${root}blog-posts/couple-bonding-activities-at-home.html`}>Read the featured story →</a>
+        </section>
+        )}
+
+        <div class="blog-toolbar">
+          <h2 id="blog-title">Latest ideas</h2>
+          <div class="blog-toolbar-side">
+            <p>
+              {totalPages > 1
+                ? `Fresh starting points for kinder conversations, brighter rituals, and more thoughtful check-ins. Page ${page} of ${totalPages}.`
+                : 'Fresh starting points for kinder conversations, brighter rituals, and more thoughtful check-ins.'}
+            </p>
+            <div class="page-size" role="group" aria-label="Posts per page">
+              <span class="page-size-label">Show</span>
+              {ALLOWED_PAGE_SIZES.map((size) => (
+                size === pageSize
+                  ? <span class="page-size-option is-current" aria-current="true" aria-label={`${size} posts per page, current`}>{size}</span>
+                  : <a class="page-size-option" href={blogPageHref(1, size, root)} aria-label={`${size} posts per page`}>{size}</a>
+              ))}
+              <span class="page-size-label">per page</span>
+            </div>
+          </div>
+        </div>
+
+        <section class="blog-grid" aria-label="Latest blog posts">
+          {posts.map((post) => (
+            <article class="blog-card">
+              <div class="blog-card-top"><span class="blog-tag">{post.data.tag}</span><span>{readTime(post.data.kicker)}</span></div>
+              <h3><a href={`${root}blog-posts/${post.id}.html`}>{post.data.cardTitle}</a></h3>
+              <p>{post.data.excerpt}</p>
+              <a class="blog-card-link" href={`${root}blog-posts/${post.id}.html`}>Read the story →</a>
+            </article>
+          ))}
+        </section>
+
+        {totalPages > 1 && (
+        <nav class="pagination" aria-label="Blog pages">
+          {prevHref
+            ? <a class="pagination-step" href={prevHref} rel="prev">← Newer posts</a>
+            : <span class="pagination-step is-disabled" aria-hidden="true">← Newer posts</span>}
+          <ul class="pagination-pages">
+            {pageLinks.map((link) => (
+              <li>
+                {link.current
+                  ? <span class="pagination-number is-current" aria-current="page" aria-label={link.ariaLabel}>{link.label}</span>
+                  : <a class="pagination-number" href={link.href} aria-label={link.ariaLabel}>{link.label}</a>}
+              </li>
+            ))}
+          </ul>
+          {nextHref
+            ? <a class="pagination-step" href={nextHref} rel="next">Older posts →</a>
+            : <span class="pagination-step is-disabled" aria-hidden="true">Older posts →</span>}
+        </nav>
+        )}
+      </main>
+
+      <footer class="blog-footer">
+        <p>© 2026 Couple in Bond. All rights reserved.</p>
+        <p><a href={`${root}calculator.html`}>Love calculator</a> · <a href={`${root}privacy.html`}>Privacy</a> · Love, for fun and reflection.</p>
+      </footer>
+    </div>
+  </div>
+</body>
+</html>
+
