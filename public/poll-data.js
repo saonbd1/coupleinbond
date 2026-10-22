@@ -6,7 +6,7 @@ window.COUPLE_POLL_DATA = [
     title: "What kind of date night sounds best this week?",
     description: "A quick date-night poll for couples deciding whether to stay in, go out, or make room for a little spontaneity.",
     intro: "Date night does not need to be elaborate to feel meaningful. This poll is a small prompt for noticing what kind of energy you both want this week.",
-    related: ["best-way-say-sorry-after-20261013", "makes-meeting-family-less-stressful-20261020"],
+    related: ["best-gift-couple-can-give-20261023", "best-way-say-sorry-after-20261013"],
     options: ["A cozy night at home", "An unplanned adventure", "A long dinner and good conversation", "A little of everything"]
   },
   {
@@ -16,7 +16,7 @@ window.COUPLE_POLL_DATA = [
     title: "What helps two people feel most connected?",
     description: "Vote on the everyday relationship habits that help couples feel close, understood, and emotionally present.",
     intro: "Connection can grow through grand gestures, but it is often shaped by ordinary moments. Use this poll to compare the small things that matter to you.",
-    related: ["best-way-say-sorry-after-20261013", "makes-meeting-family-less-stressful-20261020"],
+    related: ["best-gift-couple-can-give-20261023", "best-way-say-sorry-after-20261013"],
     options: ["Small acts of care", "Uninterrupted conversation", "Shared goals", "Laughing together"]
   },
   {
@@ -372,6 +372,26 @@ window.COUPLE_POLL_DATA = [
     intro: "Future talk can feel exciting or scary depending on the timing. This poll asks when couples should start mapping the road ahead together.",
     related: ["best-way-say-sorry-after-20261013", "date-night-mood"],
     options: ["Early, to align expectations", "When things feel serious", "After the first big trip", "Let it unfold naturally"]
+  },
+  {
+    id: "best-gift-couple-can-give-20261023",
+    topic: "seasonal",
+    label: "Seasonal",
+    title: "What is the best gift a couple can give each other?",
+    description: "Vote on the kinds of present that actually land in a long relationship.",
+    intro: "Most couples are bad at gifts and good at loving each other. This poll looks at what turns attention into something a partner can hold.",
+    related: ["helps-feel-understood-without-explaining-20261023", "date-night-mood"],
+    options: ["Something they mentioned weeks ago", "A day planned entirely around them", "A chore removed from their list", "An experience booked for later"]
+  },
+  {
+    id: "helps-feel-understood-without-explaining-20261023",
+    topic: "connection",
+    label: "Connection",
+    title: "What helps you feel understood without explaining yourself?",
+    description: "Vote on the everyday signals that tell a partner they are being read correctly.",
+    intro: "Being understood is mostly a matter of being noticed. This poll asks which small signal does that best for you.",
+    related: ["best-gift-couple-can-give-20261023", "date-night-mood"],
+    options: ["A message out of nowhere", "Noticing a change before it is named", "The right silence on a bad day", "A question about something mentioned once"]
   },
 ];
 
