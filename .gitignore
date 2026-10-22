@@ -3,3 +3,11 @@ dist/
 .astro/
 .vercel/
 *.log
+
+# Local preview screenshots and temporary browser inspection output.
+/.preview-shots/
+/probe*.html
+/probe*.txt
+/ probe*.html
+/ probe*.txt
+/polls*-dom.html
