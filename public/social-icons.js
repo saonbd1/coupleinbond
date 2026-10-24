@@ -29,7 +29,6 @@
       .footer-nav-links a { color:var(--blog-muted, #6f6573); font-size:.9rem; font-weight:800; text-align:center; text-decoration:none; transition:color .18s ease, transform .18s ease; }
       .footer-nav-links a:hover { color:var(--blog-primary, #ff4d6d); transform:translateY(-1px); }
       .footer-nav-links a:focus-visible { color:var(--blog-primary, #ff4d6d); outline:3px solid rgba(255,77,109,.24); outline-offset:3px; }
-      .footer-cta { display:inline-flex; margin-top:17px; padding:10px 14px; color:#fff !important; background:linear-gradient(135deg, var(--blog-primary, #ff4d6d), var(--blog-secondary, #6a00f4)); border-radius:999px; font-size:.78rem !important; font-weight:850 !important; text-decoration:none; }
       .social-links { display:flex; align-items:center; justify-content:center; flex-wrap:wrap; gap:10px; margin-top:20px; }
       .social-links-label { width:100%; color:var(--blog-muted, #6f6573); font-size:.7rem; font-weight:850; letter-spacing:.08em; text-transform:uppercase; }
       .social-links-list { display:flex; align-items:center; gap:7px; }
@@ -40,7 +39,7 @@
       .social-link svg .social-dot { fill:currentColor; stroke:none; }
       .footer-bottom { display:flex; justify-content:space-between; gap:18px; padding:15px clamp(24px,5vw,54px); color:var(--blog-muted, #6f6573); background:linear-gradient(90deg, rgba(255,241,245,.72), rgba(246,239,255,.72)); border-top:1px solid rgba(83,49,94,.1); font-size:.72rem; }
       .footer-bottom p { max-width:none; margin:0; font-size:inherit; }
-      @media (min-width:821px) { .footer-brand-mark { font-size:1.38rem; } .footer-section p { font-size:.92rem; } .footer-copyright { font-size:.8rem !important; } .footer-nav-links a { font-size:1rem; } .footer-cta { font-size:.84rem !important; } .social-links-label { font-size:.76rem; } .footer-bottom { font-size:.8rem; } }
+      @media (min-width:821px) { .footer-brand-mark { font-size:1.38rem; } .footer-section p { font-size:.92rem; } .footer-copyright { font-size:.8rem !important; } .footer-nav-links a { font-size:1rem; } .social-links-label { font-size:.76rem; } .footer-bottom { font-size:.8rem; } }
       @media (max-width:820px) { .footer-grid { grid-template-columns:1fr 1fr; gap:28px; } .footer-brand-section { grid-column:1 / -1; grid-row:1; } .footer-left { grid-column:1; grid-row:2; } .footer-right { grid-column:2; grid-row:2; } }
       @media (max-width:560px) { .footer-grid { grid-template-columns:1fr; gap:28px; padding:30px 22px 26px; } .footer-brand-section, .footer-left, .footer-right { grid-column:auto; grid-row:auto; text-align:center; } .footer-section p { margin-right:auto; margin-left:auto; } .footer-bottom { display:block; padding:14px 22px; } .footer-bottom p + p { margin-top:6px; } }
     `;
@@ -74,31 +73,29 @@ function depthRoot() {
 
   function renderFooter(footer) {
     if (footer.querySelector(".footer-grid")) return;
-    const leftNav = { home: "Home", calculator: "Love Calculator", blog: "Blog", polls: "Polls" };
     footer.innerHTML = `
       <div class="footer-grid">
         <section class="footer-section footer-left">
             <nav class="footer-nav-links" aria-label="Footer navigation">
-              <a href="${footerHref("index.html")}">${leftNav.home}</a>
-              <a href="${footerHref("calculator.html")}">${leftNav.calculator}</a>
-              <a href="${footerHref("blog.html")}">${leftNav.blog}</a>
-              <a href="${footerHref("polls.html")}">${leftNav.polls}</a>
+              <a href="${footerHref("index.html")}">Home</a>
+              <a href="${footerHref("blog.html")}">Blog</a>
+              <a href="${footerHref("about.html")}">About</a>
+              <a href="${footerHref("contact.html")}">Contact</a>
+              <a href="${footerHref("privacy.html")}">Privacy</a>
           </nav>
         </section>
         <section class="footer-section footer-brand-section">
           <a class="footer-brand-mark" href="${footerHref("index.html")}">💕 Couple in Bond</a>
           <p>Playful tools, thoughtful words, and small rituals for the people who matter.</p>
           <p class="footer-copyright">Made for lighthearted connection and shared moments.</p>
-          <a class="footer-cta" href="${footerHref("calculator.html")}#calcBtn">Try the calculator</a>
           <div class="social-links" aria-label="Social links"><span class="social-links-label">Follow along</span><span class="social-links-list">${socials.map(({ name, href, icon }) => `<a class="social-link" href="${href}" target="_blank" rel="noopener noreferrer" aria-label="${name}">${icon}</a>`).join("")}</span></div>
         </section>
         <section class="footer-section footer-right">
           <nav class="footer-nav-links" aria-label="More footer navigation">
+            <a href="${footerHref("calculator.html")}">Love Calculator</a>
             <a href="${footerHref("quotes.html")}">Love Quotes</a>
+            <a href="${footerHref("polls.html")}">Daily Polls</a>
             <a href="${footerHref("valentines-day.html")}">Valentine’s Day</a>
-            <a href="${footerHref("about.html")}">About Us</a>
-            <a href="${footerHref("privacy.html")}">Privacy</a>
-            <a href="${footerHref("contact.html")}">Contact</a>
           </nav>
         </section>
       </div>
