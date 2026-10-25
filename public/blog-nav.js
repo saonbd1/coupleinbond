@@ -26,7 +26,7 @@
 
     nav.innerHTML = `
       <div class="blog-nav-main">
-        <a class="blog-brand" href="${navHref("index.html")}">💕 Couple in Bond</a>
+        <a class="blog-brand" href="${navHref("/")}">💕 Couple in Bond</a>
         <div class="blog-nav-actions">
           <div class="blog-wallet-wrap">
             <span class="blog-wallet-status" id="blogWalletStatus" aria-live="polite">Wallet: Not connected</span>
