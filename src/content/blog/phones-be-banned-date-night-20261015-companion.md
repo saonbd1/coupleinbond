@@ -33,7 +33,7 @@ asideHtml: ""
       <h2>Four phone rules that actually stick</h2>
       <ul><li>Full drawer mode: phones parked from hello to goodnight</li><li>Camera-only exception: photos welcome, scrolling banned</li><li>First-hour lockdown: total presence, then relaxed evening</li><li>Stack-and-penalty game: first to peek pays for dessert</li></ul>
       <h2>Make it yours</h2>
-      <p>Vote in the poll and agree on one rule before the next date, not during it. Then watch what happens to the conversation when the third wheel leaves the table. Most couples report the same shock: we talked like we used to. The phones did not add anything. Their absence did.</p>
+      <p>Vote in the poll and agree on one rule before the next date, not during it. Then watch what happens to the conversation when the third wheel leaves the table. Most couples report the same shock: we talked like we used to. The phones did not add anything. Their absence did. For the final stretch, try <a href="best-way-end-perfect-date-20261002-companion.html">an unhurried way to end the date</a>.</p>
       <p>The full version of this advice is <a href="phones-be-banned-date-night-20261018-companion.html">A Phone Policy That Actually Works on Date Night</a>, which covers the tiers and the exceptions. You can also read our guide to <a href="couple-bonding-activities-at-home.html">couple bonding activities at home</a>, or share a playful result from the <a href="../calculator.html">love calculator</a>.</p>
       <div class="article-callout"><strong>Your turn:</strong> Take the 10-second poll, <a href="../polls/phones-be-banned-date-night-20261015.html">Should phones be banned on date night?</a>, and compare your answer with your partner tonight.</div>
       <h2>Frequently Asked Questions</h2>
