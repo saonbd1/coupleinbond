@@ -6,7 +6,7 @@ window.COUPLE_POLL_DATA = [
     title: "What kind of date night sounds best this week?",
     description: "A quick date-night poll for couples deciding whether to stay in, go out, or make room for a little spontaneity.",
     intro: "Date night does not need to be elaborate to feel meaningful. This poll is a small prompt for noticing what kind of energy you both want this week.",
-    related: ["best-gift-couple-can-give-20261023", "best-way-say-sorry-after-20261013"],
+    related: ["matters-most-anniversary-20261026", "best-gift-couple-can-give-20261023"],
     options: ["A cozy night at home", "An unplanned adventure", "A long dinner and good conversation", "A little of everything"]
   },
   {
@@ -16,7 +16,7 @@ window.COUPLE_POLL_DATA = [
     title: "What helps two people feel most connected?",
     description: "Vote on the everyday relationship habits that help couples feel close, understood, and emotionally present.",
     intro: "Connection can grow through grand gestures, but it is often shaped by ordinary moments. Use this poll to compare the small things that matter to you.",
-    related: ["best-gift-couple-can-give-20261023", "best-way-say-sorry-after-20261013"],
+    related: ["matters-most-anniversary-20261026", "best-gift-couple-can-give-20261023"],
     options: ["Small acts of care", "Uninterrupted conversation", "Shared goals", "Laughing together"]
   },
   {
@@ -392,6 +392,26 @@ window.COUPLE_POLL_DATA = [
     intro: "Being understood is mostly a matter of being noticed. This poll asks which small signal does that best for you.",
     related: ["best-gift-couple-can-give-20261023", "date-night-mood"],
     options: ["A message out of nowhere", "Noticing a change before it is named", "The right silence on a bad day", "A question about something mentioned once"]
+  },
+  {
+    id: "matters-most-anniversary-20261026",
+    topic: "seasonal",
+    label: "Seasonal",
+    title: "What matters most on an anniversary?",
+    description: "Vote on the part of an anniversary that makes the date feel worth marking at all.",
+    intro: "Anniversaries quietly ask for a verdict on the year just passed. This poll asks what makes the day feel meaningful instead of obligatory.",
+    related: ["couples-keep-some-things-private-20261026", "date-night-mood"],
+    options: ["Repeating the first date", "A letter and no plan at all", "A trip put aside for months", "An ordinary day, made deliberate"]
+  },
+  {
+    id: "couples-keep-some-things-private-20261026",
+    topic: "relationships",
+    label: "Relationships",
+    title: "Should couples keep some things private from each other?",
+    description: "Choose where you stand on privacy inside a committed relationship.",
+    intro: "Honesty and privacy can feel like opposites in love. This poll explores whether healthy couples need a little room of their own.",
+    related: ["matters-most-anniversary-20261026", "date-night-mood"],
+    options: ["Yes, everyone needs space", "Only small personal things", "No, share everything", "It depends on the topic"]
   },
 ];
 
