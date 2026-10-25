@@ -29,7 +29,7 @@ asideHtml: ""
       <p>The best dates do not always need reservations. This poll asks which at-home evening feels most romantic with the right person. Vote on the question below, then use this short guide to act on your answer.</p>
       <h2>Home is the most underrated venue</h2>
       <p>Restaurants charge for atmosphere you can create free with dimmed lights, a shared blanket, and phones in another room. The poll below lists the home dates couples love most, and each wins for a different reason. Movie nights work through shared emotion. Cooking works through teamwork. Board games work through playful rivalry. Stargazing works through wonder. Pick the one that matches tonight&#x27;s energy, not the one that photographs best. The couples who date best at home are not the ones with the biggest living rooms. They are the ones who treat an ordinary evening like an occasion.</p>
-      <div class="article-callout"><strong>A gentle rule:</strong> plan it like a real date. Set a time, dress slightly up, and phones stay parked.</div>
+      <div class="article-callout"><strong>A gentle rule:</strong> plan it like a real date. Set a time, dress slightly up, and phones stay parked. Agree on <a href="phones-be-banned-date-night-20261015-companion.html">a phone boundary for the evening</a> before the activities begin.</div>
       <h2>Four home dates worth repeating</h2>
       <ul><li>Movie night with a theme: snacks matched to the film</li><li>Cook a new recipe together with music and no rushing</li><li>Board games with playful stakes: loser makes dessert</li><li>Balcony stargazing with blankets and one big question each</li></ul>
       <h2>Make it yours</h2>
