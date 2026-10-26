@@ -38,7 +38,7 @@ const articleTemplate = (article, locale) => `<!doctype html>
   <link rel="canonical" href="${locale.baseUrl}/${article.slug}.html">
   <link rel="alternate" hreflang="en" href="https://couplein.bond/${article.slug}.html">
   <link rel="alternate" hreflang="x-default" href="https://couplein.bond/${article.slug}.html">
-  <link rel="icon" href="../assets/coupleinbond-favicon.png">
+  <link rel="icon" href="../assets/cib-logo.png">
   <meta property="og:title" content="${htmlEscape(article.title)} — ${htmlEscape(locale.siteName)}">
   <meta property="og:description" content="${htmlEscape(article.description)}">
   <meta property="og:type" content="article">
