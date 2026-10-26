@@ -2,6 +2,8 @@
 // Poll detail layout. Reproduces the hand-written poll page shell exactly:
 // same <head> tags, same voting scaffolding that poll-detail.js hydrates,
 // same relative asset paths. Options/related/companion come from frontmatter.
+import SiteNav from '../components/SiteNav.astro';
+import SiteFooter from '../components/SiteFooter.astro';
 interface Props {
   poll: any;
 }
@@ -86,7 +88,7 @@ const graphLd = {
 </head>
 <body data-poll-id={poll.id}>
   <div class="blog-shell polls-shell"><div class="blog-wrap">
-    <header class="blog-nav" data-root="../"><a class="blog-brand" href="../index.html">💕 Couple in Bond</a></header>
+    <SiteNav root="../" current="polls" />
     <main class="poll-detail-page">
       <nav class="poll-breadcrumbs" aria-label="Breadcrumb"><a href="../polls.html">Relationship polls</a><span> / </span><span>{d.topic}</span></nav>
       <article class="poll-detail-card">
@@ -115,7 +117,7 @@ const graphLd = {
       </div></section>
       <p class="poll-detail-note">This static poll records one vote in your browser so you can compare your own choice with the local result. It is designed for conversation and reflection, not scientific measurement.</p>
     </main>
-    <footer class="blog-footer"><p>© 2026 Couple in Bond. All rights reserved.</p><p><a href="../calculator.html">Love calculator</a> · <a href="../quotes.html">Love quotes</a> · <a href="../polls.html">All polls</a></p></footer>
+    <SiteFooter root="../" />
   </div></div>
 </body>
 </html>

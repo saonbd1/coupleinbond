@@ -14,30 +14,14 @@
     return error && error.message ? error.message.replace(/^.*?:\s*/, "") : fallback;
   }
 
+  // The header markup - brand, desktop links, mobile menu, wallet control - now ships
+  // in the page HTML so it exists for crawlers and for visitors whose scripts are
+  // blocked. Rebuilding it here used to drop the desktop link row entirely, leaving
+  // every page wider than 560px with just a brand and a wallet button.
   function renderNavigation() {
     const nav = document.querySelector(".blog-nav");
     if (!nav) return;
     const root = nav.dataset.root || ".";
-    const valentinesLabel = "Valentine's Day";
-
-    function navHref(page) {
-      return `${root}/${page}`;
-    }
-
-    nav.innerHTML = `
-      <div class="blog-nav-main">
-        <a class="blog-brand" href="${navHref("/")}">💕 Couple in Bond</a>
-        <div class="blog-nav-actions">
-          <div class="blog-wallet-wrap">
-            <span class="blog-wallet-status" id="blogWalletStatus" aria-live="polite">Wallet: Not connected</span>
-            <button class="blog-wallet-button" id="blogWalletButton" type="button" aria-pressed="false">Connect wallet</button>
-          </div>
-          <button class="blog-menu-toggle" id="blogMenuToggle" type="button" aria-expanded="false" aria-controls="blogMobileMenu">Menu</button>
-        </div>
-      </div>
-      <nav class="blog-mobile-menu" id="blogMobileMenu" aria-label="More navigation">
-        <a href="${navHref("blog.html")}">Blog</a><a href="${navHref("calculator.html")}">Calculator</a><a href="${navHref("polls.html")}">Polls</a><a href="${navHref("valentines-day.html")}">${valentinesLabel}</a><a href="${navHref("about.html")}">About Us</a><a href="${navHref("privacy.html")}">Privacy</a><a href="${navHref("contact.html")}">Contact</a>
-      </nav>`;
 
     const socialScript = document.createElement("script");
     socialScript.src = `${root}/social-icons.js`; socialScript.defer = true; document.head.appendChild(socialScript);
@@ -46,6 +30,12 @@
     const walletStatus = document.getElementById("blogWalletStatus");
     const menuToggle = document.getElementById("blogMenuToggle");
     const mobileMenu = document.getElementById("blogMobileMenu");
+
+    if (menuToggle && mobileMenu) menuToggle.addEventListener("click", () => { const open = mobileMenu.classList.toggle("open"); menuToggle.setAttribute("aria-expanded", String(open)); });
+
+    // Pages without a minting flow render the header without the wallet control.
+    if (!walletButton || !walletStatus) return;
+
     let currentAddress = "";
     let currentChainId = "";
 
@@ -114,7 +104,6 @@
     }
 
     walletButton.addEventListener("click", () => currentAddress ? disconnect() : connect());
-    if (menuToggle && mobileMenu) menuToggle.addEventListener("click", () => { const open = mobileMenu.classList.toggle("open"); menuToggle.setAttribute("aria-expanded", String(open)); });
     const provider = ethereum();
     if (provider && provider.on) { provider.on("accountsChanged", handleAccountsChanged); provider.on("chainChanged", handleChainChanged); }
     if (provider && provider.request) provider.request({ method: "eth_accounts" }).then(handleAccountsChanged).catch(() => {});

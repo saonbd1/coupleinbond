@@ -47,7 +47,28 @@
 <body>
   <div class="blog-shell">
     <div class="blog-wrap">
-      <header class="blog-nav" data-root="."></header>
+      <header class="blog-nav" data-root=".">
+        <div class="blog-nav-main">
+          <a class="blog-brand" href="/">💕 Couple in Bond</a>
+          <div class="blog-nav-actions">
+            <div class="blog-wallet-wrap">
+              <span class="blog-wallet-status" id="blogWalletStatus" aria-live="polite">Wallet: Not connected</span>
+              <button class="blog-wallet-button" id="blogWalletButton" type="button" aria-pressed="false">Connect wallet</button>
+            </div>
+            <button class="blog-menu-toggle" id="blogMenuToggle" type="button" aria-expanded="false" aria-controls="blogMobileMenu">Menu</button>
+          </div>
+        </div>
+        <nav class="blog-nav-links" aria-label="Site navigation">
+          <a href="blog.html">Blog</a>
+          <a href="polls.html">Polls</a>
+          <a href="compatibility-quiz.html">Compatibility Quiz</a>
+          <a href="quotes.html">Love Quotes</a>
+          <a class="blog-nav-cta" href="calculator.html#calcBtn">Try the calculator</a>
+        </nav>
+        <nav class="blog-mobile-menu" id="blogMobileMenu" aria-label="More navigation">
+          <a href="blog.html">Blog</a><a href="polls.html">Polls</a><a href="calculator.html">Calculator</a><a href="compatibility-quiz.html">Compatibility Quiz</a><a href="quotes.html">Love Quotes</a><a href="valentines-day.html">Valentine's Day</a><a href="about.html">About Us</a><a href="privacy.html">Privacy</a><a href="contact.html">Contact</a>
+        </nav>
+      </header>
       <main class="article-layout keep-layout" aria-labelledby="keep-title">
         <article class="article-shell keep-shell">
           <header class="article-header">
@@ -70,7 +91,34 @@
         </article>
         <aside class="article-aside keep-aside"><div class="keep-aside-icon" aria-hidden="true">✦</div><h2>Keep it meaningful.</h2><p>Mint a result when the moment matters to you. The blockchain is the record. The memory is yours.</p><a href="calculator.html#calcBtn">Try the calculator →</a><a href="polls.html">Browse community polls →</a><a href="privacy.html">Read the privacy page →</a></aside>
       </main>
-      <footer class="site-footer"></footer>
+      <footer class="site-footer">
+        <div class="footer-grid">
+          <section class="footer-section footer-left">
+            <nav class="footer-nav-links" aria-label="Footer navigation">
+              <a href="/">Home</a>
+              <a href="blog.html">Blog</a>
+              <a href="about.html">About</a>
+              <a href="contact.html">Contact</a>
+              <a href="privacy.html">Privacy</a>
+            </nav>
+          </section>
+          <section class="footer-section footer-brand-section">
+            <a class="footer-brand-mark" href="/">💕 Couple in Bond</a>
+            <p>Playful tools, thoughtful words, and small rituals for the people who matter.</p>
+            <p class="footer-copyright">Made for lighthearted connection and shared moments.</p>
+          </section>
+          <section class="footer-section footer-right">
+            <nav class="footer-nav-links" aria-label="More footer navigation">
+              <a href="calculator.html">Love Calculator</a>
+              <a href="compatibility-quiz.html">Compatibility Quiz</a>
+              <a href="quotes.html">Love Quotes</a>
+              <a href="polls.html">Daily Polls</a>
+              <a href="valentines-day.html">Valentine’s Day</a>
+            </nav>
+          </section>
+        </div>
+        <div class="footer-bottom"><p>© 2026 Couple in Bond. All rights reserved.</p><p>Wallet connection stays available in the header.</p></div>
+      </footer>
     </div>
   </div>
   <script src="blog-nav.js"></script>

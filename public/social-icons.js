@@ -71,13 +71,31 @@ function depthRoot() {
     return `${pageRoot()}/${page}`;
   }
 
+  // The homepage answers at "/" and redirects "/index.html" to it with a 308, so the
+  // home link uses the canonical form instead of the redirecting one.
+  function homeHref() {
+    const root = pageRoot();
+    return root === "." ? "/" : `${root}/`;
+  }
+
+  // The "Follow along" row stays here so the icon SVGs have one source. Most pages now
+  // ship their footer markup in the HTML and only need this row added.
+  function socialLinksMarkup() {
+    return `<div class="social-links" aria-label="Social links"><span class="social-links-label">Follow along</span><span class="social-links-list">${socials.map(({ name, href, icon }) => `<a class="social-link" href="${href}" target="_blank" rel="noopener noreferrer" aria-label="${name}">${icon}</a>`).join("")}</span></div>`;
+  }
+
   function renderFooter(footer) {
-    if (footer.querySelector(".footer-grid")) return;
+    if (footer.querySelector(".footer-grid")) {
+      // Server-rendered footer: add the social row, leave the links alone.
+      const brand = footer.querySelector(".footer-brand-section");
+      if (brand && !brand.querySelector(".social-links")) brand.insertAdjacentHTML("beforeend", socialLinksMarkup());
+      return;
+    }
     footer.innerHTML = `
       <div class="footer-grid">
         <section class="footer-section footer-left">
             <nav class="footer-nav-links" aria-label="Footer navigation">
-              <a href="${footerHref("index.html")}">Home</a>
+              <a href="${homeHref()}">Home</a>
               <a href="${footerHref("blog.html")}">Blog</a>
               <a href="${footerHref("about.html")}">About</a>
               <a href="${footerHref("contact.html")}">Contact</a>
@@ -85,14 +103,15 @@ function depthRoot() {
           </nav>
         </section>
         <section class="footer-section footer-brand-section">
-          <a class="footer-brand-mark" href="${footerHref("index.html")}">💕 Couple in Bond</a>
+          <a class="footer-brand-mark" href="${homeHref()}">💕 Couple in Bond</a>
           <p>Playful tools, thoughtful words, and small rituals for the people who matter.</p>
           <p class="footer-copyright">Made for lighthearted connection and shared moments.</p>
-          <div class="social-links" aria-label="Social links"><span class="social-links-label">Follow along</span><span class="social-links-list">${socials.map(({ name, href, icon }) => `<a class="social-link" href="${href}" target="_blank" rel="noopener noreferrer" aria-label="${name}">${icon}</a>`).join("")}</span></div>
+          ${socialLinksMarkup()}
         </section>
         <section class="footer-section footer-right">
           <nav class="footer-nav-links" aria-label="More footer navigation">
             <a href="${footerHref("calculator.html")}">Love Calculator</a>
+            <a href="${footerHref("compatibility-quiz.html")}">Compatibility Quiz</a>
             <a href="${footerHref("quotes.html")}">Love Quotes</a>
             <a href="${footerHref("polls.html")}">Daily Polls</a>
             <a href="${footerHref("valentines-day.html")}">Valentine’s Day</a>

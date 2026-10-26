@@ -1,0 +1,62 @@
+---
+// The header navigation used to be built by blog-nav.js at DOMContentLoaded, which
+// meant two things: the desktop link row only existed after JavaScript ran, and the
+// replacement markup had no desktop row in it at all, so every page above 560px lost
+// its navigation. Ship the links in the HTML and let the script wire behaviour only.
+interface Props {
+  // Relative prefix for the page: '' at the site root, '../' inside /blog-posts/ etc.
+  root?: string;
+  // Highlights the section the visitor is currently reading.
+  current?: 'blog' | 'polls' | 'quiz' | 'quotes' | '';
+  // Pages that offer the wallet flow (minting, quotes) keep the connect control.
+  wallet?: boolean;
+}
+
+const { root = '', current = '', wallet = true } = Astro.props;
+const dataRoot = root === '' ? '.' : root.replace(/\/$/, '');
+// /index.html answers with a 308 to /, so point the brand at the canonical form and
+// skip the redirect hop for visitors and crawlers alike.
+const homeHref = root === '' ? '/' : root;
+
+// Kept short on purpose: About, Privacy and Contact live in the footer and the
+// mobile menu, so the desktop row stays readable next to the brand and wallet.
+const links: Array<{ key: string; href: string; label: string }> = [
+  { key: 'blog', href: `${root}blog.html`, label: 'Blog' },
+  { key: 'polls', href: `${root}polls.html`, label: 'Polls' },
+  { key: 'quiz', href: `${root}compatibility-quiz.html`, label: 'Compatibility Quiz' },
+  { key: 'quotes', href: `${root}quotes.html`, label: 'Love Quotes' },
+];
+
+// The collapsed menu carries the full set, matching what the footer offers.
+const more: Array<{ href: string; label: string }> = [
+  { href: `${root}blog.html`, label: 'Blog' },
+  { href: `${root}polls.html`, label: 'Polls' },
+  { href: `${root}calculator.html`, label: 'Calculator' },
+  { href: `${root}compatibility-quiz.html`, label: 'Compatibility Quiz' },
+  { href: `${root}quotes.html`, label: 'Love Quotes' },
+  { href: `${root}valentines-day.html`, label: "Valentine's Day" },
+  { href: `${root}about.html`, label: 'About Us' },
+  { href: `${root}privacy.html`, label: 'Privacy' },
+  { href: `${root}contact.html`, label: 'Contact' },
+];
+---
+
+<header class="blog-nav" data-root={dataRoot}>
+  <div class="blog-nav-main">
+    <a class="blog-brand" href={homeHref}>💕 Couple in Bond</a>
+    <div class="blog-nav-actions">
+      {wallet && <div class="blog-wallet-wrap">
+        <span class="blog-wallet-status" id="blogWalletStatus" aria-live="polite">Wallet: Not connected</span>
+        <button class="blog-wallet-button" id="blogWalletButton" type="button" aria-pressed="false">Connect wallet</button>
+      </div>}
+      <button class="blog-menu-toggle" id="blogMenuToggle" type="button" aria-expanded="false" aria-controls="blogMobileMenu">Menu</button>
+    </div>
+  </div>
+  <nav class="blog-nav-links" aria-label="Site navigation">
+    {links.map((link) => <a href={link.href} aria-current={link.key === current ? 'page' : undefined}>{link.label}</a>)}
+    <a class="blog-nav-cta" href={`${root}calculator.html#calcBtn`}>Try the calculator</a>
+  </nav>
+  <nav class="blog-mobile-menu" id="blogMobileMenu" aria-label="More navigation">
+    {more.map((link) => <a href={link.href}>{link.label}</a>)}
+  </nav>
+</header>

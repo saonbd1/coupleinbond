@@ -2,24 +2,45 @@
 (function () {
   "use strict";
 
-  const POLLS = Array.isArray(window.COUPLE_POLL_DATA) ? window.COUPLE_POLL_DATA : [];
+  const list = document.getElementById("pollsList");
+  if (!list) return;
 
+  // The poll cards ship in the page HTML (rendered by src/pages/polls.astro from the
+  // polls collection) so the whole directory - 42 links, questions, descriptions and
+  // option sets - exists for crawlers and for readers with JavaScript disabled.
+  // This script no longer builds cards; it only wires voting behaviour on the nodes
+  // that are already there and windows them for pagination. Keeping the node
+  // references alive is what lets the form listeners survive paging.
   const VOTES_KEY = "coupleinbond-poll-votes-v1";
   const RESULTS_KEY = "coupleinbond-poll-results-v1";
-  const list = document.getElementById("pollsList");
   const empty = document.getElementById("pollsEmpty");
   const pagination = document.getElementById("pollsPagination");
-  const requestedTopic = new URLSearchParams(window.location.search).get("topic");
+  const query = new URLSearchParams(window.location.search);
+  const requestedTopic = query.get("topic");
   const validTopics = new Set(["all", "connection", "relationships", "date-night", "seasonal"]);
   let activeTopic = validTopics.has(requestedTopic) ? requestedTopic : "all";
 
-  // Listing pagination: the polls index is rendered client-side (voting state
-  // lives in localStorage), so the page split happens in the browser.
-  // The default size matches the blog listing so both feel like one system;
-  // the reader can switch between 6, 8 and 10 polls per page.
+  const polls = Array.from(list.querySelectorAll(".poll-card")).map((card) => ({
+    card,
+    id: card.dataset.pollId,
+    topic: card.dataset.topic,
+    title: (card.querySelector(".poll-card-title-link") || {}).textContent?.trim() || "",
+    description: (card.querySelector(".poll-card-description") || {}).textContent?.trim() || "",
+    options: Array.from(card.querySelectorAll(".poll-option")).map((label) => label.textContent.trim()),
+    form: card.querySelector(".poll-form"),
+    inputs: Array.from(card.querySelectorAll('input[type="radio"]')),
+    submit: card.querySelector(".poll-submit"),
+    share: card.querySelector(".poll-share"),
+    shareStatus: card.querySelector(".poll-share-status"),
+    feedback: card.querySelector(".poll-feedback"),
+    results: card.querySelector(".poll-results"),
+  }));
+
+  // Listing pagination: the page split happens in the browser, so the reader can
+  // switch between 6, 8 and 10 polls per page. The default size matches the blog
+  // listing so both feel like one system.
   const DEFAULT_PAGE_SIZE = 6;
   const ALLOWED_PAGE_SIZES = [6, 8, 10];
-  const query = new URLSearchParams(window.location.search);
   let pageSize = DEFAULT_PAGE_SIZE;
   const requestedSize = Number(query.get("size"));
   if (ALLOWED_PAGE_SIZES.indexOf(requestedSize) !== -1) pageSize = requestedSize;
@@ -55,16 +76,20 @@
     return element;
   }
 
-  function renderResults(container, poll, counts, selectedIndex) {
+  // Fills the results block that the card already carries. Nothing is invented: with
+  // no local votes the block explains that this browser has not voted yet.
+  function renderResults(poll, counts, selectedIndex) {
+    const container = poll.results;
+    if (!container) return;
+    container.innerHTML = "";
     const total = counts.reduce((sum, count) => sum + count, 0);
-    const results = createElement("div", "poll-results");
     const heading = createElement("div", "poll-results-heading");
     heading.append(createElement("span", "", "Results"), createElement("span", "", `${total} vote${total === 1 ? "" : "s"}`));
-    results.append(heading);
+    container.append(heading);
 
     if (total === 0) {
-      results.append(createElement("p", "poll-feedback", "No votes yet. You could start this one."));
-      container.append(results);
+      container.append(createElement("p", "poll-feedback", "No votes yet. You could start this one."));
+      container.hidden = false;
       return;
     }
 
@@ -78,17 +103,38 @@
       track.append(fill);
       row.append(label, track, createElement("span", "poll-result-percent", `${percent}%`));
       if (index === selectedIndex) row.dataset.selected = "true";
-      results.append(row);
+      container.append(row);
     });
-    container.append(results);
+    container.hidden = false;
+  }
+
+  // Restores the saved choice for this browser, or leaves the form ready to vote.
+  function applyVoteState(poll, votes, results) {
+    const selected = Number.isInteger(votes[poll.id]) ? votes[poll.id] : null;
+    poll.inputs.forEach((input, index) => {
+      input.checked = selected === index;
+      input.disabled = selected !== null;
+    });
+    if (poll.submit) {
+      poll.submit.textContent = selected === null ? "Vote on this topic" : "Vote recorded";
+      poll.submit.disabled = selected !== null;
+    }
+    if (poll.feedback) poll.feedback.textContent = "";
+    if (poll.results) {
+      if (selected === null) {
+        poll.results.innerHTML = "";
+        poll.results.hidden = true;
+      } else {
+        renderResults(poll, resultCounts(poll, results), selected);
+      }
+    }
   }
 
   async function sharePoll(poll, button, status) {
     const url = new URL(`polls/${poll.id}.html`, window.location.href).href;
-    const title = `${poll.title} — Couple in Bond`;
     try {
       if (navigator.share) {
-        await navigator.share({ title, text: poll.description, url });
+        await navigator.share({ title: poll.title, text: poll.description, url });
         status.textContent = "Poll shared.";
         return;
       }
@@ -113,74 +159,6 @@
       button.disabled = false;
       button.textContent = "Share poll";
     }
-  }
-
-  function renderPoll(poll, votes, results) {
-    const card = createElement("article", "poll-card");
-    const top = createElement("div", "poll-card-top");
-    top.append(createElement("span", "poll-card-tag", poll.label), createElement("span", "", "One choice"));
-    const titleLink = createElement("a", "poll-card-title-link", poll.title);
-    titleLink.href = `polls/${poll.id}.html`;
-    const title = createElement("h3", "", "");
-    title.append(titleLink);
-    card.append(top, title, createElement("p", "poll-card-description", poll.description));
-
-    const form = document.createElement("form");
-    form.className = "poll-form";
-    const options = document.createElement("fieldset");
-    options.className = "poll-options";
-    options.setAttribute("aria-label", poll.title);
-    const selectedBefore = Number.isInteger(votes[poll.id]) ? votes[poll.id] : null;
-
-    poll.options.forEach((option, index) => {
-      const label = createElement("label", "poll-option");
-      const input = document.createElement("input");
-      input.type = "radio";
-      input.name = poll.id;
-      input.value = String(index);
-      input.checked = selectedBefore === index;
-      input.disabled = selectedBefore !== null;
-      label.append(input, createElement("span", "", option));
-      options.append(label);
-    });
-
-    const submit = createElement("button", "poll-submit", selectedBefore === null ? "Vote on this topic" : "Vote recorded");
-    submit.type = "submit";
-    submit.disabled = selectedBefore !== null;
-    const share = createElement("button", "poll-share", "Share poll");
-    share.type = "button";
-    const shareStatus = createElement("p", "poll-share-status");
-    shareStatus.setAttribute("aria-live", "polite");
-    share.addEventListener("click", async () => {
-      share.disabled = true;
-      share.textContent = "Preparing…";
-      await sharePoll(poll, share, shareStatus);
-    });
-    const feedback = createElement("p", "poll-feedback");
-    feedback.setAttribute("aria-live", "polite");
-    form.append(options, submit, share, shareStatus, feedback);
-    form.addEventListener("submit", (event) => {
-      event.preventDefault();
-      const selected = form.querySelector("input:checked");
-      if (!selected) {
-        feedback.textContent = "Choose an option first.";
-        return;
-      }
-      const index = Number(selected.value);
-      const nextVotes = readStorage(VOTES_KEY, {});
-      const nextResults = readStorage(RESULTS_KEY, {});
-      if (Number.isInteger(nextVotes[poll.id])) return;
-      const counts = resultCounts(poll, nextResults);
-      counts[index] += 1;
-      nextVotes[poll.id] = index;
-      nextResults[poll.id] = counts;
-      writeStorage(VOTES_KEY, nextVotes);
-      writeStorage(RESULTS_KEY, nextResults);
-      render();
-    });
-    card.append(form);
-    if (selectedBefore !== null) renderResults(card, poll, resultCounts(poll, results), selectedBefore);
-    return card;
   }
 
   function pageCountFor(total) {
@@ -267,13 +245,16 @@
   function render() {
     const votes = readStorage(VOTES_KEY, {});
     const results = readStorage(RESULTS_KEY, {});
-    const visible = POLLS.filter((poll) => activeTopic === "all" || poll.topic === activeTopic);
+    const visible = polls.filter((poll) => activeTopic === "all" || poll.topic === activeTopic);
     const totalPages = pageCountFor(visible.length);
     if (currentPage > totalPages) currentPage = totalPages;
     const start = (currentPage - 1) * pageSize;
     const pagePolls = visible.slice(start, start + pageSize);
+    // Re-attach the existing nodes instead of rebuilding them: the card markup is the
+    // single source of truth and the listeners bound once below stay attached.
     list.innerHTML = "";
-    pagePolls.forEach((poll) => list.append(renderPoll(poll, votes, results)));
+    pagePolls.forEach((poll) => list.append(poll.card));
+    polls.forEach((poll) => applyVoteState(poll, votes, results));
     empty.hidden = visible.length > 0;
     buildPaginationControls(totalPages);
     syncPageSizeOptions();
@@ -283,6 +264,39 @@
       button.setAttribute("aria-pressed", String(isActive));
     });
   }
+
+  // One vote per topic per browser, stored locally. The card nodes live for the whole
+  // session, so these listeners are bound once rather than on every render.
+  polls.forEach((poll) => {
+    if (!poll.form) return;
+    poll.form.addEventListener("submit", (event) => {
+      event.preventDefault();
+      const selected = poll.form.querySelector("input:checked");
+      if (!selected) {
+        if (poll.feedback) poll.feedback.textContent = "Choose an option first.";
+        return;
+      }
+      const index = Number(selected.value);
+      const nextVotes = readStorage(VOTES_KEY, {});
+      const nextResults = readStorage(RESULTS_KEY, {});
+      if (Number.isInteger(nextVotes[poll.id])) return;
+      const counts = resultCounts(poll, nextResults);
+      counts[index] += 1;
+      nextVotes[poll.id] = index;
+      nextResults[poll.id] = counts;
+      writeStorage(VOTES_KEY, nextVotes);
+      writeStorage(RESULTS_KEY, nextResults);
+      render();
+    });
+    if (poll.share) {
+      poll.share.addEventListener("click", async () => {
+        const button = poll.share;
+        button.disabled = true;
+        button.textContent = "Preparing…";
+        await sharePoll(poll, button, poll.shareStatus);
+      });
+    }
+  });
 
   document.querySelectorAll(".topic-filter button").forEach((button) => {
     button.addEventListener("click", () => {

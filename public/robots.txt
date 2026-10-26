@@ -1,13 +1,10 @@
 User-agent: *
 Allow: /
 
-# Keep the canonical archive pagination crawlable, but prevent alternate
-# posts-per-page URL families from creating duplicate crawl paths.
-Disallow: /blog/size/
-
-# Poll filters and page-size selectors are client-side listing states, not
-# unique landing pages. The query marker blocks /polls.html?size=, ?page=,
-# and ?topic= variants while leaving /polls.html itself crawlable.
-Disallow: /polls.html?
+# Nothing is disallowed: every duplicate listing family is declared on the page
+# itself instead of here. Blocking a URL that the site links to hides its
+# canonical/noindex signal from crawlers and strands the internal link, so
+# /blog/size/* (alternate posts-per-page archive) serves noindex,follow and the
+# /polls.html?size=/page=/topic= views self-canonicalise to /polls.html.
 
 Sitemap: https://couplein.bond/sitemap.xml

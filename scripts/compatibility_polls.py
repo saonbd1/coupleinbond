@@ -258,7 +258,7 @@ def update_poll_data_js(poll_dict: dict, related_ids: list) -> None:
         fh.write(new_content)
 
 
-def update_sitemap(poll_slug: str) -> None:
+def update_sitemap(poll_slug: str, lastmod: str = "") -> None:
     if not os.path.exists(SITEMAP_XML):
         return
     with open(SITEMAP_XML, "r", encoding="utf-8") as fh:
@@ -266,7 +266,10 @@ def update_sitemap(poll_slug: str) -> None:
     new_url = "%s/polls/%s.html" % (SITE_URL, poll_slug)
     if new_url in content:
         return
-    entry = "  <url><loc>%s</loc></url>\n" % new_url
+    # <lastmod> lets Google pace recrawls of the new page instead of treating the
+    # sitemap as a bare discovery list. scripts/sitemap-lastmod.mjs backfills the rest.
+    stamp = "<lastmod>%s</lastmod>" % lastmod if lastmod else ""
+    entry = "  <url><loc>%s</loc>%s</url>\n" % (new_url, stamp)
     close = content.rfind("</urlset>")
     if close < 0:
         return
@@ -362,7 +365,7 @@ def main() -> None:
     update_poll_data_js(poll_dict, related_ids)
     print("  Updated:    %s" % POLL_DATA_JS)
 
-    update_sitemap(poll_dict["id"])
+    update_sitemap(poll_dict["id"], date_str)
     print("  Updated:    %s" % SITEMAP_XML)
 
     history["published_slugs"].append(poll_dict["id"])

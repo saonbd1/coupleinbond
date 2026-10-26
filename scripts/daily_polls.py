@@ -1274,12 +1274,16 @@ def write_companion_md(path, poll, date_str, card_order, ld_order):
         f.write(frontmatter(fields) + "\n" + body)
 
 
-def update_sitemap(new_polls, companion_slugs=()):
+def update_sitemap(new_polls, companion_slugs=(), lastmod=None):
     with open(SITEMAP_XML, encoding="utf-8") as f:
         content = f.read()
     urls = ["%s/polls/%s.html" % (SITE_URL, p["id"]) for p in new_polls]
     urls += ["%s/blog-posts/%s.html" % (SITE_URL, s) for s in companion_slugs]
-    entries = "\n".join("  <url><loc>%s</loc></url>" % u for u in urls) + "\n"
+    # <lastmod> is what tells Google a fresh page exists; without it the sitemap is
+    # only a discovery list and recrawl pacing on a young domain suffers. Kept in sync
+    # with the rest of the file by scripts/sitemap-lastmod.mjs.
+    stamp = "<lastmod>%s</lastmod>" % lastmod if lastmod else ""
+    entries = "\n".join("  <url><loc>%s</loc>%s</url>" % (u, stamp) for u in urls) + "\n"
     content = content.replace("</urlset>", entries + "</urlset>")
     with open(SITEMAP_XML, "w", encoding="utf-8") as f:
         f.write(content)
@@ -1448,7 +1452,7 @@ def main():
         print("  wrote src/content/blog/%s.md (%d words)"
               % (companion["slug"], article_word_count(p)))
 
-    update_sitemap(new_polls, companions)
+    update_sitemap(new_polls, companions, date_str)
     print("  updated poll-data.js, sitemap.xml")
     print("  (blog.html / polls.html regenerate from the content collections)")
 

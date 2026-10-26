@@ -1,0 +1,55 @@
+---
+// The footer carries the site's full link set (see the Editorial Bloom note in
+// social-icons.js). It used to exist only after social-icons.js rebuilt it in
+// JavaScript, so the crawlable HTML of most pages shipped an empty or two-link
+// footer. Render the same structure here; social-icons.js now only adds the social
+// icons to a footer that is already present, keeping the icon SVGs single-sourced.
+interface Props {
+  // Relative prefix for the page: '' at the site root, '../' inside /blog-posts/ etc.
+  root?: string;
+}
+
+const { root = '' } = Astro.props;
+// /index.html answers with a 308 to /; link to the canonical target directly.
+const homeHref = root === '' ? '/' : root;
+
+const primary: Array<{ href: string; label: string }> = [
+  { href: homeHref, label: 'Home' },
+  { href: `${root}blog.html`, label: 'Blog' },
+  { href: `${root}about.html`, label: 'About' },
+  { href: `${root}contact.html`, label: 'Contact' },
+  { href: `${root}privacy.html`, label: 'Privacy' },
+];
+
+const tools: Array<{ href: string; label: string }> = [
+  { href: `${root}calculator.html`, label: 'Love Calculator' },
+  { href: `${root}compatibility-quiz.html`, label: 'Compatibility Quiz' },
+  { href: `${root}quotes.html`, label: 'Love Quotes' },
+  { href: `${root}polls.html`, label: 'Daily Polls' },
+  { href: `${root}valentines-day.html`, label: 'Valentine’s Day' },
+];
+---
+
+<footer class="blog-footer">
+  <div class="footer-grid">
+    <section class="footer-section footer-left">
+      <nav class="footer-nav-links" aria-label="Footer navigation">
+        {primary.map((link) => <a href={link.href}>{link.label}</a>)}
+      </nav>
+    </section>
+    <section class="footer-section footer-brand-section">
+      <a class="footer-brand-mark" href={homeHref}>💕 Couple in Bond</a>
+      <p>Playful tools, thoughtful words, and small rituals for the people who matter.</p>
+      <p class="footer-copyright">Made for lighthearted connection and shared moments.</p>
+    </section>
+    <section class="footer-section footer-right">
+      <nav class="footer-nav-links" aria-label="More footer navigation">
+        {tools.map((link) => <a href={link.href}>{link.label}</a>)}
+      </nav>
+    </section>
+  </div>
+  <div class="footer-bottom">
+    <p>© 2026 Couple in Bond. All rights reserved.</p>
+    <p>Wallet connection stays available in the header.</p>
+  </div>
+</footer>

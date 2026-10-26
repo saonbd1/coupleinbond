@@ -1,5 +1,7 @@
 ---
 import { ALLOWED_PAGE_SIZES, DEFAULT_PAGE_SIZE, blogPageHref } from '../lib/pagination';
+import SiteNav from './SiteNav.astro';
+import SiteFooter from './SiteFooter.astro';
 
 // Blog index renderer, shared by /blog.html (page 1) and the paginated
 // /blog/page/N.html pages. The whole page shell lives here so the first page
@@ -13,9 +15,13 @@ interface Props {
   pageSize?: number;   // posts per page for this listing
   // Total number of posts, so the size selector can say how many there are.
   totalPosts?: number;
+  // Alternate posts-per-page listings repeat the archive at another page size.
+  // They stay crawlable (the size selector links to them) but must not compete
+  // with /blog.html and /blog/page/N.html in the index.
+  noindex?: boolean;
 }
 
-const { posts, page, totalPages, allPosts, root = '', pageSize = DEFAULT_PAGE_SIZE, totalPosts = 0 } = Astro.props;
+const { posts, page, totalPages, allPosts, root = '', pageSize = DEFAULT_PAGE_SIZE, totalPosts = 0, noindex = false } = Astro.props;
 
 const SITE = 'https://couplein.bond';
 const isFirstPage = page === 1;
@@ -98,7 +104,7 @@ const ld = {
   <script src={`${root}blog-nav.js`} defer></script>
   <script type="application/ld+json" set:html={JSON.stringify(ld, null, 2)}></script>
   <meta name="description" content="Read practical relationship ideas about couple bonding, communication, dating, friendship, and Valentine’s Day from Couple in Bond.">
-  <meta name="robots" content="index,follow,max-image-preview:large">
+  <meta name="robots" content={noindex ? 'noindex,follow' : 'index,follow,max-image-preview:large'}>
   <meta name="theme-color" content="#ff4d6d">
   <link rel="canonical" href={pageUrl}>
   <link rel="alternate" hreflang="en" href={pageUrl}>
@@ -123,16 +129,7 @@ const ld = {
 <body>
   <div class="blog-shell">
     <div class="blog-wrap">
-      <header class="blog-nav" data-root={root || '.'}>
-        <a class="blog-brand" href={`${root}index.html`}>💕 Couple in Bond</a>
-        <nav class="blog-nav-links" aria-label="Blog navigation">
-          <a href={`${root}index.html`}>Home</a>
-          <a href={`${root}blog.html`} aria-current="page">Blog</a>
-          <a href={`${root}about.html`}>About Us</a>
-          <a href={`${root}privacy.html`}>Privacy</a>
-          <a class="blog-nav-cta" href={`${root}calculator.html#calcBtn`}>Try the calculator</a>
-        </nav>
-      </header>
+      <SiteNav root={root} current="blog" />
 
       <main>
         <section class="blog-hero" aria-labelledby="blog-title">
@@ -213,10 +210,7 @@ const ld = {
         )}
       </main>
 
-      <footer class="blog-footer">
-        <p>© 2026 Couple in Bond. All rights reserved.</p>
-        <p><a href={`${root}calculator.html`}>Love calculator</a> · <a href={`${root}privacy.html`}>Privacy</a> · Love, for fun and reflection.</p>
-      </footer>
+      <SiteFooter root={root} />
     </div>
   </div>
 </body>

@@ -1,6 +1,8 @@
 ---
 // Blog post layout. Reproduces the original hand-written page shell exactly:
 // same <head> tags, same nav/article/footer markup, same relative asset paths.
+import SiteNav from '../components/SiteNav.astro';
+import SiteFooter from '../components/SiteFooter.astro';
 interface Props {
   post: any;
 }
@@ -121,21 +123,19 @@ const companionLd = {
   <meta name="twitter:description" content={d.description}>
   <meta name="twitter:image" content={socialImage}>
 
-<script type="application/ld+json" data-seo-enhancement set:html={isCompanion ? undefined : JSON.stringify(breadcrumb)}></script>
+{/* Companion pages already carry their BreadcrumbList inside the @graph block
+    above, so the standalone script is only needed on editorial pages. Rendering
+    the tag with no content used to ship an empty ld+json block on 31 of 42 posts, which
+    Search Console reports as invalid structured data. */}
+{!isCompanion && (
+  <script type="application/ld+json" data-seo-enhancement set:html={JSON.stringify(breadcrumb)}></script>
+)}
 </head>
 <body>
   <div class="blog-shell"><div class="blog-wrap">
-    {isCompanion ? (
-    <header class="blog-nav" data-root=".."><a class="blog-brand" href="../index.html">💕 Couple in Bond</a><nav class="blog-nav-links" aria-label="Article navigation"><a href="../blog.html">Blog</a><a href="../polls.html">Polls</a><a href="../calculator.html">Calculator</a></nav></header>
-    ) : (
-    <header class="blog-nav" data-root=".."><a class="blog-brand" href="../index.html">💕 Couple in Bond</a><nav class="blog-nav-links" aria-label="Article navigation"><a href="../blog.html">Blog</a><a href="../calculator.html">Calculator</a><a href="../privacy.html">Privacy</a></nav></header>
-    )}
+    <SiteNav root="../" current="blog" />
     <main class="article-layout"><article class="article-shell"><header class="article-header"><div class="blog-kicker">{d.kicker}</div><h1>{d.title}</h1><p class="article-dek">{d.dek}</p><div class="article-meta"><span>{d.publishedLabel}</span><span>·</span><span>By {d.author}</span></div></header><div class="article-body"><slot /></div><footer class="article-footer">{d.disclaimer}</footer></article>{d.asideHtml && <Fragment set:html={d.asideHtml} />}</main>
-    {isCompanion ? (
-    <footer class="blog-footer"><p>© 2026 Couple in Bond. All rights reserved.</p><p><a href="../blog.html">More relationship ideas</a> · <a href="../polls.html">All polls</a></p></footer>
-    ) : (
-    <footer class="blog-footer"><p>© 2026 Couple in Bond. All rights reserved.</p><p><a href="../blog.html">More relationship ideas</a></p></footer>
-    )}
+    <SiteFooter root="../" />
   </div></div>
 </body>
 </html>

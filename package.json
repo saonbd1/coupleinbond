@@ -18,6 +18,7 @@
     "content:check": "npm run generate:localized && npm run validate:localized",
     "quotes:generate": "node scripts/generate-quote-cards.mjs",
     "quotes:check": "node scripts/generate-quote-cards.mjs --check",
+    "sitemap:lastmod": "node scripts/sitemap-lastmod.mjs",
     "verify:seo": "node scripts/verify-hreflang.mjs",
     "verify:links": "node scripts/verify-links.mjs",
     "verify:pagination": "node scripts/verify-blog-pagination.mjs && node scripts/verify-polls-pagination.mjs",

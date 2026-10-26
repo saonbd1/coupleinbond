@@ -1,6 +1,9 @@
-// Verifies the client-side pagination on the polls listing
-// (public/polls.js): page size switching, page navigation, and the
-// topic filter resetting to page 1.
+// Verifies the polls listing (/polls.html):
+//   1. the directory ships as HTML - every poll page is linked from the raw file,
+//      before any script runs, so a crawler and a no-JS visitor see the whole set;
+//   2. the client-side pagination on top of it (public/polls.js hydrating those
+//      cards): page size switching, page navigation, and the topic filter
+//      resetting to page 1.
 //
 // Run after `npm run build`:
 //   node scripts/verify-polls-pagination.mjs
@@ -33,8 +36,8 @@ function loadPage(search = '') {
   window.URLSearchParams = URLSearchParams;
   window.scrollTo = () => {};
 
-  const pollData = fs.readFileSync(path.join(rootDir, 'public', 'poll-data.js'), 'utf8');
-  window.eval(pollData);
+  // polls.js reads the cards out of the page, so no data file is loaded first -
+  // that keeps this test honest about the hub being self-sufficient.
   window.eval(fs.readFileSync(path.join(rootDir, 'public', 'polls.js'), 'utf8'));
 
   // polls.js runs immediately, so trigger the DOMContentLoaded-free path:
@@ -54,6 +57,18 @@ function pageNumbers(window) {
 function currentPage(window) {
   const node = window.document.querySelector('#pollsPagination .pagination-number.is-current');
   return node ? node.textContent : null;
+}
+
+// --- the raw HTML carries the whole directory ---
+{
+  const rawHtml = fs.readFileSync(path.join(dist, 'polls.html'), 'utf8');
+  const cardLinks = [...rawHtml.matchAll(/class="poll-card-title-link" href="polls\/([^"]+)\.html"/g)].map((m) => m[1]);
+  const builtPolls = fs.readdirSync(path.join(dist, 'polls')).filter((f) => f.endsWith('.html')).map((f) => f.replace(/\.html$/, ''));
+  if (!cardLinks.length) problems.push('polls.html contains no poll links before JavaScript runs');
+  const missing = builtPolls.filter((id) => !cardLinks.includes(id));
+  if (missing.length) problems.push(`poll pages built but not linked from the hub HTML: ${missing.join(', ')}`);
+  if (new Set(cardLinks).size !== cardLinks.length) problems.push('the hub links a poll more than once');
+  console.log(`hub HTML links ${cardLinks.length} of ${builtPolls.length} poll pages (no JS needed).`);
 }
 
 // --- default page size (6) ---
