@@ -6,7 +6,7 @@ window.COUPLE_POLL_DATA = [
     title: "What kind of date night sounds best this week?",
     description: "A quick date-night poll for couples deciding whether to stay in, go out, or make room for a little spontaneity.",
     intro: "Date night does not need to be elaborate to feel meaningful. This poll is a small prompt for noticing what kind of energy you both want this week.",
-    related: ["matters-most-anniversary-20261026", "best-gift-couple-can-give-20261023"],
+    related: ["makes-date-night-feel-like-20261028", "matters-most-anniversary-20261026"],
     options: ["A cozy night at home", "An unplanned adventure", "A long dinner and good conversation", "A little of everything"]
   },
   {
@@ -16,7 +16,7 @@ window.COUPLE_POLL_DATA = [
     title: "What helps two people feel most connected?",
     description: "Vote on the everyday relationship habits that help couples feel close, understood, and emotionally present.",
     intro: "Connection can grow through grand gestures, but it is often shaped by ordinary moments. Use this poll to compare the small things that matter to you.",
-    related: ["matters-most-anniversary-20261026", "best-gift-couple-can-give-20261023"],
+    related: ["makes-date-night-feel-like-20261028", "matters-most-anniversary-20261026"],
     options: ["Small acts of care", "Uninterrupted conversation", "Shared goals", "Laughing together"]
   },
   {
@@ -412,6 +412,26 @@ window.COUPLE_POLL_DATA = [
     intro: "Honesty and privacy can feel like opposites in love. This poll explores whether healthy couples need a little room of their own.",
     related: ["matters-most-anniversary-20261026", "date-night-mood"],
     options: ["Yes, everyone needs space", "Only small personal things", "No, share everything", "It depends on the topic"]
+  },
+  {
+    id: "makes-date-night-feel-like-20261028",
+    topic: "date-night",
+    label: "Date night",
+    title: "What makes a date night feel like a real break from routine?",
+    description: "Vote on what actually separates a memorable evening from the same week repeated in a different room.",
+    intro: "Two people can leave the house and change nothing. This poll asks what turns an ordinary evening into an exception.",
+    related: ["makes-difficult-conversation-feel-safe-20261028", "date-night-mood"],
+    options: ["Somewhere neither of us has been", "An activity with our hands busy", "No phones and no logistics talk", "A night with no fixed ending time"]
+  },
+  {
+    id: "makes-difficult-conversation-feel-safe-20261028",
+    topic: "connection",
+    label: "Connection",
+    title: "What makes a difficult conversation feel safe?",
+    description: "Vote on the conditions that let a couple raise a hard topic without it turning into a fight.",
+    intro: "Most couples avoid the difficult conversation rather than lose the argument. This poll asks what makes raising one feel survivable.",
+    related: ["makes-date-night-feel-like-20261028", "date-night-mood"],
+    options: ["Asking permission to bring it up", "Choosing a neutral time, not a charged one", "One person speaks without answering", "Agreeing the outcome need not be instant"]
   },
 ];
 
