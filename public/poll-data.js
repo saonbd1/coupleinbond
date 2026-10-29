@@ -6,7 +6,7 @@ window.COUPLE_POLL_DATA = [
     title: "What kind of date night sounds best this week?",
     description: "A quick date-night poll for couples deciding whether to stay in, go out, or make room for a little spontaneity.",
     intro: "Date night does not need to be elaborate to feel meaningful. This poll is a small prompt for noticing what kind of energy you both want this week.",
-    related: ["makes-date-night-feel-like-20261028", "matters-most-anniversary-20261026"],
+    related: ["couples-handle-holiday-season-together-20261030", "makes-date-night-feel-like-20261028"],
     options: ["A cozy night at home", "An unplanned adventure", "A long dinner and good conversation", "A little of everything"]
   },
   {
@@ -16,7 +16,7 @@ window.COUPLE_POLL_DATA = [
     title: "What helps two people feel most connected?",
     description: "Vote on the everyday relationship habits that help couples feel close, understood, and emotionally present.",
     intro: "Connection can grow through grand gestures, but it is often shaped by ordinary moments. Use this poll to compare the small things that matter to you.",
-    related: ["makes-date-night-feel-like-20261028", "matters-most-anniversary-20261026"],
+    related: ["couples-handle-holiday-season-together-20261030", "makes-date-night-feel-like-20261028"],
     options: ["Small acts of care", "Uninterrupted conversation", "Shared goals", "Laughing together"]
   },
   {
@@ -432,6 +432,26 @@ window.COUPLE_POLL_DATA = [
     intro: "Most couples avoid the difficult conversation rather than lose the argument. This poll asks what makes raising one feel survivable.",
     related: ["makes-date-night-feel-like-20261028", "date-night-mood"],
     options: ["Asking permission to bring it up", "Choosing a neutral time, not a charged one", "One person speaks without answering", "Agreeing the outcome need not be instant"]
+  },
+  {
+    id: "couples-handle-holiday-season-together-20261030",
+    topic: "seasonal",
+    label: "Seasonal",
+    title: "How should couples handle the holiday season together?",
+    description: "Vote on the plan that keeps the holidays a shared season rather than a source of arguments.",
+    intro: "The holidays ask couples to negotiate family, money, and exhaustion inside the same fortnight. This poll compares the ways through.",
+    related: ["hardest-part-long-distance-relationship-20261030", "date-night-mood"],
+    options: ["Alternate families year by year", "Split each day down the middle", "Host our own small thing", "Keep the season deliberately quiet"]
+  },
+  {
+    id: "hardest-part-long-distance-relationship-20261030",
+    topic: "relationships",
+    label: "Relationships",
+    title: "What is the hardest part of a long-distance relationship?",
+    description: "Choose the challenge that tests long-distance couples the most.",
+    intro: "Miles test a relationship in ways closeness never does. This poll names the hardest part of loving someone from far away.",
+    related: ["couples-handle-holiday-season-together-20261030", "date-night-mood"],
+    options: ["Missing everyday moments", "Trusting across distance", "Scheduling around time zones", "Feeling left out of daily life"]
   },
 ];
 
