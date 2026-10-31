@@ -19,7 +19,39 @@
 .quiz-option label { display: block; min-height: 50px; padding: 14px 15px; color: var(--blog-muted); background: rgba(255, 255, 255, .84); border: 1px solid rgba(83, 49, 94, .12); border-radius: 12px; font-size: .76rem; font-weight: 750; line-height: 1.35; cursor: pointer; transition: border-color .18s ease, background .18s ease, transform .18s ease, color .18s ease; }
 .quiz-option label:hover { color: var(--blog-ink); border-color: rgba(255, 77, 109, .46); transform: translateY(-1px); }
 .quiz-option input:focus-visible + label { outline: 3px solid rgba(106, 0, 244, .24); outline-offset: 2px; }
-.quiz-option input:checked + label { color: var(--blog-ink); background: #fff; border-color: var(--blog-primary); box-shadow: 0 8px 18px rgba(255, 77, 109, .12); }
+.quiz-option input:checked + label { color: var(--blog-ink); background: #fff; border-color: var(--blog-primary); box-shadow: 0 8px 18px rgba(255, 77, 109, .12); position: relative; }
+
+.quiz-option input:checked + label::after {
+  content: '';
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 30px;
+  height: 30px;
+  background: radial-gradient(circle, var(--cib-pink), var(--cib-flamingo));
+  border: 3px solid white;
+  border-radius: 50%;
+  box-shadow: 0 0 15px rgba(255, 77, 109, 0.5);
+  opacity: 0;
+  transition: opacity .2s ease;
+}
+
+.quiz-option input:checked:focus-visible + label::after {
+  opacity: 1;
+}
+
+.quiz-option input:checked:not(:focus-visible) + label::after {
+  opacity: 1;
+  animation: check-glow 1.5s ease-in-out infinite;
+}
+
+@keyframes check-glow {
+  0%, 100% { box-shadow: 0 0 10px rgba(255, 77, 109, 0.3); }
+  50% { box-shadow: 0 0 20px rgba(255, 77, 109, 0.5); }
+}
+
+.quiz-option input:checked + label:hover { color: var(--blog-ink); background: #f8f4ff; }
 .quiz-controls { display: flex; align-items: center; justify-content: space-between; gap: 10px; margin-top: 23px; }
 .quiz-button { padding: 11px 16px; color: #fff; background: linear-gradient(135deg, var(--blog-primary), var(--blog-secondary)); border: 0; border-radius: 999px; font-size: .76rem; font-weight: 850; cursor: pointer; transition: transform .18s ease, opacity .18s ease; }
 .quiz-button:hover { transform: translateY(-2px); }
