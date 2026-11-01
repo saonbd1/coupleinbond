@@ -1,6 +1,8 @@
 # Social Icon Verification
 
-The footer "Follow along" row now exposes two accessible social links — Facebook and Instagram — and the article "Share this page" row offers Facebook sharing plus the Instagram profile. Both point at the site's own profiles (`https://facebook.com/coupleinbond`, `https://instagram.com/coupleinbond`); the retired X and TikTok controls were removed rather than left pointing at a bare platform homepage. `npm run verify:social` renders both rows in jsdom and fails if a third network reappears, if an href drifts, or if the Facebook share link stops carrying the canonical page URL.
+The footer "Follow along" row now exposes two accessible social links — Facebook and Instagram — pointing at the site's own profiles (`https://facebook.com/coupleinbond`, `https://instagram.com/coupleinbond`). The X and TikTok footer controls were removed because the brand has no account there; they were not part of the sharing flow.
+
+Sharing is unchanged: the article "Share this page" row and the poll share row still offer Facebook, Instagram, X, TikTok (article) and Facebook, X, WhatsApp, Telegram (polls), because those are share targets rather than profile links. `npm run verify:social` renders both rows in jsdom and fails if the footer gains a third network, if a footer href drifts, if the share row loses a network, or if the Facebook share link stops carrying the canonical page URL.
 
 The icons are visible in the existing pink-to-lilac gradient footer, retain the site’s circular control language, and remain grouped with the footer links rather than interrupting the primary navigation or wallet connector.
 
