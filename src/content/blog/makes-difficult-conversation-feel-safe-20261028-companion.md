@@ -10,6 +10,10 @@ datePublished: "2026-10-28"
 dateModified: "2026-10-28"
 section: "Connection"
 slug: "makes-difficult-conversation-feel-safe-20261028-companion"
+coverImage: "/assets/blog/couple-walking-street-cover.jpg"
+coverImageAlt: "A couple walking side by side through a quiet street"
+coverImageCredit: "Sweet Ice Cream Photography sweeticecreamphotography"
+coverImageCreditUrl: "https://commons.wikimedia.org/wiki/File:Chilling_lovers._(Unsplash).jpg"
 tag: "CONNECTION"
 excerpt: "Safety in a hard talk is mostly a matter of sequence and exit. Here is how couples make difficult topics discussable rather than avoidable."
 cardTitle: "How to Make a Difficult Conversation Feel Safe"
@@ -29,6 +33,11 @@ asideHtml: ""
       <p>Most couples avoid the difficult conversation rather than lose the argument. This poll asks what makes raising one feel survivable. Answer the poll first - the short guide below turns its options into something you can try tonight.</p>
       <h2>People avoid hard talks because the cost of starting them is unclear</h2>
       <p>A difficult conversation feels unsafe for one specific and fixable reason: nobody knows how it ends. If raising a topic has previously produced a fight, a shutdown, or a promise that went nowhere, the brain files the subject as expensive and stops permitting the opening sentence. That is why two people can be devoted to each other and structurally unable to discuss one particular thing. The remedy is not more love. It is a clearer frame. When both people know the length, the order, and what may actually be decided, the subject stops costing an unknown amount. The four options in the poll above each reduce that unknown in a different way. Asking permission makes the opening mutual. A neutral time makes it low-stakes. One person speaking without answering makes it safe to be incomplete. Agreeing that nothing must be settled tonight makes it safe to stop.</p>
+
+<!-- cib:body-image:start -->
+<figure class="article-figure"><img src="/assets/blog/chairs-table-body.jpg" alt="Two chairs facing each other across a table in silhouette" width="1200" height="800" loading="lazy" decoding="async"><figcaption>One plan, two people — the seat facing yours matters. Photo: <a href="https://commons.wikimedia.org/wiki/File:Conversation_table_(Unsplash).jpg" rel="noopener noreferrer" target="_blank">Steve Halama steve3p_0</a> · free licence</figcaption></figure>
+<!-- cib:body-image:end -->
+
       <div class="article-callout"><strong>A gentle rule:</strong> raise hard topics while you are both calm, not while one of you is right.</div>
       <h2>Four frames that make a difficult conversation shorter</h2>
       <ul><li>Ask first: is now a workable time for a difficult subject</li><li>Set a limit: twenty minutes, one topic, nothing in the way</li><li>One at a time: the first person finishes before the second answers</li><li>End with a next step, however small, or say plainly that there is none yet</li></ul>

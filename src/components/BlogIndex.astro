@@ -181,6 +181,18 @@ const ld = {
         <section class="blog-grid" aria-label="Latest blog posts">
           {posts.map((post) => (
             <article class="blog-card">
+              {post.data.coverImage && (
+                <a class="blog-card-media" href={`${root}blog-posts/${post.id}.html`} tabindex="-1" aria-hidden="true">
+                  <img
+                    src={`${root}${post.data.coverImage.replace(/^\//, '')}`}
+                    alt={post.data.coverImageAlt || ''}
+                    width="640"
+                    height="360"
+                    loading="lazy"
+                    decoding="async"
+                  />
+                </a>
+              )}
               <div class="blog-card-top"><span class="blog-tag">{post.data.tag}</span><span>{readTime(post.data.kicker)}</span></div>
               <h3><a href={`${root}blog-posts/${post.id}.html`}>{post.data.cardTitle}</a></h3>
               <p>{post.data.excerpt}</p>

@@ -10,6 +10,10 @@ datePublished: "2026-10-19"
 dateModified: "2026-10-21"
 section: "Relationships"
 slug: "best-way-support-stressed-partner-20261019-companion"
+coverImage: "/assets/blog/couch-couple-cover.jpg"
+coverImageAlt: "A couple relaxing together on a sofa in low evening light"
+coverImageCredit: "angga aditya anggaditya27"
+coverImageCreditUrl: "https://commons.wikimedia.org/wiki/File:Couch_Serenade_(Unsplash).jpg"
 tag: "RELATIONSHIPS"
 excerpt: "When someone you love is stressed, good intentions can miss the mark. Here is the support that actually lands."
 cardTitle: "How to Support a Stressed Partner the Right Way"
@@ -29,6 +33,11 @@ asideHtml: ""
       <p>When someone you love is stressed, good intentions can miss the mark. This poll asks what support really lands. Vote on the question below, then use this short guide to act on your answer.</p>
       <h2>Ask, do not assume</h2>
       <p>The biggest support mistake is giving what you would want instead of what they need. Fixers offer solutions to a partner who needed a hug. Huggers offer closeness to a partner who needed an hour alone. The poll below lists the four support styles, and each one is exactly right for somebody and exactly wrong for somebody else. So ask the magic question: do you want comfort or solutions right now. Then honor the answer without commentary. Partners who feel supported are not the ones with the most helpful partner. They are the ones with the most listening one.</p>
+
+<!-- cib:body-image:start -->
+<figure class="article-figure"><img src="/assets/blog/coffee-hands-table-body.jpg" alt="Two pairs of hands around glasses of tea across a table" width="1200" height="800" loading="lazy" decoding="async"><figcaption>Understanding starts with one unhurried conversation. Photo: <a href="https://commons.wikimedia.org/wiki/File:Friends_talking_over_tea_(Unsplash).jpg" rel="noopener noreferrer" target="_blank">Matthew Henry matthewhenry</a> · free licence</figcaption></figure>
+<!-- cib:body-image:end -->
+
       <div class="article-callout"><strong>A gentle rule:</strong> comfort first, solutions only on request. Fixing uninvited feels like criticism.</div>
       <h2>Four supports that actually help</h2>
       <ul><li>Listen fully without fixing: reflect, do not redirect</li><li>Quietly remove one task from their plate today</li><li>Offer physical comfort with no strings or agenda</li><li>Grant real quiet space, then check back warmly</li></ul>

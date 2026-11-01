@@ -10,6 +10,10 @@ datePublished: "2026-10-13"
 dateModified: "2026-10-21"
 section: "Connection"
 slug: "best-way-say-sorry-after-20261013-companion"
+coverImage: "/assets/blog/embrace-doorway-cover.jpg"
+coverImageAlt: "A couple embracing in a brick doorway at dusk"
+coverImageCredit: "andrew welch andrewwelch3"
+coverImageCreditUrl: "https://commons.wikimedia.org/wiki/File:Embracing_by_brick_wall_(Unsplash).jpg"
 tag: "CONNECTION"
 excerpt: "Small fights are normal; staying stuck in them is optional. Here is how to end a silly argument with warmth instead of pride."
 cardTitle: "How to Say Sorry After a Silly Fight"
@@ -29,6 +33,11 @@ asideHtml: ""
       <p>Small fights are normal; staying stuck in them is optional. This poll compares the light, honest gestures that help a couple laugh it off and move on. Vote on the question below, then use this short guide to act on your answer.</p>
       <h2>Repair fast, repair warm</h2>
       <p>Relationship researchers found that how a couple ends a disagreement predicts happiness far better than how often they disagree. Silly fights are actually good practice for the serious ones. The skill is the same: drop the scoreboard, name your part, and offer one warm gesture before pride hardens into a position. A genuine sorry first costs nothing and buys everything. The poll below lists the repairs couples swear by. Pick yours, then use it fast, because the first hour after a silly fight is when warmth is cheapest and matters most.</p>
+
+<!-- cib:body-image:start -->
+<figure class="article-figure"><img src="/assets/blog/hands-back-body.jpg" alt="Close-up of a hand resting gently on a partner’s back" width="1200" height="800" loading="lazy" decoding="async"><figcaption>Touch often says the apology before the words arrive. Photo: <a href="https://commons.wikimedia.org/wiki/File:Embrace_(Unsplash).jpg" rel="noopener noreferrer" target="_blank">Christiana Rivers christiana</a> · free licence</figcaption></figure>
+<!-- cib:body-image:end -->
+
       <div class="article-callout"><strong>A gentle rule:</strong> apologize for your part, not their reaction. I snapped beats you made me snap, every time.</div>
       <h2>Four repairs that end silly fights</h2>
       <ul><li>Say the plain words first: I was wrong about that</li><li>Offer a hug before rehashing who said what</li><li>Make their favorite snack as a peace offering</li><li>Write a two-line funny apology note and leave it on their pillow</li></ul>

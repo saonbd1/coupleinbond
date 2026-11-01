@@ -10,6 +10,10 @@ datePublished: "2026-10-11"
 dateModified: "2026-10-21"
 section: "Connection"
 slug: "quality-time-mean-20261011-companion"
+coverImage: "/assets/blog/couple-beach-wide-cover.jpg"
+coverImageAlt: "A couple walking along a wide, empty beach"
+coverImageCredit: "Scott Webb scottwebb"
+coverImageCreditUrl: "https://commons.wikimedia.org/wiki/File:Couple_on_the_beach_(Unsplash).jpg"
 tag: "CONNECTION"
 excerpt: "Being in the same room is not the same as being together. Here is what quality time looks like when both people are fully present."
 cardTitle: "What Quality Time Really Means for Couples"
@@ -29,6 +33,11 @@ asideHtml: ""
       <p>Being in the same room is not the same as being together. This poll asks what quality time really looks like when both people are fully present. Vote on the question below, then use this short guide to act on your answer.</p>
       <h2>Presence is the whole gift</h2>
       <p>You can spend an entire evening beside someone and still feel alone, if one of you is scrolling and the other is waiting to be noticed. Quality time is not measured in hours. It is measured in attention. The poll below asks which version of togetherness fills your cup, and every answer is really the same answer in disguise: I want to feel like the most interesting thing in the room to you. Start there and the format almost does not matter. A silent drive with full attention beats a fancy dinner with half attention.</p>
+
+<!-- cib:body-image:start -->
+<figure class="article-figure"><img src="/assets/blog/couple-backpacks-body.jpg" alt="Two people walking away together in the countryside" width="1200" height="800" loading="lazy" decoding="async"><figcaption>Shared plans count more than shared hobbies. Photo: <a href="https://commons.wikimedia.org/wiki/File:Exploring_Together_(Unsplash).jpg" rel="noopener noreferrer" target="_blank">Luke Porter lukeporter</a> · free licence</figcaption></figure>
+<!-- cib:body-image:end -->
+
       <div class="article-callout"><strong>A gentle rule:</strong> one screen-free hour together beats three distracted hours apart in the same house.</div>
       <h2>Four kinds of togetherness to try</h2>
       <ul><li>Phones in a drawer, eyes up, for one full hour</li><li>One new thing a month: a class, a trail, a recipe</li><li>A deep-talk walk with one rule: no fixing, just listening</li><li>Comfortable silence on purpose: reading side by side, touching</li></ul>

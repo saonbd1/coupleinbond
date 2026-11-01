@@ -10,6 +10,10 @@ datePublished: "2026-10-15"
 dateModified: "2026-10-21"
 section: "Connection"
 slug: "small-habit-keeps-couple-feeling-20261015-companion"
+coverImage: "/assets/blog/balcony-plants-cover.jpg"
+coverImageAlt: "A small balcony filled with potted plants and a coffee cup"
+coverImageCredit: "Artur Aleksanian djan22"
+coverImageCreditUrl: "https://commons.wikimedia.org/wiki/File:Balcony_in_Kyiv_(Unsplash).jpg"
 tag: "CONNECTION"
 excerpt: "Grand gestures get remembered, but small habits get repeated. Here is how ordinary minutes keep two people feeling like a team."
 cardTitle: "Small Habits That Keep Couples Feeling Close"
@@ -29,6 +33,11 @@ asideHtml: ""
       <p>Closeness is built in ordinary minutes more than grand gestures. This poll is a small prompt for noticing which everyday habit keeps you feeling like a team. Vote on the question below, then use this short guide to act on your answer.</p>
       <h2>Why small habits beat grand gestures</h2>
       <p>A big surprise happens a few times a year, but a small habit happens every single day. That repetition is what the nervous system reads as safety. When your partner texts good morning without fail, or puts the phone away at dinner without being asked, your brain files it as proof that you matter. Over weeks and months, those tiny deposits grow into a feeling of closeness no single date night can manufacture. The poll above asks which habit matters most to you, and every option works for the same reason: it is small enough to repeat and warm enough to notice.</p>
+
+<!-- cib:body-image:start -->
+<figure class="article-figure"><img src="/assets/blog/pancakes-body.jpg" alt="A breakfast table with pancakes, coffee, and shared plates" width="1200" height="800" loading="lazy" decoding="async"><figcaption>A tiny repeated habit is cheaper than a grand weekend away. Photo: <a href="https://commons.wikimedia.org/wiki/File:Breakfast_table_with_pancakes_(Unsplash).jpg" rel="noopener noreferrer" target="_blank">Anthony DELANOIX anthonydelanoix</a> · free licence</figcaption></figure>
+<!-- cib:body-image:end -->
+
       <div class="article-callout"><strong>A gentle rule:</strong> pick one habit, not five. A single ritual you both enjoy will outlast a long list you both forget.</div>
       <h2>Four habits worth trying this week</h2>
       <ul><li>Send a good-morning message before checking the news</li><li>Ask one real question at dinner and actually listen to the answer</li><li>End the day with a two-minute check-in: one heavy moment, one light one</li><li>Share one small joke or meme that says you were thinking of them</li></ul>

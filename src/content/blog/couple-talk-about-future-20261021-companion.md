@@ -10,6 +10,10 @@ datePublished: "2026-10-21"
 dateModified: "2026-10-21"
 section: "Relationships"
 slug: "couple-talk-about-future-20261021-companion"
+coverImage: "/assets/blog/hill-sunset-cover.jpg"
+coverImageAlt: "A couple kissing on a hilltop at sunset"
+coverImageCredit: "Pablo Heimplatz pabloheimplatz"
+coverImageCreditUrl: "https://commons.wikimedia.org/wiki/File:Kissing_during_the_sunset_(Unsplash).jpg"
 tag: "RELATIONSHIPS"
 excerpt: "Future talk can feel exciting or scary depending on the timing. Here is how to turn someday into a real plan without pressure."
 cardTitle: "When Should Couples Start Talking About the Future"
@@ -29,6 +33,11 @@ asideHtml: ""
       <p>Future talk can feel exciting or scary depending on the timing. This poll asks when couples should start mapping the road ahead together. Vote on the question below, then use this short guide to act on your answer.</p>
       <h2>Early light, not early lock-in</h2>
       <p>The mistake is not talking about the future. The mistake is treating early talk as a contract instead of a compass. Light, honest signals in the first months, I want kids someday, I need to live near my family, prevent years of misaligned investment. The poll below asks when to start, and every good answer shares a principle: signal early, decide late. Share direction before you demand destination. A first big trip is a popular milestone because travel reveals values under mild stress. But the best time is whenever curiosity feels stronger than fear.</p>
+
+<!-- cib:body-image:start -->
+<figure class="article-figure"><img src="/assets/blog/coastal-love-body.jpg" alt="A wide coastal view with calm water and a distant lighthouse" width="1200" height="800" loading="lazy" decoding="async"><figcaption>Shared direction is easier to name on a slow walk. Photo: <a href="https://commons.wikimedia.org/wiki/File:Coastal_Love_(Unsplash).jpg" rel="noopener noreferrer" target="_blank">Daniel Wallace ashify</a> · free licence</figcaption></figure>
+<!-- cib:body-image:end -->
+
       <div class="article-callout"><strong>A gentle rule:</strong> share dreams before demanding plans. Direction first, destination later.</div>
       <h2>Four future conversations in order</h2>
       <ul><li>Values first: what does a good life look like to each of you</li><li>Non-negotiables next: kids, location, career, faith</li><li>Timelines after that: rough seasons, not hard deadlines</li><li>Money throughout: habits and fears, spoken without shame</li></ul>

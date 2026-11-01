@@ -72,7 +72,45 @@ schtasks /run  /tn "CoupleInBond - Daily Polls"
 schtasks /delete /tn "CoupleInBond - Daily Polls" /f
 ```
 
-## Repository layout
+## Blog images
+
+Every article carries its own cover image (16:9) plus one in-body photo (3:2).
+Both are stored in [`public/assets/blog/`](public/assets/blog) and wired in by
+[`scripts/blog-images.mjs`](scripts/blog-images.mjs), which owns the whole
+pipeline:
+
+- **Source:** photos come from Wikimedia Commons' *Images from Unsplash*
+  category — Unsplash photographs re-released as **CC0** (public-domain
+  dedication), so commercial use is allowed and no attribution is legally
+  required. Each image still ships a courtesy credit and a link to its Commons
+  file page.
+- **Processing:** `sharp` crops and compresses two derivatives per photo
+  (`<key>-cover.jpg` at 1200×675, `<key>-body.jpg` at 1200×800).
+- **Wiring:** the script writes `coverImage`, `coverImageAlt`,
+  `coverImageCredit`, and `coverImageCreditUrl` into each post's frontmatter and
+  inserts a single `<figure class="article-figure">` block between
+  `<!-- cib:body-image:start -->` / `<!-- cib:body-image:end -->` markers.
+
+The cover is rendered under the article header, used for the blog-card
+thumbnails, and becomes the post's `og:image` / `twitter:image` /
+`BlogPosting.image`.
+
+```text
+# fetch any missing images, then patch the markdown
+npm run images:blog
+
+# re-download and re-crop everything
+node scripts/blog-images.mjs --force
+
+# verify every post is illustrated (also runs in validate:release)
+npm run images:check
+```
+
+Adding a new post: pick a cover and a body key from `CATALOG` in
+`scripts/blog-images.mjs`, map the new slug in `POSTS`, and run
+`npm run images:blog`. Cover keys must stay unique — the script fails if two
+posts share one.
+
 
 - Root HTML, CSS, and JavaScript files: public site pages and shared interactions
 - `blog-posts/`: relationship articles

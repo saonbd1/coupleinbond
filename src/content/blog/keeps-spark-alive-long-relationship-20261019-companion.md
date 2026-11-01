@@ -10,6 +10,10 @@ datePublished: "2026-10-19"
 dateModified: "2026-10-21"
 section: "Connection"
 slug: "keeps-spark-alive-long-relationship-20261019-companion"
+coverImage: "/assets/blog/wine-hands-cover.jpg"
+coverImageAlt: "A glass of wine held in soft focus with a partner in the background"
+coverImageCredit: "Chris Montgomery cwmonty"
+coverImageCreditUrl: "https://commons.wikimedia.org/wiki/File:Wine_Night_(Unsplash).jpg"
 tag: "CONNECTION"
 excerpt: "A month-long plan for couples who know each other well and want to keep finding new things. Small, repeatable questions beat grand gestures."
 cardTitle: "Keeping the Spark Alive: A 30-Day Curiosity Plan"
@@ -29,6 +33,11 @@ asideHtml: ""
       <p>Most couples describe a fading spark as something that happened to them, like weather. In practice it is closer to a habit that quietly ended. You stopped asking because you stopped needing to ask, and the relationship settled into a very comfortable, very predictable exchange of known information. This plan is designed to restart the asking, in small enough doses that it never feels like homework.</p>
       <h2>The spark does not fade, the questions stop</h2>
       <p>Early love runs on missing information. You did not know how they took their coffee, what their childhood kitchen smelled like, or what they were afraid of at twenty-two. Every conversation was a small discovery, and discovery produces the feeling people call electricity. Years later you can predict the order, the joke, and the answer. Prediction is comfortable. It is also the exact opposite of what made the beginning feel alive. Nothing is wrong with knowing someone deeply. The risk is assuming the knowing is finished.</p>
+
+<!-- cib:body-image:start -->
+<figure class="article-figure"><img src="/assets/blog/wine-bar-body.jpg" alt="A red wine glass on a wooden table with bistro lights behind" width="1200" height="800" loading="lazy" decoding="async"><figcaption>Rituals beat grand gestures — a standing wine night outlasts a surprise trip. Photo: <a href="https://commons.wikimedia.org/wiki/File:Outdoor_wine_dinner_(Unsplash).jpg" rel="noopener noreferrer" target="_blank">Serge Esteve sce767</a> · free licence</figcaption></figure>
+<!-- cib:body-image:end -->
+
       <h2>What curiosity looks like in a long relationship</h2>
       <p>Curiosity in year ten is not the same as curiosity in week two. It is not about uncovering secrets. It is about noticing change. Your partner is not the person they were last year, and neither are you. They have new opinions about work, a new fear about aging, a new favorite thing they have not mentioned because nobody asked. Curiosity is the practice of treating your partner as a live person instead of an archived one. It sounds small. It changes the temperature of a room.</p>
       <h2>A 30-day plan in weekly blocks</h2>

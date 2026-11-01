@@ -10,6 +10,10 @@ datePublished: "2026-10-18"
 dateModified: "2026-10-21"
 section: "Relationships"
 slug: "keep-friendships-alive-while-relationship-20261018-companion"
+coverImage: "/assets/blog/friends-outdoors-cover.jpg"
+coverImageAlt: "Three friends standing outdoors talking together"
+coverImageCredit: "Alexis Brown alexisrbrown"
+coverImageCreditUrl: "https://commons.wikimedia.org/wiki/File:Young_people_in_conversation_(Unsplash).jpg"
 tag: "RELATIONSHIPS"
 excerpt: "New love can quietly swallow old friendships. Here is how couples protect the friendships that matter without neglecting each other."
 cardTitle: "How to Keep Friendships Alive in a Relationship"
@@ -29,6 +33,11 @@ asideHtml: ""
       <p>New love can quietly swallow old friendships. This poll explores how couples protect the friendships that matter. Vote on the question below, then use this short guide to act on your answer.</p>
       <h2>Friendship needs a calendar slot</h2>
       <p>Nobody plans to lose friends to a relationship. It happens by drift: one skipped dinner becomes a skipped season, and suddenly the friend group has new inside jokes you do not get. The poll below lists the balances that work, and every one is really the same move: make friendship scheduled instead of spontaneous. Spontaneous friend time loses to couple comfort every single time. Scheduled friend time survives. Protect a recurring night, blend circles occasionally so worlds do not split, and let your partner have their own nights without guilt or surveillance.</p>
+
+<!-- cib:body-image:start -->
+<figure class="article-figure"><img src="/assets/blog/friends-diner-body.jpg" alt="Hands around a diner table with burgers and fries" width="1200" height="800" loading="lazy" decoding="async"><figcaption>Keeping both circles alive takes a little scheduling, not a fight. Photo: <a href="https://commons.wikimedia.org/wiki/File:Friends_eating_lunch_in_diner_(Unsplash).jpg" rel="noopener noreferrer" target="_blank">Dan Gold danielcgold</a> · free licence</figcaption></figure>
+<!-- cib:body-image:end -->
+
       <div class="article-callout"><strong>A gentle rule:</strong> friendships die from drift, not decisions. A recurring date defends them.</div>
       <h2>Four friendship guards that work</h2>
       <ul><li>One protected friend night each, every week or two</li><li>A monthly blended plan so circles overlap warmly</li><li>No guilt and no check-ins during solo friend time</li><li>A shared calendar where friend plans are real appointments</li></ul>

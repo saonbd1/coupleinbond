@@ -10,6 +10,10 @@ datePublished: "2026-10-14"
 dateModified: "2026-10-21"
 section: "Connection"
 slug: "makes-feel-most-appreciated-relationship-20261014-companion"
+coverImage: "/assets/blog/writing-note-cover.jpg"
+coverImageAlt: "A person writing in a notebook beside a mug on a wooden table"
+coverImageCredit: "Unseen Studio"
+coverImageCreditUrl: "https://commons.wikimedia.org/wiki/File:Person_writing_on_brown_wooden_table_near_white_ceramic_mug.jpg"
 tag: "CONNECTION"
 excerpt: "Everyone wants to feel noticed, but not every thank-you lands the same way. Here is what turns routine gratitude into something your partner actually feels."
 cardTitle: "What Makes Appreciation Feel Real in a Relationship"
@@ -29,6 +33,11 @@ asideHtml: ""
       <p>Everyone wants to feel noticed. This poll explores which kind of appreciation lands deepest, from spoken thanks to small thoughtful surprises. Vote on the question below, then use this short guide to act on your answer.</p>
       <h2>Specific beats generic every time</h2>
       <p>Thanks for everything is easy to say and easy to forget. Thanks for handling dinner when I was stuck late, with the kitchen already clean, is impossible to fake and impossible to forget. Specificity proves you were paying attention, and attention is the real gift inside appreciation. That is why the poll options all share one trait: they describe a moment, not a mood. Pick the version your partner lights up for, then practice saying the quiet part out loud. Being noticed for small efforts is what most couples vote for, because small efforts are where love actually lives.</p>
+
+<!-- cib:body-image:start -->
+<figure class="article-figure"><img src="/assets/blog/journal-writing-body.jpg" alt="Hands writing in a notebook with a croissant and coffee nearby" width="1200" height="800" loading="lazy" decoding="async"><figcaption>Appreciation is easiest to remember when it is written down. Photo: <a href="https://commons.wikimedia.org/wiki/File:Writing_in_a_journal_(Unsplash).jpg" rel="noopener noreferrer" target="_blank">Cathryn Lavery cathrynlavery</a> · free licence</figcaption></figure>
+<!-- cib:body-image:end -->
+
       <div class="article-callout"><strong>A gentle rule:</strong> name the action, not just the feeling. What your partner did matters more than how nice they are.</div>
       <h2>Four ways to show it this week</h2>
       <ul><li>Say thank you for one specific thing every day</li><li>Do a chore they dislike without being asked or praised</li><li>Leave a short note where only they will find it</li><li>Praise them to someone else while they can hear you</li></ul>

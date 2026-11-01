@@ -10,6 +10,10 @@ datePublished: "2026-10-26"
 dateModified: "2026-10-26"
 section: "Seasonal"
 slug: "matters-most-anniversary-20261026-companion"
+coverImage: "/assets/blog/wedding-cliff-cover.jpg"
+coverImageAlt: "A couple embracing on a cliff edge above a wide landscape"
+coverImageCredit: "Brian Hartley mrbrianhartley"
+coverImageCreditUrl: "https://commons.wikimedia.org/wiki/File:Wedding_couple_hug_on_cliff_(Unsplash).jpg"
 tag: "SEASONAL"
 excerpt: "Anniversaries land when they say something specific about the two of you. Here is how to decide what you are saying before you book anything."
 cardTitle: "How to Mark an Anniversary Without Turning It Into a Test"
@@ -29,6 +33,11 @@ asideHtml: ""
       <p>Anniversaries quietly ask for a verdict on the year just passed. This poll asks what makes the day feel meaningful instead of obligatory. Vote on the question below, then use this short guide to act on your answer.</p>
       <h2>Why anniversaries carry more weight than birthdays</h2>
       <p>A birthday asks nothing about the relationship. An anniversary asks for a verdict, which is why couples handle it so badly. Some overinvest and turn one evening into proof that the whole year worked. Some underinvest and let the date pass with a text, as though acknowledging it would make the number real. Both reactions come from the same assumption: that the day has to carry meaning rather than receive it. An anniversary means whatever you decide it means. If the year was hard, a quiet evening that says we are still here can land harder than a weekend away. If the year was easy, marking it is how you keep the ease from being mistaken for indifference. The options in the poll above are not ranked by cost. They are ranked by how much of the relationship each one requires you to name out loud, and that naming is the part most couples skip.</p>
+
+<!-- cib:body-image:start -->
+<figure class="article-figure"><img src="/assets/blog/rings-hands-body.jpg" alt="A bride’s hands cupping two wedding bands" width="1200" height="800" loading="lazy" decoding="async"><figcaption>Rings are a symbol; the promises behind them need restating. Photo: <a href="https://commons.wikimedia.org/wiki/File:Bride_holds_wedding_bands_(Unsplash).jpg" rel="noopener noreferrer" target="_blank">Petr Ovralov petrov</a> · free licence</figcaption></figure>
+<!-- cib:body-image:end -->
+
       <div class="article-callout"><strong>One honest test:</strong> the plan should be impossible to send to somebody else by mistake.</div>
       <h2>Four anniversary formats and what each one says</h2>
       <ul><li>Repeating the first date: says the story still matters more than the upgrade</li><li>A letter and no plan: says the thing never said out loud finally got said</li><li>A trip saved for months: says the relationship beat the spending</li><li>An ordinary day made deliberate: says closeness does not need a stage</li></ul>

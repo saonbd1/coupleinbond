@@ -10,6 +10,10 @@ datePublished: "2026-10-02"
 dateModified: "2026-10-21"
 section: "Date night"
 slug: best-way-end-perfect-date-20261002-companion
+coverImage: "/assets/blog/restaurant-dusk-cover.jpg"
+coverImageAlt: "A warmly lit restaurant interior at dusk with tables and bokeh light"
+coverImageCredit: "Patryk Sobczak patryksobczak"
+coverImageCreditUrl: "https://commons.wikimedia.org/wiki/File:Restaurant_at_dusk_(Unsplash).jpg"
 tag: "DATE NIGHT"
 excerpt: "Endings shape memories. Here is the closing moment that turns a good date into one you talk about for weeks."
 cardTitle: "How to End a Perfect Date Night"
@@ -35,6 +39,11 @@ asideHtml: ""
       <p>Endings shape memories. This poll asks which closing moment turns a good date into one you talk about for weeks. Vote on the question below, then use this short guide to act on your answer.</p>
       <h2>End slow to remember more</h2>
       <p>Psychologists found that people judge experiences by their peak and their ending, not their average. A lovely dinner followed by a rushed goodbye gets remembered as rushed. The same dinner followed by a slow walk home gets remembered as magic. The poll below lists the endings couples love most, and each one stretches the evening&#x27;s warmth a little longer. Dessert adds a second act. Stargazing adds wonder. Planning the next date on the spot adds anticipation. For <a href="often-couples-have-date-night-20261014-companion.html">ideas for planning the next date together</a>, protect that momentum beyond tonight. Vote for your favorite ending, then protect the last thirty minutes like the date depends on it. It does.</p>
+
+<!-- cib:body-image:start -->
+<figure class="article-figure"><img src="/assets/blog/steak-dinner-body.jpg" alt="A plated steak dinner with vegetables photographed close up" width="1200" height="800" loading="lazy" decoding="async"><figcaption>Food is the excuse; the hour together is the date. Photo: <a href="https://commons.wikimedia.org/wiki/File:Steak_Dinner_for_Two_(Unsplash).jpg" rel="noopener noreferrer" target="_blank">Mantra Media mantra_media_ltd</a> · free licence</figcaption></figure>
+<!-- cib:body-image:end -->
+
       <div class="article-callout"><strong>A gentle rule:</strong> never end a good date in a hurry. The last thirty minutes write the memory.</div>
       <h2>Four endings worth lingering for</h2>
       <ul><li>A long walk home with no destination and no rush</li><li>Dessert somewhere late-night and a little indulgent</li><li>Ten quiet minutes under the sky, phones away</li><li>Planning the next date together before saying goodnight</li></ul>

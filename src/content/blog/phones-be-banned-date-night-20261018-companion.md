@@ -10,6 +10,10 @@ datePublished: "2026-10-18"
 dateModified: "2026-10-21"
 section: "Date night"
 slug: "phones-be-banned-date-night-20261018-companion"
+coverImage: "/assets/blog/phone-beach-cover.jpg"
+coverImageAlt: "A hand holding a smartphone photographing a beach at dusk"
+coverImageCredit: "Jef Pawlikowski jefpawlikowski"
+coverImageCreditUrl: "https://commons.wikimedia.org/wiki/File:Phone_overseas._(Unsplash).jpg"
 tag: "DATE NIGHT"
 excerpt: "Strict bans backfire and loose intentions drift. Here is a three-tier phone policy for date night, plus a two-week experiment to find your tier."
 cardTitle: "A Phone Policy That Actually Works on Date Night"
@@ -29,6 +33,11 @@ asideHtml: ""
       <p>By now most couples have tried some version of a phone rule, and most of those rules lasted about two dates. The problem is rarely commitment. It is design. A rule that ignores work calls, a sick parent, or a child at home is a rule that will be broken within a month, and once it is broken the couple stops trusting the rule instead of fixing it. This guide replaces the ban with a policy that has room for real life.</p>
       <h2>What the phone actually does to a dinner</h2>
       <p>The damage is not only in the moment somebody checks a screen. Research on phone presence has found something less obvious: conversation quality drops when a phone is merely visible on the table, even face down and silent. People report feeling less connected and less understood. The likely mechanism is attention, not notifications. Part of your brain keeps a small thread open to the device, and that thread is stolen from the person across the table. So the feeling of being interrupted long predates the interruption. Every glance at a screen reads as a small ranking, and brains keep score even when nobody means it that way.</p>
+
+<!-- cib:body-image:start -->
+<figure class="article-figure"><img src="/assets/blog/woman-phone-body.jpg" alt="A woman holding a phone to her ear with a worried expression" width="1200" height="800" loading="lazy" decoding="async"><figcaption>Distance is hardest in the moments you cannot share. Photo: <a href="https://commons.wikimedia.org/wiki/File:Concerned_Phone_Call_(Unsplash).jpg" rel="noopener noreferrer" target="_blank">Ehimetalor Unuabona becomeincognito</a> · free licence</figcaption></figure>
+<!-- cib:body-image:end -->
+
       <h2>Why all-or-nothing bans fail</h2>
       <p>A hard ban works beautifully for couples with no dependents, no on-call work, and no elderly parents. Everyone else breaks it and then feels mildly guilty, which is worse than having no rule at all. There is also a rebound effect: the tighter the rule, the stronger the pull to check the moment the evening ends, which quietly shortens the part of the night that felt connected. The fix is not a stricter ban. It is a policy honest about which interruptions are genuinely unavoidable, with a clear answer for everything else.</p>
       <h2>Three tiers, pick one</h2>

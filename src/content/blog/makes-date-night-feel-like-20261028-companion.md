@@ -10,6 +10,10 @@ datePublished: "2026-10-28"
 dateModified: "2026-10-28"
 section: "Date night"
 slug: "makes-date-night-feel-like-20261028-companion"
+coverImage: "/assets/blog/dinner-wine-closeup-cover.jpg"
+coverImageAlt: "Wine glasses and small plates on a dark wooden restaurant table"
+coverImageCredit: "Joel Aguilar antonioflores89"
+coverImageCreditUrl: "https://commons.wikimedia.org/wiki/File:Table_of_wine_and_snacks_(Unsplash).jpg"
 tag: "DATE NIGHT"
 excerpt: "Novelty is not an expensive venue. It is a change of context, and it can be produced cheaply on purpose."
 cardTitle: "What Makes a Date Night Feel Different From an Ordinary Evening"
@@ -29,6 +33,11 @@ asideHtml: ""
       <p>Two people can leave the house and change nothing. This poll asks what turns an ordinary evening into an exception. Cast your vote first, then read on for a short guide you can act on this week.</p>
       <h2>A date night fails when it changes the location but not the mode</h2>
       <p>A couple can drive forty minutes to a restaurant and have the same conversation they had at the kitchen table, about the same logistics, on the same tired frequency. The location changed and the mode did not. What makes an evening memorable is that it interrupted the running topics, and interruption requires either new input or a removed obligation. New input is the unfamiliar street, the class, the walk on which neither of you knows the way. A removed obligation is the phone in the other room, the bills not discussed, the absence of a hard stop at ten. The four options in the poll above are those four levers, and they work for one reason: each makes the ordinary week temporarily unavailable. That is also why the cheapest date can beat the expensive one, provided it pulls a lever rather than spending money.</p>
+
+<!-- cib:body-image:start -->
+<figure class="article-figure"><img src="/assets/blog/bistro-table-body.jpg" alt="A set bistro table for two beside a stone wall with wine glasses" width="1200" height="800" loading="lazy" decoding="async"><figcaption>Two chairs, one plan: presence is the point. Photo: <a href="https://commons.wikimedia.org/wiki/File:Dinner_at_a_bistro_(Unsplash).jpg" rel="noopener noreferrer" target="_blank">Paweł Wojciechowski pawelwojciechowski</a> · free licence</figcaption></figure>
+<!-- cib:body-image:end -->
+
       <div class="article-callout"><strong>One honest test:</strong> could this evening have happened on any ordinary Tuesday? If it could, it was not a date.</div>
       <h2>Four levers, in rough order of effect</h2>
       <ul><li>Change the place: somewhere neither of you has been, however small</li><li>Change the input: an activity with your hands busy and no script</li><li>Remove the phone: not face down on the table, in another room</li><li>Remove the clock: an evening with no fixed ending time</li></ul>

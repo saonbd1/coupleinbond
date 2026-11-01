@@ -10,6 +10,10 @@ datePublished: "2026-10-04"
 dateModified: "2026-10-21"
 section: "Date night"
 slug: "best-surprise-date-idea-20261004-companion"
+coverImage: "/assets/blog/tulips-love-cover.jpg"
+coverImageAlt: "A bunch of tulips lying beside a handwritten note that reads love"
+coverImageCredit: "Brigitte Tohm brigittetohm"
+coverImageCreditUrl: "https://commons.wikimedia.org/wiki/File:Tulips_from_a_lover_(Unsplash).jpg"
 tag: "DATE NIGHT"
 excerpt: "Surprises show you pay attention. Here is the unexpected date that will make your partner light up."
 cardTitle: "Surprise Date Ideas Your Partner Will Love"
@@ -29,6 +33,11 @@ asideHtml: ""
       <p>Surprises show you pay attention. This poll asks which unexpected date would make your partner light up. Vote on the question below, then use this short guide to act on your answer.</p>
       <h2>Attention is the real surprise</h2>
       <p>The surprise itself matters less than what it proves: I notice you when you are not performing. A secret picnic at the spot they mentioned once works because it says I listened. Tickets to the thing they love work because they say I know you. The poll below lists the surprises couples rate highest, and each one is personalized proof of attention. Generic surprises impress for an hour. Personal ones get retold for years. Vote for your style, then add one detail only your partner would recognize. That detail is the whole gift.</p>
+
+<!-- cib:body-image:start -->
+<figure class="article-figure"><img src="/assets/blog/gift-parcel-body.jpg" alt="A wrapped brown paper parcel with a tag and red twine" width="1200" height="800" loading="lazy" decoding="async"><figcaption>Knowing what someone needs is the real gift. Photo: <a href="https://commons.wikimedia.org/wiki/File:Brown_paper_gift_(Unsplash).jpg" rel="noopener noreferrer" target="_blank">Annie Spratt anniespratt</a> · free licence</figcaption></figure>
+<!-- cib:body-image:end -->
+
       <div class="article-callout"><strong>A gentle rule:</strong> the best surprise references something they said, not something you bought.</div>
       <h2>Four surprises worth planning</h2>
       <ul><li>A secret picnic at a spot they mentioned weeks ago</li><li>Tickets to the artist, team, or show they never stop talking about</li><li>A tour of your shared memories: first meeting spot, first meal</li><li>Breakfast in bed on a day with no occasion at all</li></ul>

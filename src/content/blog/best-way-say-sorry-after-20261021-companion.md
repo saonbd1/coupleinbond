@@ -10,6 +10,10 @@ datePublished: "2026-10-21"
 dateModified: "2026-10-21"
 section: "Connection"
 slug: "best-way-say-sorry-after-20261021-companion"
+coverImage: "/assets/blog/hug-winter-cover.jpg"
+coverImageAlt: "A couple hugging outdoors in winter coats"
+coverImageCredit: "freestocks.org freestocks"
+coverImageCreditUrl: "https://commons.wikimedia.org/wiki/File:Hugging_in_the_winter_(Unsplash).jpg"
 tag: "CONNECTION"
 excerpt: "Most silly fights are not resolved by winning the point but by repairing quickly. Here are word-for-word scripts for the five arguments couples have most often."
 cardTitle: "Repair Scripts: What to Say in the First Hour After a Fight"
@@ -29,6 +33,11 @@ asideHtml: ""
       <p>Ask a couple what they argued about last month and they will struggle to remember. Ask them how the argument ended and the memory is sharp. That asymmetry is the whole point. Small fights are rarely about the dishes or the phone or the text left unanswered. They are about whether the two of you can come back together quickly once something has gone slightly wrong. Repair is a skill, and like most skills it improves with practice and a few reliable sentences.</p>
       <h2>Why the first hour matters more than the argument</h2>
       <p>In the first hour after a small fight, both people are still close to the original hurt and far from the hardened position. That window is generous. A warm gesture lands easily, an apology costs almost nothing, and the argument stays small. Leave it overnight and the same exchange requires far more effort, because by morning each person has rehearsed a version of events in which they were reasonable and the other person was not. Most couples who describe themselves as bad at conflict are not bad at arguing. They are simply slow at repairing, and slowness is what turns a four-minute disagreement into a two-day mood.</p>
+
+<!-- cib:body-image:start -->
+<figure class="article-figure"><img src="/assets/blog/forehead-kiss-body.jpg" alt="A couple sharing a forehead kiss in woodland light" width="1200" height="800" loading="lazy" decoding="async"><figcaption>Being understood usually feels quieter than being advised. Photo: <a href="https://commons.wikimedia.org/wiki/File:Forehead_kiss_in_the_forest_(Unsplash).jpg" rel="noopener noreferrer" target="_blank">João Silas joaosilas</a> · free licence</figcaption></figure>
+<!-- cib:body-image:end -->
+
       <h2>The four parts of an apology that lands</h2>
       <p>There is a shape to an apology that works, and it is short enough to remember while annoyed.</p>
       <ul><li>Name the action, not the mood: I raised my voice, rather than I was stressed.</li><li>Name the impact: it made you feel like you had to defend yourself.</li><li>Drop the word but. Everything before but is heard as negotiation.</li><li>Offer one change, not a transformation: next time I will take a minute before answering.</li></ul>

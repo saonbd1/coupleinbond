@@ -10,6 +10,10 @@ datePublished: "2026-10-16"
 dateModified: "2026-10-21"
 section: "Relationships"
 slug: "couples-split-household-responsibilities-20261016-companion"
+coverImage: "/assets/blog/chores-pots-cover.jpg"
+coverImageAlt: "A shelf of well-used cooking pots and pans"
+coverImageCredit: "Scott Umstattd scott_umstattd"
+coverImageCreditUrl: "https://commons.wikimedia.org/wiki/File:Chores_in_the_morning_(Unsplash).jpg"
 tag: "RELATIONSHIPS"
 excerpt: "Dishes and laundry have ended more peace than anyone admits. Here is the system that keeps home life fair without scorekeeping."
 cardTitle: "How Couples Should Split Household Work Fairly"
@@ -29,6 +33,11 @@ asideHtml: ""
       <p>Dishes and laundry have ended more peace than anyone admits. This poll compares the systems couples use to keep home life fair. Vote on the question below, then use this short guide to act on your answer.</p>
       <h2>Fair is a feeling, not a formula</h2>
       <p>Couples fight about chores because the real grievance is rarely the dishes. It is the feeling of being unseen while carrying invisible weight: noticing, planning, remembering. That is why splitting everything evenly often fails. It counts visible tasks and ignores mental load. The poll below lists the systems couples use, and the winners share a trait: they make the invisible visible first. List everything, including who remembers birthdays and who notices the milk is low. Then divide by energy and preference, not just by half. Fairness you can both see ends the argument before it starts.</p>
+
+<!-- cib:body-image:start -->
+<figure class="article-figure"><img src="/assets/blog/couple-grill-body.jpg" alt="A person cooking over a large grill with steam rising" width="1200" height="800" loading="lazy" decoding="async"><figcaption>Splitting the work fairly starts with naming the work. Photo: <a href="https://commons.wikimedia.org/wiki/File:Cooking_Onions_(Unsplash).jpg" rel="noopener noreferrer" target="_blank">Fancy Crave fancycraveofficial</a> · free licence</figcaption></figure>
+<!-- cib:body-image:end -->
+
       <div class="article-callout"><strong>A gentle rule:</strong> whoever cares less about how it is done should do it the other&#x27;s way cheerfully, or trade the task.</div>
       <h2>Four systems that end chore fights</h2>
       <ul><li>Write down every task, then claim by preference, not by default</li><li>Play to strengths: detail lovers plan, energy types execute</li><li>Rotate the hated jobs weekly so resentment never compounds</li><li>Do a ten-minute nightly reset together instead of weekend marathons</li></ul>

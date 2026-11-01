@@ -10,6 +10,10 @@ datePublished: "2026-10-01"
 dateModified: "2026-10-21"
 section: "Date night"
 slug: best-rainy-day-date-20261001-companion
+coverImage: "/assets/blog/rainy-umbrella-cover.jpg"
+coverImageAlt: "A couple walking away from camera under one umbrella in cold weather"
+coverImageCredit: "Pavel Badrtdinov pavelbadrtdinov"
+coverImageCreditUrl: "https://commons.wikimedia.org/wiki/File:Couple_sharing_umbrella_(Unsplash).jpg"
 tag: "DATE NIGHT"
 excerpt: "Rain cancels plans but creates possibilities. Here is the rainy-day date that turns gray weather into a memory."
 cardTitle: "Cozy Rainy-Day Date Ideas for Couples"
@@ -35,6 +39,11 @@ asideHtml: ""
       <p>Rain cancels plans but creates possibilities. This poll asks which rainy-day date turns gray weather into a memory. Vote on the question below, then use this short guide to act on your answer.</p>
       <h2>Bad weather is a feature, not a bug</h2>
       <p>Rain gives couples permission to slow down without guilt. No errands, no social pressure, just a shared roof and nowhere to be. The poll below lists the rainy-day dates couples love most. Cafe hopping turns the city into a cozy tour. Puzzles and hot chocolate turn the living room into a cabin. A shared series becomes your private world for a day. Cooking comfort food fills the house with smells you will associate with each other for years. Vote for your mood, then lean all the way in. The couples who love rainy days are not luckier with weather. They just stopped fighting it.</p>
+
+<!-- cib:body-image:start -->
+<figure class="article-figure"><img src="/assets/blog/rain-window-body.jpg" alt="Raindrops on a window with blurred city colours behind them" width="1200" height="800" loading="lazy" decoding="async"><figcaption>The sound of rain does half the work of setting a mood. Photo: <a href="https://commons.wikimedia.org/wiki/File:Rain_on_window_(Unsplash).jpg" rel="noopener noreferrer" target="_blank">Francesco Gallarotti gallarotti</a> · free licence</figcaption></figure>
+<!-- cib:body-image:end -->
+
       <div class="article-callout"><strong>A gentle rule:</strong> match the day&#x27;s energy instead of fighting it. Slow weather, slow date.</div>
       <h2>Four rainy days worth remembering</h2>
       <ul><li>Cafe hopping: three cafes, one shared dessert at each</li><li>A thousand-piece puzzle with hot chocolate and no phones</li><li>A full-season binge with themed snacks per episode</li><li>Cook the coziest meal you know, slowly, together</li></ul>

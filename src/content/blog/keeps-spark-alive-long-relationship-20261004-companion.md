@@ -10,6 +10,10 @@ datePublished: "2026-10-04"
 dateModified: "2026-10-21"
 section: "Connection"
 slug: "keeps-spark-alive-long-relationship-20261004-companion"
+coverImage: "/assets/blog/love-sparkler-cover.jpg"
+coverImageAlt: "The word love written in the air with a sparkler"
+coverImageCredit: "Brigitte Tohm brigittetohm"
+coverImageCreditUrl: "https://commons.wikimedia.org/wiki/File:Love_in_sparkles_(Unsplash).jpg"
 tag: "CONNECTION"
 excerpt: "The spark does not fade on its own; it fades when couples stop being curious. Here are habits that keep long love feeling alive."
 cardTitle: "How to Keep the Spark Alive in a Long Relationship"
@@ -29,6 +33,11 @@ asideHtml: ""
       <p>The spark does not fade on its own; it fades when couples stop being curious. This poll compares the habits that keep long love feeling alive. Vote on the question below, then use this short guide to act on your answer.</p>
       <h2>Curiosity is the real spark</h2>
       <p>People blame time for a fading spark, but the culprit is usually familiarity without curiosity. You know exactly what your partner will order, say, and do, so you stop asking. The early-days electricity came from discovery, and discovery is renewable. Try the restaurant neither of you can pronounce. Ask the question you assume you know the answer to. Flirt with the history you share instead of mourning the mystery you lost. Vote below for the habit that fits you, then do the smallest version of it this week. Sparks do not need grand gestures. They need new information about a familiar person.</p>
+
+<!-- cib:body-image:start -->
+<figure class="article-figure"><img src="/assets/blog/couple-silhouette-tree-body.jpg" alt="Silhouettes of a couple sitting under a tree at sunset" width="1200" height="800" loading="lazy" decoding="async"><figcaption>Curiosity, repeated, is what makes a long relationship feel new. Photo: <a href="https://commons.wikimedia.org/wiki/File:Pink_sunset_couple_(Unsplash).jpg" rel="noopener noreferrer" target="_blank">Harli Marten harlimarten</a> · free licence</figcaption></figure>
+<!-- cib:body-image:end -->
+
       <div class="article-callout"><strong>A gentle rule:</strong> novelty together beats novelty alone. New experiences bond; separate routines drift.</div>
       <h2>Four spark habits that work</h2>
       <ul><li>One new shared experience a month, however small</li><li>A surprise date with no occasion and no big budget</li><li>Deliberate flirting: compliments, notes, lingering looks</li><li>A shared project with a future: a trip fund, a garden, a skill</li></ul>

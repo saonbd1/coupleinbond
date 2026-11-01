@@ -10,6 +10,10 @@ datePublished: "2026-10-11"
 dateModified: "2026-10-11"
 section: "Compatibility"
 slug: relationship-compatibility-guide
+coverImage: "/assets/blog/couple-paradise-cover.jpg"
+coverImageAlt: "A couple standing together with a tropical coastline behind them"
+coverImageCredit: "Christopher Campbell chrisjoelcampbell"
+coverImageCreditUrl: "https://commons.wikimedia.org/wiki/File:Couple_in_Paradise._(Unsplash).jpg"
 tag: "GUIDE"
 excerpt: "One hub for every compatibility quiz and question set, plus a simple way to turn a playful result into a real conversation."
 cardTitle: "Relationship Compatibility Guide: Quizzes, Questions, and Next Steps"
@@ -36,6 +40,11 @@ asideHtml: |-
 
 <h2>Start here: what compatibility actually means</h2>
 <p>Compatibility is not sameness. You do not need identical hobbies, the same energy level, or matching tastes in music. You need a reliable way to understand each other when your preferences differ. The best place to begin is the <a href="relationship-compatibility-quiz.html">Relationship Compatibility Quiz</a>, which frames a quiz as a doorway to a conversation rather than a final verdict.</p>
+
+<!-- cib:body-image:start -->
+<figure class="article-figure"><img src="/assets/blog/walking-hands-body.jpg" alt="A couple walking hand in hand along a path" width="1200" height="800" loading="lazy" decoding="async"><figcaption>Shared direction shows up in ordinary walks. Photo: <a href="https://commons.wikimedia.org/wiki/File:Adult_couple_holding_hands.jpg" rel="noopener noreferrer" target="_blank">Alice Donovan Rouse (@alicekat)</a> · free licence</figcaption></figure>
+<!-- cib:body-image:end -->
+
 
 <h2>Pick the quiz that fits where you are</h2>
 <p>Different stages of a relationship need different questions. Use these guides as a starting point and keep the one that matches your situation.</p>

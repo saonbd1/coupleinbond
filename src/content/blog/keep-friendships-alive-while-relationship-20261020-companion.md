@@ -10,6 +10,10 @@ datePublished: "2026-10-20"
 dateModified: "2026-10-21"
 section: "Relationships"
 slug: "keep-friendships-alive-while-relationship-20261020-companion"
+coverImage: "/assets/blog/best-friends-cover.jpg"
+coverImageAlt: "Two friends laughing together outdoors"
+coverImageCredit: "adrian aows"
+coverImageCreditUrl: "https://commons.wikimedia.org/wiki/File:Best_friends_(Unsplash).jpg"
 tag: "RELATIONSHIPS"
 excerpt: "Friendships do not end in a decision. They end in a series of skipped dinners. Here is how couples keep both circles alive."
 cardTitle: "Friendships After Coupling: How to Keep Both Circles Alive"
@@ -29,6 +33,11 @@ asideHtml: ""
       <p>There is a specific, quiet moment when a friendship starts to go: the third time in a row you say you are too tired. Nobody is being cruel. You genuinely are tired, and staying in with the person you love is easier than getting on a bus. That is exactly why the loss is so hard to notice. It never looks like neglect while it is happening. It only looks like neglect two years later, when the group chat has gone silent and you are not sure whether to text first.</p>
       <h2>How friendships actually disappear</h2>
       <p>Friendships are the only close relationship with no built-in maintenance. You live with your partner. You see your family at holidays. Your friends require a deliberate plan, every single time, forever. That structure makes friendship uniquely fragile during the first two years of a relationship, which is precisely when it gets the least attention. The other detail that matters: friendship has no script for conflict. Couples argue and repair. Friends usually just drift, because nobody wants to be the one who makes it awkward by asking why you stopped calling. So the drift happens quietly, and both people feel a little rejected while privately assuming the other one lost interest.</p>
+
+<!-- cib:body-image:start -->
+<figure class="article-figure"><img src="/assets/blog/group-burgers-body.jpg" alt="A group of friends sharing a casual meal around a table" width="1200" height="800" loading="lazy" decoding="async"><figcaption>Low-stakes shared meals keep friendships from drifting. Photo: <a href="https://commons.wikimedia.org/wiki/File:Friends_eating_lunch_in_diner_(Unsplash).jpg" rel="noopener noreferrer" target="_blank">Dan Gold danielcgold</a> · free licence</figcaption></figure>
+<!-- cib:body-image:end -->
+
       <h2>Three circles, not one</h2>
       <p>Couples do better when they stop treating friends as a single joint category. There are three circles, and each needs its own maintenance.</p>
       <ul><li>My friends: people you knew first. They need time with you alone, not just with your partner present.</li><li>Your friends: people your partner knew first. These need the same, plus your genuine warmth when you do join.</li><li>Our friends: people you met together or adopted as a pair. These need plans that do not depend on one person organizing everything.</li></ul>

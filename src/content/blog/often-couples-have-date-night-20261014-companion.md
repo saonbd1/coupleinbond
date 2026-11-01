@@ -10,6 +10,10 @@ datePublished: "2026-10-14"
 dateModified: "2026-10-21"
 section: "Date night"
 slug: "often-couples-have-date-night-20261014-companion"
+coverImage: "/assets/blog/calendar-cover.jpg"
+coverImageAlt: "An open monthly planner showing a grid of dates"
+coverImageCredit: "Eric Rothermel erothermel"
+coverImageCreditUrl: "https://commons.wikimedia.org/wiki/File:Monthly_schedule_(Unsplash).jpg"
 tag: "DATE NIGHT"
 excerpt: "Dating should not stop when commitment starts. Here is the rhythm that keeps two people dating each other for decades."
 cardTitle: "How Often Should Couples Have Date Night"
@@ -29,6 +33,11 @@ asideHtml: ""
       <p>Dating should not stop when commitment starts. This poll asks how often couples should protect time that is just for the two of them. Vote on the question below, then use this short guide to act on your answer.</p>
       <h2>Rhythm beats spontaneity</h2>
       <p>Waiting for the mood to strike means waiting forever, because busy seasons never end on their own. The poll below asks how often couples should protect time for two, and the honest answer is: as often as you can repeat without strain. Weekly works for couples with simple logistics. Twice a month fits packed calendars. Once a month, done beautifully, beats three distracted outings. What fails is whenever it happens naturally, because natural means never when life is full. Put the date on the calendar first and let logistics orbit it, not the reverse.</p>
+
+<!-- cib:body-image:start -->
+<figure class="article-figure"><img src="/assets/blog/notebook-coffee-body.jpg" alt="An open notebook, pen, and coffee cup on a wooden desk" width="1200" height="800" loading="lazy" decoding="async"><figcaption>Naming whose turn it is ends the invisible-work argument. Photo: <a href="https://commons.wikimedia.org/wiki/File:Planning_over_coffee_(Unsplash).jpg" rel="noopener noreferrer" target="_blank">Hope House Press hopehousepress</a> · free licence</figcaption></figure>
+<!-- cib:body-image:end -->
+
       <div class="article-callout"><strong>A gentle rule:</strong> schedule the next date before the current one ends. Momentum protects romance.</div>
       <h2>Four rhythms that keep dating alive</h2>
       <ul><li>Weekly micro-dates: coffee, walks, twenty focused minutes</li><li>Twice-monthly evenings out with phones parked</li><li>Monthly occasion dates planned with real intention</li><li>A yearly getaway that gives the small dates a horizon</li></ul>
