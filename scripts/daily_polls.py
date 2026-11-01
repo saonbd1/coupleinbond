@@ -1222,21 +1222,24 @@ def write_companion_md(path, poll, date_str, card_order, ld_order):
                                                          section=section)))
         for q, ans in faqs)
 
+    # Body HTML is emitted flush-left. Indenting these lines by four or more
+    # spaces makes Markdown read them as an indented code block (the FAQ section
+    # showed up as raw, escaped HTML) as soon as any blank line ends the block.
     body = (
-        '      <div class="article-callout key-takeaways"><strong>Key Takeaways</strong>'
+        '<div class="article-callout key-takeaways"><strong>Key Takeaways</strong>'
         "<ul>%s</ul></div>\n"
-        "      <p>%s</p>\n"
-        "      <h2>%s</h2>\n"
-        "      <p>%s</p>\n"
-        '      <div class="article-callout">%s</div>\n'
-        "      <h2>%s</h2>\n"
-        "      <ul>%s</ul>\n"
-        "      <h2>%s</h2>\n"
-        "      <p>%s</p>\n"
-        "      <p>%s</p>\n"
-        "      %s\n"
-        "      <h2>Frequently Asked Questions</h2>\n"
-        "      %s\n"
+        "<p>%s</p>\n"
+        "<h2>%s</h2>\n"
+        "<p>%s</p>\n"
+        '<div class="article-callout">%s</div>\n'
+        "<h2>%s</h2>\n"
+        "<ul>%s</ul>\n"
+        "<h2>%s</h2>\n"
+        "<p>%s</p>\n"
+        "<p>%s</p>\n"
+        "%s\n"
+        "<h2>Frequently Asked Questions</h2>\n"
+        "%s\n"
         % (takeaways_html, esc(intro_p), esc(a["h2a"]), esc(a["h2a_body"]),
            callout_html, esc(a["h2b"]), items_html, esc(a["h2c"]),
            esc(a["h2c_body"]), links_p, cta_html, faq_html))

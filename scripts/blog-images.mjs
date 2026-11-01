@@ -609,7 +609,23 @@ function insertBodyImage(body, figureText) {
   const anchor = afterHeading !== -1 ? afterHeading : body.indexOf('</p>');
   if (anchor === -1) throw new Error('body has no paragraph to anchor the image to');
   const at = anchor + '</p>'.length;
-  return `${body.slice(0, at)}\n\n${figureText}\n${body.slice(at)}`;
+  // Blank lines on both sides keep the figure in its own HTML block instead of
+  // merging with the paragraph before it or the block after it.
+  return `${body.slice(0, at)}\n\n${figureText}\n\n${body.slice(at)}`;
+}
+
+// Companion articles generated before this script existed were written with a
+// six-space indent on every body line. Markdown only accepts an HTML block that
+// starts at four or more spaces of indentation as an *indented code block*, so
+// the moment the figure's blank line ended the block, the rest of the article
+// (including the FAQ) was escaped and shipped as a <pre><code> listing. Strip the
+// indent from body lines so every block stays real HTML.
+function normalizeBody(body) {
+  if (!/^ {4,}</m.test(body)) return body;
+  return body
+    .split('\n')
+    .map((line) => (/^ {4,}</.test(line) ? line.replace(/^ +/, '') : line))
+    .join('\n');
 }
 
 function splitPost(raw) {
@@ -641,6 +657,9 @@ function audit(posts, { requireApplied = false } = {}) {
     if (requireApplied) {
       if (!/^coverImage: /m.test(frontmatter)) problems.push(`${slug}: frontmatter is missing coverImage`);
       if (!body.includes(BODY_START)) problems.push(`${slug}: body is missing the image figure`);
+      // Four-plus spaces of indent turns body HTML into an indented code block,
+      // which ships the FAQ and callouts as raw escaped markup.
+      if (/^ {4,}</m.test(body)) problems.push(`${slug}: body HTML is indented and will render as a code block`);
     }
   }
   return problems;
@@ -703,7 +722,7 @@ async function main() {
       credit: cover.credit,
       creditUrl: cover.creditUrl,
     });
-    const nextBody = insertBodyImage(body, bodyFigure(pick.body, bodyImage));
+    const nextBody = insertBodyImage(normalizeBody(body), bodyFigure(pick.body, bodyImage));
     fs.writeFileSync(file, `---\n${nextFrontmatter}\n---\n${nextBody}`);
     patched += 1;
   }
