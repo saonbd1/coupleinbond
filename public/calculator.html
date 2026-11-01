@@ -1029,6 +1029,36 @@
         gap: 8px 14px;
       }
     }
+
+    /* Pink polish layer — match the compatibility quiz look */
+    :root { --secondary: #ff77a9; --secondary-light: #ff9ebc; --bg-gradient-1: #ff8fa3; --bg-gradient-2: #ffb3c6; --bg-gradient-3: #ffd0dc; }
+    body { background: linear-gradient(135deg, var(--bg-gradient-1) 0%, var(--bg-gradient-2) 50%, var(--bg-gradient-3) 100%); }
+    .card { position: relative; overflow: hidden; border-color: rgba(255, 77, 109, .3); border-radius: 28px; box-shadow: 0 30px 70px -30px rgba(255, 77, 109, .5), 0 8px 24px rgba(73, 34, 86, .1); }
+    .card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 6px; z-index: 0; background: linear-gradient(90deg, #ff4d6d, #ff77a9, #ff9ebc, #ff4d6d); background-size: 200% 100%; animation: cibShimmer 3s linear infinite; }
+    .card::after { content: '💕'; position: absolute; top: 14px; right: 20px; font-size: 1.2rem; line-height: 1; filter: drop-shadow(0 5px 10px rgba(255, 77, 109, .35)); animation: cibHeartbeat 2.6s ease-in-out infinite; pointer-events: none; }
+    @keyframes cibShimmer { to { background-position: 200% 0; } }
+    @keyframes cibHeartbeat { 0%, 100% { transform: scale(1); } 12% { transform: scale(1.18); } 24% { transform: scale(1); } 36% { transform: scale(1.12); } 48% { transform: scale(1); } }
+    h1, .sidebar-title, .score-number, .modal-title { background: linear-gradient(135deg, var(--primary), #ff77a9); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+    input[type="text"] { border-color: rgba(255, 77, 109, .2); box-shadow: inset 0 2px 8px rgba(255, 77, 109, .05), 0 8px 20px rgba(255, 77, 109, .08); }
+    input[type="text"]:focus { box-shadow: 0 0 0 6px rgba(255, 77, 109, .14), 0 12px 25px rgba(255, 77, 109, .16); }
+    .inputs button, #mintBtn, #shareResultBtn, #connectBtn, .score-badge { background: linear-gradient(135deg, var(--primary), #ff77a9); }
+    .inputs button, #mintBtn, #shareResultBtn, #connectBtn { box-shadow: 0 8px 25px rgba(255, 77, 109, .35); }
+    .inputs button:hover, #mintBtn:hover, #shareResultBtn:hover, #connectBtn:hover { box-shadow: 0 12px 35px rgba(255, 77, 109, .5); }
+    .score { background: linear-gradient(135deg, rgba(255, 77, 109, .08), rgba(255, 119, 169, .1)); border-color: rgba(255, 77, 109, .25); }
+    .score-badge { box-shadow: 0 4px 15px rgba(255, 77, 109, .35); }
+    .meter { background: rgba(255, 77, 109, .04); }
+    .meter:hover { background: rgba(255, 77, 109, .07); }
+    .meter-bar { background: rgba(255, 77, 109, .12); }
+    .meter-fill { background: linear-gradient(90deg, #ff4d6d, #ff77a9); box-shadow: 0 0 10px rgba(255, 77, 109, .45); }
+    .modal-content { border-color: rgba(255, 77, 109, .25); }
+    .guide-grid > div { background: linear-gradient(135deg, rgba(255, 245, 248, .95), rgba(255, 238, 243, .9)); }
+    .minting-guide { background: linear-gradient(135deg, #fff, #ffeef3); border-color: rgba(255, 77, 109, .2); }
+    .guide-aside { background: linear-gradient(145deg, #fff, #ffeef3); }
+    .guide-icon { background: linear-gradient(135deg, var(--primary), #ff77a9); }
+    .animatic { background: #4a0e1f; }
+    .animatic::before { background: radial-gradient(circle at 18% 20%, rgba(255, 211, 106, .3), transparent 24%), radial-gradient(circle at 85% 85%, rgba(255, 77, 109, .5), transparent 35%); }
+    .animatic-heart { color: #ff6b88; }
+    @media (prefers-reduced-motion: reduce) { .card::before, .card::after { animation: none; } }
   </style>
     <meta name="description" content="Try a playful love calculator by name, explore your score, and mint the result as an Ink Chain keepsake with a connected wallet.">
   <meta name="robots" content="index,follow,max-image-preview:large">
