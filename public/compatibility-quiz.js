@@ -223,7 +223,7 @@
       const bars = document.createElement("div");
       bars.className = "compare-bars";
       bars.appendChild(barRow("You", a.score, a.max, "You"));
-      bars.appendChild(barRow("Partner", b.score, b.max, "Partner", "linear-gradient(90deg, #6a00f4, #b5179e)"));
+      bars.appendChild(barRow("Partner", b.score, b.max, "Partner", "linear-gradient(90deg, #ff77a9, #ff4d94)"));
       const note = document.createElement("span");
       note.className = "compare-note";
       note.textContent = alignmentNote(Math.abs(a.score - b.score));
