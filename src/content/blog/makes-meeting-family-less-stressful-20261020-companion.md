@@ -10,10 +10,10 @@ datePublished: "2026-10-20"
 dateModified: "2026-10-21"
 section: "Relationships"
 slug: "makes-meeting-family-less-stressful-20261020-companion"
-coverImage: "/assets/blog/family-bench-cover.jpg"
-coverImageAlt: "A family sitting together on a beach bench"
-coverImageCredit: "Alvin Balemesa alnbal"
-coverImageCreditUrl: "https://commons.wikimedia.org/wiki/File:Family_at_Cottesloe_beach_(Unsplash).jpg"
+coverImage: "/assets/blog/eating-together-cover.jpg"
+coverImageAlt: "A shared table with bread, salad, and bowls being passed between hands"
+coverImageCredit: "Chris Lawton chrislawton"
+coverImageCreditUrl: "https://commons.wikimedia.org/wiki/File:Eating_Together_(Unsplash).jpg"
 tag: "RELATIONSHIPS"
 excerpt: "Meeting the family is a milestone with high stakes. Here is what turns a nerve-wracking introduction into a warm one."
 cardTitle: "How to Make Meeting the Family Go Smoothly"
@@ -35,7 +35,7 @@ asideHtml: ""
       <p>The instinct is to perform: dress sharper, talk smarter, bring the grandest gift. But families bond with interest, not impressiveness. The poll below lists what actually works, and asking genuine questions wins because it gives them the gift everyone wants: feeling fascinating to someone new. Let your partner brief you on names, stories, and landmines beforehand. Bring something thoughtful but modest. Keep the first visit short enough to leave them wanting more. And remember the real audience is one person watching you charm their people, which charms them most of all.</p>
 
 <!-- cib:body-image:start -->
-<figure class="article-figure"><img src="/assets/blog/beach-sunset-body.jpg" alt="Two people watching the sunset together on a beach" width="1200" height="800" loading="lazy" decoding="async"><figcaption>A calm first meeting beats an impressive one. Photo: <a href="https://commons.wikimedia.org/wiki/File:Family_watching_beach_sunset_(Unsplash).jpg" rel="noopener noreferrer" target="_blank">David Straight davidstraight</a> · free licence</figcaption></figure>
+<figure class="article-figure"><img src="/assets/blog/family-bench-body.jpg" alt="A family sitting together on a beach bench" width="1200" height="800" loading="lazy" decoding="async"><figcaption>Meeting the family goes better when you plan one shared moment. Photo: <a href="https://commons.wikimedia.org/wiki/File:Family_at_Cottesloe_beach_(Unsplash).jpg" rel="noopener noreferrer" target="_blank">Alvin Balemesa alnbal</a> · free licence</figcaption></figure>
 <!-- cib:body-image:end -->
 
       <div class="article-callout"><strong>A gentle rule:</strong> learn three names and one story per person before you arrive. Remembered details beat rehearsed charm.</div>
