@@ -121,7 +121,6 @@
   const shareText = encodeURIComponent(`${poll.title} — vote on Couple in Bond`);
   const socialLinks = [
     ["Facebook", `https://www.facebook.com/sharer/sharer.php?u=${shareUrl}`, "poll-social-facebook"],
-    ["X", `https://twitter.com/intent/tweet?url=${shareUrl}&text=${shareText}`, "poll-social-x"],
     ["WhatsApp", `https://api.whatsapp.com/send?text=${shareText}%20${shareUrl}`, "poll-social-whatsapp"],
     ["Telegram", `https://t.me/share/url?url=${shareUrl}&text=${shareText}`, "poll-social-telegram"]
   ];

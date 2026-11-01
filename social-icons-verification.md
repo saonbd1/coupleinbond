@@ -1,12 +1,12 @@
 # Social Icon Verification
 
-The home-page preview rendered four accessible social links in the footer: Facebook, X, Instagram, and TikTok. Each control exposes its brand name as an accessible label and points to the corresponding public platform homepage until the site-specific profile URLs are provided.
+The footer "Follow along" row now exposes two accessible social links — Facebook and Instagram — and the article "Share this page" row offers Facebook sharing plus the Instagram profile. Both point at the site's own profiles (`https://facebook.com/coupleinbond`, `https://instagram.com/coupleinbond`); the retired X and TikTok controls were removed rather than left pointing at a bare platform homepage. `npm run verify:social` renders both rows in jsdom and fails if a third network reappears, if an href drifts, or if the Facebook share link stops carrying the canonical page URL.
 
 The icons are visible in the existing pink-to-lilac gradient footer, retain the site’s circular control language, and remain grouped with the footer links rather than interrupting the primary navigation or wallet connector.
 
-The calculator page also renders the same four footer controls. Its existing wallet connector, calculator form, and footer content remain present, and the social row fits beneath the legal note without covering the tool interface.
+The calculator page also renders the same footer social controls (Facebook and Instagram today). Its existing wallet connector, calculator form, and footer content remain present, and the social row fits beneath the legal note without covering the tool interface.
 
-The blog listing page receives the same controls through the shared navigation script. The footer remains aligned below the article cards, and all four icon links are exposed in the page accessibility tree.
+The blog listing page receives the same controls through the shared navigation script. The footer remains aligned below the article cards, and every remaining icon link is exposed in the page accessibility tree.
 
 The home-page action update was verified in the rendered DOM: the hero contains only “Read the blog,” while the Love Calculator card contains “Open the love calculator →” and links to `calculator.html`.
 
