@@ -10,6 +10,10 @@ datePublished: "2026-10-17"
 dateModified: "2026-10-21"
 section: "Date night"
 slug: "who-plan-next-date-20261017-companion"
+coverImage: "/assets/blog/chairs-table-cover.jpg"
+coverImageAlt: "Two chairs facing each other across a table in silhouette"
+coverImageCredit: "Steve Halama steve3p_0"
+coverImageCreditUrl: "https://commons.wikimedia.org/wiki/File:Conversation_table_(Unsplash).jpg"
 tag: "DATE NIGHT"
 excerpt: "Planning a date night means a dozen small decisions nobody sees. Here is how couples split that invisible work without keeping score."
 cardTitle: "Who Should Plan Date Night? A Fair Way to Split the Invisible Work"
@@ -29,6 +33,11 @@ asideHtml: ""
       <p>Most conversations about date night planning start too late. By the time someone asks who is organizing Friday, the work has already happened invisibly in one person's head: the calendar check, the shortlist, the quiet decision that this week calls for something low-key. This guide counts that work properly, then offers three splits that survive a busy month.</p>
       <h2>What planning a date night actually involves</h2>
       <p>Ask a couple what planning a date involves and they will usually name one thing: booking somewhere. The real list runs longer. Someone checks both calendars. Someone thinks about how tired the other person has been. Someone picks a place that suits the budget this month, checks the hours, checks whether the last two dates were both dinner, and remembers that one of you does not eat there. Then comes the reservation, the travel plan, and the decision about whether to ask a neighbor to watch the kids. The visible part, the reservation, is the last ten percent of the work. The other ninety percent is attention, and attention is the part nobody thanks anyone for.</p>
+
+<!-- cib:body-image:start -->
+<figure class="article-figure"><img src="/assets/blog/calendar-body.jpg" alt="An open monthly planner showing a grid of dates" width="1200" height="800" loading="lazy" decoding="async"><figcaption>Date night survives when it lives on the calendar. Photo: <a href="https://commons.wikimedia.org/wiki/File:Monthly_schedule_(Unsplash).jpg" rel="noopener noreferrer" target="_blank">Eric Rothermel erothermel</a> · free licence</figcaption></figure>
+<!-- cib:body-image:end -->
+
       <p>That gap explains most date night resentment. One partner sees a table booked and a nice evening delivered. The other remembers the four evenings of private deliberation it took to get there. Both accounts are honest, and they do not match.</p>
       <h2>Why strict alternation often fails</h2>
       <p>Alternation is the most recommended fix and the most abandoned. It sounds fair: your month, my month. But it splits turns, not load. The partner who is not planning holds nothing at all, which means the planner still carries the anticipation, the contingency thinking, and the worry that the evening will land badly. Alternation also hides a quieter problem. If one person has a higher standard, their night is elaborate and the other's is a walk, and the couple starts comparing effort instead of appreciating turns. Resentment does not come from unequal turns. It comes from mismatched effort with no agreement about it.</p>

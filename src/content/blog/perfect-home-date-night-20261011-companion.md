@@ -10,6 +10,10 @@ datePublished: "2026-10-11"
 dateModified: "2026-10-21"
 section: "Date night"
 slug: "perfect-home-date-night-20261011-companion"
+coverImage: "/assets/blog/wine-bar-cover.jpg"
+coverImageAlt: "A red wine glass on a wooden table with bistro lights behind"
+coverImageCredit: "Serge Esteve sce767"
+coverImageCreditUrl: "https://commons.wikimedia.org/wiki/File:Outdoor_wine_dinner_(Unsplash).jpg"
 tag: "DATE NIGHT"
 excerpt: "The best dates do not always need reservations. Here is the cozy home evening that beats any expensive night out."
 cardTitle: "The Perfect At-Home Date Night Guide"
@@ -29,6 +33,11 @@ asideHtml: ""
       <p>The best dates do not always need reservations. This poll asks which at-home evening feels most romantic with the right person. Vote on the question below, then use this short guide to act on your answer.</p>
       <h2>Home is the most underrated venue</h2>
       <p>Restaurants charge for atmosphere you can create free with dimmed lights, a shared blanket, and phones in another room. The poll below lists the home dates couples love most, and each wins for a different reason. Movie nights work through shared emotion. Cooking works through teamwork. Board games work through playful rivalry. Stargazing works through wonder. Pick the one that matches tonight&#x27;s energy, not the one that photographs best. The couples who date best at home are not the ones with the biggest living rooms. They are the ones who treat an ordinary evening like an occasion.</p>
+
+<!-- cib:body-image:start -->
+<figure class="article-figure"><img src="/assets/blog/dinner-wine-closeup-body.jpg" alt="Wine glasses and small plates on a dark wooden restaurant table" width="1200" height="800" loading="lazy" decoding="async"><figcaption>A protected evening feels different the moment the table is set. Photo: <a href="https://commons.wikimedia.org/wiki/File:Table_of_wine_and_snacks_(Unsplash).jpg" rel="noopener noreferrer" target="_blank">Joel Aguilar antonioflores89</a> · free licence</figcaption></figure>
+<!-- cib:body-image:end -->
+
       <div class="article-callout"><strong>A gentle rule:</strong> plan it like a real date. Set a time, dress slightly up, and phones stay parked. Agree on <a href="phones-be-banned-date-night-20261015-companion.html">a phone boundary for the evening</a> before the activities begin.</div>
       <h2>Four home dates worth repeating</h2>
       <ul><li>Movie night with a theme: snacks matched to the film</li><li>Cook a new recipe together with music and no rushing</li><li>Board games with playful stakes: loser makes dessert</li><li>Balcony stargazing with blankets and one big question each</li></ul>

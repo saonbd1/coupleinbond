@@ -10,6 +10,10 @@ datePublished: "2026-10-23"
 dateModified: "2026-10-23"
 section: "Seasonal"
 slug: "best-gift-couple-can-give-20261023-companion"
+coverImage: "/assets/blog/gift-tags-cover.jpg"
+coverImageAlt: "Kraft gift tags with handwritten notes reading kiss me"
+coverImageCredit: "Mira Bozhko miroslava"
+coverImageCreditUrl: "https://commons.wikimedia.org/wiki/File:Valentine%27s_Day_gift_(Unsplash).jpg"
 tag: "SEASONAL"
 excerpt: "Expensive is not the same as noticed. Here is why the best presents prove you were paying attention long before the occasion arrived."
 cardTitle: "What Makes a Gift Land in a Long Relationship"
@@ -29,6 +33,11 @@ asideHtml: ""
       <p>Most couples are bad at gifts and good at loving each other. This poll looks at what turns attention into something a partner can hold. Cast your vote first, then read on for a short guide you can act on this week.</p>
       <h2>Attention is the only thing a gift can prove</h2>
       <p>A gift is a receipt for attention, which is why an expensive object chosen from a website can lose to a cheap thing someone mentioned in passing back in June. The second one cannot be bought that afternoon. It required that you heard something, stored it, and connected it to a date on the calendar. In a long relationship that evidence matters more than the object, because the everyday danger is not falling out of love. It is going unobserved. The four options in the poll above deliver the same proof along different routes: a remembered detail, a day built around a preference, a burden taken quietly off somebody&#x27;s list, or a future plan that says the relationship still has things to look forward to. Price is the least informative part of any of them.</p>
+
+<!-- cib:body-image:start -->
+<figure class="article-figure"><img src="/assets/blog/gift-parcel-body.jpg" alt="A wrapped brown paper parcel with a tag and red twine" width="1200" height="800" loading="lazy" decoding="async"><figcaption>Knowing what someone needs is the real gift. Photo: <a href="https://commons.wikimedia.org/wiki/File:Brown_paper_gift_(Unsplash).jpg" rel="noopener noreferrer" target="_blank">Annie Spratt anniespratt</a> · free licence</figcaption></figure>
+<!-- cib:body-image:end -->
+
       <div class="article-callout"><strong>A gentle rule:</strong> if you bought it that afternoon, add the sentence that explains why it is for them.</div>
       <h2>Four gifts that work without a large budget</h2>
       <ul><li>The detail you remembered: mention it now, then buy it later</li><li>The planned day: no decisions required of the recipient from morning to night</li><li>The removed burden: the appointment, the call, or the chore they dreaded</li><li>The booked future: a date with a ticket attached, however small</li></ul>

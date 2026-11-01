@@ -12,7 +12,11 @@ const d = post.data;
 const SITE = 'https://couplein.bond';
 const url = `${SITE}/blog-posts/${post.id}.html`;
 const pageLabel = `${d.pageTitle} — Couple in Bond`;
-const socialImage = `${SITE}/assets/social-share.jpg`;
+// Posts now carry their own cover image. Fall back to the shared social card
+// for any post that has not been illustrated yet, so metadata never breaks.
+const hasCover = Boolean(d.coverImage);
+const socialImage = hasCover ? `${SITE}${d.coverImage}` : `${SITE}/assets/social-share.jpg`;
+const socialImageAlt = d.coverImageAlt || 'Couple in Bond relationship tools and bonding ideas';
 
 const blogPosting = {
   '@context': 'https://schema.org',
@@ -117,11 +121,14 @@ const companionLd = {
   <meta property="og:site_name" content="Couple in Bond">
   <meta property="og:locale" content="en_US">
   <meta property="og:image" content={socialImage}>
-  <meta property="og:image:alt" content="Couple in Bond relationship tools and bonding ideas">
+  <meta property="og:image:alt" content={socialImageAlt}>
+  {hasCover && <meta property="og:image:width" content="1200">}
+  {hasCover && <meta property="og:image:height" content="675">}
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content={pageLabel}>
   <meta name="twitter:description" content={d.description}>
   <meta name="twitter:image" content={socialImage}>
+  <meta name="twitter:image:alt" content={socialImageAlt}>
 
 {/* Companion pages already carry their BreadcrumbList inside the @graph block
     above, so the standalone script is only needed on editorial pages. Rendering
@@ -134,7 +141,28 @@ const companionLd = {
 <body>
   <div class="blog-shell"><div class="blog-wrap">
     <SiteNav root="../" current="blog" />
-    <main class="article-layout"><article class="article-shell"><header class="article-header"><div class="blog-kicker">{d.kicker}</div><h1>{d.title}</h1><p class="article-dek">{d.dek}</p><div class="article-meta"><span>{d.publishedLabel}</span><span>·</span><span>By {d.author}</span></div></header><div class="article-body"><slot /></div><footer class="article-footer">{d.disclaimer}</footer></article>{d.asideHtml && <Fragment set:html={d.asideHtml} />}</main>
+    <main class="article-layout"><article class="article-shell"><header class="article-header"><div class="blog-kicker">{d.kicker}</div><h1>{d.title}</h1><p class="article-dek">{d.dek}</p><div class="article-meta"><span>{d.publishedLabel}</span><span>·</span><span>By {d.author}</span></div></header>
+      {d.coverImage && (
+        <figure class="article-cover">
+          <img
+            src={d.coverImage}
+            alt={d.coverImageAlt || d.title}
+            width="1200"
+            height="675"
+            loading="eager"
+            decoding="async"
+            fetchpriority="high"
+          />
+          {d.coverImageCredit && (
+            <figcaption>
+              Photo: {d.coverImageCreditUrl
+                ? <a href={d.coverImageCreditUrl} rel="noopener noreferrer" target="_blank">{d.coverImageCredit}</a>
+                : d.coverImageCredit} · free licence
+            </figcaption>
+          )}
+        </figure>
+      )}
+      <div class="article-body"><slot /></div><footer class="article-footer">{d.disclaimer}</footer></article>{d.asideHtml && <Fragment set:html={d.asideHtml} />}</main>
     <SiteFooter root="../" />
   </div></div>
 </body>

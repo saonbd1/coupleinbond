@@ -10,6 +10,10 @@ datePublished: "2026-10-02"
 dateModified: "2026-10-21"
 section: "Connection"
 slug: couples-handle-different-love-languages-20261002-companion
+coverImage: "/assets/blog/hands-golden-gate-cover.jpg"
+coverImageAlt: "Two people holding hands with the Golden Gate Bridge in the distance"
+coverImageCredit: "Josh Felise jfelise"
+coverImageCreditUrl: "https://commons.wikimedia.org/wiki/File:Holding_hands_(Unsplash).jpg"
 tag: "CONNECTION"
 excerpt: "One person shows love with words, the other with actions, and both wonder if they are understood. Here is how to meet in the middle."
 cardTitle: "How Couples Bridge Different Love Languages"
@@ -35,6 +39,11 @@ asideHtml: ""
       <p>One person shows love with words, the other with actions, and both wonder if they are understood. This poll explores how couples can meet in the middle. Vote on the question below, then use this short guide to act on your answer.</p>
       <h2>Translation matters more than effort</h2>
       <p>You can love someone enormously in a language they do not speak and still leave them feeling unloved. The words-of-affirmation partner writes paragraphs; the acts-of-service partner fixes the sink. Both are saying I love you. Neither is hearing it. The fix is not more effort in your own language. It is a little effort in theirs. Learn the five love languages together, name yours out loud, and then practice the one that feels unnatural. That awkward practice is the most convincing love letter there is. Vote below for the bridge style that fits you two.</p>
+
+<!-- cib:body-image:start -->
+<figure class="article-figure"><img src="/assets/blog/heart-hands-body.jpg" alt="Two hands forming a heart shape around the setting sun" width="1200" height="800" loading="lazy" decoding="async"><figcaption>Small, specific gestures carry more weight than grand declarations. Photo: <a href="https://commons.wikimedia.org/wiki/File:Love_under_setting_sun_(Unsplash).jpg" rel="noopener noreferrer" target="_blank">Mayur Gala mayurgala</a> · free licence</figcaption></figure>
+<!-- cib:body-image:end -->
+
       <div class="article-callout"><strong>A gentle rule:</strong> love them in their language on ordinary days, and in yours on special ones.</div>
       <h2>Four bridges worth building</h2>
       <ul><li>Take the love-languages quiz together and compare results</li><li>Ask directly: what did I do lately that made you feel loved</li><li>Practice one unnatural gesture a week in their language</li><li>Thank each other for translated love, even when it lands clumsily</li></ul>

@@ -10,6 +10,10 @@ datePublished: "2026-10-23"
 dateModified: "2026-10-23"
 section: "Connection"
 slug: "helps-feel-understood-without-explaining-20261023-companion"
+coverImage: "/assets/blog/couple-field-golden-cover.jpg"
+coverImageAlt: "A couple sitting close together in a field at golden hour"
+coverImageCredit: "Scott Webb scottwebb"
+coverImageCreditUrl: "https://commons.wikimedia.org/wiki/File:Love_Story_(Unsplash).jpg"
 tag: "CONNECTION"
 excerpt: "Explanation is work, and being read correctly is relief. Here is what makes a partner feel understood before they say anything."
 cardTitle: "How Couples Feel Understood Without Having to Explain Themselves"
@@ -29,6 +33,11 @@ asideHtml: ""
       <p>Being understood is mostly a matter of being noticed. This poll asks which small signal does that best for you. Vote on the question below, then use this short guide to act on your answer.</p>
       <h2>Understanding is a habit of attention, not a talent</h2>
       <p>Some people seem easy to read and others seem impossible, and most of that difference is where attention was aimed rather than how much love was felt. A partner who notices that your tone changed at dinner is not gifted. They have simply kept a record of your ordinary baseline and can tell when it moves. That record is what makes understanding look effortless, and it is available to anybody willing to pay attention on purpose. The poll above lists the four ways people most often report feeling understood, and they share one property: each requires the other person to have noticed something first and then acted on it without being asked. This is also why being understood cannot be requested. A demand to be read is a contradiction, and the moment the explanation is required the evidence has gone.</p>
+
+<!-- cib:body-image:start -->
+<figure class="article-figure"><img src="/assets/blog/couple-blanket-body.jpg" alt="A couple lying beside each other on a wooden deck" width="1200" height="800" loading="lazy" decoding="async"><figcaption>Comfortable silence is its own kind of understanding. Photo: <a href="https://commons.wikimedia.org/wiki/File:Couple_relaxing_on_a_blanket_(Unsplash).jpg" rel="noopener noreferrer" target="_blank">Paul Proshin paulproshin</a> · free licence</figcaption></figure>
+<!-- cib:body-image:end -->
+
       <div class="article-callout"><strong>One honest test:</strong> name one thing about your partner that changed this month and that they never mentioned.</div>
       <h2>Four ways to prove you are paying attention</h2>
       <ul><li>Say the thing you noticed instead of waiting to be asked about it</li><li>Ask about the meeting, the neighbour, or the worry from three days ago</li><li>Match the room: company on a flat day, quiet on an overloaded one</li><li>Send one message during the day that proves they were on your mind</li></ul>

@@ -10,6 +10,10 @@ datePublished: "2026-10-01"
 dateModified: "2026-10-21"
 section: "Connection"
 slug: favorite-way-start-day-couple-20261001-companion
+coverImage: "/assets/blog/breakfast-bed-cover.jpg"
+coverImageAlt: "A breakfast tray with orange juice beside someone sitting up in bed"
+coverImageCredit: "Toa Heftiba heftiba"
+coverImageCreditUrl: "https://commons.wikimedia.org/wiki/File:Breakfast_in_bed_(Unsplash).jpg"
 tag: "CONNECTION"
 excerpt: "Mornings set the emotional weather for the whole day. Here is the small shared start that helps a couple face everything as a team."
 cardTitle: "The Couple Morning Ritual That Starts the Day Right"
@@ -35,6 +39,11 @@ asideHtml: ""
       <p>Mornings set the emotional weather for the whole day. This poll asks which small shared start helps a couple face the day as a team. Vote on the question below, then use this short guide to act on your answer.</p>
       <h2>First minutes set the forecast</h2>
       <p>The way you greet each other in the morning quietly programs the day. Rushed goodbyes and glowing screens forecast disconnection. A shared coffee, a short walk, or even five unrushed minutes of contact forecast teamwork. It is not about the activity. It is about the message: you are my first priority, before the inbox and the noise. The poll below lists the rituals couples love most. None takes more than twenty minutes. All of them beat starting the day as two strangers sharing a bathroom.</p>
+
+<!-- cib:body-image:start -->
+<figure class="article-figure"><img src="/assets/blog/pancakes-body.jpg" alt="A breakfast table with pancakes, coffee, and shared plates" width="1200" height="800" loading="lazy" decoding="async"><figcaption>A tiny repeated habit is cheaper than a grand weekend away. Photo: <a href="https://commons.wikimedia.org/wiki/File:Breakfast_table_with_pancakes_(Unsplash).jpg" rel="noopener noreferrer" target="_blank">Anthony DELANOIX anthonydelanoix</a> · free licence</figcaption></figure>
+<!-- cib:body-image:end -->
+
       <div class="article-callout"><strong>A gentle rule:</strong> touch before tech. One hug before the first scroll changes the whole morning.</div>
       <h2>Four mornings worth waking up for</h2>
       <ul><li>Coffee in bed with no phones for the first ten minutes</li><li>A short walk together before the day speeds up</li><li>Breakfast with one plan and one gratitude each</li><li>A slow cuddle with nowhere to be for five minutes</li></ul>

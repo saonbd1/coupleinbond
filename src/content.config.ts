@@ -36,6 +36,15 @@ const blog = defineCollection({
     // Machine-generated poll companions use a slightly different shell:
     // Blog/Polls/Calculator nav links and a two-link footer.
     variant: z.string().default("editorial"),
+    // Cover image shown under the article header, in the blog cards, and in
+    // og:image / twitter:image / BlogPosting.image. Paths are site-absolute
+    // ("/assets/blog/<name>.jpg") because public/assets is copied verbatim.
+    // Every image we ship is public-domain or CC0 (Wikimedia Commons), so the
+    // credit line is a courtesy, not a licence requirement.
+    coverImage: z.string().optional(),
+    coverImageAlt: z.string().optional(),
+    coverImageCredit: z.string().optional(),
+    coverImageCreditUrl: z.string().optional(),
   }),
 });
 

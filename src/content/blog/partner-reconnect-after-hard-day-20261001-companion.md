@@ -10,6 +10,10 @@ datePublished: "2026-10-01"
 dateModified: "2026-10-21"
 section: "Connection"
 slug: partner-reconnect-after-hard-day-20261001-companion
+coverImage: "/assets/blog/couch-couple-cover.jpg"
+coverImageAlt: "A couple relaxing together on a sofa in low evening light"
+coverImageCredit: "angga aditya anggaditya27"
+coverImageCreditUrl: "https://commons.wikimedia.org/wiki/File:Couch_Serenade_(Unsplash).jpg"
 tag: "CONNECTION"
 excerpt: "Stress comes home with you unless you leave it at the door on purpose. Here are gentle ways to land softly together at the end of a hard day."
 cardTitle: "How Couples Reconnect After a Hard Day"
@@ -35,6 +39,11 @@ asideHtml: ""
       <p>Stress follows people home whether they want it to or not. Use this poll to compare the little rituals that help a couple land softly at the end of a hard day. Vote on the question below, then use this short guide to act on your answer.</p>
       <h2>Decompress first, debrief second</h2>
       <p>The first twenty minutes after work shape the whole evening. Stress is still high, patience is still low, and one sharp tone can set the mood for hours. That is why the order matters: comfort before conversation. A hug, a glass of water, a change of clothes, and only then the question of how the day went. Couples who build a small landing ritual argue less about nothing, because they stop mistaking exhaustion for attitude. Vote in the poll below for the reset that works in your home, then protect it like an appointment.</p>
+
+<!-- cib:body-image:start -->
+<figure class="article-figure"><img src="/assets/blog/hands-back-body.jpg" alt="Close-up of a hand resting gently on a partner’s back" width="1200" height="800" loading="lazy" decoding="async"><figcaption>Touch often says the apology before the words arrive. Photo: <a href="https://commons.wikimedia.org/wiki/File:Embrace_(Unsplash).jpg" rel="noopener noreferrer" target="_blank">Christiana Rivers christiana</a> · free licence</figcaption></figure>
+<!-- cib:body-image:end -->
+
       <div class="article-callout"><strong>A gentle rule:</strong> greet the person before the problem. Ten calm minutes together beats an hour of venting apart.</div>
       <h2>Four landing rituals that work</h2>
       <ul><li>A quiet hug at the door before any talk about the day</li><li>A short walk around the block to shake off the commute</li><li>Tea or a snack together while phones stay in another room</li><li>Thirty minutes of solo space, then a real check-in</li></ul>

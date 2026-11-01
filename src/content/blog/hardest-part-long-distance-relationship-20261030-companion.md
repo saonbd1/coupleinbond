@@ -10,6 +10,10 @@ datePublished: "2026-10-30"
 dateModified: "2026-10-30"
 section: "Relationships"
 slug: "hardest-part-long-distance-relationship-20261030-companion"
+coverImage: "/assets/blog/phone-sunset-cover.jpg"
+coverImageAlt: "A man on a phone call outdoors at sunset with warm lens flare"
+coverImageCredit: "Søren Astrup Jørgensen sorenastrup664"
+coverImageCreditUrl: "https://commons.wikimedia.org/wiki/File:On_the_phone_(Unsplash).jpg"
 tag: "RELATIONSHIPS"
 excerpt: "Miles test a relationship in ways closeness never does. Here is how to handle the part of long distance that hurts most."
 cardTitle: "How to Survive the Hardest Part of Long Distance"
@@ -29,6 +33,11 @@ asideHtml: ""
       <p>Miles test a relationship in ways closeness never does. This poll names the hardest part of loving someone from far away. Cast your vote first, then read on for a short guide you can act on this week.</p>
       <h2>Name the ache, then shrink it</h2>
       <p>Long distance hurts in a specific place for each couple. For some it is the missing: no shared breakfasts, no hand to hold in traffic. For others it is the trusting: silence that feels heavier across time zones. Naming your exact ache is the first relief, because vague loneliness is harder to soothe than a specific one. The poll below lists the four classic hard parts. Whichever wins for you, the antidote is the same shape: a small daily ritual that proves the other person is still there. A good-night voice note. A shared photo of something ordinary. Presence, compressed and sent daily.</p>
+
+<!-- cib:body-image:start -->
+<figure class="article-figure"><img src="/assets/blog/laptop-mug-body.jpg" alt="A laptop, mug, and notebook on a wooden desk" width="1200" height="800" loading="lazy" decoding="async"><figcaption>Shared ordinary time is what closes the distance. Photo: <a href="https://commons.wikimedia.org/wiki/File:Laptop_and_a_mug_(Unsplash).jpg" rel="noopener noreferrer" target="_blank">Ryan Riggins ryan_riggins</a> · free licence</figcaption></figure>
+<!-- cib:body-image:end -->
+
       <div class="article-callout"><strong>A gentle rule:</strong> never go to sleep angry across time zones. Resolve it or schedule it, but do not let miles add silence to hurt.</div>
       <h2>Four rituals that shrink the miles</h2>
       <ul><li>A daily window that belongs only to you two, however short</li><li>One shared ordinary thing per day: a meal photo, a song, a sky</li><li>A countdown you can both see: visits, calls, the reunion date</li><li>Radical transparency about schedules so silence never reads as absence</li></ul>

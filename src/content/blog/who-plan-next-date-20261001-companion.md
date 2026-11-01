@@ -10,6 +10,10 @@ datePublished: "2026-10-01"
 dateModified: "2026-10-21"
 section: "Date night"
 slug: who-plan-next-date-20261001-companion
+coverImage: "/assets/blog/notebook-coffee-cover.jpg"
+coverImageAlt: "An open notebook, pen, and coffee cup on a wooden desk"
+coverImageCredit: "Hope House Press hopehousepress"
+coverImageCreditUrl: "https://commons.wikimedia.org/wiki/File:Planning_over_coffee_(Unsplash).jpg"
 tag: "DATE NIGHT"
 excerpt: "Planning is part of the romance, but it should not always fall on one person. Here is the fairest way to share it."
 cardTitle: "Who Should Plan Date Night in a Relationship"
@@ -35,6 +39,11 @@ asideHtml: ""
       <p>Planning is part of the romance, but it should not always fall on one person. This poll asks who should take the lead next. Vote on the question below, then use this short guide to act on your answer.</p>
       <h2>Planning is invisible labor too</h2>
       <p>Someone finds the restaurant, checks the hours, books the table, and remembers the anniversary of the first one. That someone is usually the same person every time, and the effort is invisible right up until resentment makes it visible. The poll below lists the fair ways couples share planning. Taking turns is simplest and most equal. Planning together suits couples who enjoy the anticipation as part of the date. Alternating surprises keeps delight alive while sharing load. Whatever you pick, name it out loud. Unspoken planning defaults are how one partner becomes the relationship&#x27;s unpaid event manager.</p>
+
+<!-- cib:body-image:start -->
+<figure class="article-figure"><img src="/assets/blog/chairs-table-body.jpg" alt="Two chairs facing each other across a table in silhouette" width="1200" height="800" loading="lazy" decoding="async"><figcaption>One plan, two people — the seat facing yours matters. Photo: <a href="https://commons.wikimedia.org/wiki/File:Conversation_table_(Unsplash).jpg" rel="noopener noreferrer" target="_blank">Steve Halama steve3p_0</a> · free licence</figcaption></figure>
+<!-- cib:body-image:end -->
+
       <div class="article-callout"><strong>A gentle rule:</strong> the planner gets pampered on the date. Effort earns appreciation, not just attendance.</div>
       <h2>Four planning systems that share the load</h2>
       <ul><li>Strict alternation: your month, my month, no exceptions</li><li>Inspiration rule: whoever feels the spark plans, guilt-free</li><li>Joint planning dates: a monthly coffee to design the next month</li><li>Surprise rotation: alternate who delights whom. When that is your system, start with <a href="best-surprise-date-idea-20261004-companion.html">personalized surprise date ideas</a>.</li></ul>

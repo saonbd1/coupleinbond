@@ -1,5 +1,14 @@
 # CoupleIn Bond schedule setup
 
+## Blog cover + body images
+
+- [x] Curate free-licence photography (Wikimedia Commons *Images from Unsplash*, CC0) for every article.
+- [x] Add `coverImage`/`coverImageAlt`/`coverImageCredit`/`coverImageCreditUrl` to the blog schema and render the cover under the article header.
+- [x] Insert one topical `<figure class="article-figure">` into every post body inside `cib:body-image` markers.
+- [x] Use the cover as `og:image`/`twitter:image`/`BlogPosting.image` and show it on the blog-card thumbnails.
+- [x] Ship `scripts/blog-images.mjs` (`npm run images:blog` / `images:check`) and wire the check into `validate:release`.
+- [x] Verify build, SEO/hreflang, links, pagination, and per-post image coverage.
+
 ## Completed: English-only detach (Bengali retired)
 - [x] Remove `/bn/` content, hreflang, sitemap entries, language switchers, and build wiring.
 - [x] Collapse shared JS (nav/footer/countdown) and localized content scripts to English-only.

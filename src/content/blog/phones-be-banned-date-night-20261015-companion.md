@@ -10,6 +10,10 @@ datePublished: "2026-10-15"
 dateModified: "2026-10-21"
 section: "Date night"
 slug: "phones-be-banned-date-night-20261015-companion"
+coverImage: "/assets/blog/devices-couch-cover.jpg"
+coverImageAlt: "A tablet and a phone lying face up on a grey sofa cushion"
+coverImageCredit: "Oliur Rahman ultralinx"
+coverImageCreditUrl: "https://commons.wikimedia.org/wiki/File:Mobile_technology_on_a_sofa_(Unsplash).jpg"
 tag: "DATE NIGHT"
 excerpt: "The phone is the third wheel on most modern dates. Here is whether date night deserves a strict no-phone rule, and what works instead."
 cardTitle: "Should Couples Ban Phones on Date Night"
@@ -29,6 +33,11 @@ asideHtml: ""
       <p>The phone is the third wheel on most modern dates. This poll asks whether couples should ban it outright for one evening. Vote on the question below, then use this short guide to act on your answer.</p>
       <h2>The phone is the other person at the table</h2>
       <p>Every glance at a screen is a micro-rejection: this notification outranks you right now. Nobody means it that way, but brains keep score anyway. Studies keep finding the same thing: the mere presence of a face-down phone lowers conversation quality. The poll below asks how strict the rule should be, from full drawer lockdown to gentle intentions. The couples who thrive pick a clear rule, not a vibe. One phone-free hour with full attention beats three hours of half-presence. Vote for your boundary, then enforce it on yourself first. Rules you model beat rules you announce.</p>
+
+<!-- cib:body-image:start -->
+<figure class="article-figure"><img src="/assets/blog/payphones-body.jpg" alt="A row of public payphones mounted on a tiled wall" width="1200" height="800" loading="lazy" decoding="async"><figcaption>A boundary works better as an agreement than as a rule. Photo: <a href="https://commons.wikimedia.org/wiki/File:Hang_up_the_phone._(Unsplash).jpg" rel="noopener noreferrer" target="_blank">Eduardo Sánchez eduardoequis</a> · free licence</figcaption></figure>
+<!-- cib:body-image:end -->
+
       <div class="article-callout"><strong>A gentle rule:</strong> whoever touches their phone first does the dishes. Playful stakes beat lectures.</div>
       <h2>Four phone rules that actually stick</h2>
       <ul><li>Full drawer mode: phones parked from hello to goodnight</li><li>Camera-only exception: photos welcome, scrolling banned</li><li>First-hour lockdown: total presence, then relaxed evening</li><li>Stack-and-penalty game: first to peek pays for dessert</li></ul>

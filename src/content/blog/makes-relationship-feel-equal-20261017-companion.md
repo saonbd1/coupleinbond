@@ -10,6 +10,10 @@ datePublished: "2026-10-17"
 dateModified: "2026-10-21"
 section: "Relationships"
 slug: "makes-relationship-feel-equal-20261017-companion"
+coverImage: "/assets/blog/feet-grass-cover.jpg"
+coverImageAlt: "Two pairs of feet standing close together on grass"
+coverImageCredit: "Scott Webb scottwebb"
+coverImageCreditUrl: "https://commons.wikimedia.org/wiki/File:Couple_stands_together_on_grass_(Unsplash).jpg"
 tag: "RELATIONSHIPS"
 excerpt: "Equality is felt in small daily moments. Here is what makes both people feel like true partners rather than passengers."
 cardTitle: "What Makes a Relationship Feel Truly Equal"
@@ -29,6 +33,11 @@ asideHtml: ""
       <p>Equality is felt in small daily moments. This poll explores what makes both people feel like true partners rather than passengers. Vote on the question below, then use this short guide to act on your answer.</p>
       <h2>Equality is a daily feeling, not a contract</h2>
       <p>No couple ever signed a fairness agreement and felt equal forever. Equality is renegotiated in tiny moments: whose turn, whose dream, whose exhaustion counts today. The poll below lists the four signs partners notice most. Sharing decisions means both voices shape the outcome, not just the louder one. Splitting effort fairly means the mental load counts too, not just the visible chores. Respecting goals means her promotion matters as much as his. And feeling heard is the master sign: when both people regularly think she gets me, the partnership feels equal no matter the spreadsheet.</p>
+
+<!-- cib:body-image:start -->
+<figure class="article-figure"><img src="/assets/blog/walking-hands-body.jpg" alt="A couple walking hand in hand along a path" width="1200" height="800" loading="lazy" decoding="async"><figcaption>Shared direction shows up in ordinary walks. Photo: <a href="https://commons.wikimedia.org/wiki/File:Adult_couple_holding_hands.jpg" rel="noopener noreferrer" target="_blank">Alice Donovan Rouse (@alicekat)</a> · free licence</figcaption></figure>
+<!-- cib:body-image:end -->
+
       <div class="article-callout"><strong>A gentle rule:</strong> audit the invisible work. Planning, remembering, and worrying are labor too.</div>
       <h2>Four equality checks for this week</h2>
       <ul><li>List every recurring task, visible and invisible, then rebalance</li><li>Ask: when did you last feel overruled, and fix that pattern</li><li>Give each person&#x27;s goals equal calendar space this month</li><li>End disagreements by repeating back what you heard before replying</li></ul>

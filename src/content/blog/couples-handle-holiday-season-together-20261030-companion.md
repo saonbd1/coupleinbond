@@ -10,6 +10,10 @@ datePublished: "2026-10-30"
 dateModified: "2026-10-30"
 section: "Seasonal"
 slug: "couples-handle-holiday-season-together-20261030-companion"
+coverImage: "/assets/blog/christmas-flatlay-cover.jpg"
+coverImageAlt: "Christmas decorations, a heart ornament, and twine arranged on wood"
+coverImageCredit: "Annie Spratt anniespratt"
+coverImageCreditUrl: "https://commons.wikimedia.org/wiki/File:Christmas_decorations_in_flatlay_(Unsplash).jpg"
 tag: "SEASONAL"
 excerpt: "Holiday friction is rarely about the holidays. It is about two plans, two families, and far too little notice. Here is how to sort it early."
 cardTitle: "How Couples Get Through the Holiday Season Without Turning on Each Other"
@@ -29,6 +33,11 @@ asideHtml: ""
       <p>The holidays ask couples to negotiate family, money, and exhaustion inside the same fortnight. This poll compares the ways through. Cast your vote first, then read on for a short guide you can act on this week.</p>
       <h2>Most holiday arguments are scheduling arguments wearing a costume</h2>
       <p>Nobody fights about the turkey. They fight because the plan changed on the fourth, because one person was consulted and the other was informed, and because the drive to a relative&#x27;s house was agreed in September and remembered in December. Holiday tension is almost always a logistics problem that arrived too late to fix quietly. That is why the four options in the poll above work: each one removes a decision from the week in which it has to be executed. Alternating by year settles the largest question well in advance. Splitting a day settles it daily. Hosting your own thing replaces an obligation with a plan you chose. Keeping the season small is the honest answer for couples already running on empty, and it is more common than anybody admits out loud at a family dinner.</p>
+
+<!-- cib:body-image:start -->
+<figure class="article-figure"><img src="/assets/blog/christmas-cookies-body.jpg" alt="Christmas cookies, cinnamon sticks, and spices arranged on a surface" width="1200" height="800" loading="lazy" decoding="async"><figcaption>A small shared ritual beats an exhausted perfect holiday. Photo: <a href="https://commons.wikimedia.org/wiki/File:Christmas_cookies_(Unsplash).jpg" rel="noopener noreferrer" target="_blank">Darren Coleshill photalife</a> · free licence</figcaption></figure>
+<!-- cib:body-image:end -->
+
       <div class="article-callout"><strong>A fair rule:</strong> the plan is agreed by the first of December, and any change after that costs whoever proposes it something.</div>
       <h2>Four conversations to have before the season starts</h2>
       <ul><li>Which relatives, in which order, and for how many hours</li><li>What each of you is willing to spend, said out loud rather than assumed</li><li>Which traditions you are keeping and which you are quietly dropping</li><li>What counts as a break, and whether either of you may take one alone</li></ul>

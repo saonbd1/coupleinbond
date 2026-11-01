@@ -16,13 +16,15 @@
     "generate:localized": "node scripts/generate-localized-content.mjs",
     "validate:localized": "node scripts/validate-localized-content.mjs",
     "content:check": "npm run generate:localized && npm run validate:localized",
+    "images:blog": "node scripts/blog-images.mjs",
+    "images:check": "node scripts/blog-images.mjs --check",
     "quotes:generate": "node scripts/generate-quote-cards.mjs",
     "quotes:check": "node scripts/generate-quote-cards.mjs --check",
     "sitemap:lastmod": "node scripts/sitemap-lastmod.mjs",
     "verify:seo": "node scripts/verify-hreflang.mjs",
     "verify:links": "node scripts/verify-links.mjs",
     "verify:pagination": "node scripts/verify-blog-pagination.mjs && node scripts/verify-polls-pagination.mjs",
-    "validate:release": "npm run content:check && npm run quotes:generate && npm run build && npm run verify:seo && npm run verify:links && npm run verify:pagination"
+    "validate:release": "npm run content:check && npm run images:check && npm run quotes:generate && npm run build && npm run verify:seo && npm run verify:links && npm run verify:pagination"
   },
   "dependencies": {
     "@vercel/connect": "^2.3.6",

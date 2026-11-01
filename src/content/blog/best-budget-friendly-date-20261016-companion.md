@@ -10,6 +10,10 @@ datePublished: "2026-10-16"
 dateModified: "2026-10-21"
 section: "Date night"
 slug: "best-budget-friendly-date-20261016-companion"
+coverImage: "/assets/blog/picnic-basket-cover.jpg"
+coverImageAlt: "A picnic basket on a red checkered tablecloth outdoors"
+coverImageCredit: "Bonnie Kittle bonniekdesign"
+coverImageCreditUrl: "https://commons.wikimedia.org/wiki/File:Picnic_basket_(Unsplash).jpg"
 tag: "DATE NIGHT"
 excerpt: "Romance does not need a big budget. Here is the simple, cheap date that still feels like a real occasion."
 cardTitle: "Best Budget Dates That Still Feel Special"
@@ -29,6 +33,11 @@ asideHtml: ""
       <p>Romance does not need a big budget. This poll asks which simple, cheap date still feels like a real occasion. Vote on the question below, then use this short guide to act on your answer.</p>
       <h2>Intention outperforms expense</h2>
       <p>Ask couples about their favorite date ever and the answer is rarely the priciest. It is the one where someone tried: the planned route, the homemade dessert, the playlist for the drive. Money buys convenience, but intention buys meaning, and meaning is what gets remembered. The poll below lists budget dates couples genuinely love. Each costs little and signals much: I planned this for you. Vote for your favorite, then execute it with full ceremony. Candlelight costs nothing. Attention costs nothing. Those are the whole luxury.</p>
+
+<!-- cib:body-image:start -->
+<figure class="article-figure"><img src="/assets/blog/eating-together-body.jpg" alt="A shared table with bread, salad, and bowls being passed between hands" width="1200" height="800" loading="lazy" decoding="async"><figcaption>A shared meal is one of the cheapest ways to feel close. Photo: <a href="https://commons.wikimedia.org/wiki/File:Eating_Together_(Unsplash).jpg" rel="noopener noreferrer" target="_blank">Chris Lawton chrislawton</a> · free licence</figcaption></figure>
+<!-- cib:body-image:end -->
+
       <div class="article-callout"><strong>A gentle rule:</strong> spend planning, not money. An hour of thought beats a hundred dollars of default.</div>
       <h2>Four budget dates that feel rich</h2>
       <ul><li>Sunset walk plus street food: golden hour does the decorating</li><li>Free museum or gallery day with coffee after to debate favorites</li><li>Home-cooked candlelight dinner with phones parked and music on</li><li>Night drive with a playlist built for exactly this person</li></ul>

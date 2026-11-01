@@ -10,6 +10,10 @@ datePublished: "2026-10-26"
 dateModified: "2026-10-26"
 section: "Relationships"
 slug: "couples-keep-some-things-private-20261026-companion"
+coverImage: "/assets/blog/locket-book-cover.jpg"
+coverImageAlt: "An ornate locket resting on an open book"
+coverImageCredit: "freestocks.org freestocks"
+coverImageCreditUrl: "https://commons.wikimedia.org/wiki/File:Locket_on_open_book_(Unsplash).jpg"
 tag: "RELATIONSHIPS"
 excerpt: "Honesty and privacy can feel like opposites in love. Here is where healthy couples draw the line between secrecy and space."
 cardTitle: "Should Couples Keep Some Things Private"
@@ -29,6 +33,11 @@ asideHtml: ""
       <p>Honesty and privacy can feel like opposites in love. This poll explores whether healthy couples need a little room of their own. Make your call in the poll below, and use the guide that follows to turn it into a conversation.</p>
       <h2>Privacy is not secrecy</h2>
       <p>The confusion causes most privacy fights. Secrecy hides something that affects your partner: debts, messages, plans that change shared life. Privacy simply keeps something personal: a journal, a friendship vent, the gift you are planning. Healthy couples share everything that touches the partnership and allow space for everything that does not. The poll below shows where people land, and most land in the middle: yes to space, no to secrets. If you would change the behavior upon being seen, it is secrecy. If being seen would merely feel exposing, it is privacy.</p>
+
+<!-- cib:body-image:start -->
+<figure class="article-figure"><img src="/assets/blog/cozy-reading-body.jpg" alt="Someone reading a book under a knitted blanket" width="1200" height="800" loading="lazy" decoding="async"><figcaption>Some parts of a life are worth keeping quietly your own. Photo: <a href="https://commons.wikimedia.org/wiki/File:Getting_cozy_with_a_book_(Unsplash).jpg" rel="noopener noreferrer" target="_blank">Alice Hampson alice_hampson</a> · free licence</figcaption></figure>
+<!-- cib:body-image:end -->
+
       <div class="article-callout"><strong>A gentle rule:</strong> share what affects them, keep what restores you. Secrets corrode; solitude renews.</div>
       <h2>Four lines healthy couples draw</h2>
       <ul><li>Finances, health, and plans that affect both: always shared</li><li>Past stories: shared at your pace, not on demand</li><li>Friend vents and journals: private unless they ask for help</li><li>Surprises and gifts: happily secret until revealed</li></ul>
