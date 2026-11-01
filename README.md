@@ -9,6 +9,7 @@ The GitBook-ready documentation lives in [`docs/`](docs/README.md). Start with t
 ## Site features
 
 - Love Calculator for a lighthearted connection score
+- Compatibility Quiz: a 15-question reflection across five areas (values, communication, conflict repair, time and affection, shared direction), with per-area result bars, a shareable text summary, and a private partner-compare mode — all browser-side
 - Community polls with browser-local voting
 - Love quotes and quote image keepsakes
 - Relationship articles and practical bonding ideas

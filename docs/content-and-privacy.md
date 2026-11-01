@@ -4,7 +4,7 @@ The project combines editorial content with browser-based tools. Public pages sh
 
 ## Local data
 
-Some features store data in the browser, including poll choices and Community Book notes. This data can be lost when browser storage is cleared or when a visitor changes browsers or devices.
+Some features store data in the browser, including poll choices, Compatibility Quiz answers, and Community Book notes. This data can be lost when browser storage is cleared or when a visitor changes browsers or devices.
 
 ## Wallet interactions
 
