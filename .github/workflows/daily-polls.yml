@@ -156,6 +156,18 @@ jobs:
           # broken build never gets pushed.
           python3 scripts/daily_polls.py --count "$COUNT" --date "$TARGET_DATE"
 
+      - name: Generate covers + in-article figures for new posts
+        if: steps.weekday.outputs.publish == 'true' && steps.guard.outputs.skip != 'true'
+        run: |
+          set -xe
+          # The daily companion articles ship with no imagery at all. This
+          # generates both the 1200x675 cover and the in-article figure, then
+          # patches coverImage/coverImageAlt and the cib:body-image block into
+          # the post. It only touches posts that are missing them, so curated
+          # Commons covers are never overwritten. Self-contained: no network,
+          # no local assets, so it runs on the ubuntu runner.
+          node scripts/cover-generator.mjs
+
       - name: Validate release (localized content + build + SEO + links)
         if: steps.weekday.outputs.publish == 'true' && steps.guard.outputs.skip != 'true'
         run: npm run validate:release
@@ -166,7 +178,7 @@ jobs:
           TARGET_DATE: ${{ steps.target.outputs.date }}
         run: |
           set -xe
-          git add public/poll-data.js src/content/polls src/content/blog public/sitemap.xml scripts/poll_history.json
+          git add public/poll-data.js src/content/polls src/content/blog public/sitemap.xml scripts/poll_history.json public/assets/blog
           if git diff --cached --quiet; then
             echo "No changes to commit - polls already up to date."
             exit 0
