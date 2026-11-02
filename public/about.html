@@ -230,8 +230,8 @@
     .about-intro { font-size: 1.12rem; font-weight: 600; color: var(--text-primary); }
     .about-header p { color: var(--text-secondary); line-height: 1.8; margin-bottom: 16px; font-size: 1.02rem; }
     .about-features {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      display: flex;
+      flex-direction: column;
       gap: 18px;
       margin: 26px 0 34px;
     }
@@ -262,14 +262,16 @@
     .feature-card p { font-size: 0.97rem; margin-bottom: 12px; }
     .feature-note { font-size: 0.9rem; color: var(--text-secondary); font-style: italic; }
     .feature-cta {
-      display: inline-block;
-      margin-top: auto;
-      padding: 10px 18px;
+      display: block;
+      width: fit-content;
+      margin: auto auto 0;
+      padding: 12px 28px;
       border-radius: 999px;
       background: linear-gradient(135deg, var(--primary), var(--secondary));
       color: #fff;
       font-weight: 700;
-      font-size: 0.92rem;
+      font-size: 0.95rem;
+      text-align: center;
       text-decoration: none;
       transition: transform 0.2s ease;
     }
