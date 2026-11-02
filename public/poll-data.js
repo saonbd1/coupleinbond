@@ -6,7 +6,7 @@ window.COUPLE_POLL_DATA = [
     title: "What kind of date night sounds best this week?",
     description: "A quick date-night poll for couples deciding whether to stay in, go out, or make room for a little spontaneity.",
     intro: "Date night does not need to be elaborate to feel meaningful. This poll is a small prompt for noticing what kind of energy you both want this week.",
-    related: ["couples-handle-holiday-season-together-20261030", "makes-date-night-feel-like-20261028"],
+    related: ["handle-wanting-different-amounts-time-20261102", "couples-handle-holiday-season-together-20261030"],
     options: ["A cozy night at home", "An unplanned adventure", "A long dinner and good conversation", "A little of everything"]
   },
   {
@@ -16,7 +16,7 @@ window.COUPLE_POLL_DATA = [
     title: "What helps two people feel most connected?",
     description: "Vote on the everyday relationship habits that help couples feel close, understood, and emotionally present.",
     intro: "Connection can grow through grand gestures, but it is often shaped by ordinary moments. Use this poll to compare the small things that matter to you.",
-    related: ["couples-handle-holiday-season-together-20261030", "makes-date-night-feel-like-20261028"],
+    related: ["handle-wanting-different-amounts-time-20261102", "couples-handle-holiday-season-together-20261030"],
     options: ["Small acts of care", "Uninterrupted conversation", "Shared goals", "Laughing together"]
   },
   {
@@ -452,6 +452,16 @@ window.COUPLE_POLL_DATA = [
     intro: "Miles test a relationship in ways closeness never does. This poll names the hardest part of loving someone from far away.",
     related: ["couples-handle-holiday-season-together-20261030", "date-night-mood"],
     options: ["Missing everyday moments", "Trusting across distance", "Scheduling around time zones", "Feeling left out of daily life"]
+  },
+  {
+    id: "handle-wanting-different-amounts-time-20261102",
+    topic: "relationships",
+    label: "Relationships",
+    title: "How do you handle wanting different amounts of time apart?",
+    description: "Vote on the workable way to live with different needs for space inside one relationship.",
+    intro: "One person wants the weekend together and the other wants the weekend alone. This poll compares how couples handle that gap.",
+    related: ["date-night-mood", "connection-ritual"],
+    options: ["Schedule the alone time like anything else", "One shared day, one separate day", "Ask what the space is for, then agree", "Say honestly that the gap is hurting us"]
   },
 ];
 
