@@ -205,6 +205,92 @@
       p { font-size: .98rem; line-height: 1.7; overflow-wrap: anywhere; }
       .site-footer { padding-top: 18px; font-size: .75rem; }
     }
+
+    /* About page section */
+    .about-section { padding: 4px 0 8px; }
+    .about-container { max-width: 880px; margin: 0 auto; }
+    .about-header { margin-bottom: 34px; }
+    .about-eyebrow {
+      font-size: 0.78rem;
+      font-weight: 800;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--primary-dark);
+      margin-bottom: 10px;
+    }
+    .about-header h1 {
+      font-size: clamp(1.9rem, 4vw, 2.55rem);
+      line-height: 1.15;
+      margin-bottom: 18px;
+      background: linear-gradient(135deg, var(--primary), var(--secondary));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    .about-intro { font-size: 1.12rem; font-weight: 600; color: var(--text-primary); }
+    .about-header p { color: var(--text-secondary); line-height: 1.8; margin-bottom: 16px; font-size: 1.02rem; }
+    .about-features {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 18px;
+      margin: 26px 0 34px;
+    }
+    .feature-card {
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      border-radius: 20px;
+      padding: 24px;
+      box-shadow: 0 12px 32px rgba(0, 0, 0, 0.08);
+      backdrop-filter: blur(12px);
+      display: flex;
+      flex-direction: column;
+    }
+    .feature-tag {
+      display: inline-block;
+      align-self: flex-start;
+      font-size: 0.72rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--secondary);
+      background: rgba(106, 0, 244, 0.08);
+      padding: 5px 10px;
+      border-radius: 999px;
+      margin-bottom: 12px;
+    }
+    .feature-card h2 { font-size: 1.22rem; margin-bottom: 10px; color: var(--text-primary); }
+    .feature-card p { font-size: 0.97rem; margin-bottom: 12px; }
+    .feature-note { font-size: 0.9rem; color: var(--text-secondary); font-style: italic; }
+    .feature-cta {
+      display: inline-block;
+      margin-top: auto;
+      padding: 10px 18px;
+      border-radius: 999px;
+      background: linear-gradient(135deg, var(--primary), var(--secondary));
+      color: #fff;
+      font-weight: 700;
+      font-size: 0.92rem;
+      text-decoration: none;
+      transition: transform 0.2s ease;
+    }
+    .feature-cta:hover { transform: translateY(-1px); }
+    .feature-cta.secondary {
+      background: transparent;
+      color: var(--primary-dark);
+      border: 2px solid var(--primary);
+    }
+    .about-keepsake {
+      background: linear-gradient(135deg, rgba(255, 77, 109, 0.10), rgba(106, 0, 244, 0.10));
+      border: 1px solid rgba(106, 0, 244, 0.25);
+      border-radius: 20px;
+      padding: 26px;
+      margin-bottom: 30px;
+    }
+    .about-keepsake h2 { font-size: 1.35rem; margin: 8px 0 12px; color: var(--text-primary); }
+    .about-keepsake p { margin-bottom: 12px; }
+    .about-footer { border-top: 1px solid rgba(0, 0, 0, 0.08); padding-top: 20px; margin-top: 6px; }
+    .about-footer p { margin-bottom: 14px; }
+    .about-tagline { text-align: center; font-weight: 800; color: var(--primary-dark); font-size: 1.08rem; }
   </style>
     <meta name="description" content="Learn what Couple in Bond offers: playful relationship tools, original editorial ideas, community polls, and optional Ink Chain keepsakes.">
   <meta name="robots" content="index,follow,max-image-preview:large">
@@ -243,25 +329,139 @@
 
     <div class="main-content">
       <div class="content-wrapper">
-        <div class="card">
-          <h1>About Couple in Bond</h1>
-          <p>Welcome to <strong>Couple in Bond</strong>, a playful relationship-tools site for love scores, thoughtful words, community polls, and small ideas that help people feel closer.</p>
+        <section class="about-section" aria-labelledby="about-couplein-bond">
+          <div class="about-container">
+            <header class="about-header">
+              <p class="about-eyebrow">About Couple in Bond</p>
+              <h1 id="about-couplein-bond">Make room for more connection.</h1>
+              <p class="about-intro">
+                <strong>Couple in Bond</strong> is a small space for playful tools, thoughtful words,
+                and small rituals that help people feel closer. We built it for couples, close friends,
+                and anyone who wants to make a little more room for the people who matter.
+              </p>
+              <p>
+                Modern life can be busy. Between work, messages, plans, and everything else asking for
+                attention, the small moments that keep a bond alive can quietly slip away. Couple in Bond
+                is here to bring some of those moments back—a lighthearted score, a question worth asking,
+                a line that says what you feel, or a keepsake that marks a memory in your own way.
+              </p>
+              <p>
+                We do not believe love needs to be measured, proved, or turned into a test. Our tools are
+                meant to create a smile, open a conversation, and make connection feel lighter—not to
+                define your relationship or tell you how it should look.
+              </p>
+            </header>
 
-          <h2 class="section-title">Our Mission</h2>
-          <p>Our mission is to make room for more connection. The site gives couples, friends, daters, and curious visitors a light way to start a conversation without treating a score as a serious measure of love.</p>
+            <div class="about-features">
+              <article class="feature-card">
+                <span class="feature-tag">Just for fun</span>
+                <h2>Love Calculator</h2>
+                <p>
+                  Our <strong>Love Calculator</strong> turns two names into a playful connection score. Enter
+                  your name and your partner’s name, reveal a lighthearted result, and share a smile together.
+                </p>
+                <p>
+                  It is not a scientific test of love or compatibility. It is a small, fun way to create a
+                  moment, start a conversation, and celebrate the people who matter to you.
+                </p>
+                <p class="feature-note">A playful result. A real moment together.</p>
+                <a class="feature-cta" href="/calculator.html">Try the Love Calculator</a>
+              </article>
+              <article class="feature-card">
+                <span class="feature-tag">Thoughtful reads</span>
+                <h2>Blog</h2>
+                <p>
+                  The <strong>Couple in Bond Blog</strong> is where we explore love in its everyday form:
+                  communication, trust, privacy, anniversaries, gifts, feeling understood, and the small habits
+                  that help people stay close.
+                </p>
+                <p>
+                  Our articles offer gentle, practical perspectives—not perfect answers. Read them for ideas,
+                  reassurance, or a kinder way to think about the relationships in your life.
+                </p>
+                <p class="feature-note">Small ideas for a lighter kind of closeness.</p>
+                <a class="feature-cta" href="/blog.html">Explore the blog</a>
+              </article>
+              <article class="feature-card">
+                <span class="feature-tag">Playful tool</span>
+                <h2>Compatibility Checker</h2>
+                <p>
+                  Our <strong>Compatibility Checker</strong> is a playful way to explore how two people
+                  might click. Enter two names, reveal a lighthearted connection score, and let the result
+                  become a reason to talk, laugh, or learn something new about each other.
+                </p>
+                <p>
+                  No quiz can capture trust, effort, humor, patience, or shared history. Compatibility is
+                  not a formula—and your score is not a judgment. Think of it as a conversation starter for
+                  date nights, anniversaries, long-distance check-ins, or a quiet moment together.
+                </p>
+                <p class="feature-note">The best part is not the number. It is the conversation that follows.</p>
+                <a class="feature-cta" href="/calculator.html">Try the Compatibility Checker</a>
+              </article>
+              <article class="feature-card">
+                <span class="feature-tag">Have your say</span>
+                <h2>Featured Poll</h2>
+                <p>
+                  Our <strong>Featured Poll</strong> gives the Couple in Bond community a chance to have a
+                  say. Each week, we highlight a relationship topic and invite you to share your perspective
+                  on communication, trust, privacy, gifts, compatibility, and the small habits that help
+                  people stay close.
+                </p>
+                <p>
+                  There are no perfect answers. Polls are here to show how differently people experience
+                  love, while giving you a gentle prompt to reflect on what matters most in your own
+                  relationship.
+                </p>
+                <p class="feature-note">Vote, see how others respond, and let the question open a kinder conversation.</p>
+                <a class="feature-cta" href="/polls.html">Join this week’s poll</a>
+              </article>
+              <article class="feature-card">
+                <span class="feature-tag">For today</span>
+                <h2>Love Quote</h2>
+                <p>
+                  Our <strong>Love Quote</strong> offers a small line to carry with you for the day.
+                  Sometimes a few honest words can express affection, appreciation, longing, reassurance,
+                  or the comfort of simply being understood.
+                </p>
+                <p>
+                  Send it to someone you care about, save it for an anniversary message, use it as a
+                  caption, or let it inspire a thoughtful conversation. It is not advice or a rule for
+                  love—it is a small reminder to make room for connection today.
+                </p>
+                <p class="feature-note">A small line for today’s connection.</p>
+                <a class="feature-cta" href="/quotes.html">Read today’s quote</a>
+              </article>
+            </div>
 
-          <h2 class="section-title">Why Couple in Bond?</h2>
-          <p>We believe that love is built through attention, humour, care, and repeated small actions. The calculator uses playful details such as “Meme Compatibility” and “Snack Synergy” to create a result that can start a better question.</p>
+            <article class="about-keepsake">
+              <span class="feature-tag">On-chain keepsake · Ink Chain</span>
+              <h2>Keep the moment, your way</h2>
+              <p>
+                For people who want to preserve a playful result, Couple in Bond offers an optional
+                on-chain keepsake. After using the Love Calculator, you can connect your wallet and mint an
+                NFT on <strong>Ink Chain</strong> that records the two entered names and the connection
+                score from that moment.
+              </p>
+              <p>
+                The NFT is a keepsake for the moment—not proof of compatibility or a relationship status.
+                Wallet connection, transaction approval, and any network fees always remain in your
+                control.
+              </p>
+              <a class="feature-cta secondary" href="/keep-yours-moments-on-blockchain.html">Learn about minting</a>
+            </article>
 
-          <h2 class="section-title">The Technology</h2>
-          <p>The calculator runs in the browser. If you choose to connect a wallet, you can mint a playful love result as an NFT on Ink Chain. Blockchain records are public and permanent, so read the <a href="privacy.html">Privacy page</a> before you mint.</p>
-
-          <h2 class="section-title">What we publish</h2>
-          <p>CoupleIn Bond publishes original relationship ideas, love quotes, Valentine’s Day content, and community polls. Start with the <a href="blog.html">blog</a>, browse <a href="quotes.html">love quotes</a>, or vote in <a href="polls.html">Community Polls</a>.</p>
-
-          <h2 class="section-title">A clear promise</h2>
-          <p>Our tools are for entertainment and reflection. They do not diagnose a relationship, predict a future, or replace advice from a qualified professional.</p>
-        </div>
+            <footer class="about-footer">
+              <p>
+                At its heart, <strong>Couple in Bond</strong> is about making love feel a little lighter,
+                more intentional, and more present. Whether you are celebrating an anniversary, recovering
+                from a difficult conversation, looking for a question to ask tonight, or simply want a
+                playful way to say “I’m thinking of you,” we hope you find something here that helps you
+                connect.
+              </p>
+              <p class="about-tagline">Make room for more connection—one small moment at a time.</p>
+            </footer>
+          </div>
+        </section>
         <footer class="site-footer">
           <p>© 2026 Couple in Bond. All rights reserved.</p>
           <p><a href="/">Home</a> · <a href="blog.html">Blog</a> · <a href="calculator.html">Calculator</a> · <a href="compatibility-quiz.html">Compatibility Quiz</a> · <a href="polls.html">Polls</a> · <a href="contact.html">Contact</a> · <a href="privacy.html">Privacy</a></p>
