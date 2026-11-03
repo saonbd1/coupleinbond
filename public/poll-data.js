@@ -6,7 +6,7 @@ window.COUPLE_POLL_DATA = [
     title: "What kind of date night sounds best this week?",
     description: "A quick date-night poll for couples deciding whether to stay in, go out, or make room for a little spontaneity.",
     intro: "Date night does not need to be elaborate to feel meaningful. This poll is a small prompt for noticing what kind of energy you both want this week.",
-    related: ["handle-wanting-different-amounts-time-20261102", "couples-handle-holiday-season-together-20261030"],
+    related: ["far-ahead-date-night-be-20261104", "handle-wanting-different-amounts-time-20261102"],
     options: ["A cozy night at home", "An unplanned adventure", "A long dinner and good conversation", "A little of everything"]
   },
   {
@@ -16,7 +16,7 @@ window.COUPLE_POLL_DATA = [
     title: "What helps two people feel most connected?",
     description: "Vote on the everyday relationship habits that help couples feel close, understood, and emotionally present.",
     intro: "Connection can grow through grand gestures, but it is often shaped by ordinary moments. Use this poll to compare the small things that matter to you.",
-    related: ["handle-wanting-different-amounts-time-20261102", "couples-handle-holiday-season-together-20261030"],
+    related: ["far-ahead-date-night-be-20261104", "handle-wanting-different-amounts-time-20261102"],
     options: ["Small acts of care", "Uninterrupted conversation", "Shared goals", "Laughing together"]
   },
   {
@@ -462,6 +462,26 @@ window.COUPLE_POLL_DATA = [
     intro: "One person wants the weekend together and the other wants the weekend alone. This poll compares how couples handle that gap.",
     related: ["date-night-mood", "connection-ritual"],
     options: ["Schedule the alone time like anything else", "One shared day, one separate day", "Ask what the space is for, then agree", "Say honestly that the gap is hurting us"]
+  },
+  {
+    id: "far-ahead-date-night-be-20261104",
+    topic: "date-night",
+    label: "Date night",
+    title: "How far ahead should date night be planned?",
+    description: "Vote on how much notice a good date night actually needs.",
+    intro: "Some couples need a plan on the calendar and others need the possibility of one. This poll compares the two instincts.",
+    related: ["matters-most-first-year-relationship-20261104", "date-night-mood"],
+    options: ["Booked weeks in advance", "Decided that morning", "A standing weekly night, planned later", "Spontaneous, whenever the evening opens up"]
+  },
+  {
+    id: "matters-most-first-year-relationship-20261104",
+    topic: "relationships",
+    label: "Relationships",
+    title: "What matters most in the first year of a relationship?",
+    description: "Vote on the foundation that matters most when two people are still learning each other.",
+    intro: "The first year is equal parts exciting and uncertain. This poll asks which foundation helps a new relationship grow steady roots.",
+    related: ["far-ahead-date-night-be-20261104", "date-night-mood"],
+    options: ["Honest communication", "Shared values", "Patience with flaws", "Fun and adventure"]
   },
 ];
 
