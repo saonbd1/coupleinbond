@@ -6,8 +6,8 @@ intro: "Endings shape memories. This poll asks which closing moment turns a good
 topic: "Date night"
 slug: best-way-end-perfect-date-20261002
 listOrder: 16
-ogImage: "https://couplein.bond/assets/polls-hero-illustration.png"
-ogImageAlt: "Hands placing colorful relationship poll cards into a ballot box"
+ogImage: "https://couplein.bond/assets/polls/best-way-end-perfect-date-20261002-share.jpg"
+ogImageAlt: "Share card for the relationship poll: What is the best way to end a perfect date?"
 companionHref: "../blog-posts/best-way-end-perfect-date-20261002-companion.html"
 companionTitle: "How to End a Perfect Date Night"
 options:

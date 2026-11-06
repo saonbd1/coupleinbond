@@ -6,8 +6,8 @@ intro: "The spark does not fade on its own; it fades when couples stop being cur
 topic: "Connection"
 slug: "keeps-spark-alive-long-relationship-20261004"
 listOrder: 18
-ogImage: "https://couplein.bond/assets/polls-hero-illustration.png"
-ogImageAlt: "Hands placing colorful relationship poll cards into a ballot box"
+ogImage: "https://couplein.bond/assets/polls/keeps-spark-alive-long-relationship-20261004-share.jpg"
+ogImageAlt: "Share card for the relationship poll: What keeps the spark alive in a long relationship?"
 companionHref: "../blog-posts/keeps-spark-alive-long-relationship-20261004-companion.html"
 companionTitle: "How to Keep the Spark Alive in a Long Relationship"
 options: ["Trying new things together", "Regular surprise dates", "Flirting like the early days", "Growing side by side"]

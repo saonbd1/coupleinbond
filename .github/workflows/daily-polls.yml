@@ -168,6 +168,15 @@ jobs:
           # no local assets, so it runs on the ubuntu runner.
           node scripts/cover-generator.mjs
 
+      - name: Generate OG share images for polls
+        if: steps.weekday.outputs.publish == 'true' && steps.guard.outputs.skip != 'true'
+        run: |
+          set -xe
+          # Daily polls need a per-poll 1200x630 share image for og:image/twitter:image.
+          # Generates missing images and patches ogImage/ogImageAlt in poll frontmatter.
+          # Self-contained (SVG + sharp), no network.
+          node scripts/poll-og-generator.mjs
+
       - name: Validate release (localized content + build + SEO + links)
         if: steps.weekday.outputs.publish == 'true' && steps.guard.outputs.skip != 'true'
         run: npm run validate:release
@@ -178,7 +187,7 @@ jobs:
           TARGET_DATE: ${{ steps.target.outputs.date }}
         run: |
           set -xe
-          git add public/poll-data.js src/content/polls src/content/blog public/sitemap.xml scripts/poll_history.json public/assets/blog
+          git add public/poll-data.js src/content/polls src/content/blog public/sitemap.xml scripts/poll_history.json public/assets/blog public/assets/polls
           if git diff --cached --quiet; then
             echo "No changes to commit - polls already up to date."
             exit 0

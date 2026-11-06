@@ -24,9 +24,11 @@ const polls = (await getCollection('polls'))
 // which is what the topic filter buttons in this page use as data-topic.
 const topicKey = (topic: string) => topic.toLowerCase().replace(/\s+/g, '-');
 
-// Use the first poll's ogImage as the hero image, falling back to the static illustration
-const heroImage = polls.length > 0 ? polls[0].data.ogImage : `${SITE}/assets/polls-hero-illustration.png`;
-const heroImageAlt = polls.length > 0 ? polls[0].data.ogImageAlt : 'Hands placing colorful relationship poll cards into a ballot box';
+// Stable 1200x630 share image for the index. (Per-poll detail pages use their
+// own generated OG images; the index should not inherit a poll's asset or emit
+// duplicate/conflicting og:image tags.)
+const heroImage = `${SITE}/assets/social-share.jpg`;
+const heroImageAlt = 'Couple in Bond relationship polls and bonding questions';
 
 const ld = {
   '@context': 'https://schema.org',
@@ -72,9 +74,6 @@ const ld = {
   <meta charset="UTF-8">
   <script is:inline src="/ga.js"></script>
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta property="og:image" content={heroImage}>
-  <meta property="og:image:alt" content={heroImageAlt}>
-  <meta name="twitter:image" content={heroImage}>
   <title>Relationship Polls & Couple Questions — Couple in Bond</title>
   <link rel="stylesheet" href="blog.css">
   <link rel="stylesheet" href="polls.css">
@@ -95,12 +94,14 @@ const ld = {
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="Couple in Bond">
   <meta property="og:locale" content="en_US">
-  <meta property="og:image" content="https://couplein.bond/assets/social-share.jpg">
-  <meta property="og:image:alt" content="Couple in Bond relationship tools and bonding ideas">
+  <meta property="og:image" content={heroImage}>
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content={heroImageAlt}>
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Relationship Polls &amp; Couple Questions — Couple in Bond">
   <meta name="twitter:description" content="Answer lighthearted relationship polls about dating, connection, family, and couple habits. Vote once in your browser and compare the local split.">
-  <meta name="twitter:image" content="https://couplein.bond/assets/social-share.jpg">
+  <meta name="twitter:image" content={heroImage}>
   <script type="application/ld+json" data-seo-enhancement set:html={JSON.stringify(ld, null, 2)}></script>
 </head>
 <body>

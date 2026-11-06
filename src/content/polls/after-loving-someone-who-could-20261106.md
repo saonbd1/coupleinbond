@@ -6,8 +6,8 @@ intro: "Loving someone who keeps their inner world locked teaches you to expect 
 topic: "Connection"
 slug: "after-loving-someone-who-could-20261106"
 listOrder: 56
-ogImage: "https://couplein.bond/assets/polls-hero-illustration.png"
-ogImageAlt: "Hands placing colorful relationship poll cards into a ballot box"
+ogImage: "https://couplein.bond/assets/polls/after-loving-someone-who-could-20261106-share.jpg"
+ogImageAlt: "Share card for the relationship poll: After loving someone who could not open up, what helps you feel safe again?"
 companionHref: "../blog-posts/after-loving-someone-who-could-20261106-companion.html"
 companionTitle: "When Calm Feels Suspicious: Healing After Emotional Unavailability"
 options: ["Going slowly with new people", "Trusting my own instincts again", "Saying my needs out loud early", "Time alone to rebuild"]

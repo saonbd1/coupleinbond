@@ -6,8 +6,8 @@ intro: "Everyone wants to feel noticed. This poll explores which kind of appreci
 topic: "Connection"
 slug: "makes-feel-most-appreciated-relationship-20261014"
 listOrder: 26
-ogImage: "https://couplein.bond/assets/polls-hero-illustration.png"
-ogImageAlt: "Hands placing colorful relationship poll cards into a ballot box"
+ogImage: "https://couplein.bond/assets/polls/makes-feel-most-appreciated-relationship-20261014-share.jpg"
+ogImageAlt: "Share card for the relationship poll: What makes you feel most appreciated in a relationship?"
 companionHref: "../blog-posts/makes-feel-most-appreciated-relationship-20261014-companion.html"
 companionTitle: "What Makes Appreciation Feel Real in a Relationship"
 options: ["Hearing thank you out loud", "A thoughtful surprise", "Help without being asked", "Being noticed for small efforts"]

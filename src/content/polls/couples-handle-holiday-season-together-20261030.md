@@ -6,8 +6,8 @@ intro: "The holidays ask couples to negotiate family, money, and exhaustion insi
 topic: "Seasonal"
 slug: "couples-handle-holiday-season-together-20261030"
 listOrder: 50
-ogImage: "https://couplein.bond/assets/polls-hero-illustration.png"
-ogImageAlt: "Hands placing colorful relationship poll cards into a ballot box"
+ogImage: "https://couplein.bond/assets/polls/couples-handle-holiday-season-together-20261030-share.jpg"
+ogImageAlt: "Share card for the relationship poll: How should couples handle the holiday season together?"
 companionHref: "../blog-posts/couples-handle-holiday-season-together-20261030-companion.html"
 companionTitle: "How Couples Get Through the Holiday Season Without Turning on Each Other"
 options: ["Alternate families year by year", "Split each day down the middle", "Host our own small thing", "Keep the season deliberately quiet"]

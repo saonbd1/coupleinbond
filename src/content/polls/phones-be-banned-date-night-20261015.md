@@ -6,8 +6,8 @@ intro: "The phone is the third wheel on most modern dates. This poll asks whethe
 topic: "Date night"
 slug: "phones-be-banned-date-night-20261015"
 listOrder: 29
-ogImage: "https://couplein.bond/assets/polls-hero-illustration.png"
-ogImageAlt: "Hands placing colorful relationship poll cards into a ballot box"
+ogImage: "https://couplein.bond/assets/polls/phones-be-banned-date-night-20261015-share.jpg"
+ogImageAlt: "Share card for the relationship poll: Should phones be banned on date night?"
 companionHref: "../blog-posts/phones-be-banned-date-night-20261015-companion.html"
 companionTitle: "Should Couples Ban Phones on Date Night"
 options: ["Yes, phones in a drawer", "Only for photos and emergencies", "No rule, just be present", "One phone-free hour is enough"]

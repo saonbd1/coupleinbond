@@ -6,8 +6,8 @@ intro: "Surprises show you pay attention. This poll asks which unexpected date w
 topic: "Date night"
 slug: "best-surprise-date-idea-20261004"
 listOrder: 19
-ogImage: "https://couplein.bond/assets/polls-hero-illustration.png"
-ogImageAlt: "Hands placing colorful relationship poll cards into a ballot box"
+ogImage: "https://couplein.bond/assets/polls/best-surprise-date-idea-20261004-share.jpg"
+ogImageAlt: "Share card for the relationship poll: What is the best surprise date idea?"
 companionHref: "../blog-posts/best-surprise-date-idea-20261004-companion.html"
 companionTitle: "Surprise Date Ideas Your Partner Will Love"
 options: ["A secret picnic spot", "Tickets to something they love", "A hometown tour of memories", "Breakfast delivered in bed"]

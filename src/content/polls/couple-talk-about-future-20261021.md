@@ -6,8 +6,8 @@ intro: "Future talk can feel exciting or scary depending on the timing. This pol
 topic: "Relationships"
 slug: "couple-talk-about-future-20261021"
 listOrder: 43
-ogImage: "https://couplein.bond/assets/polls-hero-illustration.png"
-ogImageAlt: "Hands placing colorful relationship poll cards into a ballot box"
+ogImage: "https://couplein.bond/assets/polls/couple-talk-about-future-20261021-share.jpg"
+ogImageAlt: "Share card for the relationship poll: When should a couple talk about the future?"
 companionHref: "../blog-posts/couple-talk-about-future-20261021-companion.html"
 companionTitle: "When Should Couples Start Talking About the Future"
 options: ["Early, to align expectations", "When things feel serious", "After the first big trip", "Let it unfold naturally"]

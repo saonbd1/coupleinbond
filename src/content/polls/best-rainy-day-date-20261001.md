@@ -6,8 +6,8 @@ intro: "Rain cancels plans but creates possibilities. This poll asks which rainy
 topic: "Date night"
 slug: best-rainy-day-date-20261001
 listOrder: 12
-ogImage: "https://couplein.bond/assets/polls-hero-illustration.png"
-ogImageAlt: "Hands placing colorful relationship poll cards into a ballot box"
+ogImage: "https://couplein.bond/assets/polls/best-rainy-day-date-20261001-share.jpg"
+ogImageAlt: "Share card for the relationship poll: What is the best rainy-day date?"
 companionHref: "../blog-posts/best-rainy-day-date-20261001-companion.html"
 companionTitle: "Cozy Rainy-Day Date Ideas for Couples"
 options:

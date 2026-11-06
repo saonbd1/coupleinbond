@@ -6,8 +6,8 @@ intro: "One bad habit can sink a lovely evening. This poll names the fastest way
 topic: "Date night"
 slug: ruins-date-night-fastest-20260930
 listOrder: 9
-ogImage: "https://couplein.bond/assets/polls-hero-illustration.png"
-ogImageAlt: "Hands placing colorful relationship poll cards into a ballot box"
+ogImage: "https://couplein.bond/assets/polls/ruins-date-night-fastest-20260930-share.jpg"
+ogImageAlt: "Share card for the relationship poll: What ruins a date night fastest?"
 options:
   - "Scrolling the phone"
   - "Talking about work stress"

@@ -6,8 +6,8 @@ intro: "One person wants the weekend together and the other wants the weekend al
 topic: "Relationships"
 slug: "handle-wanting-different-amounts-time-20261102"
 listOrder: 52
-ogImage: "https://couplein.bond/assets/polls-hero-illustration.png"
-ogImageAlt: "Hands placing colorful relationship poll cards into a ballot box"
+ogImage: "https://couplein.bond/assets/polls/handle-wanting-different-amounts-time-20261102-share.jpg"
+ogImageAlt: "Share card for the relationship poll: How do you handle wanting different amounts of time apart?"
 companionHref: "../blog-posts/handle-wanting-different-amounts-time-20261102-companion.html"
 companionTitle: "When One Partner Needs More Space Than the Other"
 options: ["Schedule the alone time like anything else", "One shared day, one separate day", "Ask what the space is for, then agree", "Say honestly that the gap is hurting us"]

@@ -6,8 +6,8 @@ intro: "The first year is equal parts exciting and uncertain. This poll asks whi
 topic: "Relationships"
 slug: "matters-most-first-year-relationship-20261104"
 listOrder: 54
-ogImage: "https://couplein.bond/assets/polls-hero-illustration.png"
-ogImageAlt: "Hands placing colorful relationship poll cards into a ballot box"
+ogImage: "https://couplein.bond/assets/polls/matters-most-first-year-relationship-20261104-share.jpg"
+ogImageAlt: "Share card for the relationship poll: What matters most in the first year of a relationship?"
 companionHref: "../blog-posts/matters-most-first-year-relationship-20261104-companion.html"
 companionTitle: "What Matters Most in the First Year Together"
 options: ["Honest communication", "Shared values", "Patience with flaws", "Fun and adventure"]

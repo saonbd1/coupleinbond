@@ -6,8 +6,8 @@ intro: "Compatibility quizzes cover many themes. This poll asks which one actual
 topic: "Relationships"
 slug: "which-compatibility-quiz-topic-20261011"
 listOrder: 22
-ogImage: "https://couplein.bond/assets/polls-hero-illustration.png"
-ogImageAlt: "Hands placing colorful relationship poll cards into a ballot box"
+ogImage: "https://couplein.bond/assets/polls/which-compatibility-quiz-topic-20261011-share.jpg"
+ogImageAlt: "Share card for the relationship poll: Which topic matters most in a relationship compatibility quiz?"
 companionHref: "../blog-posts/relationship-compatibility-quiz.html"
 companionTitle: "Relationship Compatibility Quiz: A Better Way to Start the Conversation"
 options:

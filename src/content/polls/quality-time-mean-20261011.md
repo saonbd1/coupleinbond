@@ -6,8 +6,8 @@ intro: "Being in the same room is not the same as being together. This poll asks
 topic: "Connection"
 slug: "quality-time-mean-20261011"
 listOrder: 20
-ogImage: "https://couplein.bond/assets/polls-hero-illustration.png"
-ogImageAlt: "Hands placing colorful relationship poll cards into a ballot box"
+ogImage: "https://couplein.bond/assets/polls/quality-time-mean-20261011-share.jpg"
+ogImageAlt: "Share card for the relationship poll: What does quality time mean to you?"
 companionHref: "../blog-posts/quality-time-mean-20261011-companion.html"
 companionTitle: "What Quality Time Really Means for Couples"
 options: ["Phones away, eyes up", "Trying something new together", "Deep talk with no agenda", "Comfortable silence side by side"]

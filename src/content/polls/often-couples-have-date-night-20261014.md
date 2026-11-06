@@ -6,8 +6,8 @@ intro: "Dating should not stop when commitment starts. This poll asks how often 
 topic: "Date night"
 slug: "often-couples-have-date-night-20261014"
 listOrder: 27
-ogImage: "https://couplein.bond/assets/polls-hero-illustration.png"
-ogImageAlt: "Hands placing colorful relationship poll cards into a ballot box"
+ogImage: "https://couplein.bond/assets/polls/often-couples-have-date-night-20261014-share.jpg"
+ogImageAlt: "Share card for the relationship poll: How often should couples have date night?"
 companionHref: "../blog-posts/often-couples-have-date-night-20261014-companion.html"
 companionTitle: "How Often Should Couples Have Date Night"
 options: ["Every single week", "Twice a month", "Once a month, done well", "Whenever it happens naturally"]

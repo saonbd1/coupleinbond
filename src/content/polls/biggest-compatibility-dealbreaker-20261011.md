@@ -6,8 +6,8 @@ intro: "Every couple argues about small things. But some differences feel heavie
 topic: "Relationships"
 slug: "biggest-compatibility-dealbreaker-20261011"
 listOrder: 23
-ogImage: "https://couplein.bond/assets/polls-hero-illustration.png"
-ogImageAlt: "Hands placing colorful relationship poll cards into a ballot box"
+ogImage: "https://couplein.bond/assets/polls/biggest-compatibility-dealbreaker-20261011-share.jpg"
+ogImageAlt: "Share card for the relationship poll: What is the biggest compatibility dealbreaker for you?"
 companionHref: "../blog-posts/are-we-compatible-quiz.html"
 companionTitle: "Are We Compatible Quiz: Better Questions, Clearer Answers"
 options:

@@ -6,8 +6,8 @@ intro: "One person shows love with words, the other with actions, and both wonde
 topic: "Connection"
 slug: couples-handle-different-love-languages-20261002
 listOrder: 17
-ogImage: "https://couplein.bond/assets/polls-hero-illustration.png"
-ogImageAlt: "Hands placing colorful relationship poll cards into a ballot box"
+ogImage: "https://couplein.bond/assets/polls/couples-handle-different-love-languages-20261002-share.jpg"
+ogImageAlt: "Share card for the relationship poll: How should couples handle different love languages?"
 companionHref: "../blog-posts/couples-handle-different-love-languages-20261002-companion.html"
 companionTitle: "How Couples Bridge Different Love Languages"
 options:

@@ -6,8 +6,8 @@ intro: "Planning is part of the romance, but it should not always fall on one pe
 topic: "Date night"
 slug: who-plan-next-date-20261001
 listOrder: 14
-ogImage: "https://couplein.bond/assets/polls-hero-illustration.png"
-ogImageAlt: "Hands placing colorful relationship poll cards into a ballot box"
+ogImage: "https://couplein.bond/assets/polls/who-plan-next-date-20261001-share.jpg"
+ogImageAlt: "Share card for the relationship poll: Who should plan the next date?"
 companionHref: "../blog-posts/who-plan-next-date-20261001-companion.html"
 companionTitle: "Who Should Plan Date Night in a Relationship"
 options:

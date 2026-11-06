@@ -6,8 +6,8 @@ intro: "Early love moves fast. Before the next date, this poll asks which area o
 topic: "Connection"
 slug: "what-to-learn-early-relationship-20261013"
 listOrder: 25
-ogImage: "https://couplein.bond/assets/polls-hero-illustration.png"
-ogImageAlt: "Hands placing colorful relationship poll cards into a ballot box"
+ogImage: "https://couplein.bond/assets/polls/what-to-learn-early-relationship-20261013-share.jpg"
+ogImageAlt: "Share card for the relationship poll: What should new couples learn about each other first?"
 companionHref: "../blog-posts/compatibility-quiz-for-new-couples.html"
 companionTitle: "Compatibility Quiz for New Couples: What to Notice Before You Rush Ahead"
 options:

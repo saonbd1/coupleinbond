@@ -6,8 +6,8 @@ intro: "Stress follows people home whether they want it to or not. Use this poll
 topic: "Connection"
 slug: partner-reconnect-after-hard-day-20261001
 listOrder: 13
-ogImage: "https://couplein.bond/assets/polls-hero-illustration.png"
-ogImageAlt: "Hands placing colorful relationship poll cards into a ballot box"
+ogImage: "https://couplein.bond/assets/polls/partner-reconnect-after-hard-day-20261001-share.jpg"
+ogImageAlt: "Share card for the relationship poll: How do you and your partner reconnect after a hard day?"
 companionHref: "../blog-posts/partner-reconnect-after-hard-day-20261001-companion.html"
 companionTitle: "How Couples Reconnect After a Hard Day"
 options:

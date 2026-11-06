@@ -6,8 +6,8 @@ intro: "Valentine's Day gets the spotlight, but ordinary Tuesdays carry the rela
 topic: "Connection"
 slug: show-love-ordinary-tuesday-20261001
 listOrder: 11
-ogImage: "https://couplein.bond/assets/polls-hero-illustration.png"
-ogImageAlt: "Hands placing colorful relationship poll cards into a ballot box"
+ogImage: "https://couplein.bond/assets/polls/show-love-ordinary-tuesday-20261001-share.jpg"
+ogImageAlt: "Share card for the relationship poll: How do you show love on an ordinary Tuesday?"
 options:
   - "Cooking their favorite meal"
   - "A surprise sweet text"

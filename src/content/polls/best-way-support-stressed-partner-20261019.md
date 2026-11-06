@@ -6,8 +6,8 @@ intro: "When someone you love is stressed, good intentions can miss the mark. Th
 topic: "Relationships"
 slug: "best-way-support-stressed-partner-20261019"
 listOrder: 39
-ogImage: "https://couplein.bond/assets/polls-hero-illustration.png"
-ogImageAlt: "Hands placing colorful relationship poll cards into a ballot box"
+ogImage: "https://couplein.bond/assets/polls/best-way-support-stressed-partner-20261019-share.jpg"
+ogImageAlt: "Share card for the relationship poll: What is the best way to support a stressed partner?"
 companionHref: "../blog-posts/best-way-support-stressed-partner-20261019-companion.html"
 companionTitle: "How to Support a Stressed Partner the Right Way"
 options: ["Listen without fixing", "Take tasks off their plate", "Offer comfort and closeness", "Give them quiet space"]

@@ -6,8 +6,8 @@ intro: "Meeting the family is a milestone with high stakes. This poll asks what 
 topic: "Relationships"
 slug: "makes-meeting-family-less-stressful-20261020"
 listOrder: 40
-ogImage: "https://couplein.bond/assets/polls-hero-illustration.png"
-ogImageAlt: "Hands placing colorful relationship poll cards into a ballot box"
+ogImage: "https://couplein.bond/assets/polls/makes-meeting-family-less-stressful-20261020-share.jpg"
+ogImageAlt: "Share card for the relationship poll: What makes meeting the family less stressful?"
 companionHref: "../blog-posts/makes-meeting-family-less-stressful-20261020-companion.html"
 companionTitle: "How to Make Meeting the Family Go Smoothly"
 options: ["Bring a thoughtful gift", "Let your partner brief you", "Ask genuine questions", "Keep the first visit short"]

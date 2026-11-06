@@ -6,8 +6,8 @@ intro: "First dates are auditions for comfort. This poll asks which setting give
 topic: "Date night"
 slug: ideal-first-date-spot-20261001
 listOrder: 10
-ogImage: "https://couplein.bond/assets/polls-hero-illustration.png"
-ogImageAlt: "Hands placing colorful relationship poll cards into a ballot box"
+ogImage: "https://couplein.bond/assets/polls/ideal-first-date-spot-20261001-share.jpg"
+ogImageAlt: "Share card for the relationship poll: What is your ideal first-date spot?"
 options:
   - "A cozy coffee shop"
   - "A casual food street"

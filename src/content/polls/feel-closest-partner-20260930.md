@@ -6,8 +6,8 @@ intro: "Closeness has a rhythm. Some couples bond over morning coffee, others ov
 topic: "Connection"
 slug: feel-closest-partner-20260930
 listOrder: 8
-ogImage: "https://couplein.bond/assets/polls-hero-illustration.png"
-ogImageAlt: "Hands placing colorful relationship poll cards into a ballot box"
+ogImage: "https://couplein.bond/assets/polls/feel-closest-partner-20260930-share.jpg"
+ogImageAlt: "Share card for the relationship poll: When do you feel closest to your partner?"
 options:
   - "Slow mornings together"
   - "Late-night conversations"

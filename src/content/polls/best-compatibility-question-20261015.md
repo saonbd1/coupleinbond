@@ -6,8 +6,8 @@ intro: "Not all questions are equal. Some open a door you did not know was close
 topic: "Connection"
 slug: "best-compatibility-question-20261015"
 listOrder: 30
-ogImage: "https://couplein.bond/assets/polls-hero-illustration.png"
-ogImageAlt: "Hands placing colorful relationship poll cards into a ballot box"
+ogImage: "https://couplein.bond/assets/polls/best-compatibility-question-20261015-share.jpg"
+ogImageAlt: "Share card for the relationship poll: Which compatibility question reveals the most about a couple?"
 companionHref: "../blog-posts/relationship-compatibility-questions-quiz.html"
 companionTitle: "Relationship Compatibility Questions Quiz: 20 Prompts for Honest Conversations"
 options:

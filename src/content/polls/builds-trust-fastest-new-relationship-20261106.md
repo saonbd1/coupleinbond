@@ -6,8 +6,8 @@ intro: "Trust is earned in drops and lost in buckets. This poll asks which early
 topic: "Relationships"
 slug: "builds-trust-fastest-new-relationship-20261106"
 listOrder: 55
-ogImage: "https://couplein.bond/assets/polls-hero-illustration.png"
-ogImageAlt: "Hands placing colorful relationship poll cards into a ballot box"
+ogImage: "https://couplein.bond/assets/polls/builds-trust-fastest-new-relationship-20261106-share.jpg"
+ogImageAlt: "Share card for the relationship poll: What builds trust fastest in a new relationship?"
 companionHref: "../blog-posts/builds-trust-fastest-new-relationship-20261106-companion.html"
 companionTitle: "What Builds Trust Fastest in a New Relationship"
 options: ["Keeping small promises", "Being open about the past", "Showing up consistently", "Admitting mistakes quickly"]

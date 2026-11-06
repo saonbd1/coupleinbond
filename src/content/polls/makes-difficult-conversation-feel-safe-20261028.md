@@ -6,8 +6,8 @@ intro: "Most couples avoid the difficult conversation rather than lose the argum
 topic: "Connection"
 slug: "makes-difficult-conversation-feel-safe-20261028"
 listOrder: 49
-ogImage: "https://couplein.bond/assets/polls-hero-illustration.png"
-ogImageAlt: "Hands placing colorful relationship poll cards into a ballot box"
+ogImage: "https://couplein.bond/assets/polls/makes-difficult-conversation-feel-safe-20261028-share.jpg"
+ogImageAlt: "Share card for the relationship poll: What makes a difficult conversation feel safe?"
 companionHref: "../blog-posts/makes-difficult-conversation-feel-safe-20261028-companion.html"
 companionTitle: "How to Make a Difficult Conversation Feel Safe"
 options: ["Asking permission to bring it up", "Choosing a neutral time, not a charged one", "One person speaks without answering", "Agreeing the outcome need not be instant"]

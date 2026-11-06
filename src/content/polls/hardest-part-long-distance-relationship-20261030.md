@@ -6,8 +6,8 @@ intro: "Miles test a relationship in ways closeness never does. This poll names 
 topic: "Relationships"
 slug: "hardest-part-long-distance-relationship-20261030"
 listOrder: 51
-ogImage: "https://couplein.bond/assets/polls-hero-illustration.png"
-ogImageAlt: "Hands placing colorful relationship poll cards into a ballot box"
+ogImage: "https://couplein.bond/assets/polls/hardest-part-long-distance-relationship-20261030-share.jpg"
+ogImageAlt: "Share card for the relationship poll: What is the hardest part of a long-distance relationship?"
 companionHref: "../blog-posts/hardest-part-long-distance-relationship-20261030-companion.html"
 companionTitle: "How to Survive the Hardest Part of Long Distance"
 options: ["Missing everyday moments", "Trusting across distance", "Scheduling around time zones", "Feeling left out of daily life"]

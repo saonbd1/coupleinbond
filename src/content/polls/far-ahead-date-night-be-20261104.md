@@ -6,8 +6,8 @@ intro: "Some couples need a plan on the calendar and others need the possibility
 topic: "Date night"
 slug: "far-ahead-date-night-be-20261104"
 listOrder: 53
-ogImage: "https://couplein.bond/assets/polls-hero-illustration.png"
-ogImageAlt: "Hands placing colorful relationship poll cards into a ballot box"
+ogImage: "https://couplein.bond/assets/polls/far-ahead-date-night-be-20261104-share.jpg"
+ogImageAlt: "Share card for the relationship poll: How far ahead should date night be planned?"
 companionHref: "../blog-posts/far-ahead-date-night-be-20261104-companion.html"
 companionTitle: "How Much Notice Does Date Night Really Need"
 options: ["Booked weeks in advance", "Decided that morning", "A standing weekly night, planned later", "Spontaneous, whenever the evening opens up"]

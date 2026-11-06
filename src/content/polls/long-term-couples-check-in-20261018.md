@@ -6,8 +6,8 @@ intro: "Long love changes shape. The needs that worked two years ago may not des
 topic: "Connection"
 slug: "long-term-couples-check-in-20261018"
 listOrder: 37
-ogImage: "https://couplein.bond/assets/polls-hero-illustration.png"
-ogImageAlt: "Hands placing colorful relationship poll cards into a ballot box"
+ogImage: "https://couplein.bond/assets/polls/long-term-couples-check-in-20261018-share.jpg"
+ogImageAlt: "Share card for the relationship poll: What do long-term couples most need to check in about?"
 companionHref: "../blog-posts/compatibility-quiz-for-long-term-couples.html"
 companionTitle: "Compatibility Quiz for Long-Term Couples: Check the Connection You Keep Building"
 options:

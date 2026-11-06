@@ -6,8 +6,8 @@ intro: "Anniversaries quietly ask for a verdict on the year just passed. This po
 topic: "Seasonal"
 slug: "matters-most-anniversary-20261026"
 listOrder: 46
-ogImage: "https://couplein.bond/assets/polls-hero-illustration.png"
-ogImageAlt: "Hands placing colorful relationship poll cards into a ballot box"
+ogImage: "https://couplein.bond/assets/polls/matters-most-anniversary-20261026-share.jpg"
+ogImageAlt: "Share card for the relationship poll: What matters most on an anniversary?"
 companionHref: "../blog-posts/matters-most-anniversary-20261026-companion.html"
 companionTitle: "How to Mark an Anniversary Without Turning It Into a Test"
 options: ["Repeating the first date", "A letter and no plan at all", "A trip put aside for months", "An ordinary day, made deliberate"]

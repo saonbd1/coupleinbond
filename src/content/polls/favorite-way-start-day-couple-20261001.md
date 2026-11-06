@@ -6,8 +6,8 @@ intro: "Mornings set the emotional weather for the whole day. This poll asks whi
 topic: "Connection"
 slug: favorite-way-start-day-couple-20261001
 listOrder: 15
-ogImage: "https://couplein.bond/assets/polls-hero-illustration.png"
-ogImageAlt: "Hands placing colorful relationship poll cards into a ballot box"
+ogImage: "https://couplein.bond/assets/polls/favorite-way-start-day-couple-20261001-share.jpg"
+ogImageAlt: "Share card for the relationship poll: What is your favorite way to start the day as a couple?"
 companionHref: "../blog-posts/favorite-way-start-day-couple-20261001-companion.html"
 companionTitle: "The Couple Morning Ritual That Starts the Day Right"
 options:

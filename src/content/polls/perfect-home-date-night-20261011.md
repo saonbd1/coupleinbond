@@ -6,8 +6,8 @@ intro: "The best dates do not always need reservations. This poll asks which at-
 topic: "Date night"
 slug: "perfect-home-date-night-20261011"
 listOrder: 21
-ogImage: "https://couplein.bond/assets/polls-hero-illustration.png"
-ogImageAlt: "Hands placing colorful relationship poll cards into a ballot box"
+ogImage: "https://couplein.bond/assets/polls/perfect-home-date-night-20261011-share.jpg"
+ogImageAlt: "Share card for the relationship poll: What is the perfect at-home date night?"
 companionHref: "../blog-posts/perfect-home-date-night-20261011-companion.html"
 companionTitle: "The Perfect At-Home Date Night Guide"
 options: ["Movie night with snacks", "Cooking a new recipe together", "Board games and wine", "Stargazing from the balcony"]

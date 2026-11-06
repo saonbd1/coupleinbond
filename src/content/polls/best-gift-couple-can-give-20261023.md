@@ -6,8 +6,8 @@ intro: "Most couples are bad at gifts and good at loving each other. This poll l
 topic: "Seasonal"
 slug: "best-gift-couple-can-give-20261023"
 listOrder: 44
-ogImage: "https://couplein.bond/assets/polls-hero-illustration.png"
-ogImageAlt: "Hands placing colorful relationship poll cards into a ballot box"
+ogImage: "https://couplein.bond/assets/polls/best-gift-couple-can-give-20261023-share.jpg"
+ogImageAlt: "Share card for the relationship poll: What is the best gift a couple can give each other?"
 companionHref: "../blog-posts/best-gift-couple-can-give-20261023-companion.html"
 companionTitle: "What Makes a Gift Land in a Long Relationship"
 options: ["Something they mentioned weeks ago", "A day planned entirely around them", "A chore removed from their list", "An experience booked for later"]

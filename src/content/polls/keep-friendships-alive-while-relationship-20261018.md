@@ -6,8 +6,8 @@ intro: "New love can quietly swallow old friendships. This poll explores how cou
 topic: "Relationships"
 slug: "keep-friendships-alive-while-relationship-20261018"
 listOrder: 36
-ogImage: "https://couplein.bond/assets/polls-hero-illustration.png"
-ogImageAlt: "Hands placing colorful relationship poll cards into a ballot box"
+ogImage: "https://couplein.bond/assets/polls/keep-friendships-alive-while-relationship-20261018-share.jpg"
+ogImageAlt: "Share card for the relationship poll: How do you keep friendships alive while in a relationship?"
 companionHref: "../blog-posts/keep-friendships-alive-while-relationship-20261018-companion.html"
 companionTitle: "How to Keep Friendships Alive in a Relationship"
 options: ["Schedule regular friend time", "Blend friend groups together", "Protect solo friend nights", "Invite friends into couple plans"]

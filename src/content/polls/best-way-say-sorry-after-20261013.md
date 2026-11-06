@@ -6,8 +6,8 @@ intro: "Small fights are normal; staying stuck in them is optional. This poll co
 topic: "Connection"
 slug: "best-way-say-sorry-after-20261013"
 listOrder: 24
-ogImage: "https://couplein.bond/assets/polls-hero-illustration.png"
-ogImageAlt: "Hands placing colorful relationship poll cards into a ballot box"
+ogImage: "https://couplein.bond/assets/polls/best-way-say-sorry-after-20261013-share.jpg"
+ogImageAlt: "Share card for the relationship poll: What is the best way to say sorry after a silly fight?"
 companionHref: "../blog-posts/best-way-say-sorry-after-20261013-companion.html"
 companionTitle: "How to Say Sorry After a Silly Fight"
 options: ["A genuine sorry first", "A hug before words", "Making their favorite snack", "A funny apology note"]

@@ -6,8 +6,8 @@ intro: "Being understood is mostly a matter of being noticed. This poll asks whi
 topic: "Connection"
 slug: "helps-feel-understood-without-explaining-20261023"
 listOrder: 45
-ogImage: "https://couplein.bond/assets/polls-hero-illustration.png"
-ogImageAlt: "Hands placing colorful relationship poll cards into a ballot box"
+ogImage: "https://couplein.bond/assets/polls/helps-feel-understood-without-explaining-20261023-share.jpg"
+ogImageAlt: "Share card for the relationship poll: What helps you feel understood without explaining yourself?"
 companionHref: "../blog-posts/helps-feel-understood-without-explaining-20261023-companion.html"
 companionTitle: "How Couples Feel Understood Without Having to Explain Themselves"
 options: ["A message out of nowhere", "Noticing a change before it is named", "The right silence on a bad day", "A question about something mentioned once"]

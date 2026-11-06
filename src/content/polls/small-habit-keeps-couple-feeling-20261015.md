@@ -6,8 +6,8 @@ intro: "Closeness is built in ordinary minutes more than grand gestures. This po
 topic: "Connection"
 slug: "small-habit-keeps-couple-feeling-20261015"
 listOrder: 28
-ogImage: "https://couplein.bond/assets/polls-hero-illustration.png"
-ogImageAlt: "Hands placing colorful relationship poll cards into a ballot box"
+ogImage: "https://couplein.bond/assets/polls/small-habit-keeps-couple-feeling-20261015-share.jpg"
+ogImageAlt: "Share card for the relationship poll: What small habit keeps a couple feeling close?"
 companionHref: "../blog-posts/small-habit-keeps-couple-feeling-20261015-companion.html"
 companionTitle: "Small Habits That Keep Couples Feeling Close"
 options: ["A good-morning message", "A nightly check-in chat", "Undivided attention at dinner", "A shared joke every day"]

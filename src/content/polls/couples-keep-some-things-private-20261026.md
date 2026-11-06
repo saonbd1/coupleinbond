@@ -6,8 +6,8 @@ intro: "Honesty and privacy can feel like opposites in love. This poll explores 
 topic: "Relationships"
 slug: "couples-keep-some-things-private-20261026"
 listOrder: 47
-ogImage: "https://couplein.bond/assets/polls-hero-illustration.png"
-ogImageAlt: "Hands placing colorful relationship poll cards into a ballot box"
+ogImage: "https://couplein.bond/assets/polls/couples-keep-some-things-private-20261026-share.jpg"
+ogImageAlt: "Share card for the relationship poll: Should couples keep some things private from each other?"
 companionHref: "../blog-posts/couples-keep-some-things-private-20261026-companion.html"
 companionTitle: "Should Couples Keep Some Things Private"
 options: ["Yes, everyone needs space", "Only small personal things", "No, share everything", "It depends on the topic"]

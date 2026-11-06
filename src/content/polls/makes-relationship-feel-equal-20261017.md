@@ -6,8 +6,8 @@ intro: "Equality is felt in small daily moments. This poll explores what makes b
 topic: "Relationships"
 slug: "makes-relationship-feel-equal-20261017"
 listOrder: 34
-ogImage: "https://couplein.bond/assets/polls-hero-illustration.png"
-ogImageAlt: "Hands placing colorful relationship poll cards into a ballot box"
+ogImage: "https://couplein.bond/assets/polls/makes-relationship-feel-equal-20261017-share.jpg"
+ogImageAlt: "Share card for the relationship poll: What makes a relationship feel equal?"
 companionHref: "../blog-posts/makes-relationship-feel-equal-20261017-companion.html"
 companionTitle: "What Makes a Relationship Feel Truly Equal"
 options: ["Sharing decisions together", "Splitting effort fairly", "Respecting each other's goals", "Both feeling heard"]
