@@ -18,7 +18,7 @@ const url = `${SITE}/polls.html`;
 
 const polls = (await getCollection('polls'))
   .filter((p) => !p.data.draft)
-  .sort((a, b) => a.data.listOrder - b.data.listOrder);
+  .sort((a, b) => b.data.listOrder - a.data.listOrder);
 
 // The toolbar filters on the slug form of the topic ('Date night' -> 'date-night'),
 // which is what the topic filter buttons in this page use as data-topic.
@@ -54,7 +54,7 @@ const ld = {
       '@id': `${url}#poll-list`,
       'name': 'Couple in Bond relationship polls',
       'description': 'Lighthearted questions about connection, relationships, date nights, and seasonal celebrations.',
-      'itemListOrder': 'https://schema.org/ItemListOrderAscending',
+      'itemListOrder': 'https://schema.org/ItemListOrderDescending',
       'numberOfItems': polls.length,
       'itemListElement': polls.map((poll, i) => ({
         '@type': 'ListItem',
