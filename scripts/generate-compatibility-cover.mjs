@@ -69,7 +69,8 @@ function svg() {
   }
   const lineHeight = Math.round(size * 1.12);
   const textX = MARGIN + 6;
-  let y = 168;
+  // Nudged down ~2/3 character height so the "Relationship…" title sits lower.
+  let y = 168 + Math.round(size * 0.67);
 
   const chipY = 520;
   const chips = ['Values', 'Communication', 'Conflict repair', 'Affection', 'Direction'];
@@ -126,14 +127,15 @@ function svg() {
     <rect x="792" y="${yy + 14}" width="${Math.round(296 * w / 100)}" height="10" rx="5" fill="url(#accent)" fill-opacity="0.78"/>`;
   }).join('')}
 
+  <!-- Reflection card: kept clear of the QUIZ AREAS panel (QUIZ AREAS starts at x=760). -->
   <g filter="url(#shadow)">
-    <rect x="690" y="360" width="230" height="118" rx="22" fill="rgba(255,255,255,0.96)" stroke="rgba(106,0,244,0.14)"/>
+    <rect x="480" y="392" width="250" height="118" rx="22" fill="rgba(255,255,255,0.96)" stroke="rgba(106,0,244,0.14)"/>
   </g>
-  <text x="718" y="398" font-family="${SANS}" font-size="13" font-weight="800" letter-spacing="1.4" fill="#6a00f4">A REFLECTION</text>
-  <text x="718" y="432" font-family="${SERIF}" font-size="30" font-weight="700" fill="#291b2d">Talk it through</text>
-  <text x="718" y="458" font-family="${SANS}" font-size="16" font-weight="600" fill="#6f6573">together, kindly</text>
+  <text x="508" y="430" font-family="${SANS}" font-size="13" font-weight="800" letter-spacing="1.4" fill="#6a00f4">A REFLECTION</text>
+  <text x="493" y="464" font-family="${SERIF}" font-size="30" font-weight="700" fill="#291b2d">Talk it through</text>
+  <text x="508" y="490" font-family="${SANS}" font-size="16" font-weight="600" fill="#6f6573">together, kindly</text>
 
-  <rect x="${MARGIN}" y="112" width="8" height="220" rx="4" fill="url(#accent)"/>
+  <rect x="${MARGIN - Math.round(19 * 0.6)}" y="112" width="8" height="220" rx="4" fill="url(#accent)"/>
   <text x="${textX}" y="134" font-family="${SANS}" font-size="19" font-weight="800" letter-spacing="2.4" fill="#ff4d6d">${escapeXml(kicker)}</text>
   ${lines.map((line) => { const t = `<text x="${textX}" y="${y}" font-family="${SERIF}" font-size="${size}" font-weight="700" fill="#291b2d">${escapeXml(line)}</text>`; y += lineHeight; return t; }).join('')}
   <text x="${textX}" y="${y + 16}" font-family="${SANS}" font-size="24" font-weight="500" fill="#6f6573">${escapeXml(subtitle)}</text>
