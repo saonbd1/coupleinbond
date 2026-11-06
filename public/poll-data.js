@@ -6,7 +6,7 @@ window.COUPLE_POLL_DATA = [
     title: "What kind of date night sounds best this week?",
     description: "A quick date-night poll for couples deciding whether to stay in, go out, or make room for a little spontaneity.",
     intro: "Date night does not need to be elaborate to feel meaningful. This poll is a small prompt for noticing what kind of energy you both want this week.",
-    related: ["far-ahead-date-night-be-20261104", "handle-wanting-different-amounts-time-20261102"],
+    related: ["builds-trust-fastest-new-relationship-20261106", "far-ahead-date-night-be-20261104"],
     options: ["A cozy night at home", "An unplanned adventure", "A long dinner and good conversation", "A little of everything"]
   },
   {
@@ -16,7 +16,7 @@ window.COUPLE_POLL_DATA = [
     title: "What helps two people feel most connected?",
     description: "Vote on the everyday relationship habits that help couples feel close, understood, and emotionally present.",
     intro: "Connection can grow through grand gestures, but it is often shaped by ordinary moments. Use this poll to compare the small things that matter to you.",
-    related: ["far-ahead-date-night-be-20261104", "handle-wanting-different-amounts-time-20261102"],
+    related: ["builds-trust-fastest-new-relationship-20261106", "far-ahead-date-night-be-20261104"],
     options: ["Small acts of care", "Uninterrupted conversation", "Shared goals", "Laughing together"]
   },
   {
@@ -482,6 +482,26 @@ window.COUPLE_POLL_DATA = [
     intro: "The first year is equal parts exciting and uncertain. This poll asks which foundation helps a new relationship grow steady roots.",
     related: ["far-ahead-date-night-be-20261104", "date-night-mood"],
     options: ["Honest communication", "Shared values", "Patience with flaws", "Fun and adventure"]
+  },
+  {
+    id: "builds-trust-fastest-new-relationship-20261106",
+    topic: "relationships",
+    label: "Relationships",
+    title: "What builds trust fastest in a new relationship?",
+    description: "Vote on the behavior that builds trust fastest in a new relationship, from keeping small promises to admitting mistakes within the hour.",
+    intro: "Trust is earned in drops and lost in buckets. This poll asks which early behavior convinces you that someone is worth trusting.",
+    related: ["after-loving-someone-who-could-20261106", "date-night-mood"],
+    options: ["Keeping small promises", "Being open about the past", "Showing up consistently", "Admitting mistakes quickly"]
+  },
+  {
+    id: "after-loving-someone-who-could-20261106",
+    topic: "connection",
+    label: "Connection",
+    title: "After loving someone who could not open up, what helps you feel safe again?",
+    description: "Vote on what restores your sense of safety after loving someone who could not open up, from going slowly with new people to trusting your instincts again.",
+    intro: "Loving someone who keeps their inner world locked teaches you to expect very little. This poll asks what helps you feel safe with people again afterwards.",
+    related: ["builds-trust-fastest-new-relationship-20261106", "date-night-mood"],
+    options: ["Going slowly with new people", "Trusting my own instincts again", "Saying my needs out loud early", "Time alone to rebuild"]
   },
 ];
 
