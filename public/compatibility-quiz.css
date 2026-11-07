@@ -189,3 +189,28 @@
 @media (prefers-reduced-motion: reduce) {
   .compatibility-result:not([hidden]), .compatibility-result::before, .compatibility-result::after { animation: none; }
 }
+/* v5: hero CTA, section cards and centered call-to-action buttons */
+.quiz-button { display: inline-block; line-height: 1.2; text-align: center; text-decoration: none; }
+.compatibility-cta-header { display: flex; flex-direction: column; align-items: center; gap: 12px; margin-top: 26px; }
+.compatibility-cta-header .quiz-button { margin-top: .667rem; }
+.compatibility-cta-header .compatibility-header-note { justify-content: center; margin-top: 0; }
+.discover-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 14px; margin: 18px 0 28px; }
+.discover-card { padding: 18px; background: linear-gradient(145deg, rgba(255, 255, 255, .92), rgba(246, 239, 255, .74)); border: 1px solid var(--blog-border); border-radius: 14px; }
+.discover-card:last-child { grid-column: 1 / -1; }
+.discover-card h3 { margin: 0 0 7px; color: var(--blog-ink); font-size: 1rem; }
+.discover-card p { margin: 0; color: var(--blog-muted); font-size: .82rem; line-height: 1.6; }
+.how-steps { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 14px; margin: 18px 0 24px; }
+.how-step { padding: 18px; background: linear-gradient(145deg, var(--blog-pink), var(--blog-lilac)); border-radius: 14px; }
+.how-step h3 { margin: 0 0 7px; color: var(--blog-ink); font-size: .98rem; }
+.how-step p { margin: 0; color: var(--blog-muted); font-size: .82rem; line-height: 1.6; }
+.how-cta, .final-cta-button { display: flex; justify-content: center; margin: 22px 0 10px; }
+.compatibility-final-cta { margin: 40px 0 0; padding: clamp(22px, 4vw, 34px); background: linear-gradient(150deg, #fff0f4, #ffe3eb 55%, #ffd6e3); border: 1px solid rgba(255, 77, 109, .28); border-radius: 24px; box-shadow: 0 24px 55px -32px rgba(255, 77, 109, .4); text-align: center; }
+.compatibility-final-cta h2 { margin: 0 0 12px; }
+.compatibility-final-cta p { color: #55425d; }
+.compatibility-final-cta .final-cta-note { margin: 0; color: var(--blog-muted); font-size: .78rem; font-weight: 750; }
+.compatibility-social-proof { margin: 26px 0 0; padding: 14px 18px; color: var(--blog-secondary); background: rgba(255, 255, 255, .72); border: 1px dashed rgba(255, 77, 109, .35); border-radius: 14px; text-align: center; font-size: .84rem; font-weight: 750; }
+.compatibility-social-proof p { margin: 0; }
+@media (max-width: 560px) {
+  .discover-grid, .how-steps { grid-template-columns: 1fr; }
+  .discover-card:last-child { grid-column: auto; }
+}
