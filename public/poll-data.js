@@ -6,7 +6,7 @@ window.COUPLE_POLL_DATA = [
     title: "What kind of date night sounds best this week?",
     description: "A quick date-night poll for couples deciding whether to stay in, go out, or make room for a little spontaneity.",
     intro: "Date night does not need to be elaborate to feel meaningful. This poll is a small prompt for noticing what kind of energy you both want this week.",
-    related: ["builds-trust-fastest-new-relationship-20261106", "far-ahead-date-night-be-20261104"],
+    related: ["trust-has-worn-thin-relationship-20261109", "builds-trust-fastest-new-relationship-20261106"],
     options: ["A cozy night at home", "An unplanned adventure", "A long dinner and good conversation", "A little of everything"]
   },
   {
@@ -16,7 +16,7 @@ window.COUPLE_POLL_DATA = [
     title: "What helps two people feel most connected?",
     description: "Vote on the everyday relationship habits that help couples feel close, understood, and emotionally present.",
     intro: "Connection can grow through grand gestures, but it is often shaped by ordinary moments. Use this poll to compare the small things that matter to you.",
-    related: ["builds-trust-fastest-new-relationship-20261106", "far-ahead-date-night-be-20261104"],
+    related: ["trust-has-worn-thin-relationship-20261109", "builds-trust-fastest-new-relationship-20261106"],
     options: ["Small acts of care", "Uninterrupted conversation", "Shared goals", "Laughing together"]
   },
   {
@@ -502,6 +502,26 @@ window.COUPLE_POLL_DATA = [
     intro: "Loving someone who keeps their inner world locked teaches you to expect very little. This poll asks what helps you feel safe with people again afterwards.",
     related: ["builds-trust-fastest-new-relationship-20261106", "date-night-mood"],
     options: ["Going slowly with new people", "Trusting my own instincts again", "Saying my needs out loud early", "Time alone to rebuild"]
+  },
+  {
+    id: "trust-has-worn-thin-relationship-20261109",
+    topic: "relationships",
+    label: "Relationships",
+    title: "When trust has worn thin in a relationship, what restores it fastest?",
+    description: "Vote on what restores trust fastest after a season of distance, and see which repair other couples rate highest: kept promises, honest talks, or consistency.",
+    intro: "Trust rarely breaks in one dramatic moment. More often it thins out through months of small absences. This poll asks what restores it once it has worn thin.",
+    related: ["kind-date-night-relationship-need-20261109", "date-night-mood"],
+    options: ["Small promises kept visibly", "One honest conversation about the distance", "Consistent presence without pressure", "Changing the pattern that caused it"]
+  },
+  {
+    id: "kind-date-night-relationship-need-20261109",
+    topic: "date-night",
+    label: "Date night",
+    title: "What kind of date night does your relationship need right now?",
+    description: "Vote on the kind of date night your relationship needs right now, whether that is novelty, a comfort repeat, pure play, or a quiet deep-talk evening.",
+    intro: "Date nights are not interchangeable: some weeks need novelty, some need comfort, and some need pure laughter. This poll asks which kind your relationship needs right now.",
+    related: ["trust-has-worn-thin-relationship-20261109", "date-night-mood"],
+    options: ["Something completely new", "A comfort repeat of a favorite", "Pure play and laughter", "A quiet deep-talk evening"]
   },
 ];
 
