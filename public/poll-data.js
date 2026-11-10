@@ -6,7 +6,7 @@ window.COUPLE_POLL_DATA = [
     title: "What kind of date night sounds best this week?",
     description: "A quick date-night poll for couples deciding whether to stay in, go out, or make room for a little spontaneity.",
     intro: "Date night does not need to be elaborate to feel meaningful. This poll is a small prompt for noticing what kind of energy you both want this week.",
-    related: ["trust-has-worn-thin-relationship-20261109", "builds-trust-fastest-new-relationship-20261106"],
+    related: ["unconditional-love-mean-20261111", "trust-has-worn-thin-relationship-20261109"],
     options: ["A cozy night at home", "An unplanned adventure", "A long dinner and good conversation", "A little of everything"]
   },
   {
@@ -16,7 +16,7 @@ window.COUPLE_POLL_DATA = [
     title: "What helps two people feel most connected?",
     description: "Vote on the everyday relationship habits that help couples feel close, understood, and emotionally present.",
     intro: "Connection can grow through grand gestures, but it is often shaped by ordinary moments. Use this poll to compare the small things that matter to you.",
-    related: ["trust-has-worn-thin-relationship-20261109", "builds-trust-fastest-new-relationship-20261106"],
+    related: ["unconditional-love-mean-20261111", "trust-has-worn-thin-relationship-20261109"],
     options: ["Small acts of care", "Uninterrupted conversation", "Shared goals", "Laughing together"]
   },
   {
@@ -522,6 +522,26 @@ window.COUPLE_POLL_DATA = [
     intro: "Date nights are not interchangeable: some weeks need novelty, some need comfort, and some need pure laughter. This poll asks which kind your relationship needs right now.",
     related: ["trust-has-worn-thin-relationship-20261109", "date-night-mood"],
     options: ["Something completely new", "A comfort repeat of a favorite", "Pure play and laughter", "A quiet deep-talk evening"]
+  },
+  {
+    id: "unconditional-love-mean-20261111",
+    topic: "connection",
+    label: "Connection",
+    title: "What does unconditional love mean to you?",
+    description: "Vote on what unconditional love should mean in a healthy relationship: accepting a partner fully, weathering hard seasons, or keeping love with boundaries.",
+    intro: "Unconditional love gets described as the highest form of love and, just as often, as an excuse for accepting poor treatment. This poll asks which version you believe in.",
+    related: ["hardest-relationship-pattern-moment-hurts-20261111", "date-night-mood"],
+    options: ["Accepting a partner as they are", "Staying through hard seasons", "Love without keeping score", "Love with boundaries intact"]
+  },
+  {
+    id: "hardest-relationship-pattern-moment-hurts-20261111",
+    topic: "relationships",
+    label: "Relationships",
+    title: "In your hardest relationship pattern, which moment hurts the most?",
+    description: "Vote on the moment where the anxious-avoidant push-pull tends to snap, from pursuit meeting distance to silence that lasts days after a fight.",
+    intro: "Some couples repeat a loop for months: one moves closer, the other steps back, and both end up hurt. This poll asks where the loop tends to snap for you.",
+    related: ["unconditional-love-mean-20261111", "date-night-mood"],
+    options: ["When I reach out and get distance back", "When I need space and get pursuit", "When a small talk turns into a test", "When the silence after a fight lasts for days"]
   },
 ];
 
