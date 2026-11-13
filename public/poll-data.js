@@ -6,7 +6,7 @@ window.COUPLE_POLL_DATA = [
     title: "What kind of date night sounds best this week?",
     description: "A quick date-night poll for couples deciding whether to stay in, go out, or make room for a little spontaneity.",
     intro: "Date night does not need to be elaborate to feel meaningful. This poll is a small prompt for noticing what kind of energy you both want this week.",
-    related: ["unconditional-love-mean-20261111", "trust-has-worn-thin-relationship-20261109"],
+    related: ["after-relationship-that-left-doubting-20261113", "unconditional-love-mean-20261111"],
     options: ["A cozy night at home", "An unplanned adventure", "A long dinner and good conversation", "A little of everything"]
   },
   {
@@ -16,7 +16,7 @@ window.COUPLE_POLL_DATA = [
     title: "What helps two people feel most connected?",
     description: "Vote on the everyday relationship habits that help couples feel close, understood, and emotionally present.",
     intro: "Connection can grow through grand gestures, but it is often shaped by ordinary moments. Use this poll to compare the small things that matter to you.",
-    related: ["unconditional-love-mean-20261111", "trust-has-worn-thin-relationship-20261109"],
+    related: ["after-relationship-that-left-doubting-20261113", "unconditional-love-mean-20261111"],
     options: ["Small acts of care", "Uninterrupted conversation", "Shared goals", "Laughing together"]
   },
   {
@@ -542,6 +542,26 @@ window.COUPLE_POLL_DATA = [
     intro: "Some couples repeat a loop for months: one moves closer, the other steps back, and both end up hurt. This poll asks where the loop tends to snap for you.",
     related: ["unconditional-love-mean-20261111", "date-night-mood"],
     options: ["When I reach out and get distance back", "When I need space and get pursuit", "When a small talk turns into a test", "When the silence after a fight lasts for days"]
+  },
+  {
+    id: "after-relationship-that-left-doubting-20261113",
+    topic: "relationships",
+    label: "Relationships",
+    title: "After a relationship that left you doubting yourself, what helps you rebuild fastest?",
+    description: "Vote on the first step that actually helps after a relationship that left you doubting yourself, from firm boundaries to writing down what happened.",
+    intro: "Some relationships end and leave a second injury behind: doubt about your own judgment. This poll asks what has helped you rebuild after one.",
+    related: ["partner-feel-like-roommates-brings-20261113", "date-night-mood"],
+    options: ["Rebuilding daily routines", "Talking it through with someone safe", "Writing down what actually happened", "Holding firm no-contact boundaries"]
+  },
+  {
+    id: "partner-feel-like-roommates-brings-20261113",
+    topic: "connection",
+    label: "Connection",
+    title: "When you and your partner feel like roommates, what brings the warmth back?",
+    description: "Vote on what brings the warmth back when you and your partner feel like roommates, and pick the reconnection habit you would actually keep.",
+    intro: "Every long relationship passes through a season where the logistics are handled and the closeness is not. This poll asks what has brought the warmth back for you.",
+    related: ["after-relationship-that-left-doubting-20261113", "date-night-mood"],
+    options: ["One real conversation a week", "A shared new experience", "Physical affection without an agenda", "A planned night with no errands talk"]
   },
 ];
 
